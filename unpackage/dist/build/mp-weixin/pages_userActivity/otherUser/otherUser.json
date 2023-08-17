@@ -1,0 +1,10 @@
+{
+  "onReachBottomDistance": 150,
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

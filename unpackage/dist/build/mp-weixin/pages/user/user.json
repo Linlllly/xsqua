@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的房间",
+  "onReachBottomDistance": 150,
+  "usingComponents": {
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "cropping": "/components/cropping/cropping"
+  }
+}

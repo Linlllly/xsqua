@@ -1,0 +1,203 @@
+{
+	"pages": [{
+			"path": "pages/goOn/goOn", //进入
+			"style": {
+
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/index/index", //首页
+			"style": {
+				// "navigationBarTitleText": "首页"
+				// "onReachBottomDistance": 150,  上拉加载更多 和onReachBottom()配套使用
+				// "enablePullDownRefresh": true,  下拉刷新 和onPullDownRefresh()配套使用
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"onReachBottomDistance": 150
+			}
+		}, {
+			"path": "pages/loginSelect/loginSelect", //登录选择
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/citySelect/citySelect", //城市街道选择
+			"style": {
+
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/areaSelect/areaSelect", //区域选择
+			"style": {
+
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/accessPossword/accessPossword", //输入密码
+			"style": {
+
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/xIntroduce/xIntroduce", //空间介绍
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"subPackages": [{
+			"root": "pages_costMoney",
+			"pages": [{
+				"path": "costMoney/costMoney", //充值页面
+				"style": {
+					"enablePullDownRefresh": false
+				}
+			}]
+		},
+		{
+			"root": "pages_userActivity",
+			"pages": [{
+					"path": "chatList/chatList",
+					"style": {
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+				}, {
+					"path": "adminLogin/adminLogin", //管理员登录
+					"style": {
+
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "chatWith/chatWith", //和某人聊天
+					"style": {
+
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "messageList/messageList", //消息列表
+					"style": {
+
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+
+				}, {
+					"path": "friendDynamic/friendDynamic", //好友动态
+					"style": {
+
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+
+				}, {
+					"path": "fansAndFouces/fansAndFouces", //粉丝 关注 互关
+					"style": {
+						"onReachBottomDistance": 150,
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "otherUser/otherUser", //某人主页
+					"style": {
+						"onReachBottomDistance": 150,
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "settings/settings", //设置
+					"style": {
+
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "articleDes/articleDes", //文章详情
+					"style": {
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+				}
+
+				, {
+					"path": "artcleIssue/artcleIssue", //文章发布
+					"style": {
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "meetingRoom/meetingRoom", //会议室
+					"style": {
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+
+				}, {
+					"path": "mySecret/mySecret", //x空间
+					"style": {
+						"enablePullDownRefresh": false,
+						"onReachBottomDistance": 150
+					}
+
+				}, {
+					"path": "changeMima/changeMima",
+					"style": {
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "rankingList/rankingList",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "erWeiMa/erWeiMa",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}
+			]
+		}
+	],
+	"tabBar": {
+		"color": "#f09b37",
+		"selectedColor": "#f09b37",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/user/user",
+			"text": "我的房间",
+			"iconPath": "static/user_f.png",
+			"selectedIconPath": "static/user_t.png"
+		}, {
+			"pagePath": "pages/index/index",
+			"text": "空间社交",
+			"iconPath": "static/index-f.png",
+			"selectedIconPath": "static/index-t.png"
+		}, {
+			"pagePath": "pages/xIntroduce/xIntroduce",
+			"text": "空间介绍",
+			"iconPath": "static/intro-f.png",
+			"selectedIconPath": "static/intro-t.png"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "x自由空间",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

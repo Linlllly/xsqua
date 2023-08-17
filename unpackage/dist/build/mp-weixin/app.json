@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/goOn/goOn",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/loginSelect/loginSelect",
+    "pages/citySelect/citySelect",
+    "pages/areaSelect/areaSelect",
+    "pages/accessPossword/accessPossword",
+    "pages/adminLogin/adminLogin"
+  ],
+  "subPackages": [
+    {
+      "root": "pages_costMoney",
+      "pages": [
+        "costMoney/costMoney"
+      ]
+    },
+    {
+      "root": "pages_userActivity",
+      "pages": [
+        "chatList/chatList",
+        "chatWith/chatWith",
+        "messageList/messageList",
+        "friendDynamic/friendDynamic",
+        "fansAndFouces/fansAndFouces",
+        "otherUser/otherUser",
+        "settings/settings",
+        "articleDes/articleDes",
+        "artcleIssue/artcleIssue",
+        "meetingRoom/meetingRoom"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "x空间",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#f09b37",
+    "selectedColor": "#f09b37",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/index_f.png",
+        "selectedIconPath": "static/index_t.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的房间",
+        "iconPath": "static/user_f.png",
+        "selectedIconPath": "static/user_t.png"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {}
+}

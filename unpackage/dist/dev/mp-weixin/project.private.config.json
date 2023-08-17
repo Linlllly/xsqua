@@ -1,0 +1,182 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "xsqua",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "登录选择",
+          "pathName": "pages/loginSelect/loginSelect",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "区域选择",
+          "pathName": "pages/areaSelect/areaSelect",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "城市选择",
+          "pathName": "pages/citySelect/citySelect",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "访问房间",
+          "pathName": "pages/accessPossword/accessPossword",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/user/user",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-别人的房间",
+          "pathName": "pages_userActivity/otherUser/otherUser",
+          "query": "ocateId=2994&ouid=44",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-好友动态",
+          "pathName": "pages_userActivity/friendDynamic/friendDynamic",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "c-花钱",
+          "pathName": "pages_costMoney/costMoney/costMoney",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-互相聊天",
+          "pathName": "pages_userActivity/chatWith/chatWith",
+          "query": "ouid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-聊天列表",
+          "pathName": "pages_userActivity/chatList/chatList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "管理员登录",
+          "pathName": "pages/adminLogin/adminLogin",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-消息列表",
+          "pathName": "pages_userActivity/messageList/messageList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-设置",
+          "pathName": "pages_userActivity/settings/settings",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-粉丝关注互关",
+          "pathName": "pages_userActivity/fansAndFouces/fansAndFouces",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-文章详情",
+          "pathName": "pages_userActivity/articleDes/articleDes",
+          "query": "i=214",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-文章发布",
+          "pathName": "pages_userActivity/artcleIssue/artcleIssue",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-会议室",
+          "pathName": "pages_userActivity/meetingRoom/meetingRoom",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-x文件",
+          "pathName": "pages_userActivity/mySecret/mySecret",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-修改x文件密码",
+          "pathName": "pages_userActivity/changeMima/changeMima",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "空间介绍",
+          "pathName": "pages/xIntroduce/xIntroduce",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-排行榜",
+          "pathName": "pages_userActivity/rankingList/rankingList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "确认密码",
+          "pathName": "pages/accessPossword/accessPossword",
+          "query": "type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-分享",
+          "pathName": "pages_userActivity/erWeiMa/erWeiMa",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

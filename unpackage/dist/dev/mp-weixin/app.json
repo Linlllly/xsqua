@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/goOn/goOn",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/loginSelect/loginSelect",
+    "pages/citySelect/citySelect",
+    "pages/areaSelect/areaSelect",
+    "pages/accessPossword/accessPossword",
+    "pages/xIntroduce/xIntroduce"
+  ],
+  "subPackages": [
+    {
+      "root": "pages_costMoney",
+      "pages": [
+        "costMoney/costMoney"
+      ]
+    },
+    {
+      "root": "pages_userActivity",
+      "pages": [
+        "chatList/chatList",
+        "adminLogin/adminLogin",
+        "chatWith/chatWith",
+        "messageList/messageList",
+        "friendDynamic/friendDynamic",
+        "fansAndFouces/fansAndFouces",
+        "otherUser/otherUser",
+        "settings/settings",
+        "articleDes/articleDes",
+        "artcleIssue/artcleIssue",
+        "meetingRoom/meetingRoom",
+        "mySecret/mySecret",
+        "changeMima/changeMima",
+        "rankingList/rankingList",
+        "erWeiMa/erWeiMa"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "x自由空间",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#f09b37",
+    "selectedColor": "#f09b37",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的房间",
+        "iconPath": "static/user_f.png",
+        "selectedIconPath": "static/user_t.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "空间社交",
+        "iconPath": "static/index-f.png",
+        "selectedIconPath": "static/index-t.png"
+      },
+      {
+        "pagePath": "pages/xIntroduce/xIntroduce",
+        "text": "空间介绍",
+        "iconPath": "static/intro-f.png",
+        "selectedIconPath": "static/intro-t.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.saveVideoToPhotosAlbum": {
+      "desc": "保存视频到相册"
+    },
+    "scope.writePhotosAlbum": {
+      "desc": "保存图片到相册"
+    },
+    "scope.camera": {
+      "desc": "摄像头功能"
+    },
+    "scope.album": {
+      "desc": "相册功能"
+    }
+  },
+  "usingComponents": {}
+}

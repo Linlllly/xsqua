@@ -1,0 +1,963 @@
+<template>
+	<!-- this.userRemark=???  获取备注 -->
+	<view class="pages">
+		<!-- 头像 -->
+		<div class="stick">
+			<img class="other-title" :src="oava" alt="" @click="toOtherUser()" />
+			<div
+				class="other-info"
+				@click="
+					changeName = true;
+					fid = ouid;
+				"
+			>
+				<div class="info-name">
+					<div class="box">{{ realRemark ? realRemark : ousername }}</div>
+					<img v-if="realRemark" src="../ua_static/orangebeizhu.png" mode="" />
+					<img v-else src="../ua_static/greybeizhu.png" mode="" />
+				</div>
+				<div class="info-des">{{ ointro ? ointro : ' ' }}</div>
+			</div>
+			<div v-if="orelations !== 0" class="other-relation">
+				<img v-if="orelations === 1" src="../../static/fans.png" alt="" />
+				<img v-if="orelations === 2" src="../../static/foucs.png" alt="" />
+				<img v-if="orelations === 3" src="../../static/double.png" alt="" />
+			</div>
+			<u-icon size="30" name="trash" color="#d61515" @click="showRemove = true"></u-icon>
+		</div>
+		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }">
+			<scroll-view
+				class="msg-list"
+				:class="popupLayerClass"
+				:scroll-y="true"
+				:scroll-with-animation="scrollAnimation"
+				:scroll-top="scrollTop"
+				:scroll-into-view="scrollToView"
+				@scrolltoupper="loadHistory"
+				upper-threshold="50"
+				:style="{ top: -inputBotton - inputLines + 'px' }"
+			>
+				<!-- 加载历史数据waitingUI -->
+				<view v-if="isHistoryLoading" class="loading">
+					<view class="spinner">
+						<view class="rect1"></view>
+						<view class="rect2"></view>
+						<view class="rect3"></view>
+						<view class="rect4"></view>
+						<view class="rect5"></view>
+					</view>
+				</view>
+				<view class="row" v-for="(row, index) in chatWithList" :key="index" :id="'msg' + row.id">
+					<!-- 用户消息 -->
+					<block>
+						<!-- 111111自己发出的消息 -->
+						<view v-if="row.fromUid == uid" class="my">
+							<!-- 左-消息 -->
+							<view class="left">
+								<!-- 时间 -->
+								<span class="timer">{{ row.createTime }}</span>
+								<!-- 文字消息 -->
+								<view v-if="row.type === 'chat'" class="bubble">
+									<text :user-select="true" :selectable="true">{{ row.text }}</text>
+								</view>
+								<!-- 图片消息 -->
+								<view v-if="row.type === 'chat_image'" class="bubble img" @tap="showPic([row.text])">
+									<image :src="row.text" mode="aspectFit"></image>
+								</view>
+								<!-- 视频消息 -->
+								<view v-if="row.type === 'chat_video'" class="bubble veo">
+									<video
+										:src="row.text"
+										:controls="true"
+										:show-center-play-btn="true"
+										@longpress="showDownloadVideo(row.text)"
+										@fullscreenchange="onFullscreenChange"
+									></video>
+								</view>
+							</view>
+							<!-- 右-头像 -->
+							<view class="right"><image :src="ava"></image></view>
+						</view>
+						<!-- 222222别人发出的消息 -->
+						<view v-else class="other">
+							<!-- 左-头像 -->
+							<view class="left"><image :src="oava"></image></view>
+							<!-- 右-用户名称-时间-消息 -->
+							<view class="right">
+								<!-- 时间 -->
+								<span class="timer">{{ row.createTime }}</span>
+								<!-- 文字消息 -->
+								<view v-if="row.type === 'chat'" class="bubble">
+									<text :user-select="true" :selectable="true">{{ row.text }}</text>
+								</view>
+								<!-- 图片消息 -->
+								<view v-if="row.type === 'chat_image'" class="bubble img" @tap="showPic([row.text])">
+									<image :src="row.text" mode="aspectFit"></image>
+								</view>
+								<!-- 视频消息 -->
+								<view v-if="row.type === 'chat_video'" class="bubble veo">
+									<video
+										:src="row.text"
+										:controls="true"
+										:show-center-play-btn="true"
+										@longpress="showDownloadVideo(row.text)"
+										@fullscreenchange="onFullscreenChange"
+									></video>
+								</view>
+							</view>
+						</view>
+					</block>
+				</view>
+			</scroll-view>
+		</view>
+
+		<!-- 底部输入栏 -->
+		<view class="input-box cu-bar tabbar" :class="popupLayerClass" @touchmove.stop.prevent="discard" :style="{ bottom: messBotton + 'px' }">
+			<view class="textbox">
+				<view class="text-mode" :class="isVoice ? 'hidden' : ''">
+					<view class="box">
+						<textarea
+							auto-height="true"
+							v-model="textMsg"
+							@focus="inputHight"
+							:adjust-position="false"
+							@blur="inputLow"
+							maxlength="300"
+							:show-confirm-bar="false"
+							@linechange="inputLine"
+						/>
+					</view>
+				</view>
+			</view>
+			<view class="more" @tap="showMore"><view class="icon add"></view></view>
+			<view class="send" :class="isVoice ? 'hidden' : ''" @tap="sendText"><view class="btn">发送</view></view>
+		</view>
+		<!-- 抽屉栏 -->
+		<view class="popup-layer" :class="popupLayerClass" @touchmove.stop.prevent="discard">
+			<!-- 更多功能 相册-拍照-红包 -->
+			<view class="more-layer" :class="{ hidden: hideMore }">
+				<view class="list">
+					<view class="box" @tap="chooseImage"><view class="icon tupian2"></view></view>
+					<view class="box" @tap="chooseVideo"><u-icon name="../../../../static/video.png" color="#333" size="38"></u-icon></view>
+				</view>
+			</view>
+		</view>
+		<!-- 确认删除框 -->
+		<u-modal
+			:show="showRemove"
+			title="删除"
+			content="将删除双方对话的所有内容"
+			@confirm="confirmRemove"
+			showCancelButton
+			@cancel="showRemove = false"
+			confirmColor="#e89406"
+		></u-modal>
+		<!-- 改动 -->
+		<u-modal
+			title="修改用户备注"
+			:show="changeName"
+			@confirm="getUserRemarkEdit"
+			showCancelButton
+			@cancel="
+				changeName = false;
+				remark = realRemark;
+			"
+			confirmColor="#e89406"
+		>
+			<view class="slot-content">
+				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#767676' }">
+					<u-form-item label="备注"><u-input placeholder="请输入备注" v-model="remark"></u-input></u-form-item>
+				</u--form>
+			</view>
+		</u-modal>
+		<!-- 下载按钮 -->
+		<u-action-sheet
+			style="z-index: 9999;"
+			:actions="[{ name: '下载视频' }]"
+			:title="title"
+			:show="isFullLongPress"
+			:closeOnClickOverlay="true"
+			cancelText="取消"
+			@close="isFullLongPress = false"
+			@select="selectClick"
+		></u-action-sheet>
+	</view>
+</template>
+<script>
+import { history, cleanHistory, getRemark } from '@/api/chatWith/chatWith.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
+import { getUserInfoById } from '@/api/otherUser/otherUser.js';
+import { userRemarkEdit } from '@/api/fansAndFouces/fansAndFouces.js';
+import { ip } from '@/api/api.js';
+const app = getApp();
+
+export default {
+	computed: {
+		...mapState(['uid', 'ava', 'myWs'])
+	},
+	data() {
+		return {
+			contentHeight: 0,
+			inputYbHeight: 0,
+			inputBotton: 0,
+			messBotton: 0,
+			inputLines: 0,
+			showRemove: false,
+			ouid: '',
+			oava: '',
+			ousername: '',
+			ointro: '',
+			orelative: '',
+			orelations: '',
+			ocateId: '',
+			ws: '',
+			//文字消息
+			textMsg: '',
+			//是否正在加载历史
+			isHistoryLoading: false,
+			//是否显示滚动时加载动画
+			scrollAnimation: false,
+			//距离顶部的距离
+			scrollTop: 0,
+			//某次信息的位置
+			scrollToView: '',
+			// 消息列表（接口返回的历史消息 + 发送的消息 + 接收的消息）
+			chatWithList: [],
+			//语音参数
+			isVoice: false,
+			// 抽屉参数
+			popupLayerClass: '',
+			// more参数
+			hideMore: true,
+			//表情定义
+			hideEmoji: true,
+			recording: false,
+			willStop: false,
+			initPoint: {
+				identifier: 0,
+				Y: 0
+			},
+			recordTimer: null,
+			recordLength: 0,
+			//
+			page: 1,
+			limit: 12,
+			lastPage: 2, //先放一个比当前页大的  确保第一次可以成功请求
+			changeTop: 0,
+			//是不是在输入
+			inputTop: false,
+			go: true,
+			//
+			changeName: false,
+			fid: null,
+			remark: '',
+			realRemark: '',
+			userRemark: false,
+			//是否全屏
+			isFull: false,
+			//是否全屏长按
+			isFullLongPress: false,
+			//下载链接
+			downloadUrl: null
+		};
+	},
+
+	onLoad(option) {
+		this.chatWithList = [];
+		this.ouid = option.ouid;
+		this.ocateId = option.ocateId;
+		this.getGetUserInfoById();
+		this.scrollTop = 9999999;
+		this.getHistory();
+		console.log('---------');
+		console.log(this.ouid);
+		console.log(this.uid);
+	},
+	onShow() {
+		console.log('chatWith onShow');
+	},
+	watch: {
+		myWs: {
+			immediate: true,
+			handler(news, olds) {
+				console.log('侦听-----------', news);
+				this.ws = null;
+				this.ws = app.globalData.ws;
+				this.ws.onMessage(res => {
+					console.log(res);
+					if (res.data === 'active') {
+						return;
+					}
+					let data = JSON.parse(res.data);
+					if (
+						!(data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') ||
+						data.toUid !== this.uid ||
+						data.fromUid !== parseInt(this.ouid)
+					) {
+						console.log('不是和该用户对话');
+						return;
+					}
+					this.chatWithList.push(data);
+					//回到底部
+					this.$nextTick(() => {
+						this.scrollToView = 'msg' + data.id;
+						if (this.inputTop) {
+							this.changeTop = Math.random() * 100;
+						}
+					});
+				});
+			}
+		},
+		changeTop: {
+			handler(newval, oldval) {
+				//获取现有消息高度是否没超过输入框
+				let allMessHeight = 0;
+				let allRes = [];
+				//没消息 不上弹
+				if (this.chatWithList.length === 0) {
+					this.inputBotton = 0;
+				} else {
+					let queryss = uni.createSelectorQuery().in(this);
+					queryss.selectAll('.row').boundingClientRect();
+					queryss.exec(res => {
+						res[0].forEach((v, i) => {
+							allMessHeight += v.height;
+							if (Math.ceil(allMessHeight) >= this.contentHeight) {
+								//结束循环
+								return;
+							}
+						});
+						//进入判断要不要回弹
+						if (Math.ceil(allMessHeight) >= this.contentHeight) {
+							//高度超过可视区正常上弹
+							this.inputBotton = this.messBotton;
+						} else if (this.contentHeight - this.messBotton >= Math.ceil(allMessHeight)) {
+							//没超过可视区-键盘和输入框高 不上弹
+							this.inputBotton = 0;
+						} else {
+							//超过键盘和输入框高 弹一部分
+							this.inputBotton = this.messBotton - (Math.floor(this.contentHeight) - Math.ceil(allMessHeight)) + 2;
+						}
+					});
+				}
+			}
+		}
+	},
+	onUnload() {
+		this.getHistory();
+	},
+	methods: {
+		//请求个人信息
+		async getGetUserInfoById() {
+			let res = await getUserInfoById({ uid: this.ouid });
+			console.log('获取他人用户信息');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '获取用户信息失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			this.oava = res.result.avatar;
+			this.ousername = res.result.username;
+			this.ointro = res.result.intro;
+			this.orelations = res.result.relations;
+			this.remark = res.result.remark;
+			this.realRemark = res.result.remark;
+		},
+		//触发滑动到顶部(加载历史信息记录)
+		loadHistory(e) {
+			//参数作为进入请求标识，防止重复请求
+			if (this.isHistoryLoading) {
+				return;
+			}
+			//如果已经在最后一页就不请求
+			this.isHistoryLoading = true;
+			//请求历史
+			setTimeout(() => {
+				this.scrollAnimation = false; //关闭滑动动画
+				if (this.page > this.lastPage) {
+					this.isHistoryLoading = false;
+					uni.showToast({
+						title: '已加载所有数据',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.page += 1;
+				this.getHistory();
+			}, 1000);
+		},
+		// 加载初始页面消息
+		async getHistory() {
+			// this.isHistoryLoading = false;
+			//相等的时候还可以再请求
+			if (this.page > this.lastPage) {
+				this.isHistoryLoading = false;
+				uni.showToast({
+					title: '已加载所有数据',
+					icon: 'none',
+					duration: 2000
+				});
+				this.$nextTick(function() {
+					this.scrollAnimation = true;
+				});
+				return;
+			}
+			let res = await history({ page: this.page, limit: this.limit, toUid: this.ouid });
+			console.log('请求历史');
+			console.log(res);
+			this.isHistoryLoading = false;
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '请求历史数据失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			if (this.chatWithList.length !== 0) {
+				let Viewid = this.chatWithList[0].id; //记住第一个信息ID
+				this.scrollToView = 'msg' + Viewid;
+			}
+			this.chatWithList = [...res.result.data.reverse(), ...this.chatWithList];
+			this.lastPage = res.result.last_page;
+			// 滚动到底部
+			this.$nextTick(function() {
+				//进入页面滚动到底部
+				this.scrollTop = 9999;
+				this.$nextTick(function() {
+					this.scrollAnimation = true;
+				});
+			});
+		},
+		//获取焦点，如果不是选表情ing,则关闭抽屉
+		textareaFocus() {
+			if (this.popupLayerClass == 'showLayer' && this.hideMore == false) {
+				this.hideDrawer();
+			}
+		},
+		// 发送文字消息
+		sendText() {
+			let _that = this;
+			this.hideDrawer(); //隐藏抽屉
+			if (!this.textMsg) {
+				return;
+			}
+
+			if (!this.go) {
+				uni.showToast({
+					title: '网络异常，发送失败！',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: this.textMsg, type: 'chat' };
+			this.ws.send({
+				data: JSON.stringify(content),
+				success: () => {
+					console.log('ws消息发送成功');
+					let nowDate = this.getNowFormatDate();
+					let id = 'msg' + this.chatWithList.length;
+					this.chatWithList.push({
+						...content,
+						createTime: nowDate,
+						id: this.chatWithList.length
+					});
+					//回到底部
+					this.$nextTick(() => {
+						this.scrollToView = id;
+					});
+					//
+					this.textMsg = ''; //清空输入框
+					this.inputLines = 0;
+					this.inputTop = false;
+				}
+			});
+		},
+		// 隐藏抽屉
+		hideDrawer() {
+			this.popupLayerClass = '';
+		},
+		//获取当前时间
+		getNowFormatDate() {
+			var dat = new Date();
+			var year = dat.getFullYear();
+			var mon = dat.getMonth() + 1 < 10 ? '0' + (dat.getMonth() + 1) : dat.getMonth() + 1;
+			var data = dat.getDate() < 10 ? '0' + dat.getDate() : dat.getDate();
+			var hour = dat.getHours() < 10 ? '0' + dat.getHours() : dat.getHours();
+			var min = dat.getMinutes() < 10 ? '0' + dat.getMinutes() : dat.getMinutes();
+			var seon = dat.getSeconds() < 10 ? '0' + dat.getSeconds() : dat.getSeconds();
+
+			var newDate = year + '-' + mon + '-' + data + ' ' + hour + ':' + min + ':' + seon;
+			return newDate;
+		},
+		//更多功能(点击+弹出)
+		showMore() {
+			this.isVoice = false;
+			this.hideEmoji = true;
+			if (this.hideMore) {
+				this.hideMore = false;
+				this.openDrawer();
+			} else {
+				this.hideDrawer();
+			}
+		},
+		// 打开抽屉
+		openDrawer() {
+			this.popupLayerClass = 'showLayer';
+		},
+		// 隐藏抽屉
+		hideDrawer() {
+			this.popupLayerClass = '';
+			setTimeout(() => {
+				this.hideMore = true;
+				this.hideEmoji = true;
+			}, 150);
+		},
+		// 上传图片
+		chooseImage() {
+			uni.chooseMedia({
+				count: 9,
+				mediaType: ['image'],
+				sourceType: ['album', 'camera'],
+				success: r => {
+					//展示loading
+					uni.showLoading({
+						title: '图片上传中',
+						mask: true
+					});
+					let linShi2 = r.tempFiles;
+					linShi2.forEach(i => {
+						console.log(i);
+						// 挨个上传push
+						uni.uploadFile({
+							url: ip + '/app/common/upload',
+							filePath: i.tempFilePath,
+							name: 'file',
+							header: {
+								token: uni.getStorageSync('token')
+							},
+							success: uploadFileRes => {
+								let paths = JSON.parse(uploadFileRes.data);
+								this.sendImage(paths.result[0].url);
+							},
+							fail() {
+								uni.hideLoading();
+								uni.showToast({
+									title: '图片上传失败',
+									icon: 'none',
+									duration: 2000
+								});
+							}
+						});
+					});
+				}
+			});
+		},
+		//上传视频
+		chooseVideo() {
+			uni.chooseMedia({
+				maxDuration: 60,
+				count: 1,
+				sourceType: ['album', 'camera'],
+				compressed: true,
+				mediaType: ['video'],
+				success: r => {
+					//展示loading
+					uni.showLoading({
+						title: '视频上传中',
+						mask: true
+					});
+					let linShi2 = r.tempFiles[0].tempFilePath;
+					uni.uploadFile({
+						url: ip + '/app/common/upload',
+						filePath: linShi2,
+						name: 'file',
+						header: {
+							token: uni.getStorageSync('token')
+						},
+						success: uploadFileRes => {
+							let paths = JSON.parse(uploadFileRes.data);
+							this.sendVideo(paths.result[0].url);
+						},
+						fail() {
+							uni.hideLoading();
+							uni.showToast({
+								title: '视频上传失败',
+								icon: 'none',
+								duration: 2000
+							});
+						}
+					});
+				}
+			});
+		},
+		//发送图片(9张最多)
+		sendImage(paths) {
+			let _that = this;
+			this.hideDrawer(); //隐藏抽屉
+			if (!this.go) {
+				uni.showToast({
+					title: '网络异常，发送失败！',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_image' };
+			this.ws.send({
+				data: JSON.stringify(content),
+				success: () => {
+					console.log('ws图片发送成功');
+					uni.hideLoading();
+					let nowDate = this.getNowFormatDate();
+					let id = 'msg' + this.chatWithList.length;
+					this.chatWithList.push({
+						...content,
+						createTime: nowDate,
+						id: this.chatWithList.length
+					});
+					//回到底部
+					this.$nextTick(() => {
+						this.scrollToView = id;
+					});
+					this.textMsg = '';
+					this.inputLines = 0;
+					this.inputTop = false;
+				}
+			});
+		},
+		//发送视频
+		sendVideo(paths) {
+			let _that = this;
+			this.hideDrawer(); //隐藏抽屉
+			if (!this.go) {
+				uni.showToast({
+					title: '网络异常，发送失败！',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_video' };
+			this.ws.send({
+				data: JSON.stringify(content),
+				success: () => {
+					console.log('ws视频发送成功');
+					uni.hideLoading();
+					let nowDate = this.getNowFormatDate();
+					let id = 'msg' + this.chatWithList.length;
+					this.chatWithList.push({
+						...content,
+						createTime: nowDate,
+						id: this.chatWithList.length
+					});
+					//回到底部
+					this.$nextTick(() => {
+						this.scrollToView = id;
+					});
+					this.textMsg = '';
+					this.inputLines = 0;
+					this.inputTop = false;
+				}
+			});
+		},
+		discard() {
+			return;
+		},
+		async confirmRemove() {
+			let res = await cleanHistory({ toUid: this.ouid - 0 });
+			console.log('删除历史');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '删除历史失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			uni.navigateBack({});
+		},
+		inputHight(e) {
+			this.inputTop = true;
+			this.messBotton = e.detail.height;
+			this.inputBotton = e.detail.height;
+			//对焦的时候做而不是换行的时候做
+			this.changeTop = Math.random() * 100;
+		},
+		inputLow(e) {
+			this.inputBotton = 0;
+			this.messBotton = 0;
+		},
+		inputLine(e) {
+			//第一次进来就会刷一次 此时设置中部高度
+			if (e.detail.lineCount === 1) {
+				let query = uni.createSelectorQuery().in(this);
+				query.select('.stick').boundingClientRect();
+				query.select('.input-box').boundingClientRect();
+				query.exec(res => {
+					this.inputYbHeight = res[1].height;
+					this.contentHeight = uni.getSystemInfoSync().windowHeight - res[0].height - res[1].height;
+				});
+				return;
+			}
+
+			//多行时候的差值
+			let nowHeight = '';
+			let query = uni.createSelectorQuery().in(this);
+			query.select('.input-box').boundingClientRect();
+			query.exec(res => {
+				nowHeight = res[0].height;
+				this.inputLines = nowHeight - this.inputYbHeight;
+			});
+		},
+		toOtherUser() {
+			uni.navigateTo({
+				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + this.ocateId + '&ouid=' + this.ouid
+			});
+		},
+		async getUserRemarkEdit() {
+			let res = await userRemarkEdit({ fid: this.fid, remark: this.remark });
+			console.log('请求修改备注');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '修改备注失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			uni.showToast({
+				title: '修改备注成功',
+				icon: 'none',
+				duration: 2000
+			});
+			this.realRemark = this.remark;
+			this.changeName = false;
+		},
+		//展示图片
+		showPic(i) {
+			uni.previewImage({
+				current: i[0],
+				urls: i
+			});
+		},
+		// 展示下载按钮
+		showDownloadVideo(url) {
+			console.log('我是长按');
+			if (!this.isFull) {
+				//非全屏状态才展示下载按钮
+				this.isFullLongPress = true;
+				this.downloadUrl = url;
+				console.log(this.isFullLongPress);
+			}
+			// console.log(url);
+			// uni.showLoading({
+			// 	title: '视频下载中...'
+			// });
+			// uni.downloadFile({
+			// 	url: url, // 视频文件的网络地址
+			// 	success: function(res) {
+			// 		if (res.statusCode === 200) {
+			// 			var tempFilePath = res.tempFilePath; // 下载后的临时文件路径
+			// 			// 进行保存操作或其他处理
+
+			// 			// 示例：将下载的视频保存到本地相册
+			// 			uni.saveVideoToPhotosAlbum({
+			// 				filePath: tempFilePath,
+			// 				success: function() {
+			// 					uni.hideLoading();
+			// 					uni.showToast({
+			// 						title: '保存视频成功',
+			// 						icon: 'none',
+			// 						duration: 2000
+			// 					});
+			// 				},
+			// 				fail: function(err) {
+			// 					uni.hideLoading();
+			// 					uni.showToast({
+			// 						title: '保存视频失败',
+			// 						icon: 'none',
+			// 						duration: 2000
+			// 					});
+			// 				}
+			// 			});
+			// 		} else {
+			// 			uni.hideLoading();
+			// 			uni.showToast({
+			// 				title: '下载视频失败',
+			// 				icon: 'none',
+			// 				duration: 2000
+			// 			});
+			// 		}
+			// 	},
+			// 	fail: function(err) {
+			// 		console.log('下载视频失败', err);
+			// 	}
+			// });
+		},
+		selectClick(index) {
+			console.log(index);
+			if (index.name === '下载视频') {
+				uni.showLoading({
+					title: '视频下载中...'
+				});
+				uni.downloadFile({
+					url: this.downloadUrl, // 视频文件的网络地址
+					success: function(res) {
+						if (res.statusCode === 200) {
+							var tempFilePath = res.tempFilePath; // 下载后的临时文件路径
+							// 进行保存操作或其他处理
+
+							// 示例：将下载的视频保存到本地相册
+							uni.saveVideoToPhotosAlbum({
+								filePath: tempFilePath,
+								success: function() {
+									uni.hideLoading();
+									uni.showToast({
+										title: '保存视频成功',
+										icon: 'none',
+										duration: 2000
+									});
+								},
+								fail: function(err) {
+									uni.hideLoading();
+									uni.showToast({
+										title: '保存视频失败',
+										icon: 'none',
+										duration: 2000
+									});
+								}
+							});
+						} else {
+							uni.hideLoading();
+							uni.showToast({
+								title: '下载视频失败',
+								icon: 'none',
+								duration: 2000
+							});
+						}
+					},
+					fail: function(err) {
+						console.log('下载视频失败', err);
+					}
+				});
+			}
+		},
+		//全屏和退出全屏
+		onFullscreenChange(event) {
+			this.isFull = event.detail.fullScreen;
+		}
+	}
+};
+</script>
+<style lang="scss">
+@import 'css/style.scss';
+.pages {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+.content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+}
+.stick {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 240rpx;
+	z-index: 50;
+	box-sizing: border-box;
+	padding: 20rpx 30rpx;
+	background-color: transparent !important;
+	background: url('../../static/area-select-bg.png') !important;
+	background-size: 100% 240rpx;
+	.other-title {
+		width: 160rpx;
+		height: 160rpx;
+		border-radius: 50%;
+		margin-right: 26rpx;
+	}
+	.other-info {
+		position: relative;
+		flex: 1;
+		margin-right: 26rpx;
+
+		.info-name {
+			display: flex;
+			font-size: 46rpx;
+			font-weight: 500;
+			color: #000000;
+			line-height: 1.5;
+			align-items: center;
+
+			.box {
+				flex: 1;
+				overflow: hidden;
+				text-overflow: ellipsis !important; /* 超出部分省略号 */
+				word-break: break-all !important; /* break-all(允许在单词内换行。) */
+				display: -webkit-box !important; /* 对象作为伸缩盒子模型显示 */
+				-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+				-webkit-line-clamp: 1 !important; /* 显示的行数 */
+			}
+			img {
+				width: 120rpx;
+				height: 30rpx;
+				margin: 0 20rpx;
+			}
+		}
+		.info-des {
+			font-size: 32rpx;
+			flex: 1;
+			overflow: hidden;
+			text-overflow: ellipsis !important; /* 超出部分省略号 */
+			word-break: break-all !important; /* break-all(允许在单词内换行。) */
+			display: -webkit-box !important; /* 对象作为伸缩盒子模型显示 */
+			-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+			-webkit-line-clamp: 1 !important; /* 显示的行数 */
+		}
+	}
+	.other-relation {
+		width: 56rpx;
+		height: 56rpx;
+		padding: 10rpx;
+		border-radius: 16rpx;
+		background-color: #e6e6e6;
+		image {
+			width: 56rpx;
+			height: 56rpx;
+		}
+	}
+}
+.u-popup {
+	flex: 0 !important;
+}
+
+//----------
+.content .showLayer {
+	transform: translate3d(0, -43vw, 0);
+}
+.timer {
+	// padding: 0 16rpx;
+	padding: 4rpx 8rpx;
+	color: #94c7eb;
+	font-size: 28rpx;
+}
+.u-icon__icon {
+	background-color: #e6e6e6;
+	border-radius: 16rpx;
+	padding: 8rpx;
+	margin-left: 16rpx;
+}
+</style>
