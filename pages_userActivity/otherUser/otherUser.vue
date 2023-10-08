@@ -74,6 +74,7 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
+						<text style="margin-left: 20rpx;">{{ i.meeting === 4 ? '空间社交' : i.meeting === 2 ? '空间笔友' : '空间集市' }}</text>
 					</div>
 				</div>
 				<!-- 图 -->

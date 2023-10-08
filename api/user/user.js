@@ -8,6 +8,10 @@ import {
 export function userInfo() {
 	return get('/app/user/userInfo')
 }
+// 获取关注/互关/粉丝统计数
+export function getUserStatistics() {
+	return get('/app/user/getUserStatistics')
+}
 //修改头像
 export function userInfoEdit(data) {
 	return post('/app/user/userInfoEdit', data)
@@ -43,4 +47,8 @@ export function pushMessage(data) {
 //修改订阅开关
 export function updatePush(data) {
 	return post('/app/wechat/updatePush', data)
+}
+//弹窗
+export function notify(data) {
+	return get('/app/system/notify', data)
 }

@@ -758,50 +758,6 @@ export default {
 				this.downloadUrl = url;
 				console.log(this.isFullLongPress);
 			}
-			// console.log(url);
-			// uni.showLoading({
-			// 	title: '视频下载中...'
-			// });
-			// uni.downloadFile({
-			// 	url: url, // 视频文件的网络地址
-			// 	success: function(res) {
-			// 		if (res.statusCode === 200) {
-			// 			var tempFilePath = res.tempFilePath; // 下载后的临时文件路径
-			// 			// 进行保存操作或其他处理
-
-			// 			// 示例：将下载的视频保存到本地相册
-			// 			uni.saveVideoToPhotosAlbum({
-			// 				filePath: tempFilePath,
-			// 				success: function() {
-			// 					uni.hideLoading();
-			// 					uni.showToast({
-			// 						title: '保存视频成功',
-			// 						icon: 'none',
-			// 						duration: 2000
-			// 					});
-			// 				},
-			// 				fail: function(err) {
-			// 					uni.hideLoading();
-			// 					uni.showToast({
-			// 						title: '保存视频失败',
-			// 						icon: 'none',
-			// 						duration: 2000
-			// 					});
-			// 				}
-			// 			});
-			// 		} else {
-			// 			uni.hideLoading();
-			// 			uni.showToast({
-			// 				title: '下载视频失败',
-			// 				icon: 'none',
-			// 				duration: 2000
-			// 			});
-			// 		}
-			// 	},
-			// 	fail: function(err) {
-			// 		console.log('下载视频失败', err);
-			// 	}
-			// });
 		},
 		selectClick(index) {
 			console.log(index);

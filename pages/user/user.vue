@@ -31,7 +31,8 @@
 					<div v-if="messageDot" class="mes-dot"></div>
 				</div>
 
-				<img class="dynamic" src="../../static/dynamic.png" alt="" @click="showSearch = true" />
+				<!-- <img class="dynamic" src="../../static/dynamic.png" alt="" @click="showSearch = true" /> -->
+				<img class="dynamic" src="../../static/dynamic.png" alt="" @click="changeSecret = true" />
 				<div class="chat">
 					<img src="../../static/chat.png" alt="" @click="toChatList" />
 					<div v-if="chatDot" class="mes-dot"></div>
@@ -101,6 +102,7 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
+						<text style="margin-left: 20rpx;">{{ i.meeting === 4 ? '空间社交' : i.meeting === 2 ? '空间笔友' : '空间集市' }}</text>
 					</div>
 					<text v-if="!i.postTop" class="get-top" @click.stop="setTop(i)">设为置顶</text>
 					<text v-if="i.postTop" class="get-top" @click.stop="unSetTop(i)">取消置顶</text>
@@ -164,7 +166,7 @@
 		<div></div>
 		<!--  密码 -->
 		<div v-if="type === 2" class="bgs">
-			<img class="mimasuo" src="https://www.zairongyifang.com:8080/filePath/app/20236/3e16dd997d.png" mode="" />
+			<img class="mimasuo" src="https://www.zairongyifang.com:8080/filePath/resource/password.png" mode="" />
 			<div class="paipai">
 				<div style="color: #257DE5;font-size:24px;">{{ username.split(' ')[0] }}</div>
 
@@ -253,14 +255,39 @@
 				</div>
 			</div>
 		</u-overlay>
-		<!-- 弹窗 -->
+		<!-- 订阅弹窗 -->
 		<u-modal
 			:show="showSub"
 			:title="'订阅消息提示'"
 			:content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'"
 			@confirm="doSub"
 		></u-modal>
-		<u-toast ref="uToast"></u-toast>
+		<!-- 修改密码框 -->
+		<u-modal
+			title="修改房间密码"
+			:show="changeSecret"
+			@confirm="confirmChangeSecret"
+			showCancelButton
+			@cancel="
+				changeSecret = false;
+				newSecret = '';
+				oldSecret = '';
+			"
+			confirmColor="#e89406"
+		>
+			<view class="slot-content">
+				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#767676' }">
+					<u-form-item label="原密码"><u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6"></u-input></u-form-item>
+					<u-form-item label="新密码"><u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6"></u-input></u-form-item>
+				</u--form>
+				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">
+					* 新用户设置房间密码，填写新密码即可
+				</div>
+				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新密码不填写即代表不设密码</div>
+			</view>
+		</u-modal>
+		<!-- 普通弹窗 -->
+		<u-modal :show="popContentBox" :content="popContent" @confirm="popContentBox = false"></u-modal>
 	</div>
 </template>
 
@@ -277,10 +304,13 @@ import {
 	postTop,
 	redDot,
 	getQRCode,
-	updatePush
+	updatePush,
+	getUserStatistics,
+	notify
 } from '@/api/user/user.js';
 import { myRoom, selectRoom } from '@/api/loginSelect/loginSelect.js';
 import { ip } from '@/api/api.js';
+import { updatePassword } from '@/api/settings/settings.js';
 import QRCode from '../../utils/weapp-qrcode.js';
 
 const app = getApp();
@@ -315,9 +345,8 @@ export default {
 			fans: '',
 			//关注
 			follow: '',
-			//条数
+			//条数页面
 			limit: 12,
-			//页面
 			page: 1,
 			lastPage: '',
 			//列表
@@ -352,7 +381,14 @@ export default {
 			imagePath: null,
 			linshiImagePath: null,
 			canva: true,
-			showSub: false
+			showSub: false,
+			//展示密码
+			changeSecret: false,
+			oldSecret: '',
+			newSecret: '',
+			//控制弹窗
+			popContent: '',
+			popContentBox: false
 		};
 	},
 	computed: {
@@ -382,7 +418,7 @@ export default {
 						data.type === 'flower' ||
 						data.type === 'shit'
 					) {
-						this.getuserInfo();
+						this.getUserStatistics();
 						this.messageDot = true;
 					}
 					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
@@ -408,8 +444,8 @@ export default {
 		this.getMyRoom();
 	},
 	onShow() {
-		this.getChatRedDot();
-		this.getMessRedDot();
+		// this.getChatRedDot();
+		// this.getMessRedDot();
 		if (this.refresh) {
 			this.page = 1;
 			this.myList = [];
@@ -453,11 +489,6 @@ export default {
 					if (res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] === 'accept') {
 						that.updatePush();
 					} else {
-						// that.$refs.uToast.show({
-						// 	type: 'default',
-						// 	title: '',
-						// 	message: '您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收'
-						// });
 						uni.showModal({
 							title: '提示',
 							content: '您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收',
@@ -515,12 +546,14 @@ export default {
 				return;
 			}
 			this.uid = res.result.uid;
+			this.getChatRedDot(res.result.uid);
+			this.getMessRedDot(res.result.uid);
 			this.avatar = res.result.avatar;
+			this.myDes = res.result.intro;
+			this.username = res.result.username;
 			this.silverNum = res.result.silverNum;
 			this.flowerNum = res.result.flowerNum;
 			this.eggNum = res.result.eggNum;
-			this.myDes = res.result.intro;
-			this.username = res.result.username;
 			this.fans = res.result.fans;
 			this.follow = res.result.follow;
 			this.flowerNo = res.result.flowerNo;
@@ -530,6 +563,18 @@ export default {
 			this.updateUid();
 			uni.setStorageSync('ava', res.result.avatar);
 			this.updateAva();
+		},
+		//关注/互关/粉丝统计数
+		getUserStatistics() {
+			getUserStatistics().then(res => {
+				this.silverNum = res.result.silverNum;
+				this.flowerNum = res.result.flowerNum;
+				this.eggNum = res.result.eggNum;
+				this.fans = res.result.fans;
+				this.follow = res.result.follow;
+				this.flowerNo = res.result.flowerNo;
+				this.silverNo = res.result.silverNo;
+			});
 		},
 		//生成二维码
 		async createQRCode() {
@@ -603,14 +648,8 @@ export default {
 			});
 		},
 		//聊天红点
-		async getChatRedDot() {
-			if (!this.uid) {
-				setTimeout(() => {
-					this.getChatRedDot();
-				}, 1000);
-				return;
-			}
-			let res = await redDot({ uid: this.uid, type: 1, t: Date.parse(new Date()) });
+		async getChatRedDot(uid) {
+			let res = await redDot({ uid: uid, type: 1, t: Date.parse(new Date()) });
 			console.log('请求聊天红点');
 			console.log(res);
 			if (res.code !== 0) {
@@ -628,14 +667,8 @@ export default {
 			}
 		},
 		//消息红点
-		async getMessRedDot() {
-			if (!this.uid) {
-				setTimeout(() => {
-					this.getMessRedDot();
-				}, 1000);
-				return;
-			}
-			let res = await redDot({ uid: this.uid, type: 2, t: Date.parse(new Date()) });
+		async getMessRedDot(uid) {
+			let res = await redDot({ uid: uid, type: 2, t: Date.parse(new Date()) });
 			console.log('请求消息红点');
 			console.log(res);
 			if (res.code !== 0) {
@@ -670,6 +703,7 @@ export default {
 					url: '../loginSelect/loginSelect'
 				});
 			}
+			this.notify(res.room.uid);
 			//保存房子状态
 			uni.setStorageSync('house', true);
 			this.updateHouse();
@@ -960,6 +994,61 @@ export default {
 			}
 			this.popSearch = true;
 			this.peopleList = res.room;
+		},
+		//更新密码
+		async confirmChangeSecret() {
+			if (this.oldSecret !== this.password) {
+				uni.showToast({
+					title: '原密码输入错误',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			if (this.newSecret !== '' && this.newSecret.length !== 6) {
+				uni.showToast({
+					title: '密码长度必须设置为6位',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			let res = await updatePassword({ password: this.newSecret });
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '修改密码失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			uni.showToast({
+				title: '修改密码成功',
+				icon: 'none',
+				duration: 2000
+			});
+			this.changeSecret = false;
+			this.password = this.newSecret;
+			this.newSecret = '';
+			this.oldSecret = '';
+		},
+		notify(uid) {
+			notify(uid).then(res => {
+				console.log('获取弹窗');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取弹窗失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.popContent = res.content ? res.content.content : '';
+				if (this.popContent) {
+					this.popContentBox = true;
+				}
+			});
 		}
 	}
 };

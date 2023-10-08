@@ -95,7 +95,9 @@
 
 <script>
 import { list } from '@/api/citySelect/citySelect.js';
-
+import { bind, fchange } from '@/api/accessPossword/accessPossword.js';
+import { myRoom } from '@/api/loginSelect/loginSelect.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 export default {
 	data() {
 		return {
@@ -137,7 +139,8 @@ export default {
 			xiaoquPeople: '',
 			peopleList: [],
 			//仅传递到下一级用
-			change: ''
+			change: '',
+			password: ''
 		};
 	},
 	onLoad(option) {
@@ -147,6 +150,9 @@ export default {
 		this.lookHouse = option.lookHouse !== 'undefined' ? true : false;
 		//随机获取页面详情
 		this.getCityList();
+		if (option.change === 'true') {
+			this.getMyRoom();
+		}
 	},
 	methods: {
 		//随机获取街道
@@ -420,13 +426,58 @@ export default {
 		changeRoomState(i) {
 			this.mySelect = i;
 		},
+		async getMyRoom() {
+			let res = await myRoom();
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '获取用户密码失败，请稍后再更换房间',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			this.password = res.room.password ? res.room.password : '';
+		},
 		//点击按钮确定选定房间
-		toRoomSet() {
+		async toRoomSet() {
 			//是空房间跳转选择密码
-			this.showRoom = false;
-			uni.navigateTo({
-				url: '/pages/accessPossword/accessPossword?type=' + 1 + '&id=' + this.mySelect.cateId + '&change=' + this.change
-			});
+			// this.showRoom = false;
+			// uni.navigateTo({
+			// 	url: '/pages/accessPossword/accessPossword?type=' + 1 + '&id=' + this.mySelect.cateId + '&change=' + this.change
+			// });
+			if (this.change === 'true') {
+				//换绑
+				let res = await fchange({ cateId: this.mySelect.cateId, password: this.password });
+				if (res.code === 0) {
+					uni.reLaunch({
+						url: '../user/user'
+					});
+				} else {
+					uni.showToast({
+						title: '换绑失败',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+			} else {
+				//注册成功
+				let res = await bind({ cateId: this.mySelect.cateId, password: '' });
+				if (res.code === 0) {
+					//有房了
+					uni.setStorageSync('house', true);
+					this.updateHouse();
+					uni.reLaunch({
+						//注册完成 重定向到个人中心
+						url: '../user/user'
+					});
+				} else {
+					uni.showToast({
+						title: '注册失败',
+						icon: 'none',
+						duration: 2000
+					});
+				}
+			}
 		},
 		// 刷新选择页面
 		reloadArea() {

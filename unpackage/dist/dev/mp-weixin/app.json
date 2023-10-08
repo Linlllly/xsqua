@@ -6,8 +6,8 @@
     "pages/loginSelect/loginSelect",
     "pages/citySelect/citySelect",
     "pages/areaSelect/areaSelect",
-    "pages/accessPossword/accessPossword",
-    "pages/xIntroduce/xIntroduce"
+    "pages/index2/index2",
+    "pages/index3/index3"
   ],
   "subPackages": [
     {
@@ -23,7 +23,6 @@
         "adminLogin/adminLogin",
         "chatWith/chatWith",
         "messageList/messageList",
-        "friendDynamic/friendDynamic",
         "fansAndFouces/fansAndFouces",
         "otherUser/otherUser",
         "settings/settings",
@@ -33,7 +32,8 @@
         "mySecret/mySecret",
         "changeMima/changeMima",
         "rankingList/rankingList",
-        "erWeiMa/erWeiMa"
+        "erWeiMa/erWeiMa",
+        "xIntroduce/xIntroduce"
       ]
     }
   ],
@@ -61,8 +61,14 @@
         "selectedIconPath": "static/index-t.png"
       },
       {
-        "pagePath": "pages/xIntroduce/xIntroduce",
-        "text": "空间介绍",
+        "pagePath": "pages/index2/index2",
+        "text": "空间笔友",
+        "iconPath": "static/index-f.png",
+        "selectedIconPath": "static/index-t.png"
+      },
+      {
+        "pagePath": "pages/index3/index3",
+        "text": "空间集市",
         "iconPath": "static/intro-f.png",
         "selectedIconPath": "static/intro-t.png"
       }

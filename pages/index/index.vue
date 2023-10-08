@@ -1,5 +1,18 @@
 <template>
 	<div class="pages">
+		<!-- 搜索 -->
+		<div class="title-search">
+			<u-search
+				placeholder="搜索用户: 房号/个性签名"
+				v-model="searchText"
+				:clearabled="true"
+				actionText="搜索"
+				@search="getSelectRoom"
+				@custom="getSelectRoom"
+				@tap.stop
+			></u-search>
+			<!-- 	<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon> -->
+		</div>
 		<!-- <u-sticky> -->
 		<div class="three">
 			<img class="meeting" src="https://www.zairongyifang.com:8080/filePath/app/20237/e9bd0f5895.jpg" mode="" @click="toAreaSelect" />
@@ -104,6 +117,22 @@
 		<div class="reload">
 			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="getTakeLook(1)"></u-icon>
 		</div>
+		<!-- 搜索结果 -->
+		<u-popup :show="popSearch" @close="popSearch = false" :safeAreaInsetBottom="false">
+			<div>
+				<div class="search-result">搜索结果</div>
+				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width:100%;height:696rpx;">
+					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
+						<img :src="i.userInfo.avatar" alt="" />
+						<div class="des">
+							<div class="des-room">{{ i.userInfo.username }}</div>
+							<div class="des-say">{{ i.userInfo.intro ? i.userInfo.intro : ' ' }}</div>
+						</div>
+					</div>
+				</scroll-view>
+				<div v-else class="no-more">———— 没有匹配到相关用户 ————</div>
+			</div>
+		</u-popup>
 	</div>
 </template>
 
@@ -111,7 +140,7 @@
 import { recommend, takeLook, banner } from '@/api/index/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { getComment } from '@/api/articleDes/articleDes.js';
-
+import { selectRoom } from '@/api/loginSelect/loginSelect.js';
 export default {
 	computed: {
 		...mapState(['uid', 'house'])
@@ -133,7 +162,11 @@ export default {
 			refresh: true,
 			//下次更新过滤的动态id
 			fillerIdList: [],
-			list1: ['https://www.zairongyifang.com:8080/filePath/20236/3fa0628eb7.png']
+			list1: ['https://www.zairongyifang.com:8080/filePath/20236/3fa0628eb7.png'],
+			//搜索数据
+			searchText: '',
+			popSearch: false,
+			peopleList: []
 		};
 	},
 	onLoad() {
@@ -141,8 +174,10 @@ export default {
 	},
 	onShow() {
 		if (this.refresh) {
+			console.log('onShow');
 			this.meetingList = [];
-			this.fillerIdList = [];
+			//刷新不清空id
+			// this.fillerIdList = [];
 			this.getTakeLook();
 		}
 		this.refresh = true;
@@ -155,7 +190,7 @@ export default {
 	methods: {
 		...mapMutations(['updateUid']),
 		async getBanner() {
-			let res = await banner();
+			let res = await banner({ type: 4 });
 			console.log('请求banner图');
 			if (res.code !== 0) {
 				uni.showToast({
@@ -194,11 +229,11 @@ export default {
 			if (n) {
 				//n存在 代表是刷新重置
 				this.meetingList = [];
-				this.fillerIdList = [];
+				// this.fillerIdList = [];
 			}
 			// ** 打开节流阀
 			this.isloading = true;
-			let res = await takeLook({ limit: this.limit, fillerIdList: this.fillerIdList });
+			let res = await takeLook({ limit: this.limit, fillerIdList: this.fillerIdList, meeting: 4 });
 			console.log('请求瞧一瞧列表');
 			console.log(res);
 			if (res.code !== 0) {
@@ -214,6 +249,11 @@ export default {
 
 			//data请求评论
 			this.linsMeeting = res.result;
+			if (!res.result) {
+				this.fillerIdList = [];
+				this.getTakeLook();
+				return;
+			}
 			for (let i = 0; i < this.linsMeeting.length; i++) {
 				this.fillerIdList.push(this.linsMeeting[i].id);
 				let result = await this.getCommentList(this.linsMeeting[i].id);
@@ -293,6 +333,25 @@ export default {
 					});
 				}
 			}
+		},
+		//搜索用户
+		async getSelectRoom() {
+			if (this.searchText === '') {
+				return;
+			}
+			let res = await selectRoom({ key: this.searchText });
+			console.log('搜索用户');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '搜索用户失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			this.popSearch = true;
+			this.peopleList = res.room;
 		}
 	}
 };
@@ -381,7 +440,7 @@ export default {
 			}
 			.addr {
 				font-size: 32rpx;
-				color: #fab237;
+				color: #d56621;
 				line-height: 1.3;
 				overflow: hidden !important;
 				text-overflow: ellipsis !important; /* 超出部分省略号 */
@@ -563,5 +622,59 @@ button::after {
 	z-index: 50;
 	// background: url(../../static/gotop.png) no-repeat;
 	// background-size: 88rpx 88rpx;
+}
+.title-search {
+	display: flex;
+	padding: 10rpx 40rpx;
+}
+/deep/.u-popup__content {
+	border-radius: 30rpx 30rpx 0 0 !important;
+}
+.search-result {
+	font-size: 40rpx;
+	color: #e99300;
+	text-align: center;
+	margin: 30rpx 20rpx 10rpx;
+	padding-bottom: 30rpx;
+}
+.people-item {
+	display: flex;
+	width: 100%;
+	height: 130rpx;
+	align-items: center;
+	padding: 10rpx 0;
+	box-sizing: border-box;
+	border-bottom: 2rpx solid #d9d9d9;
+	image {
+		width: 90rpx;
+		height: 90rpx;
+		margin: 0 10rpx;
+		border-radius: 50%;
+	}
+	.des {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		.des-room {
+			font-size: 32rpx;
+		}
+		.des-say {
+			flex: 1;
+			font-size: 28rpx;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important; /* 超出部分省略号 */
+			word-break: break-all !important; /* break-all(允许在单词内换行。) */
+			display: -webkit-box !important; /* 对象作为伸缩盒子模型显示 */
+			-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+			-webkit-line-clamp: 1 !important; /* 显示的行数 */
+		}
+	}
+}
+.no-more {
+	margin: 30rpx auto;
+	width: 100%;
+	height: 668rpx;
+	color: #767374;
+	text-align: center;
 }
 </style>

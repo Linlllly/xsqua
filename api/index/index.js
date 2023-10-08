@@ -29,6 +29,6 @@ export function takeLook(data) {
 	return post('/app/post/takeLook', data)
 }
 //banner
-export function banner() {
-	return get('/app/link/list')
+export function banner(data) {
+	return get('/app/link/list', data)
 }

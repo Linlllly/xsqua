@@ -40,17 +40,16 @@
 			}
 
 		}, {
-			"path": "pages/accessPossword/accessPossword", //输入密码
+			"path": "pages/index2/index2",
 			"style": {
-
+				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
-		}
-
-		, {
-			"path": "pages/xIntroduce/xIntroduce", //空间介绍
+		}, {
+			"path": "pages/index3/index3",
 			"style": {
+				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
@@ -88,14 +87,6 @@
 					}
 				}, {
 					"path": "messageList/messageList", //消息列表
-					"style": {
-
-						"enablePullDownRefresh": false,
-						"onReachBottomDistance": 150
-					}
-
-				}, {
-					"path": "friendDynamic/friendDynamic", //好友动态
 					"style": {
 
 						"enablePullDownRefresh": false,
@@ -168,6 +159,13 @@
 						"enablePullDownRefresh": false
 					}
 
+				}, {
+					"path": "xIntroduce/xIntroduce",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
 				}
 			]
 		}
@@ -187,8 +185,13 @@
 			"iconPath": "static/index-f.png",
 			"selectedIconPath": "static/index-t.png"
 		}, {
-			"pagePath": "pages/xIntroduce/xIntroduce",
-			"text": "空间介绍",
+			"pagePath": "pages/index2/index2",
+			"text": "空间笔友",
+			"iconPath": "static/index-f.png",
+			"selectedIconPath": "static/index-t.png"
+		}, {
+			"pagePath": "pages/index3/index3",
+			"text": "空间集市",
 			"iconPath": "static/intro-f.png",
 			"selectedIconPath": "static/intro-t.png"
 		}]

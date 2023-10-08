@@ -359,7 +359,7 @@ page {
 }
 .dy-content .look-title .info-des .addr.data-v-57280228 {
   font-size: 32rpx;
-  color: #fab237;
+  color: #d56621;
   line-height: 1.3;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
@@ -542,5 +542,64 @@ button.data-v-57280228::after {
   bottom: 250rpx;
   right: 26rpx;
   z-index: 50;
+}
+.title-search.data-v-57280228 {
+  display: flex;
+  padding: 10rpx 40rpx;
+}
+.data-v-57280228 .u-popup__content {
+  border-radius: 30rpx 30rpx 0 0 !important;
+}
+.search-result.data-v-57280228 {
+  font-size: 40rpx;
+  color: #e99300;
+  text-align: center;
+  margin: 30rpx 20rpx 10rpx;
+  padding-bottom: 30rpx;
+}
+.people-item.data-v-57280228 {
+  display: flex;
+  width: 100%;
+  height: 130rpx;
+  align-items: center;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #d9d9d9;
+}
+.people-item image.data-v-57280228 {
+  width: 90rpx;
+  height: 90rpx;
+  margin: 0 10rpx;
+  border-radius: 50%;
+}
+.people-item .des.data-v-57280228 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.people-item .des .des-room.data-v-57280228 {
+  font-size: 32rpx;
+}
+.people-item .des .des-say.data-v-57280228 {
+  flex: 1;
+  font-size: 28rpx;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  /* 超出部分省略号 */
+  word-break: break-all !important;
+  /* break-all(允许在单词内换行。) */
+  display: -webkit-box !important;
+  /* 对象作为伸缩盒子模型显示 */
+  -webkit-box-orient: vertical !important;
+  /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  -webkit-line-clamp: 1 !important;
+  /* 显示的行数 */
+}
+.no-more.data-v-57280228 {
+  margin: 30rpx auto;
+  width: 100%;
+  height: 668rpx;
+  color: #767374;
+  text-align: center;
 }
 

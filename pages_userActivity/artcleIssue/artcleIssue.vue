@@ -8,6 +8,12 @@
 			</div>
 		</u-sticky>
 		<!-- 选择上传 -->
+		<u-radio-group v-if="!secret" v-model="meeting" activeColor="#f9ae3d">
+			<u-radio :name="4" shape="square" :label="'空间社交'"></u-radio>
+			<u-radio :name="2" shape="square" :label="'空间笔友'"></u-radio>
+			<u-radio :name="3" shape="square" :label="'空间集市'"></u-radio>
+		</u-radio-group>
+		<!-- 选择上传 -->
 		<u-radio-group v-model="value" activeColor="#f9ae3d">
 			<u-radio :name="1" shape="circle" :label="secret ? '图文' : '发布图文'"></u-radio>
 			<u-radio :name="2" shape="circle" :label="secret ? '视频' : '发布视频'"></u-radio>
@@ -19,7 +25,15 @@
 			<u--textarea
 				v-if="value === 1"
 				v-model="content"
-				:placeholder="secret ? '字数无限制' : '发布你的新鲜事吧!'"
+				:placeholder="
+					secret
+						? '字数无限制'
+						: meeting === 4
+						? '发布你的新鲜事吧!'
+						: meeting === 2
+						? '小作文表达大情感，小呻吟促成大沟通，以文交友'
+						: '让做小手工/小才艺等有资源的人可以免费展示交流'
+				"
 				autoHeight
 				border="none"
 				:show-confirm-bar="false"
@@ -70,6 +84,8 @@ import { addPost, checkContent, addXFilePost } from '@/api/articleIssue/artcleIs
 export default {
 	data() {
 		return {
+			//
+			meeting: 4,
 			//文本
 			content: '',
 			content2: '',
@@ -83,8 +99,6 @@ export default {
 			vtype: 1,
 			//单选
 			value: 1,
-			//发布到空间会议室？
-			meeting: '',
 			//是否私人
 			secret: null,
 			mediaImgList: [],
@@ -95,7 +109,7 @@ export default {
 	},
 	onLoad(option) {
 		this.secret = option.secret ? option.secret : null;
-		this.meeting = option.meeting ? option.meeting : '';
+		// this.meeting = option.meeting ? option.meeting : '';
 		if (!this.secret) {
 			uni.showToast({
 				title: '请遵守法律法规，文明发言',

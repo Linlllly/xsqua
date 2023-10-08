@@ -30,11 +30,11 @@
 		</div>
 
 		<!-- 查看或修改房间密码 -->
-		<div class="content-list" @click="changeSecret = true">
+		<!-- <div class="content-list" @click="changeSecret = true">
 			<u-icon name="edit-pen" color="#e89406" size="20"></u-icon>
 			<div class="info-name">设置房间密码</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
+		</div> -->
 		<!-- 注销 -->
 		<!-- 	<div class="content-list" @click="showLoginOut = true">
 			<u-icon name="pushpin" color="#e89406" size="20"></u-icon>
@@ -305,7 +305,7 @@ export default {
 				return;
 			}
 			this.unlookMyRoom = res.room.isClose === 1 ? true : false;
-			this.password = res.room.password ? res.room.password : '';
+			this.password = res.room.password;
 		},
 		//管理员登录
 		goAdminLogin() {
