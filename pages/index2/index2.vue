@@ -1,17 +1,5 @@
 <template>
 	<div class="pages">
-		<!-- 搜索 -->
-		<!-- <div class="title-search">
-			<u-search
-				v-model="keyword"
-				:showAction="true"
-				actionText="搜索"
-				:animation="false"
-				@search="peopleSearch"
-				@custom="peopleSearch"
-			></u-search>
-			<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
-		</div> -->
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
 			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="3500" :duration="400" :circular="true"></u-swiper>
@@ -102,6 +90,9 @@
 		<div class="next"><u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon></div>
 
 		<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+		<div class="ranking">
+			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="排行榜" labelPos="bottom" @click="toRankingList"></u-icon>
+		</div>
 		<button class="issue" @click="toTop"></button>
 		<div class="reload">
 			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="getTakeLook(1)"></u-icon>
@@ -126,7 +117,7 @@ export default {
 			//地区列表
 			areaList: [],
 			//条数
-			limit: 12,
+			limit: 5,
 			lastPage: '',
 			meetingList: [],
 			linsMeeting: [],
@@ -140,13 +131,10 @@ export default {
 	},
 	onLoad() {
 		this.getBanner();
+		this.fillerIdList = uni.getStorageSync('filler2') ? uni.getStorageSync('filler2') : [];
+		this.getTakeLook();
 	},
 	onShow() {
-		if (this.refresh) {
-			this.meetingList = [];
-			// this.fillerIdList = [];
-			this.getTakeLook();
-		}
 		this.refresh = true;
 	},
 	onReachBottom() {
@@ -193,7 +181,7 @@ export default {
 		},
 		//获取列表
 		async getTakeLook(n) {
-			if (n) {
+			if (n || !this.fillerIdList.length) {
 				//n存在 代表是刷新重置
 				this.meetingList = [];
 				// this.fillerIdList = [];
@@ -214,18 +202,15 @@ export default {
 				return;
 			}
 
-			//data请求评论
+			//过滤现有结果+请求评论
 			this.linsMeeting = res.result;
-			if (!res.result) {
-				this.fillerIdList = [];
-				this.getTakeLook();
-				return;
-			}
+
 			for (let i = 0; i < this.linsMeeting.length; i++) {
 				this.fillerIdList.push(this.linsMeeting[i].id);
 				let result = await this.getCommentList(this.linsMeeting[i].id);
 				this.$set(this.linsMeeting[i], 'pinglun', result);
 			}
+			uni.setStorageSync('filler2', this.fillerIdList);
 			this.meetingList = [...this.meetingList, ...this.linsMeeting];
 			this.lastPage = res.result.last_page;
 			for (var i = 0; i < this.meetingList.length; i++) {
@@ -234,6 +219,11 @@ export default {
 				//是不是图片
 				this.$set(this.meetingList[i], 'img', zhengze.test(lins));
 				this.$set(this.meetingList[i], 'more', '');
+			}
+			if (!res.result.length) {
+				uni.removeStorageSync('filler2');
+				this.fillerIdList = [];
+				this.getTakeLook();
 			}
 			this.$nextTick(() => {
 				let query = uni.createSelectorQuery().in(this);
@@ -554,6 +544,12 @@ export default {
 }
 button::after {
 	border: none;
+}
+.ranking {
+	position: fixed;
+	bottom: 388rpx;
+	right: 26rpx;
+	z-index: 50;
 }
 .issue {
 	position: fixed;

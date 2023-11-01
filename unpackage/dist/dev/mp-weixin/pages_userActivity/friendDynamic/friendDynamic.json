@@ -1,8 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "onReachBottomDistance": 150,
-  "usingComponents": {
-    "u-album": "/uni_modules/uview-ui/components/u-album/u-album",
-    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon"
-  }
-}

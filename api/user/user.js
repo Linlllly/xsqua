@@ -9,8 +9,12 @@ export function userInfo() {
 	return get('/app/user/userInfo')
 }
 // 获取关注/互关/粉丝统计数
-export function getUserStatistics() {
-	return get('/app/user/getUserStatistics')
+export function getUserStatistics(data) {
+	return get('/app/user/getUserStatistics', data)
+}
+// 获取用户排名情况
+export function getUserRank(data) {
+	return get('/app/user/getUserRank', data)
 }
 //修改头像
 export function userInfoEdit(data) {

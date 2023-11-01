@@ -95,7 +95,9 @@ export default {
 		}
 	},
 	onLoad() {},
-
+	onClose() {
+		this.ws.onClose();
+	},
 	onHide() {
 		this.getList = false;
 	},

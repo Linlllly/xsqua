@@ -11,22 +11,17 @@
 				@custom="getSelectRoom"
 				@tap.stop
 			></u-search>
-			<!-- 	<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon> -->
 		</div>
-		<!-- <u-sticky> -->
-		<div class="three">
-			<img class="meeting" src="https://www.zairongyifang.com:8080/filePath/app/20237/e9bd0f5895.jpg" mode="" @click="toAreaSelect" />
-			<img class="meeting" src="https://www.zairongyifang.com:8080/filePath/app/20237/861cd2052f.jpg" mode="" @click="toRankingList" />
+		<div class="area-all">
+			<div class="city-select">
+				<div v-for="i in areaList" :key="i.cateId" @click="goCitySelect(i.cateId)">{{ i }}</div>
+			</div>
 		</div>
+		<div class="how-are-you" @click="toOtherUser({ uid, cateid })">你是谁</div>
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
 			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="3500" :duration="400" :circular="true"></u-swiper>
 		</div>
-
-		<!-- <div class="title-box">
-				<u-icon name="reload" color="#000" size="20" label="换一换" labelPos="bottom" @click="getTakeLook(1)"></u-icon>
-		</div> -->
-		<!-- </u-sticky> -->
 		<!-- 列表 -->
 		<div v-if="meetingList.length !== 0" class="dy-content" v-for="(i, index) in meetingList" :key="i.id">
 			<div class="look-title">
@@ -113,6 +108,9 @@
 		<div class="next"><u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon></div>
 
 		<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+		<div class="ranking">
+			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="排行榜" labelPos="bottom" @click="toRankingList"></u-icon>
+		</div>
 		<button class="issue" @click="toTop"></button>
 		<div class="reload">
 			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="getTakeLook(1)"></u-icon>
@@ -122,7 +120,7 @@
 			<div>
 				<div class="search-result">搜索结果</div>
 				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width:100%;height:696rpx;">
-					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
+					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i, 1)">
 						<img :src="i.userInfo.avatar" alt="" />
 						<div class="des">
 							<div class="des-room">{{ i.userInfo.username }}</div>
@@ -141,6 +139,7 @@ import { recommend, takeLook, banner } from '@/api/index/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { getComment } from '@/api/articleDes/articleDes.js';
 import { selectRoom } from '@/api/loginSelect/loginSelect.js';
+import { list } from '@/api/areaSelect/areaSelect.js';
 export default {
 	computed: {
 		...mapState(['uid', 'house'])
@@ -153,7 +152,7 @@ export default {
 			//地区列表
 			areaList: [],
 			//条数
-			limit: 12,
+			limit: 5,
 			lastPage: '',
 			meetingList: [],
 			linsMeeting: [],
@@ -171,15 +170,11 @@ export default {
 	},
 	onLoad() {
 		this.getBanner();
+		this.getList();
+		this.fillerIdList = uni.getStorageSync('filler1') ? uni.getStorageSync('filler1') : [];
+		this.getTakeLook();
 	},
 	onShow() {
-		if (this.refresh) {
-			console.log('onShow');
-			this.meetingList = [];
-			//刷新不清空id
-			// this.fillerIdList = [];
-			this.getTakeLook();
-		}
 		this.refresh = true;
 	},
 	onReachBottom() {
@@ -189,6 +184,25 @@ export default {
 	},
 	methods: {
 		...mapMutations(['updateUid']),
+		async getList() {
+			let res = await list();
+			console.log('1.一级居住地');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: '获取区域列表失败',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
+			this.areaList = res.page.list;
+		},
+		goCitySelect(a) {
+			uni.navigateTo({
+				url: '../citySelect/citySelect' + '?cateId=' + a + '&change=' + false + '&lookHouse=' + true
+			});
+		},
 		async getBanner() {
 			let res = await banner({ type: 4 });
 			console.log('请求banner图');
@@ -203,12 +217,6 @@ export default {
 			console.log(res);
 			this.list1 = res.result;
 		},
-		goCitySelect(a) {
-			uni.navigateTo({
-				url: '../citySelect/citySelect' + '?area=' + a + '&lookHouse=true'
-			});
-		},
-
 		toMeetingRoom() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/meetingRoom/meetingRoom'
@@ -226,7 +234,7 @@ export default {
 		},
 		//获取列表
 		async getTakeLook(n) {
-			if (n) {
+			if (n || !this.fillerIdList.length) {
 				//n存在 代表是刷新重置
 				this.meetingList = [];
 				// this.fillerIdList = [];
@@ -247,18 +255,15 @@ export default {
 				return;
 			}
 
-			//data请求评论
+			//过滤现有结果+请求评论
 			this.linsMeeting = res.result;
-			if (!res.result) {
-				this.fillerIdList = [];
-				this.getTakeLook();
-				return;
-			}
+
 			for (let i = 0; i < this.linsMeeting.length; i++) {
 				this.fillerIdList.push(this.linsMeeting[i].id);
 				let result = await this.getCommentList(this.linsMeeting[i].id);
 				this.$set(this.linsMeeting[i], 'pinglun', result);
 			}
+			uni.setStorageSync('filler1', this.fillerIdList);
 			this.meetingList = [...this.meetingList, ...this.linsMeeting];
 			this.lastPage = res.result.last_page;
 			for (var i = 0; i < this.meetingList.length; i++) {
@@ -267,6 +272,10 @@ export default {
 				//是不是图片
 				this.$set(this.meetingList[i], 'img', zhengze.test(lins));
 				this.$set(this.meetingList[i], 'more', '');
+			}
+			if (res.result.length < 5) {
+				uni.removeStorageSync('filler1');
+				this.fillerIdList = [];
 			}
 			this.$nextTick(() => {
 				let query = uni.createSelectorQuery().in(this);
@@ -603,6 +612,12 @@ export default {
 button::after {
 	border: none;
 }
+.ranking {
+	position: fixed;
+	bottom: 388rpx;
+	right: 26rpx;
+	z-index: 50;
+}
 .issue {
 	position: fixed;
 	width: 88rpx;
@@ -615,13 +630,9 @@ button::after {
 }
 .reload {
 	position: fixed;
-	// width: 88rpx;
-	// height: 88rpx;
 	bottom: 250rpx;
 	right: 26rpx;
 	z-index: 50;
-	// background: url(../../static/gotop.png) no-repeat;
-	// background-size: 88rpx 88rpx;
 }
 .title-search {
 	display: flex;

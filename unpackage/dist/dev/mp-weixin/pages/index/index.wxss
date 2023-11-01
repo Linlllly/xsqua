@@ -527,6 +527,12 @@ page {
 button.data-v-57280228::after {
   border: none;
 }
+.ranking.data-v-57280228 {
+  position: fixed;
+  bottom: 388rpx;
+  right: 26rpx;
+  z-index: 50;
+}
 .issue.data-v-57280228 {
   position: fixed;
   width: 88rpx;

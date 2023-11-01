@@ -10,29 +10,7 @@ export default {
 		};
 	},
 	//---------生命周期
-	onLaunch: function() {
-		// wx.requestSubscribeMessage({
-		// 	tmplIds: ['5w3aU15YTMsEVccUd5OSJlsODGLDa140xw_ch2jhNz0', '5w3aU15YTMsEVccUd5OSJnQury11U_8lNHw5ZWpA7_Y'],
-		// 	success(res) {
-		// 		// if (res['模板ID1'] === 'accept') {
-		// 		//   // 用户同意订阅模板ID1
-		// 		// } else if (res['模板ID1'] === 'reject') {
-		// 		//   // 用户拒绝订阅模板ID1
-		// 		// }
-		// 		// 对其他模板ID的订阅结果进行相应处理
-		// 		console.log(res);
-		// 	},
-		// 	fail(err) {
-		// 		// 订阅失败的处理
-		// 		console.log(err);
-		// 	}
-		// });
-		// ws.init(); //初始化 ws
-		// //监听断开时间，网咯断开，ws 断开都会执行这个回调
-		// ws.on('onOpen', () => {
-		// 	this.globalData.ws = ws.ws;
-		// });
-	},
+	onLaunch: function() {},
 	onLoad: function() {},
 	onShow: function() {
 		// 小程序自动更新
@@ -95,9 +73,13 @@ export default {
 			});
 		},
 		updateWs() {
-			this.globalData.ws = null;
-			// ws初始化
-			ws.init();
+			if (this.globalData.ws) {
+				//ws更新
+				ws.init(1);
+			} else {
+				// ws初始化
+				ws.init();
+			}
 			//监听断开时间，网咯断开，ws 断开都会执行这个回调
 			ws.on('onOpen', () => {
 				this.globalData.ws = ws.ws;

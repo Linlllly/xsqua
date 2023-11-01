@@ -11,7 +11,7 @@
 		<!-- 设置房间为不可查看 -->
 		<div class="content-list">
 			<u-icon name="close-circle" color="#e89406" size="20"></u-icon>
-			<div class="info-name">设置闭关修炼</div>
+			<div class="info-name">设置闭关修炼(动态仅自己可见)</div>
 			<u-switch v-model="unlookMyRoom" @change="changeMyRoomLookState" activeColor="#e89406"></u-switch>
 		</div>
 

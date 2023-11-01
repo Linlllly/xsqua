@@ -181,19 +181,19 @@
 			"selectedIconPath": "static/user_t.png"
 		}, {
 			"pagePath": "pages/index/index",
-			"text": "空间社交",
-			"iconPath": "static/index-f.png",
-			"selectedIconPath": "static/index-t.png"
+			"text": "欢喜的人",
+			"iconPath": "static/欢喜的人（里）.png",
+			"selectedIconPath": "static/欢喜的人（表）.png"
 		}, {
 			"pagePath": "pages/index2/index2",
-			"text": "空间笔友",
-			"iconPath": "static/index-f.png",
-			"selectedIconPath": "static/index-t.png"
+			"text": "随手文字",
+			"iconPath": "static/随手文字（里）.png",
+			"selectedIconPath": "static/随手文字（表）.png"
 		}, {
 			"pagePath": "pages/index3/index3",
-			"text": "空间集市",
-			"iconPath": "static/intro-f.png",
-			"selectedIconPath": "static/intro-t.png"
+			"text": "好玩的手艺",
+			"iconPath": "static/1.png",
+			"selectedIconPath": "static/2.png"
 		}]
 	},
 	"globalStyle": {

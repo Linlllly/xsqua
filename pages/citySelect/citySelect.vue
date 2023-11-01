@@ -82,7 +82,12 @@
 					<div class="icon-box" @click="showPeoPle = false"><u-icon name="close" color="#333" size="22"></u-icon></div>
 				</div>
 				<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
-					<img :src="i.userInfo.avatar" alt="" />
+					<img
+						v-if="i.userInfo.avatar === 'https://www.zairongyifang.com:8080/filePath/resource/default_head.png'"
+						src="../../static/I.png"
+						alt=""
+					/>
+					<img v-else :src="i.userInfo.avatar" alt="" />
 					<div class="des">
 						<div class="des-room">{{ i.cateName }}</div>
 						<div class="des-say">{{ i.userInfo.intro ? i.userInfo.intro : ' ' }}</div>
@@ -155,6 +160,7 @@ export default {
 		}
 	},
 	methods: {
+		...mapMutations(['updateUid', 'updateAva', 'updateHouse']),
 		//随机获取街道
 		async getCityList() {
 			let res = await list({ parentId: this.cateId });

@@ -2,8 +2,6 @@
 	<div class="pages">
 		<!-- <bgMusic></bgMusic> -->
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
-		<div class="title">1</div>
-
 		<img src="https://www.zairongyifang.com:8080/filePath/app/20237/57c133248a.jpg" alt="" class="area" />
 		<img src="https://www.zairongyifang.com:8080/filePath/app/20237/9e485e7175.jpg" alt="" class="area" />
 		<img src="https://www.zairongyifang.com:8080/filePath/app/20237/8213f7cdeb.jpg" alt="" class="area" />

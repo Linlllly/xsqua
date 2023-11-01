@@ -301,7 +301,7 @@
 		text-justify:inter-ideograph;"
 			>
 				<b>
-					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>15、空间社交</font></span>
+					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>15、欢喜的人</font></span>
 				</b>
 			</p>
 			<p
@@ -1043,7 +1043,7 @@
 		text-align:justify;text-justify:inter-ideograph;"
 			>
 				<b>
-					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>15、空间社交：</font></span>
+					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>15、欢喜的人：</font></span>
 				</b>
 			</p>
 			<p
@@ -1058,7 +1058,7 @@
 				<![endif]>
 				<span style="  color:rgb(0,0,0);font-size:12.0000pt;"><font>进入</font></span>
 				<b>
-					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>“空间社交“</font></span>
+					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>“欢喜的人“</font></span>
 				</b>
 				<span style="  color:rgb(0,0,0);font-size:12.0000pt;"><font>，空间会</font></span>
 				<b>
@@ -1081,7 +1081,7 @@
 				<![if !supportLists]>
 				<span style=" color:rgb(0,0,0);font-weight:normal;font-size:12.0000pt;"><span style="mso-list:Ignore;">（2）</span></span>
 				<![endif]>
-				<span style="  color:rgb(0,0,0);font-size:12.0000pt;"><font>在空间社交里面点击</font></span>
+				<span style="  color:rgb(0,0,0);font-size:12.0000pt;"><font>在欢喜的人里面点击</font></span>
 				<b>
 					<span style="  color:rgb(0,0,0);font-weight:bold;font-size:12.0000pt;"><font>”逛一逛“</font></span>
 				</b>
@@ -1100,7 +1100,7 @@
 				<span style=" color:rgb(0,0,0);font-weight:normal;font-size:12.0000pt;"><span style="mso-list:Ignore;">（3）</span></span>
 				<![endif]>
 				<span style="  color:rgb(0,0,0);font-size:12.0000pt;">
-					<font>在空间社交里点击</font>
+					<font>在欢喜的人里点击</font>
 					<font>”</font>
 				</span>
 				<b>

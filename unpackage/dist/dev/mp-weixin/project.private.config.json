@@ -87,7 +87,7 @@
         },
         {
           "name": "管理员登录",
-          "pathName": "pages/adminLogin/adminLogin",
+          "pathName": "pages_userActivity/adminLogin/adminLogin",
           "query": "",
           "launchMode": "default",
           "scene": null

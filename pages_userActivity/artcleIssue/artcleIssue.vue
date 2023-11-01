@@ -9,9 +9,9 @@
 		</u-sticky>
 		<!-- 选择上传 -->
 		<u-radio-group v-if="!secret" v-model="meeting" activeColor="#f9ae3d">
-			<u-radio :name="4" shape="square" :label="'空间社交'"></u-radio>
-			<u-radio :name="2" shape="square" :label="'空间笔友'"></u-radio>
-			<u-radio :name="3" shape="square" :label="'空间集市'"></u-radio>
+			<u-radio :name="4" shape="square" :label="'欢喜的人'"></u-radio>
+			<u-radio :name="2" shape="square" :label="'随手文字'"></u-radio>
+			<u-radio :name="3" shape="square" :label="'好玩的手艺'"></u-radio>
 		</u-radio-group>
 		<!-- 选择上传 -->
 		<u-radio-group v-model="value" activeColor="#f9ae3d">
@@ -29,10 +29,10 @@
 					secret
 						? '字数无限制'
 						: meeting === 4
-						? '发布你的新鲜事吧!'
+						? '记录、展示、分享生活里的新鲜事！'
 						: meeting === 2
-						? '小作文表达大情感，小呻吟促成大沟通，以文交友'
-						: '让做小手工/小才艺等有资源的人可以免费展示交流'
+						? '有感而发，随便写两句，吐槽、赞美都行！'
+						: '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
 				"
 				autoHeight
 				border="none"

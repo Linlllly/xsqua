@@ -362,13 +362,13 @@ page {
   left: 544rpx;
 }
 .box-title .dynamic.data-v-80842834 {
-  left: 344rpx;
+  left: 444rpx;
 }
 .box-title .setting.data-v-80842834 {
   left: 44rpx;
 }
 .box-title .chat.data-v-80842834 {
-  left: 444rpx;
+  left: 344rpx;
 }
 .box-title .chat image.data-v-80842834 {
   width: 100%;
@@ -868,5 +868,42 @@ page {
 }
 .data-v-80842834 .u-toast__content__text--default {
   line-height: 1.5 !important;
+}
+.pop-content-box.data-v-80842834 {
+  position: relative;
+  width: 602rpx;
+  height: 772rpx;
+  background: pink;
+  margin: auto;
+}
+.pop-content-box ._img.data-v-80842834 {
+  width: 100%;
+  height: 100%;
+}
+.pop-content-box .contents.data-v-80842834 {
+  position: absolute;
+  top: 300rpx;
+  left: 66rpx;
+  width: 480rpx;
+  height: 316rpx;
+  font-size: 34rpx;
+  color: #383838;
+  line-height: 44rpx;
+  overflow-y: auto;
+  /* 显示滚动条 */
+  white-space: pre-wrap;
+  /* 遇到换行符进行换行 */
+  word-wrap: break-word;
+  /* 超出一行也换行 */
+}
+.pop-content-box .iknow.data-v-80842834 {
+  position: absolute;
+  top: 680rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 44rpx;
 }
 

@@ -97,6 +97,7 @@ export default {
 		//跳转去哪里
 		async goUserOrAreaSelect() {
 			// 跳转之前看看有没有房子 并保存状态 然后根据状态去不同的地方
+
 			let res = await myRoom();
 			console.log('请求有没有房间');
 			console.log(res);

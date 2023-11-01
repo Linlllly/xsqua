@@ -32,7 +32,7 @@
 				</div>
 
 				<!-- <img class="dynamic" src="../../static/dynamic.png" alt="" @click="showSearch = true" /> -->
-				<img class="dynamic" src="../../static/dynamic.png" alt="" @click="changeSecret = true" />
+				<img class="dynamic" src="../../static/mim.png" alt="" @click="changeSecret = true" />
 				<div class="chat">
 					<img src="../../static/chat.png" alt="" @click="toChatList" />
 					<div v-if="chatDot" class="mes-dot"></div>
@@ -102,7 +102,9 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx;">{{ i.meeting === 4 ? '空间社交' : i.meeting === 2 ? '空间笔友' : '空间集市' }}</text>
+						<text style="margin-left: 20rpx;">
+							{{ i.meeting === 4 || i.meeting === 0 ? '欢喜的人' : i.meeting === 2 ? '随手文字' : '好玩的手艺' }}
+						</text>
 					</div>
 					<text v-if="!i.postTop" class="get-top" @click.stop="setTop(i)">设为置顶</text>
 					<text v-if="i.postTop" class="get-top" @click.stop="unSetTop(i)">取消置顶</text>
@@ -276,18 +278,26 @@
 			confirmColor="#e89406"
 		>
 			<view class="slot-content">
-				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#767676' }">
+				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#515151' }">
 					<u-form-item label="原密码"><u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6"></u-input></u-form-item>
 					<u-form-item label="新密码"><u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6"></u-input></u-form-item>
 				</u--form>
-				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">
+				<div :style="{ color: '#888888', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">
 					* 新用户设置房间密码，填写新密码即可
 				</div>
-				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新密码不填写即代表不设密码</div>
+				<div :style="{ color: '#888888', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新密码不填写即代表不设密码</div>
 			</view>
 		</u-modal>
 		<!-- 普通弹窗 -->
-		<u-modal :show="popContentBox" :content="popContent" @confirm="popContentBox = false"></u-modal>
+		<!-- 	<u-modal :show="popContentBox" :content="popContent" @confirm="popContentBox = false"></u-modal> -->
+
+		<u-overlay :show="popContentBox" @click="popContentBox = false">
+			<div class="pop-content-box">
+				<img :src="popContent.img" alt="" />
+				<div class="contents">{{ popContent.text }}</div>
+				<div class="iknow">我知道了</div>
+			</div>
+		</u-overlay>
 	</div>
 </template>
 
@@ -306,7 +316,8 @@ import {
 	getQRCode,
 	updatePush,
 	getUserStatistics,
-	notify
+	notify,
+	getUserRank
 } from '@/api/user/user.js';
 import { myRoom, selectRoom } from '@/api/loginSelect/loginSelect.js';
 import { ip } from '@/api/api.js';
@@ -319,13 +330,11 @@ export default {
 	data() {
 		return {
 			ws: '',
-			//头像
+			//头像临时头像
 			avatar: '',
-			//临时头像
 			linshiAvatar: '',
-			//背景
+			//背景临时背景
 			coverImage: '',
-			//临时背景
 			linshiCoverImage: '',
 			//元宝数量
 			silverNum: '',
@@ -419,6 +428,7 @@ export default {
 						data.type === 'shit'
 					) {
 						this.getUserStatistics();
+						this.getUserRank();
 						this.messageDot = true;
 					}
 					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
@@ -438,7 +448,7 @@ export default {
 		this.getInviteCode = uni.getStorageSync('inviteCode') ? uni.getStorageSync('inviteCode') : null;
 		this.getInviteContent = uni.getStorageSync('inviteContent') ? uni.getStorageSync('inviteContent') : null;
 
-		if (this.isNew && this.getInviteCode && this.getInviteContent) {
+		if (this.getInviteCode && this.getInviteContent) {
 			this.sendChatWith();
 		}
 		this.getMyRoom();
@@ -548,6 +558,9 @@ export default {
 			this.uid = res.result.uid;
 			this.getChatRedDot(res.result.uid);
 			this.getMessRedDot(res.result.uid);
+			this.getUserStatistics();
+			this.getUserRank();
+
 			this.avatar = res.result.avatar;
 			this.myDes = res.result.intro;
 			this.username = res.result.username;
@@ -567,13 +580,37 @@ export default {
 		//关注/互关/粉丝统计数
 		getUserStatistics() {
 			getUserStatistics().then(res => {
+				console.log('请求关注/粉丝数');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '请求关注/粉丝数失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+
+				this.fans = res.result.fans;
+				this.follow = res.result.follow;
+			});
+		},
+		//获取用户各数量情况
+		getUserRank() {
+			getUserRank().then(res => {
+				console.log('获取用户各数量情况');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取用户各数量情况失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
 				this.silverNum = res.result.silverNum;
 				this.flowerNum = res.result.flowerNum;
 				this.eggNum = res.result.eggNum;
-				this.fans = res.result.fans;
-				this.follow = res.result.follow;
-				this.flowerNo = res.result.flowerNo;
-				this.silverNo = res.result.silverNo;
 			});
 		},
 		//生成二维码
@@ -708,7 +745,7 @@ export default {
 			uni.setStorageSync('house', true);
 			this.updateHouse();
 			this.coverImage = res.room.coverImage;
-			this.password = res.room.password;
+			this.password = res.room.password ? res.room.password : '';
 			if (this.password) {
 				this.type = 2;
 			} else {
@@ -1033,7 +1070,7 @@ export default {
 			this.oldSecret = '';
 		},
 		notify(uid) {
-			notify(uid).then(res => {
+			notify({ uid: uid }).then(res => {
 				console.log('获取弹窗');
 				console.log(res);
 				if (res.code !== 0) {
@@ -1044,7 +1081,7 @@ export default {
 					});
 					return;
 				}
-				this.popContent = res.content ? res.content.content : '';
+				this.popContent = res.content ? JSON.parse(res.content.content) : '';
 				if (this.popContent) {
 					this.popContentBox = true;
 				}
@@ -1141,13 +1178,13 @@ export default {
 		left: 544rpx;
 	}
 	.dynamic {
-		left: 344rpx;
+		left: 444rpx;
 	}
 	.setting {
 		left: 44rpx;
 	}
 	.chat {
-		left: 444rpx;
+		left: 344rpx;
 		image {
 			width: 100%;
 			height: 100%;
@@ -1648,5 +1685,38 @@ export default {
 }
 /deep/ .u-toast__content__text--default {
 	line-height: 1.5 !important;
+}
+.pop-content-box {
+	position: relative;
+	width: 602rpx;
+	height: 772rpx;
+	background: pink;
+	margin: auto;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.contents {
+		position: absolute;
+		top: 300rpx;
+		left: 66rpx;
+		width: 480rpx;
+		height: 316rpx;
+		font-size: 34rpx;
+		color: #383838;
+		line-height: 44rpx;
+		overflow-y: auto; /* 显示滚动条 */
+		white-space: pre-wrap; /* 遇到换行符进行换行 */
+		word-wrap: break-word; /* 超出一行也换行 */
+	}
+	.iknow {
+		position: absolute;
+		top: 680rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 36rpx;
+		color: #fff;
+		line-height: 44rpx;
+	}
 }
 </style>

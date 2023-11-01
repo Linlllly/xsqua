@@ -74,7 +74,9 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx;">{{ i.meeting === 4 ? '空间社交' : i.meeting === 2 ? '空间笔友' : '空间集市' }}</text>
+						<text style="margin-left: 20rpx;">
+							{{ i.meeting === 4 || i.meeting === 0 ? '欢喜的人' : i.meeting === 2 ? '随手文字' : '好玩的手艺' }}
+						</text>
 					</div>
 				</div>
 				<!-- 图 -->
@@ -182,7 +184,7 @@ import { mapGetters, mapMutations, mapState } from 'vuex';
 import { enterRoom, getUserInfoById, getPostListByCateId, obtainSliver, addFollow, cancelFollow } from '@/api/otherUser/otherUser.js';
 import { giveSilver, giveFlower } from '@/api/index/index.js';
 import { giveEgg } from '@/api/articleDes/articleDes.js';
-import { redDot } from '@/api/user/user.js';
+import { redDot, getUserStatistics, getUserRank } from '@/api/user/user.js';
 
 const app = getApp();
 
@@ -290,6 +292,8 @@ export default {
 	onLoad(option) {
 		this.ocateId = option.ocateId;
 		this.ouid = option.ouid;
+		this.getUserStatistics(option.ouid);
+		this.getUserRank(option.ouid);
 		this.getGetUserInfoById();
 		this.otherList = [];
 		this.getEnterRoom();
@@ -310,6 +314,40 @@ export default {
 		this.getGetPostListByCateId();
 	},
 	methods: {
+		//关注/互关/粉丝统计数
+		getUserStatistics(uid) {
+			getUserStatistics({ uid: uid }).then(res => {
+				console.log('请求他人关注/粉丝数');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '请求他人关注/粉丝数失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.fans = res.result.fans;
+				this.follow = res.result.follow;
+			});
+		}, //获取用户各数量情况
+		getUserRank(uid) {
+			getUserRank({ uid: uid }).then(res => {
+				console.log('获取其他用户各数量情况');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取其他用户各数量情况失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.silverNum = res.result.silverNum;
+				this.flowerNum = res.result.flowerNum;
+				this.eggNum = res.result.eggNum;
+			});
+		},
 		//聊天红点
 		async getChatRedDot() {
 			let res = await redDot({ uid: this.uid, type: 1 });
@@ -378,13 +416,9 @@ export default {
 				return;
 			}
 			this.avatar = res.result.avatar;
-			this.silverNum = res.result.silverNum;
-			this.flowerNum = res.result.flowerNum;
-			this.eggNum = res.result.eggNum;
+
 			this.myDes = res.result.intro;
 			this.username = res.result.username;
-			this.fans = res.result.fans;
-			this.follow = res.result.follow;
 			this.flowerNo = res.result.flowerNo;
 			this.silverNo = res.result.silverNo;
 			this.isFollow = res.result.isFollow;
@@ -407,9 +441,11 @@ export default {
 			this.password = res.room.password;
 			if (this.isClose === 1) {
 				this.type = 3;
-			} else if (this.password) {
-				this.type = 2;
-			} else {
+			}
+			// else if (this.password) {
+			// this.type = 2;
+			// }
+			else {
 				this.type = 1;
 				this.getGetPostListByCateId();
 			}
@@ -560,7 +596,7 @@ export default {
 				return;
 			}
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + this.ouid
+				url: '../chatWith/chatWith?ouid=' + this.ouid + '&&ocateId=' + this.ocateId
 			});
 		},
 		//单图预览

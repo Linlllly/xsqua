@@ -4,17 +4,14 @@ import {
 } from '@/api/user/user.js';
 
 import store from '@/store/index.js'
+import {
+	closeMyRoom
+} from '../api/settings/settings.js';
 
 //请求个人信息
 async function getuserInfo() {
 	let res = await userInfo();
 	if (res.code !== 0) {
-		// uni.showToast({
-		// 	title: '获取用户uid失败',
-		// 	icon: 'none',
-		// 	duration: 2000
-		// });
-		// await getuserInfo()
 		return
 	}
 	uni.setStorageSync('uid', res.result.uid);
@@ -26,8 +23,10 @@ module.exports = {
 	wsHeartTime: {}, //心脏的时间
 	is_log: 0, //记录登录次数
 	eventMap: {}, // 事件字典
+	closeMyself: false,
 	uid: '',
 	setWs: false,
+	// shouldReconnect:true,
 	//对emit传递的数据进行回调（“emit事件名”，回调函数）
 	on(event, fn) {
 		this.eventMap[event] = fn;
@@ -43,7 +42,12 @@ module.exports = {
 	 * @author: lin
 	 * @Time: 2022/8/18 13:54
 	 */
-	async init() {
+	async init(n) {
+		//判断 如果是更新ws则需要关闭之前的
+		if (n === 1) {
+			this.closeMyself = true
+			wx.closeSocket()
+		}
 		this.uid = await getuserInfo()
 		let that = this;
 		let ws = wx.connectSocket({
@@ -75,10 +79,16 @@ module.exports = {
 		ws.onClose((error) => {
 			console.log('onClose')
 			that.wsHeart(false);
+			if (that.closeMyself) {
+				that.closeMyself = false
+				return
+			}
 			setTimeout(() => {
 				that.init();
 			}, setting.wsDisconnectTime)
 		})
+
+
 		//监听服务器发来的消息（有返回active）
 		ws.onMessage(data => {
 			if (that.setWs) {
