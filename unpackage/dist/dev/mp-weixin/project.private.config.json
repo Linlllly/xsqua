@@ -74,7 +74,7 @@
         {
           "name": "u-互相聊天",
           "pathName": "pages_userActivity/chatWith/chatWith",
-          "query": "ouid=1",
+          "query": "ouid=21",
           "launchMode": "default",
           "scene": null
         },
@@ -172,6 +172,13 @@
         {
           "name": "u-分享",
           "pathName": "pages_userActivity/erWeiMa/erWeiMa",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人中心2",
+          "pathName": "pages/index2/index2",
           "query": "",
           "launchMode": "default",
           "scene": null

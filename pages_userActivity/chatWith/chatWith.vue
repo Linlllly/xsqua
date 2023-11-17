@@ -23,7 +23,7 @@
 				<img v-if="orelations === 2" src="../../static/foucs.png" alt="" />
 				<img v-if="orelations === 3" src="../../static/double.png" alt="" />
 			</div>
-			<u-icon size="30" name="trash" color="#d61515" @click="showRemove = true"></u-icon>
+			<div class="other-relation"><u-icon size="30" name="trash" color="#d61515" @click="showRemove = true"></u-icon></div>
 		</div>
 		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }">
 			<scroll-view
@@ -51,7 +51,8 @@
 					<!-- 用户消息 -->
 					<block>
 						<!-- 111111自己发出的消息 -->
-						<view v-if="row.fromUid == uid" class="my">
+						<view v-if="row.fromUid == uid" class="my" @longpress="recordOkBtn(row)">
+							<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div>
 							<!-- 左-消息 -->
 							<view class="left">
 								<!-- 时间 -->
@@ -79,7 +80,8 @@
 							<view class="right"><image :src="ava"></image></view>
 						</view>
 						<!-- 222222别人发出的消息 -->
-						<view v-else class="other">
+						<view v-else class="other" @longpress="recordOkBtn(row)">
+							<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div>
 							<!-- 左-头像 -->
 							<view class="left"><image :src="oava"></image></view>
 							<!-- 右-用户名称-时间-消息 -->
@@ -258,7 +260,8 @@ export default {
 			//是否全屏长按
 			isFullLongPress: false,
 			//下载链接
-			downloadUrl: null
+			downloadUrl: null,
+			close: false
 		};
 	},
 
@@ -280,31 +283,33 @@ export default {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('侦听-----------', news);
-				this.ws = null;
+				console.log('chatWith开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				this.ws.onMessage(res => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					if (
-						!(data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') ||
-						data.toUid !== this.uid ||
-						data.fromUid !== parseInt(this.ouid)
-					) {
-						console.log('不是和该用户对话');
-						return;
-					}
-					this.chatWithList.push(data);
-					//回到底部
-					this.$nextTick(() => {
-						this.scrollToView = 'msg' + data.id;
-						if (this.inputTop) {
-							this.changeTop = Math.random() * 100;
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
 						}
-					});
+						let data = JSON.parse(res.data);
+						if (
+							!(data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') ||
+							data.toUid !== this.uid ||
+							data.fromUid !== parseInt(this.ouid)
+						) {
+							console.log('不是和该用户对话');
+							return;
+						}
+						this.chatWithList.push(data);
+						//回到底部
+						this.$nextTick(() => {
+							this.scrollToView = 'msg' + data.id;
+							if (this.inputTop) {
+								this.changeTop = Math.random() * 100;
+							}
+						});
+					}
 				});
 			}
 		},
@@ -345,6 +350,7 @@ export default {
 	},
 	onUnload() {
 		this.getHistory();
+		this.close = true;
 	},
 	methods: {
 		//请求个人信息
@@ -810,6 +816,10 @@ export default {
 		//全屏和退出全屏
 		onFullscreenChange(event) {
 			this.isFull = event.detail.fullScreen;
+		},
+		recordOkBtn(row) {
+			row.showOkBtn = true;
+			console.log(row);
 		}
 	}
 };
@@ -890,6 +900,7 @@ export default {
 		padding: 10rpx;
 		border-radius: 16rpx;
 		background-color: #e6e6e6;
+		margin-right: 16rpx;
 		image {
 			width: 56rpx;
 			height: 56rpx;
@@ -909,11 +920,5 @@ export default {
 	padding: 4rpx 8rpx;
 	color: #94c7eb;
 	font-size: 28rpx;
-}
-.u-icon__icon {
-	background-color: #e6e6e6;
-	border-radius: 16rpx;
-	padding: 8rpx;
-	margin-left: 16rpx;
 }
 </style>

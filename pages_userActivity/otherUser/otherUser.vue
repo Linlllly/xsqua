@@ -248,7 +248,8 @@ export default {
 			// 正在送出
 			sending: false,
 			//消息红点
-			messageDot: false
+			messageDot: false,
+			close: false
 		};
 	},
 	computed: {
@@ -258,32 +259,33 @@ export default {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('侦听-----------', news);
-				// uni.hideLoading();
-				this.ws = null;
+				console.log('otherUser开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				//侦听更新后上红点
 				this.getChatRedDot();
 				this.getMessRedDot();
 				this.ws.onMessage(res => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (
-						data.type === 'follow' ||
-						data.type === 'comment' ||
-						data.type === 'collection' ||
-						data.type === 'silver' ||
-						data.type === 'flower' ||
-						data.type === 'shit'
-					) {
-						this.messageDot = true;
-					}
-					if (data.type === 'chat') {
-						this.chatDot = true;
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
+						}
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (
+							data.type === 'follow' ||
+							data.type === 'comment' ||
+							data.type === 'collection' ||
+							data.type === 'silver' ||
+							data.type === 'flower' ||
+							data.type === 'shit'
+						) {
+							this.messageDot = true;
+						}
+						if (data.type === 'chat') {
+							this.chatDot = true;
+						}
 					}
 				});
 			}
@@ -299,8 +301,9 @@ export default {
 		this.getEnterRoom();
 		this.getObtainSliver();
 	},
-	onShow() {
-		console.log('otherUser onShow');
+	onShow() {},
+	onUnload() {
+		this.close = true;
 	},
 	onReachBottom() {
 		if (this.type !== 1) {

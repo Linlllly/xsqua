@@ -24,14 +24,12 @@
 					></u-icon>
 				</div>
 				<img class="push" src="../../static/push.png" alt="" @click="showSub = true" />
-				<img class="friends" src="../../static/friends.png" alt="" @click="showFriend = true" />
+				<img class="friends" src="../../static/friends.png" alt="" @click="showSearch = true" />
 				<img class="issue" src="../../static/issue.png" alt="" @click="toIssue" />
 				<div class="message ">
 					<img src="../../static/message.png" alt="" @click="toMessage" />
 					<div v-if="messageDot" class="mes-dot"></div>
 				</div>
-
-				<!-- <img class="dynamic" src="../../static/dynamic.png" alt="" @click="showSearch = true" /> -->
 				<img class="dynamic" src="../../static/mim.png" alt="" @click="changeSecret = true" />
 				<div class="chat">
 					<img src="../../static/chat.png" alt="" @click="toChatList" />
@@ -213,40 +211,7 @@
 				<div v-else class="no-more">———— 没有匹配到相关用户 ————</div>
 			</div>
 		</u-popup>
-		<!-- 留言 -->
-		<u-overlay
-			:show="showFriend"
-			@click="
-				showFriend = false;
-				shengcheng = true;
-			"
-		>
-			<div v-if="shengcheng" class="req-friend" @tap.stop>
-				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png" alt="" />
-				<div v-if="showFriend && shengcheng">
-					<u--textarea
-						class="say-box"
-						border="null"
-						v-model="inviteContent"
-						placeholder="请输入留言"
-						height="100px"
-						maxlength="15"
-						placeholderStyle="color: #767374"
-						color="#767374"
-						:adjustPosition="true"
-						:showConfirmBar="false"
-					></u--textarea>
-				</div>
-				<div class="get-erweima" @click="createQRCode()">下一步</div>
-			</div>
-			<div v-else class="my-friend" @tap.stop>
-				<image class="code_view" :src="imagePath"></image>
-				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png" alt="" />
-				<div class="invite-content">{{ inviteContent }}</div>
-				<button open-type="share" class="share-box">分享</button>
-				<div class="back-to" @click="shengcheng = true">上一步</div>
-			</div>
-		</u-overlay>
+
 		<!-- 首次进入 -->
 		<u-overlay :show="isNew" @click="isNew = false">
 			<div class="pagebox"></div>
@@ -408,9 +373,7 @@ export default {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('侦听-----------', news);
-				uni.hideLoading();
-				this.ws = null;
+				console.log('user开启侦听');
 				this.ws = app.globalData.ws;
 				this.ws.onMessage(res => {
 					console.log(res);
@@ -454,8 +417,6 @@ export default {
 		this.getMyRoom();
 	},
 	onShow() {
-		// this.getChatRedDot();
-		// this.getMessRedDot();
 		if (this.refresh) {
 			this.page = 1;
 			this.myList = [];
@@ -463,12 +424,6 @@ export default {
 			this.getMyPageList();
 		}
 		this.refresh = true;
-	},
-	onShareAppMessage() {
-		return {
-			title: this.inviteContent,
-			path: '/pages_userActivity/erWeiMa/erWeiMa?imagePath=' + this.imagePath + '&&inviteContent=' + this.inviteContent
-		};
 	},
 	onReachBottom() {
 		if (this.page >= this.lastPage) {
@@ -613,77 +568,7 @@ export default {
 				this.eggNum = res.result.eggNum;
 			});
 		},
-		//生成二维码
-		async createQRCode() {
-			if (!this.inviteContent) {
-				this.inviteContent = '让我们一起在安全空间里聊天！';
-			}
-			console.log(this.inviteContent);
-			this.changeMyInviteContent();
-			uni.showLoading({
-				title: '二维码生成中'
-			});
-			// setTimeout(() => {
-			this.shengcheng = false;
-			let res = await getQRCode({ page: 'pages/loginSelect/loginSelect', scene: this.uid.toString(), width: 430 }, 'arraybuffer');
-			//env_version: 'trial'
-			//base64
-			// this.linshiImagePath = 'data:image/png;base64,' + uni.arrayBufferToBase64(res);
-			// this.imagePath = 'data:image/png;base64,' + uni.arrayBufferToBase64(res);
-			// this.canva = false;
-			// wx.hideLoading();
-			// console.log(this.linshiImagePath);
 
-			//buffer转图片
-			const fsm = wx.getFileSystemManager();
-			const FILE_BASE_NAME = 'qrcode_base64src';
-			const filePath = wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg';
-			const _that = this;
-			fsm.writeFile({
-				filePath,
-				data: res,
-				encoding: 'binary',
-				success() {
-					_that.canva = false;
-					wx.hideLoading();
-					_that.doUpload3(filePath);
-				},
-				fail() {}
-			});
-
-			// const fs = wx.getFileSystemManager();
-
-			// new QRCode('myQrcode', {
-			// 	text: 'https://www.zairongyifang.com:8080?inviteCode=' + this.uid + '&&inviteContent=' + this.inviteContent,
-			// 	width: 200,
-			// 	height: 200,
-			// 	padding: 20,
-			// 	correctLevel: QRCode.CorrectLevel.L,
-			// 	colorDark: '#000',
-			// 	colorLight: 'white',
-			// 	callback: res => {
-			// 		this.canva = false;
-			// 		wx.hideLoading();
-			// 		that.doUpload3(res);
-			// 	}
-			// });
-		},
-		//上传二维码
-		doUpload3(rsp) {
-			this.linshiImagePath = rsp;
-			uni.uploadFile({
-				url: ip + '/app/common/upload',
-				filePath: rsp,
-				name: 'file',
-				header: {
-					token: uni.getStorageSync('token')
-				},
-				success: uploadFileRes => {
-					let paths = JSON.parse(uploadFileRes.data);
-					this.imagePath = paths.result[0].url;
-				}
-			});
-		},
 		//聊天红点
 		async getChatRedDot(uid) {
 			let res = await redDot({ uid: uid, type: 1, t: Date.parse(new Date()) });
@@ -975,18 +860,7 @@ export default {
 				this.myDes = '';
 			}
 		},
-		async changeMyInviteContent() {
-			let res = await userInfoEdit({ inviteContent: this.inviteContent ? this.inviteContent : '让我们一起在安全空间里聊天！' });
-			if (res.code === 0) {
-			} else {
-				uni.showToast({
-					title: '修改邀请文案失败',
-					icon: 'none',
-					duration: 2000
-				});
-				this.inviteContent = '';
-			}
-		},
+
 		//去发布
 		toIssue() {
 			uni.navigateTo({
@@ -1005,14 +879,6 @@ export default {
 					duration: 2000
 				});
 			}
-		},
-		//单图预览
-		previewImg(i, index) {
-			this.refresh = false;
-			uni.previewImage({
-				current: i[index], // 当前显示图片的http链接
-				urls: i // 需要预览的图片http链接列表
-			});
 		},
 		async getSelectRoom() {
 			if (this.searchText === '') {
@@ -1497,111 +1363,6 @@ export default {
 		}
 	}
 }
-.req-friend {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 648rpx;
-	height: 850rpx;
-	margin: 22% auto;
-	justify-content: center;
-
-	img {
-		width: 100%;
-		height: 100%;
-	}
-	// .say-box {
-	// 	position: absolute !important;
-	// 	width: 424rpx!important;
-	// 	top: 440rpx;
-	// 	left: 50%;
-	// 	transform: translateX(-50%);
-	// }
-	/deep/.u-textarea {
-		white-space: pre;
-		position: absolute !important;
-		width: 424rpx !important;
-		top: 520rpx;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: transparent;
-		padding: 0 20rpx;
-	}
-	/deep/.u-textarea__field {
-		font-size: 36rpx;
-		color: #694e31;
-	}
-	.get-erweima {
-		position: absolute;
-		width: 468rpx;
-		height: 66rpx;
-		top: 706rpx;
-		left: 50%;
-		transform: translateX(-50%);
-		color: transparent;
-	}
-}
-
-.my-friend {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 648rpx;
-	height: 850rpx;
-	margin: 22% auto;
-	justify-content: center;
-	img {
-		width: 100%;
-		height: 100%;
-	}
-	.code_view {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: 120rpx;
-		margin: 40rpx auto;
-		width: 170rpx;
-		height: 170rpx;
-		border-radius: 50%;
-	}
-	// .canvas-code {
-	// 	margin: 40rpx auto;
-	// 	width: 400rpx;
-	// 	height: 400rpx;
-	// 	opacity: 0;
-	// }
-	.invite-content {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: 520rpx;
-		color: #694e31;
-		font-size: 34rpx;
-		width: 416rpx;
-		word-break: break-all;
-	}
-	.share-box {
-		position: absolute;
-		right: 108rpx;
-		top: 706rpx;
-		width: 200rpx;
-		height: 70rpx;
-		color: transparent;
-		background-color: transparent;
-		&::after {
-			border: none; //黑色边框去掉了
-		}
-	}
-	.back-to {
-		position: absolute;
-		left: 108rpx;
-		top: 706rpx;
-		width: 200rpx;
-		height: 70rpx;
-		color: transparent;
-		background-color: transparent;
-	}
-}
 /deep/.u-popup__content {
 	border-radius: 30rpx 30rpx 0 0 !important;
 }
@@ -1690,7 +1451,6 @@ export default {
 	position: relative;
 	width: 602rpx;
 	height: 772rpx;
-	background: pink;
 	margin: auto;
 	img {
 		width: 100%;

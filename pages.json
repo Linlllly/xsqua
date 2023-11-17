@@ -146,13 +146,6 @@
 						"enablePullDownRefresh": false
 					}
 				}, {
-					"path": "rankingList/rankingList",
-					"style": {
-						"navigationBarTitleText": "",
-						"enablePullDownRefresh": false
-					}
-
-				}, {
 					"path": "erWeiMa/erWeiMa",
 					"style": {
 						"navigationBarTitleText": "",

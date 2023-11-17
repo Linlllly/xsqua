@@ -1,13 +1,6 @@
 <template>
 	<view class="pages">
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
-		<!-- 关闭背景音乐 -->
-		<!-- <div class="content-list">
-			<u-icon name="volume" color="#e89406" size="20"></u-icon>
-			<div class="info-name">开启/关闭背景音</div>
-			<u-switch v-model="myAudio" @change="changeBgcState" activeColor="#e89406"></u-switch>
-		</div>
- -->
 		<!-- 设置房间为不可查看 -->
 		<div class="content-list">
 			<u-icon name="close-circle" color="#e89406" size="20"></u-icon>
@@ -28,19 +21,24 @@
 			<div class="info-name">更换房间</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-
+		<!-- 更换页面 -->
+		<div class="content-list" @click="showFriend = true">
+			<u-icon name="weixin-fill" color="#e89406" size="20"></u-icon>
+			<div class="info-name">邀请微信好友</div>
+			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
+		</div>
 		<!-- 查看或修改房间密码 -->
 		<!-- <div class="content-list" @click="changeSecret = true">
 			<u-icon name="edit-pen" color="#e89406" size="20"></u-icon>
 			<div class="info-name">设置房间密码</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div> -->
-		<!-- 注销 -->
-		<!-- 	<div class="content-list" @click="showLoginOut = true">
+		<!-- 空间介绍 -->
+		<div class="content-list" @click="goIntroduce()">
 			<u-icon name="pushpin" color="#e89406" size="20"></u-icon>
-			<div class="info-name">注销空间</div>
+			<div class="info-name">空间介绍</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div> -->
+		</div>
 		<!-- 客服 -->
 		<button class="content-list" type="primary" open-type="contact">
 			<u-icon name="server-man" color="#e89406" size="20"></u-icon>
@@ -54,71 +52,50 @@
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="admin" @click="goAdminLogin"></div>
-		<!-- 修改密码框 -->
-		<u-modal
-			title="修改房间密码"
-			:show="changeSecret"
-			@confirm="confirmChangeSecret"
-			showCancelButton
-			@cancel="
-				changeSecret = false;
-				newSecret = '';
-				oldSecret = '';
+		<!-- 留言 -->
+		<u-overlay
+			:show="showFriend"
+			@click="
+				showFriend = false;
+				shengcheng = true;
 			"
-			confirmColor="#e89406"
 		>
-			<view class="slot-content">
-				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#767676' }">
-					<u-form-item label="原密码">
-						<u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6">
-							<!-- <template slot="suffix">
-										<u-icon name="eye-off" color="#82969c" size="24"></u-icon>
-									</template> -->
-						</u-input>
-					</u-form-item>
-					<u-form-item label="新密码">
-						<u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6">
-							<!-- <template slot="suffix">
-										<u-icon name="eye-off" color="#82969c" size="24"></u-icon>
-									</template> -->
-						</u-input>
-					</u-form-item>
-				</u--form>
-				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">
-					* 新用户设置房间密码，填写新密码即可
+			<div v-if="shengcheng" class="req-friend" @tap.stop>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png" alt="" />
+				<div v-if="showFriend && shengcheng">
+					<u--textarea
+						class="say-box"
+						border="null"
+						v-model="inviteContent"
+						placeholder="请输入留言"
+						height="100px"
+						maxlength="15"
+						placeholderStyle="color: #767374"
+						color="#767374"
+						:adjustPosition="true"
+						:showConfirmBar="false"
+					></u--textarea>
 				</div>
-				<div :style="{ color: '#b3b3b3', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新密码不填写即代表不设密码</div>
-			</view>
-		</u-modal>
-
-		<!-- 注销框 -->
-		<u-modal
-			:show="showLoginOut"
-			title="注销"
-			content="空间的一切内容都会被清除"
-			@confirm="confirmLoginOut"
-			showCancelButton
-			@cancel="showLoginOut = false"
-			confirmColor="#e89406"
-		></u-modal>
-		<!-- 注销框 -->
-		<u-modal
-			:show="showByeBye"
-			title="退出"
-			content="点击确认退出当前账号"
-			@confirm="confirmByeBye"
-			showCancelButton
-			@cancel="showByeBye = false"
-			confirmColor="#e89406"
-		></u-modal>
+				<div class="get-erweima" @click="createQRCode()">下一步</div>
+			</div>
+			<div v-else class="my-friend" @tap.stop>
+				<image class="code_view" :src="imagePath"></image>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png" alt="" />
+				<div class="invite-content">{{ inviteContent }}</div>
+				<button open-type="share" class="share-box">分享</button>
+				<div class="back-to" @click="shengcheng = true">上一步</div>
+			</div>
+		</u-overlay>
 	</view>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { unBind, closeMyRoom, openMyRoom, updatePassword } from '@/api/settings/settings.js';
-import { userInfo } from '@/api/user/user.js';
+import { userInfo, userInfoEdit, getQRCode } from '@/api/user/user.js';
 import { myRoom } from '@/api/loginSelect/loginSelect.js';
+import { ip } from '@/api/api.js';
+import QRCode from '../../utils/weapp-qrcode.js';
 const App = getApp();
 export default {
 	computed: {
@@ -139,29 +116,30 @@ export default {
 			//展示注销框
 			showLoginOut: false,
 			showByeBye: false,
-			type: 0
+			type: 0,
+			showFriend: false,
+			//二维码
+			uid: null,
+			shengcheng: true,
+			inviteContent: '',
+			imagePath: null,
+			linshiImagePath: null,
+			canva: true,
+			showSub: false
 		};
 	},
-	onLoad() {
-		this.myAudio = this.playAudio;
+	onLoad(query) {
 		this.getuserInfo();
 		this.getMyRoom();
-		//加载房间状态
-		//加载密码
-		//赋值用户可见
 		this.showNowScrect = this.nowScrect;
 	},
+	onShareAppMessage() {
+		return {
+			title: this.inviteContent,
+			path: '/pages_userActivity/erWeiMa/erWeiMa?imagePath=' + this.imagePath + '&&inviteContent=' + this.inviteContent
+		};
+	},
 	methods: {
-		//查看修改音频状态
-		...mapMutations(['updatePlayAudio']),
-		changeBgcState() {
-			// //如果开启了 直接开启声音且 app下次开启也有声音
-			// //如果关闭了 直接停止声音且 app下次开启也没声音
-			uni.setStorageSync('playAudio', this.myAudio);
-			this.updatePlayAudio();
-			//先操作播放与否再存储本地
-			App.changeAudioState(this.myAudio);
-		},
 		//修改是否允许他人查看
 		async changeMyRoomLookState() {
 			if (this.unlookMyRoom) {
@@ -233,32 +211,66 @@ export default {
 			this.newSecret = '';
 			this.oldSecret = '';
 		},
-		//确认注销
-		async confirmLoginOut() {
-			this.showLoginOut = false;
-			let res = await unBind();
-			console.log('注销');
-			console.log(res);
+		//生成二维码
+		async createQRCode() {
+			if (!this.inviteContent) {
+				this.inviteContent = '让我们一起在安全空间里聊天！';
+			}
+			this.changeMyInviteContent();
+			uni.showLoading({
+				title: '二维码生成中'
+			});
+
+			this.shengcheng = false;
+			let res = await getQRCode({ page: 'pages/loginSelect/loginSelect', scene: this.uid.toString(), width: 430 }, 'arraybuffer');
+
+			const fsm = wx.getFileSystemManager();
+			const FILE_BASE_NAME = 'qrcode_base64src';
+			const filePath = wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg';
+			const _that = this;
+			fsm.writeFile({
+				filePath,
+				data: res,
+				encoding: 'binary',
+				success() {
+					_that.canva = false;
+					wx.hideLoading();
+					_that.doUpload3(filePath);
+				},
+				fail() {}
+			});
+		},
+		async changeMyInviteContent() {
+			let res = await userInfoEdit({ inviteContent: this.inviteContent ? this.inviteContent : '让我们一起在安全空间里聊天！' });
 			if (res.code === 0) {
-				uni.showToast({
-					title: '注销成功',
-					icon: 'none',
-					duration: 2000
-				});
-				uni.removeStorageSync('token');
-				uni.removeStorageSync('house');
-				uni.removeStorageSync('uid');
-				uni.removeStorageSync('ava');
-				uni.reLaunch({
-					url: '../../pages/loginSelect/loginSelect'
-				});
 			} else {
 				uni.showToast({
-					title: '注销失败',
+					title: '修改邀请文案失败',
 					icon: 'none',
 					duration: 2000
 				});
+				this.inviteContent = '';
 			}
+		},
+		doUpload3(rsp) {
+			this.linshiImagePath = rsp;
+			uni.uploadFile({
+				url: ip + '/app/common/upload',
+				filePath: rsp,
+				name: 'file',
+				header: {
+					token: uni.getStorageSync('token')
+				},
+				success: uploadFileRes => {
+					let paths = JSON.parse(uploadFileRes.data);
+					this.imagePath = paths.result[0].url;
+				}
+			});
+		},
+		goIntroduce() {
+			uni.navigateTo({
+				url: '../xIntroduce/xIntroduce'
+			});
 		},
 		confirmByeBye() {
 			uni.reLaunch({
@@ -291,6 +303,8 @@ export default {
 				return;
 			}
 			this.type = res.result.type;
+			this.uid = res.result.uid;
+			this.inviteContent = res.result.inviteContent;
 		},
 		async getMyRoom() {
 			let res = await myRoom();
@@ -348,15 +362,103 @@ export default {
 		line-height: 1.5;
 		margin: 0 20rpx;
 	}
-	// /deep/.u-switch {
-	// 	width: 120rpx !important;
-	// 	height: 40rpx !important;
-	// }
 }
 .admin {
 	width: 100rpx;
 	height: 100rpx;
 	margin: 100rpx auto 0;
-	// background-color: aquamarine;
+}
+
+.req-friend {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 648rpx;
+	height: 850rpx;
+	margin: 22% auto;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	/deep/.u-textarea {
+		white-space: pre;
+		position: absolute !important;
+		width: 424rpx !important;
+		top: 520rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0 20rpx !important;
+		background-color: transparent !important;
+	}
+	/deep/.u-textarea__field {
+		font-size: 36rpx !important;
+		color: #694e31 !important;
+	}
+	.get-erweima {
+		position: absolute;
+		width: 468rpx;
+		height: 66rpx;
+		top: 706rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		color: transparent;
+	}
+}
+
+.my-friend {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 648rpx;
+	height: 850rpx;
+	margin: 22% auto;
+	justify-content: center;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.code_view {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 120rpx;
+		margin: 40rpx auto;
+		width: 170rpx;
+		height: 170rpx;
+		border-radius: 50%;
+	}
+	.invite-content {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 520rpx;
+		color: #694e31;
+		font-size: 34rpx;
+		width: 416rpx;
+		word-break: break-all;
+	}
+	.share-box {
+		position: absolute;
+		right: 108rpx;
+		top: 706rpx;
+		width: 200rpx;
+		height: 70rpx;
+		color: transparent;
+		background-color: transparent;
+		&::after {
+			border: none; //黑色边框去掉了
+		}
+	}
+	.back-to {
+		position: absolute;
+		left: 108rpx;
+		top: 706rpx;
+		width: 200rpx;
+		height: 70rpx;
+		color: transparent;
+		background-color: transparent;
+	}
 }
 </style>

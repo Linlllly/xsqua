@@ -67,42 +67,42 @@ export default {
 			myAvatar: '',
 			getList: true,
 			//备注/房间号
-			keyword: ''
+			keyword: '',
+			close: false
 		};
 	},
 	watch: {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('侦听-----------', news);
-				// uni.hideLoading();
-				this.ws = null;
+				console.log('chatList开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				this.ws.onMessage(res => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video' || data.toUid !== this.uid) {
-						this.page = 1;
-						this.chatList = [];
-						this.getChatList();
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
+						}
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video' || data.toUid !== this.uid) {
+							this.page = 1;
+							this.chatList = [];
+							this.getChatList();
+						}
 					}
 				});
 			}
 		}
 	},
 	onLoad() {},
-	onClose() {
-		this.ws.onClose();
-	},
 	onHide() {
 		this.getList = false;
 	},
 	onUnload() {
 		this.getList = false;
+		this.close = true;
 	},
 	onShow() {
 		console.log('chatList onShow');

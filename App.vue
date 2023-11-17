@@ -75,9 +75,11 @@ export default {
 		updateWs() {
 			if (this.globalData.ws) {
 				//ws更新
+
 				ws.init(1);
 			} else {
 				// ws初始化
+
 				ws.init();
 			}
 			//监听断开时间，网咯断开，ws 断开都会执行这个回调

@@ -2,11 +2,8 @@
 	<div class="pages">
 		<!-- 打投列表 -->
 		<div class="pick-list">
-			<!-- <div class="last"><u-icon v-if="!rankRich" name="arrow-up" color="#b8b8b8" size="22" @click="rankRich = !rankRich"></u-icon></div>	 -->
-			<!--  -->
 			<div class="list-all-title">X自由空间榜单：富豪榜、迷人榜</div>
 			<div>
-				<!-- <div :style="{ display: 'flex' }"> -->
 				<!-- 钱币 -->
 				<div class="list-item">
 					<img class="mouth-img-money" src="../../static/money.png" alt="" />
@@ -18,7 +15,6 @@
 						<img v-if="index === 2" class="mouth-medal" src="../../static/mouth-three.png" alt="" />
 						<div v-if="index >= 3" class="mouth-no-medel">NO.{{ index + 1 }}</div>
 						<div class="mouth-info">
-							<!-- <div class="info-street">五一街</div> -->
 							<div class="info-addr">{{ i.username }}</div>
 						</div>
 						<div class="mouth-count">{{ i.silverNum }}两</div>
@@ -59,6 +55,7 @@
 			<div class="give-box" @tap.stop>
 				<img class="show-img-money" v-if="type === 1" src="../../static/money.png" alt="" />
 				<img class="show-img" v-if="type === 2" src="../../static/flower.png" alt="" />
+
 				<u--input
 					type="number"
 					placeholder="0-100"
@@ -70,6 +67,7 @@
 					inputAlign="center"
 					v-model="sendCount"
 				></u--input>
+
 				<div class="giving" @click="confirmSendCount">助力</div>
 			</div>
 		</u-overlay>
@@ -105,10 +103,8 @@ export default {
 			ws: ''
 		};
 	},
-	onLoad() {
+	mounted() {
 		this.ws = app.globalData.ws;
-	},
-	onShow() {
 		this.getFlowerRank();
 		this.getSilverRank();
 	},
@@ -398,11 +394,11 @@ export default {
 		width: 66rpx;
 		height: 66rpx;
 	}
-	/deep/.u-input {
+	/deep/.u-input--circle {
 		width: 90%;
-		background-color: #d8d8d8;
+		background: #d8d8d8 !important;
 		flex: 0;
-		margin: 20rpx 20rpx;
+		margin: 20rpx 20rpx !important;
 	}
 
 	.giving {
