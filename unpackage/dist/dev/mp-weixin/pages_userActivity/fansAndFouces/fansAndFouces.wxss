@@ -362,6 +362,11 @@ page {
   height: 30rpx;
   margin: 0 20rpx;
 }
+.content-list .content-info .info-name .cancel-attention.data-v-5b81a3fd {
+  width: 44rpx;
+  height: 38rpx;
+  margin: 0;
+}
 .content-list .content-info .info-des.data-v-5b81a3fd {
   flex: 1;
   font-size: 32rpx;

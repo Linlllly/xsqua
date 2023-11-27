@@ -174,8 +174,6 @@
 			bgColor="rgba(255,255,255,0.9)"
 		>
 			<div class="popbox">
-				<!-- 回复提示-->
-				<!-- <div class="re-title">{{ twoRecordList.length }}回复</div> -->
 				<div class="re-title">全部回复</div>
 				<!-- 全部回复栏 -->
 				<scroll-view :scroll-y="true" style="width:100%;height:830rpx;" @scrolltolower="lowerMoreRecord">
@@ -269,10 +267,10 @@ import {
 	deletePost,
 	giveEgg,
 	deleteComment
-} from '@/api/articleDes/articleDes.js';
-import { giveSilver, giveFlower } from '@/api/index/index.js';
+} from '@/api/articleDes.js';
+import { giveSilver, giveFlower } from '@/api/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { checkContent } from '@/api/articleIssue/artcleIssue.js';
+import { checkContent } from '@/api/artcleIssue.js';
 
 const app = getApp();
 

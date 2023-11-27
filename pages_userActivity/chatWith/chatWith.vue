@@ -18,12 +18,8 @@
 				</div>
 				<div class="info-des">{{ ointro ? ointro : ' ' }}</div>
 			</div>
-			<div v-if="orelations !== 0" class="other-relation">
-				<img v-if="orelations === 1" src="../../static/fans.png" alt="" />
-				<img v-if="orelations === 2" src="../../static/foucs.png" alt="" />
-				<img v-if="orelations === 3" src="../../static/double.png" alt="" />
-			</div>
-			<div class="other-relation"><u-icon size="30" name="trash" color="#d61515" @click="showRemove = true"></u-icon></div>
+			<div class="other-relation"><img src="../ua_static/lahei.png" alt="" @click="shieldUser" /></div>
+			<div class="other-relation"><u-icon size="30" name="trash" color="#d61515" @click="showBalck = true"></u-icon></div>
 		</div>
 		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }">
 			<scroll-view
@@ -49,18 +45,22 @@
 				</view>
 				<view class="row" v-for="(row, index) in chatWithList" :key="index" :id="'msg' + row.id">
 					<!-- 用户消息 -->
-					<block>
+					<block v-if="row.type === 'chat'">
 						<!-- 111111自己发出的消息 -->
 						<view v-if="row.fromUid == uid" class="my" @longpress="recordOkBtn(row)">
-							<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div>
+							<!-- 	<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div> -->
 							<!-- 左-消息 -->
 							<view class="left">
 								<!-- 时间 -->
 								<span class="timer">{{ row.createTime }}</span>
 								<!-- 文字消息 -->
-								<view v-if="row.type === 'chat'" class="bubble">
+								<view v-if="row.type === 'chat'" class="bubble" style="position: relative;">
+									<div v-if="row.id === '0'" style="position: absolute;left: -66rpx;width: 56rpx;height: 56rpx;">
+										<u-icon name="error-circle-fill" color="red" size="28"></u-icon>
+									</div>
 									<text :user-select="true" :selectable="true">{{ row.text }}</text>
 								</view>
+
 								<!-- 图片消息 -->
 								<view v-if="row.type === 'chat_image'" class="bubble img" @tap="showPic([row.text])">
 									<image :src="row.text" mode="aspectFit"></image>
@@ -81,7 +81,7 @@
 						</view>
 						<!-- 222222别人发出的消息 -->
 						<view v-else class="other" @longpress="recordOkBtn(row)">
-							<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div>
+							<!-- 		<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div> -->
 							<!-- 左-头像 -->
 							<view class="left"><image :src="oava"></image></view>
 							<!-- 右-用户名称-时间-消息 -->
@@ -89,7 +89,10 @@
 								<!-- 时间 -->
 								<span class="timer">{{ row.createTime }}</span>
 								<!-- 文字消息 -->
-								<view v-if="row.type === 'chat'" class="bubble">
+								<view v-if="row.type === 'chat'" class="bubble" style="position: relative;">
+									<div v-if="row.id === '0'" style="position: absolute;left: -66rpx;width: 56rpx;height: 56rpx;">
+										<u-icon name="error-circle-fill" color="red" size="28"></u-icon>
+									</div>
 									<text :user-select="true" :selectable="true">{{ row.text }}</text>
 								</view>
 								<!-- 图片消息 -->
@@ -172,6 +175,15 @@
 				</u--form>
 			</view>
 		</u-modal>
+		<u-modal
+			:show="showshield"
+			title="确定拉黑该用户吗"
+			confirmColor="#e89406"
+			showCancelButton="true"
+			@cancel="showshield = false"
+			@confirm="changeShildState"
+			width="620rpx"
+		></u-modal>
 		<!-- 下载按钮 -->
 		<u-action-sheet
 			style="z-index: 9999;"
@@ -186,16 +198,17 @@
 	</view>
 </template>
 <script>
-import { history, cleanHistory, getRemark } from '@/api/chatWith/chatWith.js';
+import { history, cleanHistory, getRemark } from '@/api/chatWith.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getUserInfoById } from '@/api/otherUser/otherUser.js';
-import { userRemarkEdit } from '@/api/fansAndFouces/fansAndFouces.js';
+import { getUserInfoById } from '@/api/otherUser.js';
+import { userRemarkEdit } from '@/api/fansAndFouces.js';
+import { add } from '@/api/sheldList.js';
 import { ip } from '@/api/api.js';
 const app = getApp();
 
 export default {
 	computed: {
-		...mapState(['uid', 'ava', 'myWs'])
+		...mapState(['uid', 'ava', 'myWs', 'armor'])
 	},
 	data() {
 		return {
@@ -243,7 +256,7 @@ export default {
 			recordLength: 0,
 			//
 			page: 1,
-			limit: 12,
+			limit: 15,
 			lastPage: 2, //先放一个比当前页大的  确保第一次可以成功请求
 			changeTop: 0,
 			//是不是在输入
@@ -261,7 +274,9 @@ export default {
 			isFullLongPress: false,
 			//下载链接
 			downloadUrl: null,
-			close: false
+			close: false,
+			//拉黑
+			showshield: false
 		};
 	},
 
@@ -293,12 +308,22 @@ export default {
 							return;
 						}
 						let data = JSON.parse(res.data);
+						if (data.type === 'err_msg' && data.toUid === this.uid && data.fromUid === this.uid) {
+							uni.showToast({
+								title: data.text,
+								icon: 'none',
+								duration: 2000
+							});
+							//将发出去消息的id置为0
+							this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0');
+							return;
+						}
+
 						if (
 							!(data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') ||
-							data.toUid !== this.uid ||
-							data.fromUid !== parseInt(this.ouid)
+							(data.toUid !== this.uid && data.fromUid !== parseInt(this.ouid))
 						) {
-							console.log('不是和该用户对话');
+							console.log('不是当前对话');
 							return;
 						}
 						this.chatWithList.push(data);
@@ -353,6 +378,39 @@ export default {
 		this.close = true;
 	},
 	methods: {
+		shieldUser(i) {
+			if (this.armor) {
+				this.showshield = true;
+			} else {
+				uni.showToast({
+					title: '只有盔甲用户可以拉黑用户',
+					icon: 'none',
+					duration: 2000
+				});
+			}
+		},
+		changeShildState() {
+			add({ uid: this.ouid }).then(res => {
+				console.log('请求加入黑名单');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				uni.showToast({
+					title: '加入黑名单成功',
+					icon: 'none',
+					duration: 2000
+				});
+				setTimeout(res => {
+					uni.navigateBack();
+				}, 1500);
+			});
+		},
 		//请求个人信息
 		async getGetUserInfoById() {
 			let res = await getUserInfoById({ uid: this.ouid });
@@ -360,7 +418,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取用户信息失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -419,7 +477,7 @@ export default {
 			this.isHistoryLoading = false;
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '请求历史数据失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -555,7 +613,7 @@ export default {
 							fail() {
 								uni.hideLoading();
 								uni.showToast({
-									title: '图片上传失败',
+									title: res.msg,
 									icon: 'none',
 									duration: 2000
 								});
@@ -594,7 +652,7 @@ export default {
 						fail() {
 							uni.hideLoading();
 							uni.showToast({
-								title: '视频上传失败',
+								title: res.msg,
 								icon: 'none',
 								duration: 2000
 							});
@@ -628,7 +686,7 @@ export default {
 						createTime: nowDate,
 						id: this.chatWithList.length
 					});
-					//回到底部
+					回到底部;
 					this.$nextTick(() => {
 						this.scrollToView = id;
 					});
@@ -682,7 +740,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '删除历史失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -734,7 +792,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '修改备注失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -792,7 +850,7 @@ export default {
 								fail: function(err) {
 									uni.hideLoading();
 									uni.showToast({
-										title: '保存视频失败',
+										title: res.msg,
 										icon: 'none',
 										duration: 2000
 									});
@@ -801,7 +859,7 @@ export default {
 						} else {
 							uni.hideLoading();
 							uni.showToast({
-								title: '下载视频失败',
+								title: res.msg,
 								icon: 'none',
 								duration: 2000
 							});
@@ -818,14 +876,15 @@ export default {
 			this.isFull = event.detail.fullScreen;
 		},
 		recordOkBtn(row) {
-			row.showOkBtn = true;
-			console.log(row);
+			// row.showOkBtn = true;
+			// console.log(row);
 		}
 	}
 };
 </script>
 <style lang="scss">
 @import 'css/style.scss';
+
 .pages {
 	display: flex;
 	flex-direction: column;
@@ -902,8 +961,8 @@ export default {
 		background-color: #e6e6e6;
 		margin-right: 16rpx;
 		image {
-			width: 56rpx;
-			height: 56rpx;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

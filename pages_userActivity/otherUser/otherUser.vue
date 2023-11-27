@@ -12,16 +12,6 @@
 				/>
 				<!-- 底部淡出 -->
 				<div class="width-bottom"></div>
-				<!-- 顶部 -->
-				<!-- <div v-if="username !== '官方号'" class="img-my-name">
-					<div>{{ username.split(' ')[0] }}</div>
-					<div>
-						<span>{{ username.split(' ')[1] }}</span>
-					</div>
-				</div>
-				<div v-else class="img-my-name-guanf">
-					<div>{{ username.slice(-4) }}</div>
-				</div> -->
 				<img v-if="isFollow" class="chat" src="../ua_static/likes.png" alt="" @click="changeMylikes" />
 				<img v-else class="chat" src="../ua_static/no-likes.png" alt="" @click="changeMylikes" />
 				<img class="setting" src="../ua_static/chat-with.png" alt="" @click="toChatWith" />
@@ -50,6 +40,9 @@
 				</div>
 				<!-- 名字 -->
 				<div class="name">{{ username }}</div>
+				<!-- 盔甲 -->
+				<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" />
+				<img class="armor" v-else src="../../static/no-head.png" alt="" />
 				<div class="medal">
 					<!-- 奖牌123  -->
 					<div class="me1">
@@ -181,11 +174,11 @@
 <script>
 // 引入组件
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { enterRoom, getUserInfoById, getPostListByCateId, obtainSliver, addFollow, cancelFollow } from '@/api/otherUser/otherUser.js';
-import { giveSilver, giveFlower } from '@/api/index/index.js';
-import { giveEgg } from '@/api/articleDes/articleDes.js';
-import { redDot, getUserStatistics, getUserRank } from '@/api/user/user.js';
-
+import { enterRoom, getUserInfoById, getPostListByCateId, obtainSliver, addFollow, cancelFollow } from '@/api/otherUser.js';
+import { giveSilver, giveFlower } from '@/api/index.js';
+import { giveEgg } from '@/api/articleDes.js';
+import { redDot, getUserStatistics, getUserRank } from '@/api/user.js';
+import { getArmourConfig } from '@/api/exchangeArmor.js';
 const app = getApp();
 
 export default {
@@ -245,51 +238,12 @@ export default {
 			isClose: '',
 			otherList: [],
 			isFollow: false,
-			// 正在送出
-			sending: false,
-			//消息红点
-			messageDot: false,
-			close: false
+			close: false,
+			armour: false
 		};
 	},
 	computed: {
 		...mapState(['uid', 'house', 'myWs'])
-	},
-	watch: {
-		myWs: {
-			immediate: true,
-			handler(news, olds) {
-				console.log('otherUser开启侦听');
-				this.close = false;
-				this.ws = app.globalData.ws;
-				//侦听更新后上红点
-				this.getChatRedDot();
-				this.getMessRedDot();
-				this.ws.onMessage(res => {
-					if (!this.close) {
-						console.log(res);
-						if (res.data === 'active') {
-							return;
-						}
-						let data = JSON.parse(res.data);
-						console.log(data);
-						if (
-							data.type === 'follow' ||
-							data.type === 'comment' ||
-							data.type === 'collection' ||
-							data.type === 'silver' ||
-							data.type === 'flower' ||
-							data.type === 'shit'
-						) {
-							this.messageDot = true;
-						}
-						if (data.type === 'chat') {
-							this.chatDot = true;
-						}
-					}
-				});
-			}
-		}
 	},
 	onLoad(option) {
 		this.ocateId = option.ocateId;
@@ -300,6 +254,7 @@ export default {
 		this.otherList = [];
 		this.getEnterRoom();
 		this.getObtainSliver();
+		this.getArmourConfig();
 	},
 	onShow() {},
 	onUnload() {
@@ -351,39 +306,21 @@ export default {
 				this.eggNum = res.result.eggNum;
 			});
 		},
-		//聊天红点
-		async getChatRedDot() {
-			let res = await redDot({ uid: this.uid, type: 1 });
-			console.log('请求聊天红点');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '聊天新消息查询失败',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			if (res.result === true) {
-				this.chatDot = true;
-			}
-		},
-		//消息红点
-		async getMessRedDot() {
-			let res = await redDot({ uid: this.uid, type: 2 });
-			console.log('请求消息红点');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '新消息查询失败',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			if (res.result === true) {
-				this.messageDot = true;
-			}
+		//盔甲状态
+		getArmourConfig() {
+			getArmourConfig({ uid: this.ouid }).then(res => {
+				console.log('获取该用户盔甲状态');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取该用户盔甲状态失败',
+						icon: 'none',
+						duration: 2000
+					});
+				} else {
+					this.armour = res.result.armourStatus === 0 ? false : true;
+				}
+			});
 		},
 		async getObtainSliver() {
 			let res = await obtainSliver({ sendUid: this.ouid });
@@ -860,6 +797,13 @@ export default {
 		font-size: 30rpx;
 		text-align: center;
 		line-height: 90rpx;
+	}
+	.armor {
+		position: absolute;
+		right: 610rpx;
+		bottom: 182rpx;
+		width: 42rpx;
+		height: 52rpx;
 	}
 	.medal {
 		position: absolute;

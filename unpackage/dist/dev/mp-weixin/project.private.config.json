@@ -9,6 +9,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "c-盔甲",
+          "pathName": "pages_costMoney/exchangeArmor/exchangeArmor",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-黑名单",
+          "pathName": "pages_userActivity/shieldList/shieldList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "登录选择",
           "pathName": "pages/loginSelect/loginSelect",
           "query": "",
@@ -47,13 +61,6 @@
           "name": "u-别人的房间",
           "pathName": "pages_userActivity/otherUser/otherUser",
           "query": "ocateId=2994&ouid=44",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "u-好友动态",
-          "pathName": "pages_userActivity/friendDynamic/friendDynamic",
-          "query": "",
           "launchMode": "default",
           "scene": null
         },
@@ -128,13 +135,6 @@
           "scene": null
         },
         {
-          "name": "u-会议室",
-          "pathName": "pages_userActivity/meetingRoom/meetingRoom",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
           "name": "u-x文件",
           "pathName": "pages_userActivity/mySecret/mySecret",
           "query": "",
@@ -179,6 +179,13 @@
         {
           "name": "个人中心2",
           "pathName": "pages/index2/index2",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-修改盔甲配置",
+          "pathName": "pages_userActivity/updateArmor/updateArmor",
           "query": "",
           "launchMode": "default",
           "scene": null

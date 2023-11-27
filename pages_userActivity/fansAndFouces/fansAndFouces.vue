@@ -47,6 +47,7 @@
 					{{ i.remark ? i.remark : i.username }}
 					<img v-if="i.remark" src="../ua_static/orangebeizhu.png" mode="" />
 					<img v-else src="../ua_static/greybeizhu.png" mode="" />
+					<img class="cancel-attention" src="../ua_static/cancel-attention.png" mode="" @click.stop="cancelAttention(i)" />
 				</div>
 				<div class="info-des">{{ i.intro ? i.intro : ' ' }}</div>
 			</div>
@@ -122,41 +123,46 @@
 				</u--form>
 			</view>
 		</u-modal>
+		<u-modal
+			:show="showAttention"
+			title="确定移除该粉丝吗"
+			confirmColor="#e89406"
+			showCancelButton="true"
+			@cancel="showAttention = false"
+			@confirm="changeAttentionState"
+			width="620rpx"
+		></u-modal>
 	</view>
 </template>
 
 <script>
-import { follow, userFans, mutualFollow, userRemarkEdit } from '@/api/fansAndFouces/fansAndFouces.js';
+import { follow, userFans, mutualFollow, userRemarkEdit } from '@/api/fansAndFouces.js';
+import { delFollow } from '@/api/sheldList.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
 	computed: {
-		...mapState(['ava'])
+		...mapState(['armor'])
 	},
 	data() {
 		return {
 			bigLook: 0,
 			peopleList: [],
-			//搜索框
-			searchText: '',
 			//-------
 			fansPage: 1,
 			fansLimit: 12,
 			fansLastPage: '',
 			fansList: [],
-			// fansIsloading: false,
 			//----------
 			focusPage: 1,
 			focusLimit: 12,
 			focusLastPage: '',
 			focusList: [],
-			// focusIsloading: false,
 			//---------
 			friendPage: 1,
 			friendLimit: 12,
 			friendLastPage: '',
 			friendList: [],
-			// friendIsloading: false,
 			//------
 			isloading: false,
 			changeName: false,
@@ -165,7 +171,9 @@ export default {
 			remark: '',
 			realRemark: '',
 			//搜索
-			keyword: ''
+			keyword: '',
+			attention: null,
+			showAttention: false
 		};
 	},
 	onLoad() {
@@ -248,7 +256,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取粉丝列表失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -265,7 +273,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取关注列表失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -282,7 +290,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取互关列表失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -292,6 +300,41 @@ export default {
 				this.friendList = [...this.friendList, ...res.result.data];
 				this.friendLastPage = res.result.last_page;
 			}
+		},
+		cancelAttention(i) {
+			if (this.armor) {
+				this.showAttention = true;
+				this.attention = i;
+			} else {
+				uni.showToast({
+					title: '只有盔甲用户可以移除粉丝',
+					icon: 'none',
+					duration: 2000
+				});
+			}
+		},
+		changeAttentionState() {
+			delFollow({ id: this.attention.uid }).then(res => {
+				console.log('请求移除粉丝');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				uni.showToast({
+					title: '移除粉丝成功',
+					icon: 'none',
+					duration: 2000
+				});
+
+				const index = this.fansList.findIndex(item => item.uid === this.attention.uid);
+				this.$delete(this.fansList, index);
+				this.showAttention = false;
+			});
 		},
 		toOtherUser(i) {
 			uni.navigateTo({
@@ -304,7 +347,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '修改备注失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -416,6 +459,11 @@ export default {
 				width: 120rpx;
 				height: 30rpx;
 				margin: 0 20rpx;
+			}
+			.cancel-attention {
+				width: 44rpx;
+				height: 38rpx;
+				margin: 0;
 			}
 		}
 		.info-des {

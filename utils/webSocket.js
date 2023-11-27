@@ -1,12 +1,10 @@
 var setting = require('./setting.js');
 import {
 	userInfo
-} from '@/api/user/user.js';
+} from '@/api/user.js';
 
 import store from '@/store/index.js'
-import {
-	closeMyRoom
-} from '../api/settings/settings.js';
+
 
 //请求个人信息
 async function getuserInfo() {

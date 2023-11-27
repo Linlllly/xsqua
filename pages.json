@@ -62,6 +62,13 @@
 				"style": {
 					"enablePullDownRefresh": false
 				}
+			}, {
+				"path": "exchangeArmor/exchangeArmor",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
 			}]
 		},
 		{
@@ -127,13 +134,6 @@
 					}
 
 				}, {
-					"path": "meetingRoom/meetingRoom", //会议室
-					"style": {
-						"enablePullDownRefresh": false,
-						"onReachBottomDistance": 150
-					}
-
-				}, {
 					"path": "mySecret/mySecret", //x空间
 					"style": {
 						"enablePullDownRefresh": false,
@@ -154,6 +154,20 @@
 
 				}, {
 					"path": "xIntroduce/xIntroduce",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "updateArmor/updateArmor",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
+				}, {
+					"path": "shieldList/shieldList",
 					"style": {
 						"navigationBarTitleText": "",
 						"enablePullDownRefresh": false

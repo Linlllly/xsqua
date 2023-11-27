@@ -275,14 +275,29 @@ page {
   width: 100%;
 }
 
+.pages {
+  position: relative;
+  min-height: 100vh;
+  color: transparent;
+}
+.pages::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff6e5;
+  z-index: -1;
+}
 .bg-img {
   position: absolute;
   flex-wrap: wrap;
   width: 750rpx;
-  height: 1480rpx;
+  height: 1280rpx;
   top: 0;
   left: 0;
-  z-index: -10;
+  z-index: -1;
 }
 .send-list {
   width: 94rpx;
@@ -290,9 +305,9 @@ page {
   margin: 30rpx 0 0 20rpx;
 }
 .record {
-  width: 184rpx;
+  width: 154rpx;
   height: 50rpx;
-  margin-top: 208rpx;
+  margin-top: 154rpx;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -300,57 +315,58 @@ page {
 .cost {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  height: 324rpx;
-  margin-top: 60rpx;
+  margin-top: 0rpx;
   box-sizing: border-box;
   padding-left: 20rpx;
+  z-index: 20;
 }
 .cost .cost-item {
   width: 48%;
-  height: 154rpx;
+  height: 140rpx;
   margin-right: 14rpx;
 }
-.num-box {
+.box-armor .learn-more {
+  margin-top: 93rpx;
+  width: 150rpx;
+  margin-left: 540rpx;
+}
+.box-armor .armor-details {
+  width: 680rpx;
   display: flex;
-  flex-direction: column;
+  margin: 16rpx auto;
   align-items: center;
-  margin-top: 288rpx;
 }
-.num-1 {
-  height: 78rpx;
-  padding-right: 10rpx;
+.box-armor .armor-details .armor-confirm {
+  padding-left: 42rpx;
 }
-.num-2 {
-  height: 78rpx;
-  margin-top: 26rpx;
-  padding-right: 10rpx;
+.box-armor .armor-details .armor-record {
+  padding-left: 22rpx;
+}
+.box-fp {
+  display: flex;
+  width: 650rpx;
+  margin: 248rpx auto 0;
+}
+.box-fp .fp-confirm-record {
+  margin-left: 70rpx;
+}
+.box-fp .fp-confirm-record .fp-confirm {
+  margin-top: 10rpx;
+  width: 140rpx;
+  height: 80rpx;
+}
+.box-fp .fp-confirm-record .fp-record {
+  width: 140rpx;
+  margin-top: 10rpx;
 }
  .u-number-box__input {
-  margin: 0 -8rpx 0 40rpx !important;
-  width: 252rpx !important;
+  width: 240rpx !important;
 }
  .u-number-box__plus--disabled {
   background-color: transparent !important;
 }
  .u-number-box__minus--disabled {
   background-color: transparent !important;
-}
-.exchange-more {
-  width: 150rpx;
-  height: 40rpx;
-  margin-top: 14rpx;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.exchange-confirm {
-  width: 150rpx;
-  height: 80rpx;
-  margin-top: 48rpx;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
  .u-input {
   padding: 12rpx 0 !important;
@@ -373,10 +389,12 @@ page {
 .send-state .select-send {
   font-size: 48rpx;
   padding: 0 10rpx;
+  color: #333;
 }
 .send-state .name-send {
   font-size: 36rpx;
   padding: 0 10rpx;
+  color: #333;
 }
 .send-box {
   display: flex;

@@ -1,7 +1,5 @@
-<!-- 蓝色简洁登录页面 -->
 <template>
 	<view class="login-bg">
-		<!-- <bgMusic></bgMusic> -->
 		<image class="img-a" src="https://zhoukaiwen.com/img/loginImg/bg1.png"></image>
 		<view class="t-login">
 			<view class="t-b">登 录</view>
@@ -38,9 +36,9 @@
 	</view>
 </template>
 <script>
-import { phoneLogin } from '@/api/adminLogin/adminLogin.js';
+import { phoneLogin } from '@/api/adminLogin.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { myRoom, selectRoom } from '@/api/loginSelect/loginSelect.js';
+import { myRoom, selectRoom } from '@/api/loginSelect.js';
 
 const app = getApp();
 

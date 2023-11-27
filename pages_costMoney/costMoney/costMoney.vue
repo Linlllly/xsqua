@@ -1,22 +1,39 @@
 <template>
 	<div class="pages">
-		<img class="bg-img" src="../cm_static/costMoney.png" alt="" />
-		<div class="send-list" @click="showSendList = true"></div>
-		<div class="record" @click="openRecord"></div>
+		<img class="bg-img" src="../cm_static/costMoney.jpg" alt="" />
+		<div class="send-list" @click="showSendList = true">礼单</div>
+		<div class="record" @click="openRecord">充值记录</div>
 
-		<div class="cost"><div class="cost-item" v-for="(i, index) in 4" :key="index" @click="payMoney(i)"></div></div>
-		<!-- <div class="tishi">提示：10银两可兑换1鲜花或11粪便</div> -->
+		<div class="cost"><div class="cost-item" v-for="(i, index) in 4" :key="index" @click="payMoney(i)">花钱</div></div>
 
-		<div class="num-box">
-			<div class="num-1">
-				<u-number-box v-model="eFlower" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
-			</div>
-			<div class="num-2">
-				<u-number-box v-model="ePoo" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
+		<!-- 换盔甲 -->
+		<div class="box-armor">
+			<div class="learn-more" @click="goExchangeArmor">了解详情</div>
+			<div class="armor-details">
+				<u-number-box
+					v-model="eArmor"
+					integer
+					min="0"
+					max="1"
+					bgColor="#00000000"
+					iconStyle="color: #f08221"
+					buttonSize="80rpx"
+				></u-number-box>
+				<div class="armor-confirm" @click="comfirmExchange('tk')">确认更换</div>
+				<div class="armor-record" @click="openConvert('tk')">换购记录</div>
 			</div>
 		</div>
-		<div class="exchange-confirm" @click="comfirmExchange"></div>
-		<div class="exchange-more" @click="openConvert"></div>
+		<!-- 换鲜花便便 -->
+		<div class="box-fp">
+			<div class="fp-details">
+				<u-number-box v-model="eFlower" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
+				<u-number-box v-model="ePoo" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
+			</div>
+			<div class="fp-confirm-record">
+				<div class="fp-confirm" @click="comfirmExchange">确认更换</div>
+				<div class="fp-record" @click="openConvert">换购记录</div>
+			</div>
+		</div>
 		<!-- 礼单列表 -->
 		<u-popup :show="showSendList" @close="showSendList = false" @open="openSendList" bgColor="rgba(255,255,255,0.8)">
 			<img class="send-img" src="../cm_static/send-list.png" alt="" />
@@ -45,7 +62,6 @@
 					</div>
 					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingFlower" color="#767374" size="16"></u-loading-icon>
-					<!-- 	<div v-if="!loadingFlower && pageNumFlower >= lastPageNumFlower" class="next">已加载全部记录</div> -->
 				</div>
 				<div class="box-list">
 					<!-- 元宝图片 -->
@@ -87,7 +103,6 @@
 					</div>
 					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingPoo" color="#767374" size="16"></u-loading-icon>
-					<!-- 	<div v-if="!loadingPoo && pageNumPoo >= lastPageNumPoo" class="next">已加载全部记录</div> -->
 				</div>
 			</div>
 		</u-popup>
@@ -108,7 +123,7 @@
 				<div v-if="!loadingRecord && pageNumRecord >= lastPageNumRecord" class="next">已加载全部充值记录</div>
 			</div>
 		</u-overlay>
-		<!-- 兑换记录遮罩层 -->
+		<!-- 盔甲鲜花粪便记录遮罩层 -->
 		<u-overlay :show="showConvertList" @click="showConvertList = false">
 			<div class="box" @tap.stop>
 				<!-- 列表 -->
@@ -116,7 +131,10 @@
 					<scroll-view v-if="convertList.length !== 0" :scroll-y="true" style="width:100%;height:710rpx;" @scrolltolower="lowerConvert">
 						<div class="box-tiem" v-for="(i, index) in convertList" :key="index">
 							<div>{{ i.createTime }}</div>
-							<div>{{ i.type === 2 ? '鲜花 ' : '便便 ' }}{{ i.num }}{{ i.type === 2 ? '朵' : '坨' }}</div>
+							<div>
+								{{ i.type === 2 ? '鲜花 ' : i.type === 3 ? '便便 ' : '头盔 ' }}{{ i.num
+								}}{{ i.type === 2 ? '朵' : i.type === 3 ? '坨' : '个' }}
+							</div>
 						</div>
 					</scroll-view>
 				</div>
@@ -129,7 +147,8 @@
 </template>
 
 <script>
-import { list, exchange, buy } from '@/api/costMoney/costMoney.js';
+import { list, exchange, buy } from '@/api/costMoney.js';
+import { exchangeArmour } from '@/api/exchangeArmor.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
@@ -138,6 +157,8 @@ export default {
 	},
 	data() {
 		return {
+			//兑换盔甲
+			eArmor: 0,
 			//兑换鲜花
 			eFlower: 0,
 			//兑换粪便
@@ -173,7 +194,6 @@ export default {
 			pageNumPoo: 1,
 			pageSizePoo: 20,
 			lastPageNumPoo: '',
-
 			//充值记录显示
 			showRecordList: false,
 			//充值记录---------------------------------
@@ -227,7 +247,7 @@ export default {
 			let res = await buy({ num: this.num });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '提交订单失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -253,7 +273,7 @@ export default {
 				fail: function(err) {
 					uni.showToast({
 						icon: 'none',
-						title: '支付失败，请重试',
+						title: err,
 						duration: 1000
 					});
 				}
@@ -290,7 +310,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingRecord = false;
 				uni.showToast({
-					title: '获取充值记录失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -343,7 +363,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingFlower = false;
 				uni.showToast({
-					title: '获取记录失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -381,7 +401,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingMoney = false;
 				uni.showToast({
-					title: '获取记录失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -416,7 +436,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingPoo = false;
 				uni.showToast({
-					title: '获取记录失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -437,23 +457,27 @@ export default {
 			this.getPooList();
 		},
 		//-------------------
-		openConvert() {
+		openConvert(n) {
 			this.convertList = [];
 			this.pageNumConvert = 1;
 			this.lastPageNumConvert = '';
-
 			this.showConvertList = true;
-			this.getConvertList();
+			this.getConvertList(n);
 		},
-		async getConvertList() {
+		async getConvertList(n) {
 			this.loadingConvert = true;
-			let res = await list({ page: this.pageNumConvert, limit: this.pageSizeConvert, status: 2 });
-			console.log('兑换鲜花/粪便');
+			let res;
+			if (n === 'tk') {
+				res = await list({ page: this.pageNumConvert, limit: this.pageSizeConvert, status: 2, type: 4 });
+			} else {
+				res = await list({ page: this.pageNumConvert, limit: this.pageSizeConvert, status: 2 });
+			}
+			console.log('兑换头盔/鲜花/粪便记录');
 			console.log(res);
 			if (res.code !== 0) {
 				this.loadingConvert = false;
 				uni.showToast({
-					title: '获取兑换记录失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -472,62 +496,90 @@ export default {
 			this.pageNumConvert += 1;
 			this.getConvertList();
 		},
+		goExchangeArmor() {
+			uni.navigateTo({
+				url: '../exchangeArmor/exchangeArmor'
+			});
+		},
 		//---------------
-		async comfirmExchange() {
+		comfirmExchange(n) {
 			if (this.exchageing) {
 				return;
 			}
-			if (this.eFlower === 0 && this.ePoo === 0) {
-				uni.showToast({
-					title: '不可以兑换空数量',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
+			if (n === 'tk') {
+				if (this.eArmor === 0) {
+					uni.showToast({
+						title: '不可以兑换空数量',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.acquireArmor();
+			} else {
+				if (this.eFlower === 0 && this.ePoo === 0) {
+					uni.showToast({
+						title: '不可以兑换空数量',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				if (this.eFlower) {
+					this.acquire(2);
+				}
+				if (this.ePoo) {
+					this.acquire(3);
+				}
 			}
+		},
+		acquireArmor() {
 			this.exchageing = true;
 			uni.showLoading({
 				title: '兑换中'
 			});
-			if (this.eFlower) {
-				let res1 = await exchange({ num: this.eFlower, receiveUid: this.uid, type: 2 });
+			exchangeArmour().then(res => {
 				uni.hideLoading();
-				if (res1.code !== 0) {
-					this.exchageing = false;
+				this.exchageing = false;
+				if (res.code !== 0) {
 					uni.showToast({
-						title: '兑换鲜花失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
 					return;
 				}
 				uni.showToast({
-					title: '兑换鲜花成功',
+					title: '兑换盔甲成功',
 					icon: 'none',
 					duration: 2000
 				});
-			}
-			if (this.ePoo) {
-				let res2 = await exchange({ num: this.ePoo, receiveUid: this.uid, type: 3 });
+				this.eArmor = 0;
+			});
+		},
+		acquire(i) {
+			this.exchageing = true;
+			uni.showLoading({
+				title: '兑换中'
+			});
+			exchange({ num: i === 2 ? this.eFlower : this.ePoo, receiveUid: this.uid, type: i }).then(res => {
 				uni.hideLoading();
-				if (res2.code !== 0) {
-					this.exchageing = false;
+				this.exchageing = false;
+				if (res.code !== 0) {
 					uni.showToast({
-						title: '兑换粪便失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
 					return;
 				}
 				uni.showToast({
-					title: '兑换粪便成功',
+					title: i === 2 ? '兑换鲜花成功' : '兑换便便成功',
 					icon: 'none',
 					duration: 2000
 				});
-			}
-			this.ePoo = 0;
-			this.eFlower = 0;
-			this.exchageing = false;
+				i === 2 ? (this.eFlower = 0) : (this.ePoo = 0);
+			});
 		},
 		toOtherUser(i) {
 			let ouid = this.bigLook === 0 ? i.sendUid : i.receiveUid;
@@ -540,14 +592,29 @@ export default {
 </script>
 
 <style lang="less">
+.pages {
+	position: relative;
+	min-height: 100vh;
+	color: transparent;
+}
+.pages::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff6e5;
+	z-index: -1;
+}
 .bg-img {
 	position: absolute;
 	flex-wrap: wrap;
 	width: 750rpx;
-	height: 1480rpx;
+	height: 1280rpx;
 	top: 0;
 	left: 0;
-	z-index: -10;
+	z-index: -1;
 }
 .send-list {
 	width: 94rpx;
@@ -555,44 +622,65 @@ export default {
 	margin: 30rpx 0 0 20rpx;
 }
 .record {
-	width: 184rpx;
+	width: 154rpx;
 	height: 50rpx;
-	margin-top: 208rpx;
+	margin-top: 154rpx;
 	margin-left: 50%;
 	transform: translateX(-50%);
 }
 .cost {
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
-	height: 324rpx;
-	margin-top: 60rpx;
+	margin-top: 0rpx;
 	box-sizing: border-box;
 	padding-left: 20rpx;
+	z-index: 20;
 	.cost-item {
 		width: 48%;
-		height: 154rpx;
+		height: 140rpx;
 		margin-right: 14rpx;
 	}
 }
-.num-box {
+.box-armor {
+	.learn-more {
+		margin-top: 93rpx;
+		width: 150rpx;
+		margin-left: 540rpx;
+	}
+	.armor-details {
+		width: 680rpx;
+		display: flex;
+		margin: 16rpx auto;
+		align-items: center;
+		.armor-confirm {
+			padding-left: 42rpx;
+		}
+		.armor-record {
+			padding-left: 22rpx;
+		}
+	}
+}
+.box-fp {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 288rpx;
-}
-.num-1 {
-	height: 78rpx;
-	padding-right: 10rpx;
-}
-.num-2 {
-	height: 78rpx;
-	margin-top: 26rpx;
-	padding-right: 10rpx;
+	width: 650rpx;
+	margin: 248rpx auto 0;
+	.fp-details {
+	}
+	.fp-confirm-record {
+		margin-left: 70rpx;
+		.fp-confirm {
+			margin-top: 10rpx;
+			width: 140rpx;
+			height: 80rpx;
+		}
+		.fp-record {
+			width: 140rpx;
+			margin-top: 10rpx;
+		}
+	}
 }
 /deep/.u-number-box__input {
-	margin: 0 -8rpx 0 40rpx !important;
-	width: 252rpx !important;
+	width: 240rpx !important;
 }
 /deep/.u-number-box__plus--disabled {
 	background-color: transparent !important;
@@ -600,28 +688,9 @@ export default {
 /deep/.u-number-box__minus--disabled {
 	background-color: transparent !important;
 }
-.exchange-more {
-	width: 150rpx;
-	height: 40rpx;
-	margin-top: 14rpx;
-	margin-left: 50%;
-	transform: translateX(-50%);
-	// background-color: pink;
-	// opacity: 0.4;
-}
-.exchange-confirm {
-	width: 150rpx;
-	height: 80rpx;
-	margin-top: 48rpx;
-	margin-left: 50%;
-	transform: translateX(-50%);
-	// background-color: pink;
-	// opacity: 0.4;
-}
 /deep/.u-input {
 	padding: 12rpx 0 !important;
 }
-//
 .send-img {
 	width: 60rpx;
 	height: 60rpx;
@@ -638,10 +707,12 @@ export default {
 	.select-send {
 		font-size: 48rpx;
 		padding: 0 10rpx;
+		color: #333;
 	}
 	.name-send {
 		font-size: 36rpx;
 		padding: 0 10rpx;
+		color: #333;
 	}
 }
 .send-box {

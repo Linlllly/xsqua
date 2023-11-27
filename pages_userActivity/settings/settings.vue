@@ -1,30 +1,28 @@
 <template>
 	<view class="pages">
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
-		<!-- 设置房间为不可查看 -->
-		<div class="content-list">
-			<u-icon name="close-circle" color="#e89406" size="20"></u-icon>
-			<div class="info-name">设置闭关修炼(动态仅自己可见)</div>
-			<u-switch v-model="unlookMyRoom" @change="changeMyRoomLookState" activeColor="#e89406"></u-switch>
+		<!-- 超级盔甲 -->
+		<div class="content-list" @click="checkType">
+			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<div class="info-name">超级安全盔甲</div>
+			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-
 		<!-- 设置房间有密码 -->
 		<div class="content-list" @click="goSecret">
 			<u-icon name="coupon" color="#e89406" size="20"></u-icon>
 			<div class="info-name">X档案</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-
-		<!-- 更换页面 -->
-		<div class="content-list" @click="changeHouse">
-			<u-icon name="grid" color="#e89406" size="20"></u-icon>
-			<div class="info-name">更换房间</div>
-			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
-		<!-- 更换页面 -->
+		<!-- 邀请微信好友 -->
 		<div class="content-list" @click="showFriend = true">
 			<u-icon name="weixin-fill" color="#e89406" size="20"></u-icon>
 			<div class="info-name">邀请微信好友</div>
+			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
+		</div>
+		<!-- 查看拉黑用户 -->
+		<div class="content-list" @click="goShieldList">
+			<u-icon name="minus-people-fill" color="#e89406" size="20"></u-icon>
+			<div class="info-name">查看拉黑用户</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<!-- 查看或修改房间密码 -->
@@ -52,6 +50,15 @@
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="admin" @click="goAdminLogin"></div>
+		<u-modal
+			:show="showByeBye"
+			title="确定退出吗"
+			confirmColor="#e89406"
+			showCancelButton="true"
+			@cancel="showByeBye = false"
+			@confirm="confirmByeBye"
+			width="550rpx"
+		></u-modal>
 		<!-- 留言 -->
 		<u-overlay
 			:show="showFriend"
@@ -91,16 +98,13 @@
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { unBind, closeMyRoom, openMyRoom, updatePassword } from '@/api/settings/settings.js';
-import { userInfo, userInfoEdit, getQRCode } from '@/api/user/user.js';
-import { myRoom } from '@/api/loginSelect/loginSelect.js';
+import { getArmourConfig } from '@/api/exchangeArmor.js';
+import { userInfo, userInfoEdit, getQRCode } from '@/api/user.js';
+import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
 import QRCode from '../../utils/weapp-qrcode.js';
 const App = getApp();
 export default {
-	computed: {
-		...mapState(['playAudio'])
-	},
 	data() {
 		return {
 			myAudio: true,
@@ -113,10 +117,8 @@ export default {
 			changeSecret: false,
 			oldSecret: '',
 			newSecret: '',
-			//展示注销框
-			showLoginOut: false,
+			//退出
 			showByeBye: false,
-			type: 0,
 			showFriend: false,
 			//二维码
 			uid: null,
@@ -125,7 +127,8 @@ export default {
 			imagePath: null,
 			linshiImagePath: null,
 			canva: true,
-			showSub: false
+			showSub: false,
+			armour: false
 		};
 	},
 	onLoad(query) {
@@ -140,77 +143,6 @@ export default {
 		};
 	},
 	methods: {
-		//修改是否允许他人查看
-		async changeMyRoomLookState() {
-			if (this.unlookMyRoom) {
-				let res = await closeMyRoom();
-				if (res.code !== 0) {
-					uni.showToast({
-						title: '闭关失败',
-						icon: 'none',
-						duration: 2000
-					});
-					return;
-				}
-				uni.showToast({
-					title: '闭关成功',
-					icon: 'none',
-					duration: 2000
-				});
-			} else {
-				let res = await openMyRoom();
-				if (res.code !== 0) {
-					uni.showToast({
-						title: '开放空间失败',
-						icon: 'none',
-						duration: 2000
-					});
-					return;
-				}
-				uni.showToast({
-					title: '开放空间成功',
-					icon: 'none',
-					duration: 2000
-				});
-			}
-		},
-		//更新密码
-		async confirmChangeSecret() {
-			if (this.oldSecret !== this.password) {
-				uni.showToast({
-					title: '原密码输入错误',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			if (this.newSecret !== '' && this.newSecret.length !== 6) {
-				uni.showToast({
-					title: '密码长度必须设置为6位',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			let res = await updatePassword({ password: this.newSecret });
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '修改密码失败',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			uni.showToast({
-				title: '修改密码成功',
-				icon: 'none',
-				duration: 2000
-			});
-			this.changeSecret = false;
-			this.password = this.newSecret;
-			this.newSecret = '';
-			this.oldSecret = '';
-		},
 		//生成二维码
 		async createQRCode() {
 			if (!this.inviteContent) {
@@ -245,7 +177,7 @@ export default {
 			if (res.code === 0) {
 			} else {
 				uni.showToast({
-					title: '修改邀请文案失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -267,9 +199,38 @@ export default {
 				}
 			});
 		},
+		checkType() {
+			getArmourConfig().then(res => {
+				console.log('获取当前盔甲状态');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none',
+						duration: 2000
+					});
+				} else {
+					this.armour = res.result.armourStatus === 0 ? false : true;
+					if (!this.armour) {
+						uni.navigateTo({
+							url: '../../pages_costMoney/exchangeArmor/exchangeArmor'
+						});
+					} else {
+						uni.navigateTo({
+							url: '../updateArmor/updateArmor'
+						});
+					}
+				}
+			});
+		},
 		goIntroduce() {
 			uni.navigateTo({
 				url: '../xIntroduce/xIntroduce'
+			});
+		},
+		goShieldList() {
+			uni.navigateTo({
+				url: '../shieldList/shieldList'
 			});
 		},
 		confirmByeBye() {
@@ -283,12 +244,6 @@ export default {
 				url: '../mySecret/mySecret'
 			});
 		},
-		//更换房间
-		changeHouse() {
-			uni.navigateTo({
-				url: '../../pages/areaSelect/areaSelect?change=' + true
-			});
-		},
 		//请求个人信息
 		async getuserInfo() {
 			let res = await userInfo();
@@ -296,13 +251,12 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取用户信息失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
 				return;
 			}
-			this.type = res.result.type;
 			this.uid = res.result.uid;
 			this.inviteContent = res.result.inviteContent;
 		},
@@ -312,7 +266,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取空间信息失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});

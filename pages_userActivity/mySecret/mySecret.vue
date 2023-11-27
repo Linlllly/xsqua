@@ -1,7 +1,5 @@
 <template>
 	<div class="pages">
-		<!-- 再渲染 如果登录有房间了再加载以下内容 -->
-
 		<div v-if="type === 3">
 			<!-- <div> -->
 			<!-- 标题 -->
@@ -46,13 +44,6 @@
 					<div class="content-title">{{ i.content }}</div>
 					<!-- 视频 -->
 					<video v-if="!i.img && i.media.length !== 0" :src="i.media[0]" :controls="true" :show-center-play-btn="true"></video>
-					<!-- 四张以上 -->
-					<!-- <u-album
-						v-if="i.img && i.media.length !== 0 && i.media.length > 4"
-						:urls="i.media"
-						multipleSize="230rpx"
-						:previewFullImage="false"
-					></u-album> -->
 					<div class="five" v-if="i.img && i.media.length !== 0 && i.media.length > 4">
 						<image
 							class="fiveImg"
@@ -63,15 +54,6 @@
 							@click="previewImg(i.media, jndex)"
 						></image>
 					</div>
-
-					<!-- 四张 -->
-					<!-- <u-album
-						v-if="i.img && i.media.length > 1 && i.media.length < 5"
-						:urls="i.media"
-						multipleSize="346rpx"
-						rowCount="2"
-						:previewFullImage="false"
-					></u-album> -->
 					<div class="four" v-if="i.img && i.media.length > 1 && i.media.length < 5">
 						<image
 							class="fourImg"
@@ -148,10 +130,10 @@
 <script>
 // 引入组件
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { myRoom } from '@/api/loginSelect/loginSelect.js';
-import { updateXPassword, queryXFilePageList } from '@/api/mySecret/mySecret.js';
-import { postTop, cancelPostTop } from '@/api/user/user.js';
-import { deletePost } from '@/api/articleDes/articleDes.js';
+import { myRoom } from '@/api/loginSelect.js';
+import { updateXPassword, queryXFilePageList } from '@/api/mySecret.js';
+import { postTop, cancelPostTop } from '@/api/user.js';
+import { deletePost } from '@/api/articleDes.js';
 import { ip } from '@/api/api.js';
 
 export default {

@@ -1,6 +1,5 @@
 <template>
 	<view class="pages">
-		<!-- <img class="bg-img" src="../../static/area-select-bg.png" alt="" /> -->
 		<!-- 顶部 -->
 		<div class="chat-title">
 			<!-- 左 -->
@@ -46,7 +45,7 @@
 </template>
 
 <script>
-import { chatList } from '@/api/chatList/chatList.js';
+import { chatList } from '@/api/chatList.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();

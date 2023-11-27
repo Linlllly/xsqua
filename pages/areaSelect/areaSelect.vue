@@ -1,6 +1,5 @@
 <template>
 	<div class="pages">
-		<!-- <bgMusic></bgMusic> -->
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
 		<img src="https://www.zairongyifang.com:8080/filePath/app/20237/57c133248a.jpg" alt="" class="area" />
 		<img src="https://www.zairongyifang.com:8080/filePath/app/20237/9e485e7175.jpg" alt="" class="area" />
@@ -10,7 +9,7 @@
 </template>
 
 <script>
-import { list } from '@/api/areaSelect/areaSelect.js';
+import { list } from '@/api/areaSelect.js';
 export default {
 	data() {
 		return {

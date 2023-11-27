@@ -1128,8 +1128,8 @@ page {
   margin-right: 16rpx;
 }
 .stick .other-relation image {
-  width: 56rpx;
-  height: 56rpx;
+  width: 100%;
+  height: 100%;
 }
 .u-popup {
   flex: 0 !important;

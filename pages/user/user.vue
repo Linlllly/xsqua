@@ -1,7 +1,7 @@
 <template>
 	<div class="pages">
 		<!-- 再渲染 如果登录有房间了再加载以下内容 -->
-		<div v-if="type === 1">
+		<div v-if="type === 1 || type === 3">
 			<div class="box-title">
 				<!-- 头像裁剪组件(有一定高度,建议放置在合适位置) -->
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
@@ -24,7 +24,7 @@
 					></u-icon>
 				</div>
 				<img class="push" src="../../static/push.png" alt="" @click="showSub = true" />
-				<img class="friends" src="../../static/friends.png" alt="" @click="showSearch = true" />
+				<img class="friends" src="../../static/search.png" alt="" @click="showSearch = true" />
 				<img class="issue" src="../../static/issue.png" alt="" @click="toIssue" />
 				<div class="message ">
 					<img src="../../static/message.png" alt="" @click="toMessage" />
@@ -64,8 +64,11 @@
 				</div>
 				<!-- 名字 -->
 				<div class="name">{{ username }}</div>
+				<!-- 盔甲 -->
+				<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" @click="goExchangeArmor" />
+				<img class="armor" v-else src="../../static/no-head.png" alt="" @click="goExchangeArmor" />
+				<!-- 奖牌123  -->
 				<div class="medal">
-					<!-- 奖牌123  -->
 					<div class="me1">
 						<img v-if="silverNo === 1" src="../../static/first-money.png" alt="" />
 						<img v-if="silverNo === 2" src="../../static/second-money.png" alt="" />
@@ -270,6 +273,7 @@
 // 引入组件
 import Cropping from '@/components/cropping/cropping.vue';
 import { mapGetters, mapMutations, mapState } from 'vuex';
+import { getArmourConfig } from '@/api/exchangeArmor.js';
 import {
 	userInfo,
 	userInfoEdit,
@@ -282,11 +286,11 @@ import {
 	updatePush,
 	getUserStatistics,
 	notify,
-	getUserRank
-} from '@/api/user/user.js';
-import { myRoom, selectRoom } from '@/api/loginSelect/loginSelect.js';
+	getUserRank,
+	updatePassword
+} from '@/api/user.js';
+import { myRoom, selectRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
-import { updatePassword } from '@/api/settings/settings.js';
 import QRCode from '../../utils/weapp-qrcode.js';
 
 const app = getApp();
@@ -362,7 +366,8 @@ export default {
 			newSecret: '',
 			//控制弹窗
 			popContent: '',
-			popContentBox: false
+			popContentBox: false,
+			armour: false
 		};
 	},
 	computed: {
@@ -407,6 +412,7 @@ export default {
 				url: '../loginSelect/loginSelect'
 			});
 		}
+		this.getMyRoom();
 		this.isNew = uni.getStorageSync('isNew') === 1 ? true : false;
 		this.getInviteCode = uni.getStorageSync('inviteCode') ? uni.getStorageSync('inviteCode') : null;
 		this.getInviteContent = uni.getStorageSync('inviteContent') ? uni.getStorageSync('inviteContent') : null;
@@ -414,7 +420,6 @@ export default {
 		if (this.getInviteCode && this.getInviteContent) {
 			this.sendChatWith();
 		}
-		this.getMyRoom();
 	},
 	onShow() {
 		if (this.refresh) {
@@ -422,6 +427,7 @@ export default {
 			this.myList = [];
 			this.getuserInfo();
 			this.getMyPageList();
+			this.getArmourConfig();
 		}
 		this.refresh = true;
 	},
@@ -434,7 +440,7 @@ export default {
 		this.getMyPageList();
 	},
 	methods: {
-		...mapMutations(['updateUid', 'updateAva', 'updateHouse']),
+		...mapMutations(['updateUid', 'updateAva', 'updateHouse', 'updateArmor']),
 		//获取用户订阅消息与否
 		doSub() {
 			this.showSub = false;
@@ -504,7 +510,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取用户信息失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -539,7 +545,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '请求关注/粉丝数失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -557,7 +563,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取用户各数量情况失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -568,7 +574,24 @@ export default {
 				this.eggNum = res.result.eggNum;
 			});
 		},
-
+		//盔甲状态
+		getArmourConfig() {
+			getArmourConfig().then(res => {
+				console.log('获取当前盔甲状态');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none',
+						duration: 2000
+					});
+				} else {
+					this.armour = res.result.armourStatus === 0 ? false : true;
+					uni.setStorageSync('armor', this.armour);
+					this.updateArmor();
+				}
+			});
+		},
 		//聊天红点
 		async getChatRedDot(uid) {
 			let res = await redDot({ uid: uid, type: 1, t: Date.parse(new Date()) });
@@ -576,7 +599,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '聊天新消息查询失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -595,7 +618,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '新消息查询失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -614,7 +637,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
-					title: '获取空间信息失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -654,7 +677,7 @@ export default {
 			}
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
-					title: '获取动态列表失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -695,7 +718,7 @@ export default {
 			let res = await postTop({ id: i.id });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '设置置顶失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -709,7 +732,7 @@ export default {
 			let res = await cancelPostTop({ id: i.id });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '取消置顶失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -718,6 +741,11 @@ export default {
 			this.page = 1;
 			this.myList = [];
 			this.getMyPageList();
+		},
+		goExchangeArmor() {
+			uni.navigateTo({
+				url: '../../pages_costMoney/exchangeArmor/exchangeArmor'
+			});
 		},
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
@@ -798,7 +826,7 @@ export default {
 				this.updateAva();
 			} else {
 				uni.showToast({
-					title: '上传头像失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -836,7 +864,7 @@ export default {
 				this.coverImage = this.linshiCoverImage;
 			} else {
 				uni.showToast({
-					title: '上传背景失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -853,7 +881,7 @@ export default {
 				});
 			} else {
 				uni.showToast({
-					title: '修改个人签名失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -871,7 +899,6 @@ export default {
 		confirmMima() {
 			if (this.password === this.inputMima) {
 				this.type = 1;
-				// this.getMyPageList();
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
@@ -889,7 +916,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '搜索用户失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -919,7 +946,7 @@ export default {
 			let res = await updatePassword({ password: this.newSecret });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '修改密码失败',
+					title: res.msg,
 					icon: 'none',
 					duration: 2000
 				});
@@ -941,7 +968,7 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取弹窗失败',
+						title: res.msg,
 						icon: 'none',
 						duration: 2000
 					});
@@ -1041,10 +1068,10 @@ export default {
 		}
 	}
 	.friends {
-		left: 544rpx;
+		left: 444rpx;
 	}
 	.dynamic {
-		left: 444rpx;
+		left: 544rpx;
 	}
 	.setting {
 		left: 44rpx;
@@ -1133,6 +1160,13 @@ export default {
 		font-size: 30rpx;
 		text-align: center;
 		line-height: 90rpx;
+	}
+	.armor {
+		position: absolute;
+		left: 610rpx;
+		bottom: 182rpx;
+		width: 42rpx;
+		height: 52rpx;
 	}
 	.medal {
 		position: absolute;

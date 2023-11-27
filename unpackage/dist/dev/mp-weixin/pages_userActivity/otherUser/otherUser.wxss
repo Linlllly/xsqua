@@ -413,6 +413,13 @@ page {
   text-align: center;
   line-height: 90rpx;
 }
+.box-title .armor.data-v-1aee3e0a {
+  position: absolute;
+  right: 610rpx;
+  bottom: 182rpx;
+  width: 42rpx;
+  height: 52rpx;
+}
 .box-title .medal.data-v-1aee3e0a {
   position: absolute;
   right: 210rpx;

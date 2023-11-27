@@ -13,7 +13,8 @@
     {
       "root": "pages_costMoney",
       "pages": [
-        "costMoney/costMoney"
+        "costMoney/costMoney",
+        "exchangeArmor/exchangeArmor"
       ]
     },
     {
@@ -28,11 +29,12 @@
         "settings/settings",
         "articleDes/articleDes",
         "artcleIssue/artcleIssue",
-        "meetingRoom/meetingRoom",
         "mySecret/mySecret",
         "changeMima/changeMima",
         "erWeiMa/erWeiMa",
-        "xIntroduce/xIntroduce"
+        "xIntroduce/xIntroduce",
+        "updateArmor/updateArmor",
+        "shieldList/shieldList"
       ]
     }
   ],

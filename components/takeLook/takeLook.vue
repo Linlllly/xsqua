@@ -90,10 +90,14 @@
 </template>
 
 <script>
-import { getComment } from '@/api/articleDes/articleDes.js';
-import { recommend, takeLook } from '@/api/index/index.js';
+import { getComment } from '@/api/articleDes.js';
+import { recommend, takeLook } from '@/api/index.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 export default {
 	name: 'takeLook',
+	computed: {
+		...mapState(['uid', 'house'])
+	},
 	data() {
 		return {
 			//条数
@@ -116,6 +120,7 @@ export default {
 			type: Number
 		}
 	},
+
 	mounted() {
 		this.fillerIdList = uni.getStorageSync(this.filler) ? uni.getStorageSync(this.filler) : [];
 		this.getTakeLook();

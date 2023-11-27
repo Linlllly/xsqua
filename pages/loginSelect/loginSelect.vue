@@ -4,9 +4,9 @@
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { myRoom, selectRoom } from '@/api/loginSelect/loginSelect.js';
+import { myRoom, selectRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
-import { getUserInfoById } from '@/api/otherUser/otherUser.js';
+import { getUserInfoById } from '@/api/otherUser.js';
 const app = getApp();
 export default {
 	data() {

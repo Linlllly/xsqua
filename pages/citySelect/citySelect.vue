@@ -1,18 +1,9 @@
 <template>
 	<view class="reg">
-		<!-- <bgMusic></bgMusic> -->
-		<!-- 背景图 -->
 		<img class="bg-img" :src="city.coverImage" alt="" />
-		<!-- 返回  -->
-
-		<!-- 标题  -->
-		<!-- <div class="reg-title">{{ city.cateName }}</div>
-		 -->
 		<div class="reg-title">
 			<u-icon size="28" label="换一换" labelColor="#fff" labelPos="bottom" name="reload" color="#fff" @click="reloadArea"></u-icon>
 		</div>
-
-		<!-- <u-icon size="25" name="reload" color="white" @click="backArea"></u-icon> -->
 		<!-- 锚点小区 -->
 		<div class="reg-content">
 			<div
@@ -82,12 +73,7 @@
 					<div class="icon-box" @click="showPeoPle = false"><u-icon name="close" color="#333" size="22"></u-icon></div>
 				</div>
 				<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
-					<img
-						v-if="i.userInfo.avatar === 'https://www.zairongyifang.com:8080/filePath/resource/default_head.png'"
-						src="../../static/I.png"
-						alt=""
-					/>
-					<img v-else :src="i.userInfo.avatar" alt="" />
+					<img :src="i.userInfo.avatar" alt="" />
 					<div class="des">
 						<div class="des-room">{{ i.cateName }}</div>
 						<div class="des-say">{{ i.userInfo.intro ? i.userInfo.intro : ' ' }}</div>
@@ -99,9 +85,9 @@
 </template>
 
 <script>
-import { list } from '@/api/citySelect/citySelect.js';
-import { bind, fchange } from '@/api/accessPossword/accessPossword.js';
-import { myRoom } from '@/api/loginSelect/loginSelect.js';
+import { list } from '@/api/citySelect.js';
+import { bind, fchange } from '@/api/accessPossword.js';
+import { myRoom } from '@/api/loginSelect.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 export default {
 	data() {

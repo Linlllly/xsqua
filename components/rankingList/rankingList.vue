@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { flowerRank, silverRank, giveSilver, giveFlower } from '@/api/index/index.js';
+import { flowerRank, silverRank, giveSilver, giveFlower } from '@/api/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();

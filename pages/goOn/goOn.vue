@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { list } from '@/api/goOn/goOn.js';
+import { list } from '@/api/goOn.js';
 export default {
 	data() {
 		return {

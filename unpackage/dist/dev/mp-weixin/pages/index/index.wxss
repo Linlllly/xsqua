@@ -275,28 +275,54 @@ page {
   width: 100%;
 }
 
-
-.data-v-57280228 .u-input--circle {
-  width: 90%;
-  background: #d8d8d8 !important;
-  flex: 0;
-  margin: 20rpx 20rpx !important;
+.area-all.data-v-57280228 {
+  position: relative;
+  width: 710rpx;
+  margin: 0 auto 10rpx;
+  border-radius: 20rpx 20rpx 30rpx 30rpx;
+  overflow: hidden;
 }
-.title-search.data-v-57280228 {
-  display: flex;
-  padding: 10rpx 40rpx;
+.area-all image.data-v-57280228 {
+  z-index: -2;
 }
-.three.data-v-57280228 {
-  width: 750rpx;
-  display: flex;
-  justify-content: space-around;
-  padding: 20rpx 0;
-  background-color: #ffffff;
+.area-all .city-select.data-v-57280228 {
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
 }
-.three .meeting.data-v-57280228 {
-  width: 346rpx;
-  height: 346rpx;
-  border-radius: 20rpx;
+.area-all .city-select.data-v-57280228:nth-of-type(1) {
+  top: 144rpx;
+  left: 430rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(2) {
+  bottom: 30rpx;
+  right: 10rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(3) {
+  bottom: 30rpx;
+  left: 60rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(4) {
+  top: 290rpx;
+  left: 326rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(5) {
+  top: 262rpx;
+  left: 20rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(6) {
+  top: 200rpx;
+  left: 178rpx;
+}
+.area-all .city-select.data-v-57280228:nth-of-type(7) {
+  top: 46rpx;
+  left: 24rpx;
+}
+.who-are-you.data-v-57280228 {
+  width: 710rpx;
+  margin: 0 auto 10rpx;
+  border-radius: 20rpx 20rpx 30rpx 30rpx;
+  overflow: hidden;
 }
 .banner-box.data-v-57280228 {
   background-color: #ffffff;

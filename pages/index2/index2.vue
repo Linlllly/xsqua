@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { banner } from '@/api/index/index.js';
+import { banner } from '@/api/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import takeLooks from '@/components/takeLook/takeLook.vue';
 export default {

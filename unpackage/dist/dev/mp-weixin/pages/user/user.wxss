@@ -359,10 +359,10 @@ page {
   border-radius: 50%;
 }
 .box-title .friends.data-v-80842834 {
-  left: 544rpx;
+  left: 444rpx;
 }
 .box-title .dynamic.data-v-80842834 {
-  left: 444rpx;
+  left: 544rpx;
 }
 .box-title .setting.data-v-80842834 {
   left: 44rpx;
@@ -446,6 +446,13 @@ page {
   font-size: 30rpx;
   text-align: center;
   line-height: 90rpx;
+}
+.box-title .armor.data-v-80842834 {
+  position: absolute;
+  left: 610rpx;
+  bottom: 182rpx;
+  width: 42rpx;
+  height: 52rpx;
 }
 .box-title .medal.data-v-80842834 {
   position: absolute;

@@ -21,7 +21,8 @@ const store = new Vuex.Store({
 		//uid
 		uid: uni.getStorageSync('uid') || '',
 		ava: uni.getStorageSync('ava') || '',
-		times: uni.getStorageSync('times') || '',
+		//头盔状态
+		armor: uni.getStorageSync('armor') || false,
 		//ws
 		myWs: uni.getStorageSync('myWs') || null,
 	},
@@ -54,8 +55,8 @@ const store = new Vuex.Store({
 		updateAva(state) {
 			state.ava = uni.getStorageSync('ava')
 		},
-		updateTimes(state) {
-			state.times = uni.getStorageSync('times')
+		updateArmor(state) {
+			state.armor = uni.getStorageSync('armor')
 		},
 		//通知页面
 		updateMyWs(state) {
@@ -67,7 +68,7 @@ const store = new Vuex.Store({
 			uni.removeStorageSync('house');
 			uni.removeStorageSync('uid');
 			uni.removeStorageSync('ava');
-			uni.removeStorageSync('times');
+			uni.removeStorageSync('armor');
 			uni.removeStorageSync('myWs');
 		}
 	},

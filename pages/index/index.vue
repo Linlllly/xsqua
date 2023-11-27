@@ -1,27 +1,23 @@
 <template>
 	<div class="pages">
-		<!-- 搜索 -->
-		<!-- <div class="title-search">
-			<u-search
-				placeholder="搜索用户: 房号/个性签名"
-				v-model="searchText"
-				:clearabled="true"
-				actionText="搜索"
-				@search="getSelectRoom"
-				@custom="getSelectRoom"
-				@tap.stop
-			></u-search>
-		</div> -->
-		<!-- 	<div class="three">
-			<img class="meeting" src="https://www.zairongyifang.com:8080/filePath/app/20237/e9bd0f5895.jpg" mode="" @click="toAreaSelect" />
-			<img class="meeting" src="https://www.zairongyifang.com:8080/filePath/app/20237/861cd2052f.jpg" mode="" @click="toRankingList" />
-		</div> -->
 		<div class="area-all">
-			<div class="city-select">
-				<div v-for="i in areaList" :key="i.cateId" @click="goCitySelect(i.cateId)">{{ i }}</div>
-			</div>
+			<image
+				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_05dbd14bbf.png"
+				mode="widthFix"
+				style="width: 100%;"
+			></image>
+
+			<div class="city-select" v-for="i in areaList" :key="i.cateId" @click="goCitySelect(i.cateId)"></div>
 		</div>
-		<div class="how-are-you" @click="toOtherUser({ uid, cateid })">你是谁</div>
+		<div class="who-are-you">
+			<image
+				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_dbf0b44ac5.png"
+				mode="widthFix"
+				style="width: 100%;"
+				@click="toOtherUser()"
+			></image>
+		</div>
+
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
 			<u-swiper
@@ -40,11 +36,11 @@
 </template>
 
 <script>
-import { recommend, takeLook, banner } from '@/api/index/index.js';
+import { recommend, takeLook, banner, randomRoom } from '@/api/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getComment } from '@/api/articleDes/articleDes.js';
-import { selectRoom } from '@/api/loginSelect/loginSelect.js';
-import { list } from '@/api/areaSelect/areaSelect.js';
+import { getComment } from '@/api/articleDes.js';
+import { selectRoom } from '@/api/loginSelect.js';
+import { list } from '@/api/areaSelect.js';
 import RankingList from '@/components/rankingList/rankingList.vue';
 export default {
 	computed: {
@@ -55,9 +51,6 @@ export default {
 	},
 	data() {
 		return {
-			//推荐参观
-			// randomList: [],
-			// limit: 20,
 			//地区列表
 			areaList: [],
 			//条数
@@ -141,56 +134,102 @@ export default {
 				url: '../../pages_userActivity/rankingList/rankingList'
 			});
 		},
+		toOtherUser() {
+			randomRoom().then(res => {
+				console.log('获取随机房间');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取随机房间失败',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
+				if (res.room.uid === this.uid) {
+					//自己
+					uni.switchTab({
+						url: '../../pages/user/user'
+					});
+				} else {
+					uni.navigateTo({
+						url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + res.room.cateId + '&ouid=' + res.room.uid
+					});
+				}
+			});
+		},
+
 		goOwnPageOrThirdParty() {
 			//keyname选显示url
 			//wx.navigateTo 函数跳转到其他页面
 			//wx.navigateToMiniProgram 函数跳转到第三方小程序
-		},
-		//搜索用户
-		async getSelectRoom() {
-			if (this.searchText === '') {
-				return;
-			}
-			let res = await selectRoom({ key: this.searchText });
-			console.log('搜索用户');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '搜索用户失败',
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			this.popSearch = true;
-			this.peopleList = res.room;
 		}
 	}
 };
 </script>
 
 <style lang="less" scoped>
-/deep/.u-input--circle {
-	width: 90%;
-	background: #d8d8d8 !important;
-	flex: 0;
-	margin: 20rpx 20rpx !important;
-}
-.title-search {
-	display: flex;
-	padding: 10rpx 40rpx;
-}
-.three {
-	width: 750rpx;
-	display: flex;
-	justify-content: space-around;
-	padding: 20rpx 0;
-	background-color: #ffffff;
-	.meeting {
-		width: 346rpx;
-		height: 346rpx;
-		border-radius: 20rpx;
+.area-all {
+	position: relative;
+	width: 710rpx;
+	margin: 0 auto 10rpx;
+	border-radius: 20rpx 20rpx 30rpx 30rpx;
+	overflow: hidden;
+	image {
+		z-index: -2;
 	}
+	.city-select {
+		position: absolute;
+		width: 140rpx;
+		height: 140rpx;
+	}
+	.city-select:nth-of-type(1) {
+		//繁华都市
+		top: 144rpx;
+		left: 430rpx;
+	}
+
+	.city-select:nth-of-type(2) {
+		//世外桃源
+		bottom: 30rpx;
+		right: 10rpx;
+	}
+
+	.city-select:nth-of-type(3) {
+		//神秘之地
+		bottom: 30rpx;
+		left: 60rpx;
+	}
+
+	.city-select:nth-of-type(4) {
+		//江湖之颠
+		top: 290rpx;
+		left: 326rpx;
+	}
+
+	.city-select:nth-of-type(5) {
+		//星际家园
+		top: 262rpx;
+		left: 20rpx;
+	}
+
+	.city-select:nth-of-type(6) {
+		//千年古镇
+		top: 200rpx;
+		left: 178rpx;
+	}
+
+	.city-select:nth-of-type(7) {
+		//梦幻世界
+		top: 46rpx;
+		left: 24rpx;
+	}
+}
+.who-are-you {
+	width: 710rpx;
+	margin: 0 auto 10rpx;
+	border-radius: 20rpx 20rpx 30rpx 30rpx;
+	overflow: hidden;
 }
 .banner-box {
 	background-color: #ffffff;

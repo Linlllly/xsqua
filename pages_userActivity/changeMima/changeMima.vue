@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { myRoom } from '@/api/loginSelect/loginSelect.js';
-import { updateXPassword, queryXFilePageList } from '@/api/mySecret/mySecret.js';
+import { myRoom } from '@/api/loginSelect.js';
+import { updateXPassword, queryXFilePageList } from '@/api/mySecret.js';
 export default {
 	data() {
 		return {

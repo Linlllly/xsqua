@@ -9,7 +9,6 @@
 		</u-sticky>
 		<!-- 选择上传 -->
 		<u-radio-group v-if="!secret" v-model="meeting" activeColor="#f9ae3d">
-			<u-radio :name="4" shape="square" :label="'欢喜的人'"></u-radio>
 			<u-radio :name="2" shape="square" :label="'随手文字'"></u-radio>
 			<u-radio :name="3" shape="square" :label="'好玩的手艺'"></u-radio>
 		</u-radio-group>
@@ -26,13 +25,7 @@
 				v-if="value === 1"
 				v-model="content"
 				:placeholder="
-					secret
-						? '字数无限制'
-						: meeting === 4
-						? '记录、展示、分享生活里的新鲜事！'
-						: meeting === 2
-						? '有感而发，随便写两句，吐槽、赞美都行！'
-						: '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
+					secret ? '字数无限制' : meeting === 2 ? '有感而发，随便写两句，吐槽、赞美都行！' : '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
 				"
 				autoHeight
 				border="none"
@@ -77,9 +70,8 @@
 </template>
 
 <script>
-import { onLoad } from '../../uni_modules/uview-ui/libs/mixin/mixin';
 import { ip } from '@/api/api.js';
-import { addPost, checkContent, addXFilePost } from '@/api/articleIssue/artcleIssue.js';
+import { addPost, checkContent, addXFilePost } from '@/api/artcleIssue.js';
 
 export default {
 	data() {
@@ -109,7 +101,6 @@ export default {
 	},
 	onLoad(option) {
 		this.secret = option.secret ? option.secret : null;
-		// this.meeting = option.meeting ? option.meeting : '';
 		if (!this.secret) {
 			uni.showToast({
 				title: '请遵守法律法规，文明发言',
