@@ -57,15 +57,15 @@
       },
       {
         "pagePath": "pages/index/index",
-        "text": "欢喜的人",
+        "text": "欢喜广场",
         "iconPath": "static/欢喜的人（里）.png",
         "selectedIconPath": "static/欢喜的人（表）.png"
       },
       {
         "pagePath": "pages/index2/index2",
         "text": "随手文字",
-        "iconPath": "static/随手文字（里）.png",
-        "selectedIconPath": "static/随手文字（表）.png"
+        "iconPath": "static/11.png",
+        "selectedIconPath": "static/22.png"
       },
       {
         "pagePath": "pages/index3/index3",
@@ -88,6 +88,9 @@
     "scope.album": {
       "desc": "相册功能"
     }
+  },
+  "globalStyle": {
+    "__usePrivacyCheck__": true
   },
   "usingComponents": {}
 }

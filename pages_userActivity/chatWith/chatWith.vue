@@ -19,9 +19,19 @@
 				<div class="info-des">{{ ointro ? ointro : ' ' }}</div>
 			</div>
 			<div class="other-relation"><img src="../ua_static/lahei.png" alt="" @click="shieldUser" /></div>
-			<div class="other-relation"><u-icon size="30" name="trash" color="#d61515" @click="showBalck = true"></u-icon></div>
+			<div class="other-relation">
+				<u-icon
+					size="30"
+					name="trash"
+					color="#d61515"
+					@click="
+						showRemove = true;
+						cleanAll = true;
+					"
+				></u-icon>
+			</div>
 		</div>
-		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }">
+		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }" @click="showPopup = false">
 			<scroll-view
 				class="msg-list"
 				:class="popupLayerClass"
@@ -45,7 +55,7 @@
 				</view>
 				<view class="row" v-for="(row, index) in chatWithList" :key="index" :id="'msg' + row.id">
 					<!-- 用户消息 -->
-					<block v-if="row.type === 'chat'">
+					<block v-if="row.type !== 'err_msg'">
 						<!-- 111111自己发出的消息 -->
 						<view v-if="row.fromUid == uid" class="my" @longpress="recordOkBtn(row)">
 							<!-- 	<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div> -->
@@ -54,24 +64,33 @@
 								<!-- 时间 -->
 								<span class="timer">{{ row.createTime }}</span>
 								<!-- 文字消息 -->
-								<view v-if="row.type === 'chat'" class="bubble" style="position: relative;">
-									<div v-if="row.id === '0'" style="position: absolute;left: -66rpx;width: 56rpx;height: 56rpx;">
-										<u-icon name="error-circle-fill" color="red" size="28"></u-icon>
-									</div>
-									<text :user-select="true" :selectable="true">{{ row.text }}</text>
+								<view
+									v-if="row.type === 'chat'"
+									class="bubble"
+									:id="'bubble' + row.id"
+									style="position: relative;"
+									@longpress="setControls(row, $event)"
+								>
+									<text>{{ row.text }}</text>
 								</view>
 
 								<!-- 图片消息 -->
-								<view v-if="row.type === 'chat_image'" class="bubble img" @tap="showPic([row.text])">
-									<image :src="row.text" mode="aspectFit"></image>
+								<view
+									v-if="row.type === 'chat_image'"
+									class="bubble img"
+									@tap="showPic([row.text])"
+									:id="'bubble' + row.id"
+									@longpress="setControls(row, $event)"
+								>
+									<image style="margin:0 0 0 12rpx" :src="row.text" mode="aspectFit"></image>
 								</view>
 								<!-- 视频消息 -->
-								<view v-if="row.type === 'chat_video'" class="bubble veo">
+								<view v-if="row.type === 'chat_video'" class="bubble veo" :id="'bubble' + row.id" style="position: relative;">
 									<video
 										:src="row.text"
 										:controls="true"
 										:show-center-play-btn="true"
-										@longpress="showDownloadVideo(row.text)"
+										@longpress="showDownloadVideo(row)"
 										@fullscreenchange="onFullscreenChange"
 									></video>
 								</view>
@@ -89,23 +108,32 @@
 								<!-- 时间 -->
 								<span class="timer">{{ row.createTime }}</span>
 								<!-- 文字消息 -->
-								<view v-if="row.type === 'chat'" class="bubble" style="position: relative;">
-									<div v-if="row.id === '0'" style="position: absolute;left: -66rpx;width: 56rpx;height: 56rpx;">
-										<u-icon name="error-circle-fill" color="red" size="28"></u-icon>
-									</div>
-									<text :user-select="true" :selectable="true">{{ row.text }}</text>
+								<view
+									v-if="row.type === 'chat'"
+									class="bubble"
+									:id="'bubble' + row.id"
+									style="position: relative;"
+									@longpress="setControls(row, $event)"
+								>
+									<text>{{ row.text }}</text>
 								</view>
 								<!-- 图片消息 -->
-								<view v-if="row.type === 'chat_image'" class="bubble img" @tap="showPic([row.text])">
+								<view
+									v-if="row.type === 'chat_image'"
+									class="bubble img"
+									@tap="showPic([row.text])"
+									:id="'bubble' + row.id"
+									@longpress="setControls(row, $event)"
+								>
 									<image :src="row.text" mode="aspectFit"></image>
 								</view>
 								<!-- 视频消息 -->
-								<view v-if="row.type === 'chat_video'" class="bubble veo">
+								<view v-if="row.type === 'chat_video'" class="bubble veo" :id="'bubble' + row.id">
 									<video
 										:src="row.text"
 										:controls="true"
 										:show-center-play-btn="true"
-										@longpress="showDownloadVideo(row.text)"
+										@longpress="showDownloadVideo(row)"
 										@fullscreenchange="onFullscreenChange"
 									></video>
 								</view>
@@ -147,16 +175,19 @@
 				</view>
 			</view>
 		</view>
-		<!-- 确认删除框 -->
-		<u-modal
-			:show="showRemove"
-			title="删除"
-			content="将删除双方对话的所有内容"
-			@confirm="confirmRemove"
-			showCancelButton
-			@cancel="showRemove = false"
-			confirmColor="#e89406"
-		></u-modal>
+		<!-- 单删全删 -->
+		<u-modal :show="showRemove" title="删除" @confirm="confirmRemove" showCancelButton @cancel="showRemove = false" confirmColor="#e89406">
+			<view class="slot-content">
+				<u-radio-group v-model="cleanType" placement="column" activeColor="#e89406" size="20">
+					<u-radio :name="0" shape="circle" :label="cleanAll === true ? '删除本手机上所有聊天记录' : '删除本手机上这条聊天记录'"></u-radio>
+					<u-radio
+						:name="1"
+						shape="circle"
+						:label="cleanAll === true ? '一键删除双方手机上所有聊天记录' : '一键删除双方手机上这条聊天记录'"
+					></u-radio>
+				</u-radio-group>
+			</view>
+		</u-modal>
 		<!-- 改动 -->
 		<u-modal
 			title="修改用户备注"
@@ -187,7 +218,7 @@
 		<!-- 下载按钮 -->
 		<u-action-sheet
 			style="z-index: 9999;"
-			:actions="[{ name: '下载视频' }]"
+			:actions="[{ name: '下载视频' }, { name: '删除消息' }]"
 			:title="title"
 			:show="isFullLongPress"
 			:closeOnClickOverlay="true"
@@ -195,10 +226,23 @@
 			@close="isFullLongPress = false"
 			@select="selectClick"
 		></u-action-sheet>
+		<!-- 弹出层 -->
+		<div v-if="showPopup" class="popup" :style="{ top: popupTop + 'px', left: popupLeft + 'px' }">
+			<text
+				@click="
+					showRemove = true;
+					cleanAll = false;
+				"
+			>
+				删除
+			</text>
+			<text v-if="popupRow.type === 'chat'" style="margin: 0 10rpx;">|</text>
+			<text v-if="popupRow.type === 'chat'" @click="copyMessage">复制</text>
+		</div>
 	</view>
 </template>
 <script>
-import { history, cleanHistory, getRemark } from '@/api/chatWith.js';
+import { history, deleteHistory, getRemark } from '@/api/chatWith.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { getUserInfoById } from '@/api/otherUser.js';
 import { userRemarkEdit } from '@/api/fansAndFouces.js';
@@ -217,7 +261,11 @@ export default {
 			inputBotton: 0,
 			messBotton: 0,
 			inputLines: 0,
+			//删除
 			showRemove: false,
+			cleanType: 0,
+			cleanAll: false,
+			//他人信息
 			ouid: '',
 			oava: '',
 			ousername: '',
@@ -276,7 +324,14 @@ export default {
 			downloadUrl: null,
 			close: false,
 			//拉黑
-			showshield: false
+			showshield: false,
+			//复制删除
+			showPopup: false,
+			popupPosition: 'top',
+			popupTop: 0,
+			popupLeft: 0,
+			popupRow: '',
+			changeSendId: false
 		};
 	},
 
@@ -308,20 +363,20 @@ export default {
 							return;
 						}
 						let data = JSON.parse(res.data);
+
 						if (data.type === 'err_msg' && data.toUid === this.uid && data.fromUid === this.uid) {
+							this.$delete(this.chatWithList, this.chatWithList.length - 1);
 							uni.showToast({
 								title: data.text,
-								icon: 'none',
-								duration: 2000
+								icon: 'none'
 							});
-							//将发出去消息的id置为0
-							this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0');
+							// this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0_' + Date.now().toString());
 							return;
 						}
 
 						if (
 							!(data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') ||
-							(data.toUid !== this.uid && data.fromUid !== parseInt(this.ouid))
+							(data.toUid !== this.uid || data.fromUid !== parseInt(this.ouid))
 						) {
 							console.log('不是当前对话');
 							return;
@@ -384,8 +439,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '只有盔甲用户可以拉黑用户',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -396,15 +450,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '加入黑名单成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				setTimeout(res => {
 					uni.navigateBack();
@@ -419,8 +471,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -446,8 +497,7 @@ export default {
 					this.isHistoryLoading = false;
 					uni.showToast({
 						title: '已加载所有数据',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -463,8 +513,7 @@ export default {
 				this.isHistoryLoading = false;
 				uni.showToast({
 					title: '已加载所有数据',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.$nextTick(function() {
 					this.scrollAnimation = true;
@@ -478,8 +527,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -515,22 +563,22 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
-			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: this.textMsg, type: 'chat' };
+			let caid = this.uid.toString() + new Date().getTime() + Math.floor(Math.random() * 10).toString();
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: this.textMsg, type: 'chat', id: caid };
 			this.ws.send({
 				data: JSON.stringify(content),
 				success: () => {
 					console.log('ws消息发送成功');
 					let nowDate = this.getNowFormatDate();
-					let id = 'msg' + this.chatWithList.length;
+					let id = 'msg' + caid;
 					this.chatWithList.push({
 						...content,
 						createTime: nowDate,
-						id: this.chatWithList.length
+						id: caid
 					});
 					//回到底部
 					this.$nextTick(() => {
@@ -597,8 +645,6 @@ export default {
 					});
 					let linShi2 = r.tempFiles;
 					linShi2.forEach(i => {
-						console.log(i);
-						// 挨个上传push
 						uni.uploadFile({
 							url: ip + '/app/common/upload',
 							filePath: i.tempFilePath,
@@ -614,8 +660,7 @@ export default {
 								uni.hideLoading();
 								uni.showToast({
 									title: res.msg,
-									icon: 'none',
-									duration: 2000
+									icon: 'none'
 								});
 							}
 						});
@@ -653,8 +698,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: res.msg,
-								icon: 'none',
-								duration: 2000
+								icon: 'none'
 							});
 						}
 					});
@@ -668,25 +712,25 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
-			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_image' };
+			let caid = this.uid.toString() + new Date().getTime() + Math.floor(Math.random() * 10).toString();
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_image', id: caid };
 			this.ws.send({
 				data: JSON.stringify(content),
 				success: () => {
 					console.log('ws图片发送成功');
 					uni.hideLoading();
 					let nowDate = this.getNowFormatDate();
-					let id = 'msg' + this.chatWithList.length;
+					let id = 'msg' + caid;
 					this.chatWithList.push({
 						...content,
 						createTime: nowDate,
-						id: this.chatWithList.length
+						id: caid
 					});
-					回到底部;
+					// 回到底部;
 					this.$nextTick(() => {
 						this.scrollToView = id;
 					});
@@ -703,27 +747,31 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
-			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_video' };
+			let caid = this.uid.toString() + new Date().getTime() + Math.floor(Math.random() * 10).toString();
+			var content = { fromUid: this.uid, toUid: this.ouid - 0, text: paths, type: 'chat_video', id: caid };
 			this.ws.send({
 				data: JSON.stringify(content),
 				success: () => {
 					console.log('ws视频发送成功');
 					uni.hideLoading();
 					let nowDate = this.getNowFormatDate();
-					let id = 'msg' + this.chatWithList.length;
+					let id = 'msg' + caid;
 					this.chatWithList.push({
 						...content,
 						createTime: nowDate,
-						id: this.chatWithList.length
+						id: caid
 					});
 					//回到底部
 					this.$nextTick(() => {
 						this.scrollToView = id;
+						if (this.changeSendId) {
+							this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0_' + Date.now().toString());
+							this.changeSendId = false;
+						}
 					});
 					this.textMsg = '';
 					this.inputLines = 0;
@@ -733,20 +781,6 @@ export default {
 		},
 		discard() {
 			return;
-		},
-		async confirmRemove() {
-			let res = await cleanHistory({ toUid: this.ouid - 0 });
-			console.log('删除历史');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none',
-					duration: 2000
-				});
-				return;
-			}
-			uni.navigateBack({});
 		},
 		inputHight(e) {
 			this.inputTop = true;
@@ -771,7 +805,6 @@ export default {
 				});
 				return;
 			}
-
 			//多行时候的差值
 			let nowHeight = '';
 			let query = uni.createSelectorQuery().in(this);
@@ -793,15 +826,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改备注成功',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			this.realRemark = this.remark;
 			this.changeName = false;
@@ -814,17 +845,16 @@ export default {
 			});
 		},
 		// 展示下载按钮
-		showDownloadVideo(url) {
-			console.log('我是长按');
+		showDownloadVideo(row) {
+			console.log(row);
 			if (!this.isFull) {
-				//非全屏状态才展示下载按钮
+				// //非全屏状态才展示下载按钮
 				this.isFullLongPress = true;
-				this.downloadUrl = url;
-				console.log(this.isFullLongPress);
+				this.popupRow = row;
+				this.downloadUrl = row.text;
 			}
 		},
 		selectClick(index) {
-			console.log(index);
 			if (index.name === '下载视频') {
 				uni.showLoading({
 					title: '视频下载中...'
@@ -833,26 +863,21 @@ export default {
 					url: this.downloadUrl, // 视频文件的网络地址
 					success: function(res) {
 						if (res.statusCode === 200) {
-							var tempFilePath = res.tempFilePath; // 下载后的临时文件路径
-							// 进行保存操作或其他处理
-
-							// 示例：将下载的视频保存到本地相册
+							var tempFilePath = res.tempFilePath;
 							uni.saveVideoToPhotosAlbum({
 								filePath: tempFilePath,
 								success: function() {
 									uni.hideLoading();
 									uni.showToast({
 										title: '保存视频成功',
-										icon: 'none',
-										duration: 2000
+										icon: 'none'
 									});
 								},
 								fail: function(err) {
 									uni.hideLoading();
 									uni.showToast({
 										title: res.msg,
-										icon: 'none',
-										duration: 2000
+										icon: 'none'
 									});
 								}
 							});
@@ -860,8 +885,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: res.msg,
-								icon: 'none',
-								duration: 2000
+								icon: 'none'
 							});
 						}
 					},
@@ -869,11 +893,83 @@ export default {
 						console.log('下载视频失败', err);
 					}
 				});
+			} else if (index.name === '删除消息') {
+				this.showRemove = true;
+				this.cleanAll = false;
 			}
 		},
 		//全屏和退出全屏
 		onFullscreenChange(event) {
 			this.isFull = event.detail.fullScreen;
+		},
+		setControls(row, event) {
+			this.showPopup = true;
+			this.popupRow = row;
+			const bubble = '#bubble' + row.id;
+			const query = wx.createSelectorQuery();
+			const that = this;
+			query
+				.select('#' + event.currentTarget.id)
+				.boundingClientRect(function(rect) {
+					that.popupTop = Math.abs(rect.top) - 40;
+					that.popupLeft = Math.abs(rect.left) + rect.width / 2;
+				})
+				.exec();
+		},
+		copyMessage() {
+			let that = this;
+			uni.setClipboardData({
+				data: this.popupRow.text,
+				success: res => {
+					that.showPopup = false;
+					console.log('chengg');
+					console.log(res);
+				},
+				fail: res => {
+					console.log('fail');
+					console.log(res);
+					uni.showToast({
+						title: res,
+						icon: 'none'
+					});
+				}
+			});
+		},
+		async confirmRemove() {
+			if (!this.armor && this.cleanType === 1) {
+				uni.showToast({
+					title: '未激活，需兑换超级安全盔甲',
+					icon: 'none'
+				});
+				return;
+			}
+			let obj = {
+				isAll: this.cleanAll === true ? 1 : 0,
+				toUid: this.ouid - 0,
+				isDouble: this.cleanType,
+				msgIdList: this.cleanAll === true ? [] : [this.popupRow.id]
+			};
+			deleteHistory(obj).then(res => {
+				console.log('单双删记录');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none'
+					});
+					return;
+				}
+				if (this.cleanAll) {
+					this.showRemove = false;
+					// uni.navigateBack({});
+					this.chatWithList = [];
+				} else {
+					const index = this.chatWithList.findIndex(item => item.id === this.popupRow.id);
+					this.$delete(this.chatWithList, index);
+					this.showPopup = false; // 关闭弹出层
+					this.showRemove = false;
+				}
+			});
 		},
 		recordOkBtn(row) {
 			// row.showOkBtn = true;
@@ -975,9 +1071,22 @@ export default {
 	transform: translate3d(0, -43vw, 0);
 }
 .timer {
-	// padding: 0 16rpx;
 	padding: 4rpx 8rpx;
 	color: #94c7eb;
 	font-size: 28rpx;
+}
+.popup {
+	position: absolute;
+	z-index: 50;
+	background-color: rgba(0, 0, 0, 0.75);
+	border-radius: 16rpx;
+	padding: 16rpx;
+	color: #fff;
+	display: flex;
+	white-space: pre;
+	transform: translateX(-50%);
+}
+/deep/.u-radio {
+	padding: 10rpx 0;
 }
 </style>

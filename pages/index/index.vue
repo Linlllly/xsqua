@@ -2,7 +2,7 @@
 	<div class="pages">
 		<div class="area-all">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_05dbd14bbf.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_25cb83852d.png"
 				mode="widthFix"
 				style="width: 100%;"
 			></image>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="who-are-you">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_dbf0b44ac5.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_3034e0cef9.png"
 				mode="widthFix"
 				style="width: 100%;"
 				@click="toOtherUser()"
@@ -24,7 +24,7 @@
 				:list="list1"
 				keyName="img"
 				height="220rpx"
-				:interval="3500"
+				:interval="5000"
 				:duration="400"
 				:circular="true"
 				@click="goOwnPageOrThirdParty()"
@@ -92,9 +92,8 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取区域列表失败',
-					icon: 'none',
-					duration: 2000
+					title: res.msg,
+					icon: 'none'
 				});
 				return;
 			}
@@ -110,9 +109,8 @@ export default {
 			console.log('请求banner图');
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取banner图失败',
-					icon: 'none',
-					duration: 2000
+					title: res.msg,
+					icon: 'none'
 				});
 				return;
 			}
@@ -140,9 +138,8 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取随机房间失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 					return;
 				}
@@ -153,16 +150,39 @@ export default {
 					});
 				} else {
 					uni.navigateTo({
-						url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + res.room.cateId + '&ouid=' + res.room.uid
+						url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + res.room.cateId + '&ouid=' + res.room.uid + '&index=' + true
 					});
 				}
 			});
 		},
-
-		goOwnPageOrThirdParty() {
-			//keyname选显示url
-			//wx.navigateTo 函数跳转到其他页面
-			//wx.navigateToMiniProgram 函数跳转到第三方小程序
+		goOwnPageOrThirdParty(index) {
+			if (this.list1[index].linkType === 1) {
+				wx.navigateToMiniProgram({
+					appId: this.list1[index].appId,
+					path: this.list1[index].url,
+					envVersion: 'release',
+					success(res) {
+						console.log('跳转小程序成功！', res);
+					}
+				});
+			} else if (this.list1[index].linkType === 0) {
+				if (
+					this.list1[index].url === '../pages/user/user' ||
+					this.list1[index].url === '../pages/index/index' ||
+					this.list1[index].url === '../pages/index2/index2' ||
+					this.list1[index].url === '../pages/index3/index3'
+				) {
+					uni.switchTab({
+						url: 'this.list1[index].url'
+					});
+				} else {
+					uni.navigateTo({
+						url: this.list1[index].url
+					});
+				}
+			} else {
+				return;
+			}
 		}
 	}
 };
@@ -323,5 +343,10 @@ button::after {
 	height: 668rpx;
 	color: #767374;
 	text-align: center;
+}
+/deep/.u-input__content {
+	padding: 10rpx 0;
+	background-color: #ccc;
+	border-radius: 20rpx;
 }
 </style>

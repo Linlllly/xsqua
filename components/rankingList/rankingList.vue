@@ -2,7 +2,6 @@
 	<div class="pages">
 		<!-- 打投列表 -->
 		<div class="pick-list">
-			<div class="list-all-title">X自由空间榜单：富豪榜、迷人榜</div>
 			<div>
 				<!-- 钱币 -->
 				<div class="list-item">
@@ -22,7 +21,7 @@
 					</div>
 				</div>
 				<!-- 鲜花 -->
-				<div class="list-item2">
+				<!-- <div class="list-item2">
 					<img class="mouth-img" src="../../static/flower.png" alt="" />
 					<div class="mouth-title">——— 迷人榜 ———</div>
 					<div class="mouth-list" v-for="(i, index) in flowerRankList" :key="i.uid">
@@ -32,13 +31,12 @@
 						<img v-if="index === 2" class="mouth-medal" src="../../static/mouth-three-flower.png" alt="" />
 						<div v-if="index >= 3" class="mouth-no-medel">NO.{{ index + 1 }}</div>
 						<div class="mouth-info">
-							<!-- <div class="info-street">五一街</div> -->
 							<div class="info-addr">{{ i.username }}</div>
 						</div>
 						<div class="mouth-count">{{ i.flowerNum }}朵</div>
 						<div class="mouth-btn" @click="addMoneyOrFlower(i, 2)">助力</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!-- 	<div class="next"><u-icon v-if="rankRich" name="arrow-down" color="#b8b8b8" size="22" @click="rankRich = !rankRich"></u-icon></div> -->
 		</div>
@@ -415,5 +413,10 @@ export default {
 }
 image {
 	display: block;
+}
+/deep/.u-input__content {
+	padding: 10rpx 0;
+	background-color: #ccc;
+	border-radius: 20rpx;
 }
 </style>

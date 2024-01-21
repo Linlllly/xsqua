@@ -78,8 +78,8 @@ export default {
 					method: 'POST',
 					data: {
 						code: code,
-						inviteCode: this.inviteCode,
-						inviteContent: this.inviteContent
+						inviteCode: this.inviteCode
+						// inviteContent: this.inviteContent
 					},
 					success: cts => {
 						console.log('获取token');
@@ -89,8 +89,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: '服务器出错，正在尝试重连...',
-								icon: 'none',
-								duration: 2000
+								icon: 'none'
 							});
 							//显示失败
 							setTimeout(() => {
@@ -103,19 +102,17 @@ export default {
 						uni.setStorageSync('token', cts.data.token);
 						uni.setStorageSync('isNew', cts.data.isNew);
 						this.updateToken();
-						app.updateWs();
 						if (this.inviteCode) {
 							this.getGetUserInfoById();
 						}
-
+						app.updateWs();
 						return;
 					},
 					fail: () => {
 						uni.hideLoading();
 						uni.showToast({
 							title: '微信登录出错，请尝试重新进入小程序...',
-							icon: 'none',
-							duration: 2000
+							icon: 'none'
 						});
 						// setTimeout(() => {
 						// 	this.getCode();
@@ -135,16 +132,15 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			this.inviteContent = res.result.inviteContent;
-			if (this.isNew === 1) {
-				uni.setStorageSync('inviteCode', this.inviteCode);
-				uni.setStorageSync('inviteContent', this.inviteContent);
-			}
+			// if (this.isNew === 1) {
+			uni.setStorageSync('inviteCode', this.inviteCode);
+			uni.setStorageSync('inviteContent', this.inviteContent);
+			// }
 		},
 
 		//跳转去哪里
@@ -166,6 +162,10 @@ export default {
 			uni.switchTab({
 				url: '../user/user'
 			});
+
+			// uni.switchTab({
+			// 	url: '../index2/index2'
+			// });
 		}
 	}
 };

@@ -3,98 +3,76 @@
 		<!-- 再渲染 如果登录有房间了再加载以下内容 -->
 		<div v-if="type === 1 || type === 3">
 			<div class="box-title">
-				<!-- 头像裁剪组件(有一定高度,建议放置在合适位置) -->
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
 				<img
-					:src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png' : coverImage"
+					:src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=1' : coverImage"
 					alt=""
 					class="my-img"
 				/>
-				<!-- 底部淡出 -->
-				<div class="width-bottom">
-					<u-icon
-						name="photo-fill"
-						color="#818181"
-						size="36"
-						label="换背景"
-						@click="changeBg"
-						labelPos="bottom"
-						labelColor="#818181"
-					></u-icon>
-				</div>
-				<img class="push" src="../../static/push.png" alt="" @click="showSub = true" />
-				<img class="friends" src="../../static/search.png" alt="" @click="showSearch = true" />
-				<img class="issue" src="../../static/issue.png" alt="" @click="toIssue" />
-				<div class="message ">
-					<img src="../../static/message.png" alt="" @click="toMessage" />
-					<div v-if="messageDot" class="mes-dot"></div>
-				</div>
-				<img class="dynamic" src="../../static/mim.png" alt="" @click="changeSecret = true" />
-				<div class="chat">
-					<img src="../../static/chat.png" alt="" @click="toChatList" />
-					<div v-if="chatDot" class="mes-dot"></div>
-				</div>
-				<img class="setting" src="../../static/setting.png" alt="" @click="toSettings" />
 
-				<!-- 头像裁剪组件(有一定高度,建议放置在合适位置) -->
-				<Cropping @upload="doUpload" ref="cropping" selWidth="300upx" selHeight="300upx" />
-				<!-- 头像和说明 -->
-				<img class="portrait" :src="avatar" alt="" @click="changeAvatar" />
-				<!-- 标识 -->
-				<div class="flower" @click="toCostMoney">
-					<div class="box1">
-						<img class="money-img" src="../../static/money.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ silverNum }}</text>
+				<!-- 覆盖盒子/相对定位 -->
+				<div class="width-bottom"><img src="../../static/changemy.png" alt="" @click="changeBg" /></div>
+				<div class="my-info">
+					<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
+					<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" @click="goExchangeArmor" />
+					<img class="armor-1" v-else src="../../static/no-head-big.png" alt="" @click="goExchangeArmor" />
+					<div class="infos-1">
+						<Cropping @upload="doUpload" ref="cropping" selWidth="300upx" selHeight="300upx" />
+						<img class="portrait" :src="avatar" alt="" @click="changeAvatar" />
+						<div class="info">
+							<div class="name-kj">
+								<div class="name">{{ username }}</div>
+								<!-- 	<div class="armor-time" v-if="armour">{{ armourTime }}天</div> -->
+							</div>
+							<div class="about">
+								<div @click="toFansAndFouces">
+									<span>关注：</span>
+									<span>{{ follow }}</span>
+								</div>
+								<div @click="toFansAndFouces">
+									<span>粉丝：</span>
+									<span>{{ fans }}</span>
+								</div>
+								<div @click="toCostMoney">
+									<span>银子：</span>
+									<span>{{ silverNum }}</span>
+								</div>
+								<!-- <div @click="toCostMoney">鲜花：\n{{ flowerNum }}</div>
+								<div @click="toCostMoney">便便：\n{{ eggNum }}</div> -->
+							</div>
+						</div>
 					</div>
-					<div class="box2">
-						<img class="flower-img" src="../../static/flower.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ flowerNum }}</text>
+					<div class="infos-2">
+						<u--textarea
+							border="null"
+							v-model="myDes"
+							placeholder="（设置个性签名 最多30字）"
+							autoHeight
+							maxlength="30"
+							placeholderStyle="color: #767374"
+							color="#767374"
+							@blur="changeMyDes"
+							:showConfirmBar="false"
+						></u--textarea>
 					</div>
-					<div class="box3">
-						<img class="eggs-img" src="../../static/poo.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ eggNum }}</text>
+					<div class="infos-3">
+						<div class="contorl-1">
+							<img src="../../static/chat.png" alt="" @click="toChatList" />
+							<div v-if="chatDot" class="mes-dot"></div>
+						</div>
+						<img class="contorl-2" src="../../static/mim.png" alt="" @click="changeSecret = true" />
+						<img class="contorl-3" src="../../static/secret.png" alt="" @click="goSecret" />
+						<div class="contorl-4">
+							<img src="../../static/kjjs.png" alt="" @click="goIntroduce()" />
+							<!-- <div v-if="messageDot" class="mes-dot"></div> -->
+						</div>
+						<img class="contorl-5" src="../../static/issue.png" alt="" @click="toIssue" />
+						<img class="contorl-6" src="../../static/search.png" alt="" @click="showSearch = true" />
+						<img class="contorl-7" src="../../static/friends.png" alt="" @click="showFriend = true" />
+						<img class="contorl-8" src="../../static/push.png" alt="" @click="showSub = true" />
 					</div>
 				</div>
-
-				<!-- 个人介绍 -->
-				<div class="focus" @click="toFansAndFouces">
-					<div class="attention">关注：{{ follow }}</div>
-					<div class="fans">粉丝：{{ fans }}</div>
-				</div>
-				<!-- 名字 -->
-				<div class="name">{{ username }}</div>
-				<!-- 盔甲 -->
-				<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" @click="goExchangeArmor" />
-				<img class="armor" v-else src="../../static/no-head.png" alt="" @click="goExchangeArmor" />
-				<!-- 奖牌123  -->
-				<div class="medal">
-					<div class="me1">
-						<img v-if="silverNo === 1" src="../../static/first-money.png" alt="" />
-						<img v-if="silverNo === 2" src="../../static/second-money.png" alt="" />
-						<img v-if="silverNo === 3" src="../../static/third-money.png" alt="" />
-					</div>
-					<!-- 鲜花123 -->
-					<div class="me2">
-						<img v-if="flowerNo === 1" src="../../static/first.png" alt="" />
-						<img v-if="flowerNo === 2" src="../../static/second.png" alt="" />
-						<img v-if="flowerNo === 3" src="../../static/third.png" alt="" />
-					</div>
-				</div>
-			</div>
-			<!-- 签名 -->
-			<div class="my-des">
-				<u--textarea
-					border="null"
-					v-model="myDes"
-					placeholder="（设置个性签名 最多30字）"
-					autoHeight
-					maxlength="30"
-					placeholderStyle="color: #767374"
-					color="#767374"
-					@blur="changeMyDes"
-					:showConfirmBar="false"
-				></u--textarea>
 			</div>
 			<!-- 列表 -->
 			<div v-if="myList.length !== 0" class="list-item" v-for="(i, index) in myList" :key="i.id">
@@ -103,9 +81,7 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx;">
-							{{ i.meeting === 4 || i.meeting === 0 ? '欢喜的人' : i.meeting === 2 ? '随手文字' : '好玩的手艺' }}
-						</text>
+						<text style="margin-left: 20rpx;">{{ i.meeting === 4 || i.meeting === 0 || i.meeting === 2 ? '随手文字' : '好玩的手艺' }}</text>
 					</div>
 					<text v-if="!i.postTop" class="get-top" @click.stop="setTop(i)">设为置顶</text>
 					<text v-if="i.postTop" class="get-top" @click.stop="unSetTop(i)">取消置顶</text>
@@ -214,12 +190,45 @@
 				<div v-else class="no-more">———— 没有匹配到相关用户 ————</div>
 			</div>
 		</u-popup>
-
+		<!-- 留言 -->
+		<u-overlay
+			:show="showFriend"
+			@click="
+				showFriend = false;
+				shengcheng = true;
+			"
+		>
+			<div v-if="shengcheng" class="req-friend" @tap.stop>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png" alt="" />
+				<div v-if="showFriend && shengcheng">
+					<u--textarea
+						class="say-box"
+						border="null"
+						v-model="inviteContent"
+						placeholder="安全空间、轻松一刻"
+						height="100px"
+						maxlength="15"
+						placeholderStyle="color: #767374"
+						color="#767374"
+						:adjustPosition="true"
+						:showConfirmBar="false"
+					></u--textarea>
+				</div>
+				<div class="get-erweima" @click="createQRCode()">下一步</div>
+			</div>
+			<div v-else class="my-friend" @tap.stop>
+				<image class="code_view" :src="imagePath"></image>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png" alt="" />
+				<div class="invite-content">{{ inviteContent }}</div>
+				<button open-type="share" class="share-box">分享</button>
+				<div class="back-to" @click="shengcheng = true">上一步</div>
+			</div>
+		</u-overlay>
 		<!-- 首次进入 -->
 		<u-overlay :show="isNew" @click="isNew = false">
 			<div class="pagebox"></div>
 			<div class="newPage">
-				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/95aaa6d196.png" alt="" />
+				<img src="https://www.zairongyifang.com:8080/filePath/app/202312/compressed_4a2f71e49b.png" alt="" />
 				<div class="show-my-name">
 					<div>{{ username }}号</div>
 				</div>
@@ -367,7 +376,8 @@ export default {
 			//控制弹窗
 			popContent: '',
 			popContentBox: false,
-			armour: false
+			armour: false,
+			armourTime: null
 		};
 	},
 	computed: {
@@ -387,18 +397,18 @@ export default {
 					}
 					let data = JSON.parse(res.data);
 					console.log(data);
-					if (
-						data.type === 'follow' ||
-						data.type === 'comment' ||
-						data.type === 'collection' ||
-						data.type === 'silver' ||
-						data.type === 'flower' ||
-						data.type === 'shit'
-					) {
-						this.getUserStatistics();
-						this.getUserRank();
-						this.messageDot = true;
-					}
+					// if (
+					// 	data.type === 'follow' ||
+					// 	data.type === 'comment' ||
+					// 	data.type === 'collection' ||
+					// 	data.type === 'silver' ||
+					// 	data.type === 'flower' ||
+					// 	data.type === 'shit'
+					// ) {
+					// 	this.getUserStatistics();
+					// 	this.getUserRank();
+					// 	this.messageDot = true;
+					// }
 					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
 						this.chatDot = true;
 					}
@@ -448,8 +458,7 @@ export default {
 			if (!uni.getStorageSync('openId')) {
 				uni.showToast({
 					title: '只有微信用户才可以选择消息推送！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -493,6 +502,7 @@ export default {
 				setTimeout(() => {
 					this.sendChatWith();
 				}, 1000);
+				return;
 			}
 			var content = { fromUid: this.getInviteCode, toUid: this.uid, text: this.getInviteContent, type: 'chat' };
 			console.log(content);
@@ -500,6 +510,8 @@ export default {
 				data: JSON.stringify(content),
 				success: () => {
 					console.log('首次ws自动成功');
+					uni.removeStorageSync('inviteCode');
+					uni.removeStorageSync('inviteContent');
 				}
 			});
 		},
@@ -511,14 +523,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			this.uid = res.result.uid;
 			this.getChatRedDot(res.result.uid);
-			this.getMessRedDot(res.result.uid);
+			// this.getMessRedDot(res.result.uid);
 			this.getUserStatistics();
 			this.getUserRank();
 
@@ -546,8 +557,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -564,8 +574,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -582,13 +591,17 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
 					uni.setStorageSync('armor', this.armour);
 					this.updateArmor();
+					let givenDate = new Date(res.result.armourTime);
+					let currentDate = new Date();
+
+					var timeDiff = Math.abs(currentDate.getTime() - givenDate.getTime());
+					this.armourTime = Math.ceil(timeDiff / (1000 * 3600 * 24));
 				}
 			});
 		},
@@ -600,8 +613,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -619,8 +631,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -638,8 +649,7 @@ export default {
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -670,16 +680,14 @@ export default {
 			if (res.code === 500) {
 				uni.showToast({
 					title: '请先成为房间主人吧！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -719,8 +727,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -733,8 +740,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -786,6 +792,12 @@ export default {
 				url: '../../pages_userActivity/messageList/messageList'
 			});
 		},
+		onShareAppMessage() {
+			return {
+				title: this.inviteContent,
+				path: '/pages_userActivity/erWeiMa/erWeiMa?imagePath=' + this.imagePath + '&&inviteContent=' + this.inviteContent
+			};
+		},
 		toCostMoney() {
 			uni.navigateTo({
 				url: '../../pages_costMoney/costMoney/costMoney'
@@ -827,8 +839,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -857,6 +868,61 @@ export default {
 				}
 			});
 		},
+		//生成二维码
+		async createQRCode() {
+			if (!this.inviteContent) {
+				this.inviteContent = '点开二维码，长按二维码大图即可！';
+			}
+			this.changeMyInviteContent();
+			uni.showLoading({
+				title: '二维码生成中'
+			});
+
+			this.shengcheng = false;
+			let res = await getQRCode({ page: 'pages/loginSelect/loginSelect', scene: this.uid.toString(), width: 430 }, 'arraybuffer');
+
+			const fsm = wx.getFileSystemManager();
+			const FILE_BASE_NAME = 'qrcode_base64src';
+			const filePath = wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg';
+			const _that = this;
+			fsm.writeFile({
+				filePath,
+				data: res,
+				encoding: 'binary',
+				success() {
+					_that.canva = false;
+					wx.hideLoading();
+					_that.doUpload3(filePath);
+				},
+				fail() {}
+			});
+		},
+		async changeMyInviteContent() {
+			let res = await userInfoEdit({ inviteContent: this.inviteContent ? this.inviteContent : '点开二维码，长按二维码大图即可' });
+			if (res.code === 0) {
+			} else {
+				uni.showToast({
+					title: res.msg,
+					icon: 'none'
+				});
+				this.inviteContent = '';
+			}
+		},
+		doUpload3(rsp) {
+			this.linshiImagePath = rsp;
+			uni.uploadFile({
+				url: ip + '/app/common/upload',
+				filePath: rsp,
+				name: 'file',
+				header: {
+					token: uni.getStorageSync('token')
+				},
+				success: uploadFileRes => {
+					let paths = JSON.parse(uploadFileRes.data);
+					this.imagePath = paths.result[0].url;
+				}
+			});
+		},
 		//更新背景
 		async resetCoverImage(path) {
 			let res = await updateBackGroupImg({ imgUrl: path });
@@ -865,8 +931,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -876,19 +941,26 @@ export default {
 			if (res.code === 0) {
 				uni.showToast({
 					title: '修改个人签名成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.myDes = '';
 			}
 		},
-
+		goSecret() {
+			uni.navigateTo({
+				url: '../../pages_userActivity/mySecret/mySecret'
+			});
+		},
+		goIntroduce() {
+			uni.navigateTo({
+				url: '../../pages_userActivity/xIntroduce/xIntroduce'
+			});
+		},
 		//去发布
 		toIssue() {
 			uni.navigateTo({
@@ -902,8 +974,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -917,8 +988,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -930,16 +1000,14 @@ export default {
 			if (this.oldSecret !== this.password) {
 				uni.showToast({
 					title: '原密码输入错误',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
 				uni.showToast({
 					title: '密码长度必须设置为6位',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -947,15 +1015,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改密码成功',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			this.changeSecret = false;
 			this.password = this.newSecret;
@@ -969,8 +1035,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -978,6 +1043,12 @@ export default {
 				if (this.popContent) {
 					this.popContentBox = true;
 				}
+			});
+		},
+		previewImg(i) {
+			uni.previewImage({
+				current: i[0],
+				urls: i
 			});
 		}
 	}
@@ -992,7 +1063,7 @@ export default {
 .box-title {
 	position: relative;
 	width: 750rpx;
-	height: 750rpx;
+	margin-bottom: 12rpx;
 	.my-img {
 		position: absolute;
 		top: 0;
@@ -1001,187 +1072,111 @@ export default {
 		height: 514rpx;
 	}
 	.width-bottom {
-		position: absolute;
-		top: 0;
-		left: 0;
+		position: relative;
 		width: 750rpx;
-		height: 752rpx;
-		background: linear-gradient(transparent 60%, white 68%);
-		color: #888586;
-		text-align: center;
-		line-height: 400rpx;
-		font-size: 32rpx;
-		letter-spacing: 10rpx;
-		/deep/.u-icon {
+		height: 480rpx;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		img {
+			width: 95rpx;
+			height: 94rpx;
+			margin: 20rpx;
+		}
+	}
+	.my-info {
+		position: relative;
+		width: 670rpx;
+		background: linear-gradient(to bottom left, #dedfdf, #ffffff);
+		border-radius: 20rpx;
+		margin: 0 auto;
+		padding: 14rpx 28rpx;
+		box-shadow: 2rpx 6rpx 6rpx rgba(0, 0, 0, 0.2);
+		.setting {
 			position: absolute;
-			top: 364rpx;
-			right: 14rpx;
-			.u-icon__label {
-				margin-top: 0 !important;
-			}
+			top: 50rpx;
+			right: 20rpx;
+			width: 66rpx;
+			height: 99rpx;
 		}
-	}
-	.img-my-name {
-		position: absolute;
-		width: 288rpx;
-		height: 148rpx;
-		background: url('../../static/my-name.png') no-repeat;
-		background-size: 288rpx 148rpx;
-		top: 0rpx;
-		left: 20rpx;
-		text-align: center;
-		color: white;
-		padding-top: 54rpx;
-	}
-	.push,
-	.issue,
-	.message,
-	.dynamic,
-	.chat,
-	.setting,
-	.friends {
-		position: absolute;
-		width: 90rpx;
-		height: 110rpx;
-		top: 24rpx;
-	}
-	.push {
-		left: 644rpx;
-	}
-	.issue {
-		left: 144rpx;
-	}
-	.message {
-		left: 244rpx;
-		image {
-			width: 100%;
-			height: 100%;
-		}
-		.mes-dot {
+		.armor-1 {
 			position: absolute;
-			width: 20rpx;
-			height: 20rpx;
-			background-color: #f56c6c;
-			top: 12rpx;
-			left: 12rpx;
-			border-radius: 50%;
+			top: 50rpx;
+			width: 140rpx;
+			height: 100rpx;
+			right: 90rpx;
 		}
-	}
-	.friends {
-		left: 444rpx;
-	}
-	.dynamic {
-		left: 544rpx;
-	}
-	.setting {
-		left: 44rpx;
-	}
-	.chat {
-		left: 344rpx;
-		image {
-			width: 100%;
-			height: 100%;
-		}
-		.mes-dot {
+		.armor {
 			position: absolute;
-			width: 20rpx;
-			height: 20rpx;
-			background-color: #f56c6c;
-			top: 12rpx;
-			left: 12rpx;
-			border-radius: 50%;
+			top: 50rpx;
+			width: 86rpx;
+			height: 100rpx;
+			right: 110rpx;
 		}
-	}
-
-	//
-	.portrait {
-		position: absolute;
-		width: 160rpx;
-		height: 160rpx;
-		left: 32rpx;
-		bottom: 94rpx;
-		border-radius: 50%;
-	}
-	.flower {
-		position: absolute;
-		height: 46rpx;
-		width: 520rpx;
-		left: 210rpx;
-		bottom: 98rpx;
-		.box1,
-		.box2,
-		.box3 {
-			padding: 0rpx 20rpx;
-			float: left;
+		.infos-1 {
 			display: flex;
-			width: 172rpx;
-			height: 44rpx;
-			box-sizing: border-box;
-		}
-		.box1 {
-			border-right: 2rpx solid #000000;
-			.money-img {
-				width: 46rpx;
-				height: 46rpx;
+			justify-content: space-between;
+			align-items: center;
+			.portrait {
+				width: 140rpx;
+				height: 140rpx;
+				border-radius: 50%;
 			}
-		}
-		.box2 {
-			border-right: 2rpx solid #000000;
-			.flower-img {
-				width: 40rpx;
-				height: 40rpx;
-			}
-		}
-		.box3 {
-			.eggs-img {
-				width: 40rpx;
-				height: 40rpx;
-			}
-		}
-	}
+			.info {
+				flex: 1;
+				padding-left: 20rpx;
+				.name-kj {
+					display: flex;
+					align-items: center;
+					.name {
+						font-size: 44rpx;
+					}
 
-	.focus {
-		position: absolute;
-		left: 4rpx;
-		bottom: 14rpx;
-		height: 76rpx;
-		width: 212rpx;
-		text-align: center;
-		color: #767374;
-	}
-	.name {
-		position: absolute;
-		left: 210rpx;
-		bottom: 162rpx;
-		width: 382rpx;
-		height: 90rpx;
-		background: url('../../static/my-name.png') no-repeat;
-		background-size: 382rpx 90rpx;
-		font-size: 30rpx;
-		text-align: center;
-		line-height: 90rpx;
-	}
-	.armor {
-		position: absolute;
-		left: 610rpx;
-		bottom: 182rpx;
-		width: 42rpx;
-		height: 52rpx;
-	}
-	.medal {
-		position: absolute;
-		left: 210rpx;
-		bottom: 14rpx;
-		width: 520rpx;
-		height: 80rpx;
-		.me1,
-		.me2 {
-			float: left;
-			width: 172rpx;
-			height: 100%;
-			image {
-				width: 158rpx;
-				height: 74rpx;
+					.armor-time {
+						color: #918f8f;
+					}
+				}
+				.about {
+					display: flex;
+					justify-content: space-between;
+					margin: 20rpx 0;
+					width: 308rpx;
+					div {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+			}
+		}
+		.infos-2 {
+			// margin-top: 15rpx;
+			/deep/.u-textarea {
+				padding: 0 !important;
+				background-color: transparent !important;
+			}
+		}
+		.infos-3 {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			[class^='contorl'] {
+				position: relative;
+				width: 144rpx;
+				height: 102rpx;
+				margin-top: 20rpx;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+				.mes-dot {
+					position: absolute;
+					width: 20rpx;
+					height: 20rpx;
+					background-color: #f56c6c;
+					top: 12rpx;
+					right: 12rpx;
+					border-radius: 50%;
+				}
 			}
 		}
 	}
@@ -1302,20 +1297,7 @@ export default {
 		}
 	}
 }
-.my-des {
-	box-sizing: border-box;
-	width: 94%;
-	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-	border-radius: 16rpx;
-	margin: 0 auto 10rpx;
-	padding: 6rpx 16rpx;
-	opacity: 0.8;
-	color: #767374;
-	/deep/.u-textarea {
-		padding: 0 !important;
-		background-color: transparent !important;
-	}
-}
+
 .bottom {
 	height: 40rpx;
 }
@@ -1460,7 +1442,7 @@ export default {
 	position: relative;
 	margin: auto;
 	width: 680rpx;
-	height: 540rpx;
+	height: 640rpx;
 	img {
 		width: 100%;
 		height: 100%;
@@ -1468,7 +1450,7 @@ export default {
 	.show-my-name {
 		position: absolute;
 		width: 100%;
-		top: 390rpx;
+		top: 484rpx;
 		left: 50%;
 		transform: translateX(-50%);
 		font-size: 60rpx;
@@ -1486,31 +1468,124 @@ export default {
 	width: 602rpx;
 	height: 772rpx;
 	margin: auto;
+
 	img {
 		width: 100%;
 		height: 100%;
 	}
 	.contents {
 		position: absolute;
-		top: 300rpx;
-		left: 66rpx;
-		width: 480rpx;
-		height: 316rpx;
+		top: 212rpx;
+		left: 60rpx;
+		width: 500rpx;
+		height: 430rpx;
 		font-size: 34rpx;
 		color: #383838;
-		line-height: 44rpx;
+		line-height: 1.4;
 		overflow-y: auto; /* 显示滚动条 */
 		white-space: pre-wrap; /* 遇到换行符进行换行 */
 		word-wrap: break-word; /* 超出一行也换行 */
 	}
 	.iknow {
 		position: absolute;
-		top: 680rpx;
+		top: 682rpx;
 		left: 50%;
 		transform: translateX(-50%);
 		font-size: 36rpx;
 		color: #fff;
 		line-height: 44rpx;
+	}
+}
+.req-friend {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 648rpx;
+	height: 850rpx;
+	margin: 22% auto;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	/deep/.u-textarea {
+		white-space: pre;
+		position: absolute !important;
+		width: 424rpx !important;
+		top: 494rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0 20rpx !important;
+		background-color: transparent !important;
+	}
+	/deep/.u-textarea__field {
+		font-size: 36rpx !important;
+		color: #694e31 !important;
+	}
+	.get-erweima {
+		position: absolute;
+		width: 468rpx;
+		height: 66rpx;
+		top: 692rpx;
+		left: 50%;
+		transform: translateX(-50%);
+		color: transparent;
+	}
+}
+
+.my-friend {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 648rpx;
+	height: 850rpx;
+	margin: 22% auto;
+	justify-content: center;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.code_view {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 120rpx;
+		margin: 40rpx auto;
+		width: 170rpx;
+		height: 170rpx;
+		border-radius: 50%;
+	}
+	.invite-content {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 494rpx;
+		color: #694e31;
+		font-size: 34rpx;
+		width: 416rpx;
+		word-break: break-all;
+	}
+	.share-box {
+		position: absolute;
+		right: 108rpx;
+		top: 692rpx;
+		width: 200rpx;
+		height: 70rpx;
+		color: transparent;
+		background-color: transparent;
+		&::after {
+			border: none; //黑色边框去掉了
+		}
+	}
+	.back-to {
+		position: absolute;
+		left: 108rpx;
+		top: 706rpx;
+		width: 200rpx;
+		height: 70rpx;
+		color: transparent;
+		background-color: transparent;
 	}
 }
 </style>

@@ -7,18 +7,18 @@
 			<div class="info-name">超级安全盔甲</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-		<!-- 设置房间有密码 -->
-		<div class="content-list" @click="goSecret">
+		<!-- 档案 -->
+		<!-- <div class="content-list" @click="goSecret">
 			<u-icon name="coupon" color="#e89406" size="20"></u-icon>
 			<div class="info-name">X档案</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
+		</div> -->
 		<!-- 邀请微信好友 -->
-		<div class="content-list" @click="showFriend = true">
+		<!-- <div class="content-list" @click="showFriend = true">
 			<u-icon name="weixin-fill" color="#e89406" size="20"></u-icon>
 			<div class="info-name">邀请微信好友</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
+		</div> -->
 		<!-- 查看拉黑用户 -->
 		<div class="content-list" @click="goShieldList">
 			<u-icon name="minus-people-fill" color="#e89406" size="20"></u-icon>
@@ -32,11 +32,11 @@
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div> -->
 		<!-- 空间介绍 -->
-		<div class="content-list" @click="goIntroduce()">
+		<!-- <div class="content-list" @click="goIntroduce()">
 			<u-icon name="pushpin" color="#e89406" size="20"></u-icon>
 			<div class="info-name">空间介绍</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
+		</div> -->
 		<!-- 客服 -->
 		<button class="content-list" type="primary" open-type="contact">
 			<u-icon name="server-man" color="#e89406" size="20"></u-icon>
@@ -178,8 +178,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.inviteContent = '';
 			}
@@ -206,8 +205,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -252,8 +250,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -267,8 +264,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}

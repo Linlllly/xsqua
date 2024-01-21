@@ -257,8 +257,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -274,8 +273,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -291,8 +289,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -307,9 +304,8 @@ export default {
 				this.attention = i;
 			} else {
 				uni.showToast({
-					title: '只有盔甲用户可以移除粉丝',
-					icon: 'none',
-					duration: 2000
+					title: '未激活，需兑换超级安全盔甲',
+					icon: 'none'
 				});
 			}
 		},
@@ -320,15 +316,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '移除粉丝成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 
 				const index = this.fansList.findIndex(item => item.uid === this.attention.uid);
@@ -348,15 +342,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改备注成功',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			let list;
 			if (this.bigLook === 0) {

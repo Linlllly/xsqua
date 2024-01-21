@@ -155,8 +155,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '请求街道失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -166,8 +165,7 @@ export default {
 			if (this.cityList.length === 0) {
 				uni.showToast({
 					title: '该区域下暂未开放街道，请选择别的区域吧~',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -184,8 +182,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取小区失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -195,8 +192,7 @@ export default {
 			if (this.addrList.length === 0) {
 				uni.showToast({
 					title: '该街道下暂未开放小区，请选择别的街道吧~',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -395,8 +391,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取房间失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -407,8 +402,7 @@ export default {
 			if (this.roomList.length === 0) {
 				uni.showToast({
 					title: '该小区下暂未开放房间，请选择别的房间吧~',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -423,8 +417,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取用户密码失败，请稍后再更换房间',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -447,8 +440,7 @@ export default {
 				} else {
 					uni.showToast({
 						title: '换绑失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				}
 			} else {
@@ -465,8 +457,7 @@ export default {
 				} else {
 					uni.showToast({
 						title: '注册失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				}
 			}
@@ -482,8 +473,7 @@ export default {
 				if (this.pageNum === 1) {
 					uni.showToast({
 						title: '已经在第一页了~',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -494,8 +484,7 @@ export default {
 				if (this.pageNum >= this.totalPageNum) {
 					uni.showToast({
 						title: '已经在最后一页了~',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -519,8 +508,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取随机用户列表失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}

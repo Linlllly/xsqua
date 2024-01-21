@@ -284,20 +284,25 @@ page {
   position: absolute;
   flex-wrap: wrap;
   width: 750rpx;
-  height: 1280rpx;
+  height: 1440rpx;
   top: 0;
   left: 0;
   z-index: -1;
 }
-.get-armor {
-  margin: 130rpx auto 0;
-  width: 350rpx;
-  height: 154rpx;
+.armor-box {
+  display: flex;
+  margin: 142rpx auto 0;
+  justify-content: space-between;
+  width: 680rpx;
+}
+.armor-box .get-armor {
+  width: 200rpx;
+  height: 126rpx;
 }
 .send-list {
   width: 94rpx;
   height: 94rpx;
-  margin: 460rpx 0 0 20rpx;
+  margin: 640rpx 0 0 20rpx;
 }
 .record {
   width: 154rpx;
@@ -352,7 +357,7 @@ page {
 }
 .send-box .box-list {
   position: relative;
-  width: 33%;
+  width: 100%;
 }
 .send-box .box-list .list-title {
   width: 76rpx;

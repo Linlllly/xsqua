@@ -515,7 +515,6 @@ page {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 .send-box .u-input {
@@ -540,6 +539,7 @@ page {
   background: #ffffff;
   border-radius: 20rpx;
   border: 2rpx solid #888586;
+  margin-top: 50rpx;
 }
  .u-popup__content {
   border-radius: 30rpx 30rpx 0 0;

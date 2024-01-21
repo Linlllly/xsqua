@@ -42,7 +42,7 @@
 					color="#333"
 					@click="openPop"
 				></u-icon>
-				<u-icon
+				<!-- <u-icon
 					:label="artObj.flowerNum"
 					labelPos="bottom"
 					labelSize="10"
@@ -61,7 +61,7 @@
 					size="22"
 					color="#333"
 					@click="openPop"
-				></u-icon>
+				></u-icon> -->
 				<u-icon
 					v-if="!artObj.isCollection"
 					:label="artObj.collectionCount"
@@ -214,7 +214,7 @@
 					inputAlign="center"
 					fontSize="18"
 				></u--input>
-				<u--input
+				<!-- <u--input
 					placeholder="请输入赠送数量"
 					prefixIcon="../../../../static/flower.png"
 					prefixIconStyle="font-size: 38px;color: #909399"
@@ -229,7 +229,7 @@
 					v-model="sendPoo"
 					inputAlign="center"
 					fontSize="18"
-				></u--input>
+				></u--input> -->
 				<div class="send-ok" @click="sendMoneyOrFlowerOrPoo">确认</div>
 			</div>
 		</u-popup>
@@ -380,8 +380,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取动态详情失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -407,8 +406,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -448,8 +446,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取用户评论失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -493,16 +490,14 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			if (this.receiveUid === this.uid) {
 				uni.showToast({
 					title: '不可以给自己助力',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -515,8 +510,7 @@ export default {
 			if ((!this.sendMoney || this.sendMoney <= 0) && (!this.sendFlower || this.sendFlower <= 0) && (!this.sendPoo || this.sendPoo <= 0)) {
 				uni.showToast({
 					title: '助力数量有误',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -530,8 +524,7 @@ export default {
 				if (res1.code !== 0) {
 					uni.showToast({
 						title: '赠送银元失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					this.sending = false;
 					return;
@@ -552,8 +545,7 @@ export default {
 				if (res2.code !== 0) {
 					uni.showToast({
 						title: '赠送鲜花失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					this.sending = false;
 					return;
@@ -574,8 +566,7 @@ export default {
 				if (res3.code !== 0) {
 					uni.showToast({
 						title: '赠送粪便失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					this.sending = false;
 					return;
@@ -613,8 +604,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '请求二级评论失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingMoreRecord = false;
 				return;
@@ -643,16 +633,14 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.textMsg) {
 				uni.showToast({
 					title: '不可以发表空评论哦',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -664,8 +652,7 @@ export default {
 				uni.hideLoading();
 				uni.showToast({
 					title: '发布的内容包含违规信息，请修改',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -686,8 +673,7 @@ export default {
 				this.showInput = false;
 				uni.showToast({
 					title: '评论失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -695,8 +681,7 @@ export default {
 			this.showInput = false;
 			uni.showToast({
 				title: '评论成功',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			//-----------
 			this.artObj = {};
@@ -749,15 +734,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '删除动态失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '已删除',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			//删除成功
 			// uni.navigateBack({ });
@@ -777,15 +760,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '删除评论失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '已删除',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			this.artObj = {};
 			this.getDetail();
@@ -1104,7 +1085,6 @@ export default {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
 	/deep/.u-input {
 		flex: 0 !important;
@@ -1128,6 +1108,7 @@ export default {
 		background: #ffffff;
 		border-radius: 20rpx;
 		border: 2rpx solid #888586;
+		margin-top: 50rpx;
 	}
 }
 /deep/.u-popup__content {

@@ -421,4 +421,9 @@ button.data-v-57280228::after {
   color: #767374;
   text-align: center;
 }
+.data-v-57280228 .u-input__content {
+  padding: 10rpx 0;
+  background-color: #ccc;
+  border-radius: 20rpx;
+}
 

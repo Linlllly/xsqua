@@ -192,15 +192,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '删除档案失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '已删除',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			this.showRemoveArt = false;
 			this.page = 1;
@@ -215,8 +213,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取空间信息失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -237,8 +234,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取动态列表失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -260,8 +256,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '设置置顶失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -274,8 +269,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '取消置顶失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -301,8 +295,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -311,8 +304,7 @@ export default {
 			if (this.firstMima.toString().length !== 6) {
 				uni.showToast({
 					title: '设置的密码长度必须为六位数！',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -321,8 +313,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '设置X档案密码失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}

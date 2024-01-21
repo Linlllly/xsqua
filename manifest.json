@@ -74,6 +74,9 @@
 			"scope.album": {
 				"desc": "相册功能"
 			}
+		},
+		"globalStyle": {
+			"__usePrivacyCheck__": true
 		}
 	},
 	"mp-alipay": {

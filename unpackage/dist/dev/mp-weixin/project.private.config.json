@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "u-空间介绍",
+          "pathName": "pages_userActivity/xIntroduce/xIntroduce",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "c-盔甲",
           "pathName": "pages_costMoney/exchangeArmor/exchangeArmor",
           "query": "",
@@ -144,13 +151,6 @@
         {
           "name": "u-修改x文件密码",
           "pathName": "pages_userActivity/changeMima/changeMima",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "空间介绍",
-          "pathName": "pages/xIntroduce/xIntroduce",
           "query": "",
           "launchMode": "default",
           "scene": null

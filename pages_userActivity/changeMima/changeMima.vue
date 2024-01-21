@@ -50,8 +50,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取空间信息失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -62,8 +61,7 @@ export default {
 			if (this.oldSecret !== this.password) {
 				uni.showToast({
 					title: '原密码输入错误',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -71,15 +69,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '修改X档案密码失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改X档案密码成功',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 			// this.password = this.newSecret;
 			// this.newSecret = '';

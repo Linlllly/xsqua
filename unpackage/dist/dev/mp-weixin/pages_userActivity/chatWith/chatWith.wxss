@@ -834,7 +834,6 @@ page {
 .content .msg-list .row .my .left .bubble.veo {
   background-color: transparent;
   padding: 0;
-  overflow: hidden;
 }
 .content .msg-list .row .my .left .bubble.voice .icon {
   color: #fff;
@@ -905,7 +904,6 @@ page {
 .content .msg-list .row .other .right .bubble.veo {
   background-color: transparent;
   padding: 0;
-  overflow: hidden;
 }
 .content .msg-list .row .other .right .bubble.voice .icon {
   color: #333;
@@ -1142,5 +1140,20 @@ page {
   padding: 4rpx 8rpx;
   color: #94c7eb;
   font-size: 28rpx;
+}
+.popup {
+  position: absolute;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 16rpx;
+  padding: 16rpx;
+  color: #fff;
+  display: flex;
+  white-space: pre;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+ .u-radio {
+  padding: 10rpx 0;
 }
 

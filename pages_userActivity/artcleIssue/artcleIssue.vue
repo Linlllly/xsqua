@@ -77,7 +77,7 @@ export default {
 	data() {
 		return {
 			//
-			meeting: 4,
+			meeting: 2,
 			//文本
 			content: '',
 			content2: '',
@@ -104,8 +104,7 @@ export default {
 		if (!this.secret) {
 			uni.showToast({
 				title: '请遵守法律法规，文明发言',
-				icon: 'none',
-				duration: 2000
+				icon: 'none'
 			});
 		}
 	},
@@ -158,8 +157,7 @@ export default {
 						this.upMediaOrImg = false;
 						uni.showToast({
 							title: '图片上传失败',
-							icon: 'none',
-							duration: 2000
+							icon: 'none'
 						});
 					}
 				});
@@ -195,8 +193,7 @@ export default {
 							this.upMediaOrImg = false;
 							uni.showToast({
 								title: '视频上传失败',
-								icon: 'none',
-								duration: 2000
+								icon: 'none'
 							});
 						}
 					});
@@ -215,16 +212,14 @@ export default {
 				if (this.fileList1.length === 0 && !this.content) {
 					uni.showToast({
 						title: '发布不可为空~',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				if (this.upMediaOrImg) {
 					uni.showToast({
 						title: '请先等待图片上传完成',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -233,16 +228,14 @@ export default {
 				if (this.mediaVideoList === 0 && !this.content2) {
 					uni.showToast({
 						title: '发布不可为空~',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				if (this.upMediaOrImg) {
 					uni.showToast({
 						title: '请先等待视频上传完成',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -256,8 +249,7 @@ export default {
 					uni.hideLoading();
 					uni.showToast({
 						title: '发布的内容包含违规信息，请修改',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -268,8 +260,7 @@ export default {
 					uni.hideLoading();
 					uni.showToast({
 						title: '发布的内容包含违规信息，请修改',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -292,8 +283,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: '发布失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -323,8 +313,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: '发布失败',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}

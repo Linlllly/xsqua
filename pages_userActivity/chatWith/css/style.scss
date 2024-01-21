@@ -465,7 +465,6 @@ page {
 						background-color: transparent;
 						padding: 0;
 						overflow: hidden;
-
 						image {
 							max-width: 350upx;
 							max-height: 350upx;
@@ -574,7 +573,7 @@ page {
 						&.veo {
 							background-color: transparent;
 							padding: 0;
-							overflow: hidden;
+							// overflow: hidden;
 						}
 						&.voice {
 							.icon {
@@ -626,22 +625,8 @@ page {
 				.right {
 					flex-wrap: wrap;
 					display: flex;
-					// align-items: center;
 					flex-direction: column;
 					align-items: flex-start;
-					// .username {
-					// 	width: 100%;
-					// 	height: 45upx;
-					// 	line-height: 30upx;
-					// 	font-size: 24upx;
-					// 	color: #999;
-					// 	display: flex;
-
-					// 	.name {
-					// 		margin-right: 50upx;
-					// 	}
-					// }
-
 					.bubble {
 						background-color: #f2f2f2;
 						color: #333;
@@ -657,7 +642,7 @@ page {
 						&.veo {
 							background-color: transparent;
 							padding: 0;
-							overflow: hidden;
+							// overflow: hidden;
 						}
 						&.voice {
 							.icon {

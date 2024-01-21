@@ -1,8 +1,36 @@
 <template>
 	<div class="pages">
-		<img class="bg-img" src="../cm_static/toukui.jpg" alt="" />
+		<img class="bg-img" src="../cm_static/kuijia.png" alt="" />
 
-		<div class="get-armor" @click="showAttention = true">兑换盔甲</div>
+		<div class="armor-box">
+			<div
+				class="get-armor"
+				@click="
+					showAttention = true;
+					day = 30;
+				"
+			>
+				兑换盔甲30
+			</div>
+			<div
+				class="get-armor"
+				@click="
+					showAttention = true;
+					day = 180;
+				"
+			>
+				兑换盔甲180
+			</div>
+			<div
+				class="get-armor"
+				@click="
+					showAttention = true;
+					day = 365;
+				"
+			>
+				兑换盔甲365
+			</div>
+		</div>
 		<div class="send-list" @click="showSendList = true">礼单</div>
 		<div class="record" @click="openRecord">充值记录</div>
 		<div class="cost"><div class="cost-item" v-for="(i, index) in 4" :key="index" @click="payMoney(i)">花钱</div></div>
@@ -15,10 +43,9 @@
 				</div>
 			</div>
 			<div class="send-box">
-				<div class="box-list">
-					<!-- 图片-->
+				<!-- 鲜花 -->
+				<!-- <div class="box-list">
 					<img class="list-title" src="../../static/flower.png" alt="" />
-					<!-- 鲜花下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="flowerList && flowerList.length !== 0"
@@ -32,13 +59,11 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingFlower" color="#767374" size="16"></u-loading-icon>
-				</div>
+				</div> -->
+				<!-- 元宝 -->
 				<div class="box-list">
-					<!-- 元宝图片 -->
 					<img class="list-title" src="../../static/money.png" alt="" />
-					<!-- 下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="moneyList && moneyList.length !== 0"
@@ -52,13 +77,11 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingMoney" color="#767374" size="16"></u-loading-icon>
 				</div>
-				<div class="box-list">
-					<!-- 便便图片 -->
+				<!-- 便便 -->
+				<!-- <div class="box-list">
 					<img class="list-title" src="../../static/poo.png" alt="" />
-					<!-- 下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="pooList && pooList.length !== 0"
@@ -72,9 +95,8 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingPoo" color="#767374" size="16"></u-loading-icon>
-				</div>
+				</div> -->
 			</div>
 		</u-popup>
 		<!-- 充值记录遮罩层 -->
@@ -96,7 +118,7 @@
 		</u-overlay>
 		<u-modal
 			:show="showAttention"
-			title="确定兑换盔甲试用装吗"
+			:title="'确定兑换' + day + '天盔甲吗'"
 			confirmColor="#e89406"
 			showCancelButton="true"
 			@cancel="showAttention = false"
@@ -116,8 +138,7 @@ export default {
 	},
 	data() {
 		return {
-			//兑换盔甲
-			eArmor: 1,
+			day: 30,
 			showAttention: false,
 			//礼单选收到0或者送出1
 			bigLook: 0,
@@ -205,8 +226,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -268,8 +288,7 @@ export default {
 				this.loadingRecord = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingRecord = false;
 				return;
@@ -321,8 +340,7 @@ export default {
 				this.loadingFlower = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				//关闭节流阀
 				this.loadingFlower = false;
@@ -359,8 +377,7 @@ export default {
 				this.loadingMoney = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				//关闭节流阀
 				this.loadingMoney = false;
@@ -394,8 +411,7 @@ export default {
 				this.loadingPoo = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingPoo = false;
 				return;
@@ -418,23 +434,27 @@ export default {
 			uni.showLoading({
 				title: '兑换中'
 			});
-			exchangeArmour().then(res => {
+			exchangeArmour({ day: this.day }).then(res => {
 				uni.hideLoading();
 				this.exchageing = false;
 				this.showAttention = false;
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '兑换盔甲成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
+			});
+		},
+		toOtherUser(i) {
+			let ouid = this.bigLook === 0 ? i.sendUid : i.receiveUid;
+			uni.navigateTo({
+				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + ouid
 			});
 		}
 	}
@@ -451,20 +471,25 @@ export default {
 	position: absolute;
 	flex-wrap: wrap;
 	width: 750rpx;
-	height: 1280rpx;
+	height: 1440rpx;
 	top: 0;
 	left: 0;
 	z-index: -1;
 }
-.get-armor {
-	margin: 130rpx auto 0;
-	width: 350rpx;
-	height: 154rpx;
+.armor-box {
+	display: flex;
+	margin: 142rpx auto 0;
+	justify-content: space-between;
+	width: 680rpx;
+	.get-armor {
+		width: 200rpx;
+		height: 126rpx;
+	}
 }
 .send-list {
 	width: 94rpx;
 	height: 94rpx;
-	margin: 460rpx 0 0 20rpx;
+	margin: 640rpx 0 0 20rpx;
 }
 .record {
 	width: 154rpx;
@@ -516,7 +541,7 @@ export default {
 	height: 850rpx;
 	.box-list {
 		position: relative;
-		width: 33%;
+		width: 100%;
 		.list-title {
 			width: 76rpx;
 			height: 76rpx;

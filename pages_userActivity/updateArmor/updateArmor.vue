@@ -22,10 +22,14 @@
 			<div class="info-name">修改私聊状态</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-		<!-- 更换页面 -->
+		<!-- 更换房间 -->
 		<div class="content-list" @click="changeHouse">
 			<div class="info-name">更换房间</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
+		</div>
+		<!-- 盔甲剩余时间 -->
+		<div class="content-list" @click="changeHouse">
+			<div class="info-name">到期时间：{{ armourTime }}</div>
 		</div>
 		<!-- 修改状态 -->
 		<u-modal
@@ -63,7 +67,8 @@ export default {
 			othersAttention: null,
 			//修改私聊状态
 			showChat: false,
-			chat: null
+			chat: null,
+			armourTime: null
 		};
 	},
 	onLoad() {
@@ -79,13 +84,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				this.othersAttention = res.result.followMe === 0 ? 0 : 1;
 				this.chat = res.result.chat === null ? 1 : res.result.chat;
+				this.armourTime = res.result.armourTime;
 			});
 		},
 		//修改是否允许他人查看
@@ -95,30 +100,26 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '闭关成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			} else {
 				let res = await openMyRoom();
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '开放空间成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -129,22 +130,19 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				if (this.othersAttention === 1) {
 					uni.showToast({
 						title: '允许他人关注',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				} else {
 					uni.showToast({
 						title: '拒绝他人关注',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 				}
 			});
@@ -154,13 +152,12 @@ export default {
 				console.log('修改私聊状态');
 				console.log(res);
 				if (res.code !== 0) {
-					uni.showToast({ title: res.msg, icon: 'none', duration: 2000 });
+					uni.showToast({ title: res.msg, icon: 'none' });
 					return;
 				}
 				uni.showToast({
 					title: '修改私聊状态成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.showChat = false;
 			});
@@ -178,8 +175,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}

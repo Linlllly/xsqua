@@ -29,8 +29,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取开屏失败',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}

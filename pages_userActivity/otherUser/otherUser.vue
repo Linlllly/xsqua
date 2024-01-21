@@ -1,65 +1,68 @@
 <template>
 	<div class="pages">
-		<!-- <bgMusic class="bg-music"></bgMusic> -->
+		<div class="reload2">
+			<u-icon
+				@click="reloadUser"
+				v-if="index"
+				name="../../../../static/reload.png"
+				color="#000"
+				size="34"
+				label="换一换"
+				labelPos="bottom"
+			></u-icon>
+		</div>
 		<!-- 渲染其他用户 -->
 		<div>
 			<div class="box-title">
+				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
 				<img
-					:src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png' : coverImage"
+					:src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=1' : coverImage"
 					alt=""
 					class="my-img"
 				/>
-				<!-- 底部淡出 -->
-				<div class="width-bottom"></div>
-				<img v-if="isFollow" class="chat" src="../ua_static/likes.png" alt="" @click="changeMylikes" />
-				<img v-else class="chat" src="../ua_static/no-likes.png" alt="" @click="changeMylikes" />
-				<img class="setting" src="../ua_static/chat-with.png" alt="" @click="toChatWith" />
 
-				<!-- 头像和说明 -->
-				<img class="portrait" :src="avatar" alt="" @click="previewImg([avatar])" />
-				<!-- 标识 -->
-				<div class="flower" @click="popMoney = true">
-					<div class="box1">
-						<img class="money-img" src="../../static/money.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ silverNum }}</text>
+				<!-- 覆盖盒子/相对定位 -->
+				<div class="width-bottom"></div>
+				<div class="my-info">
+					<div class="infos-1">
+						<img class="portrait" :src="avatar" alt="" @click="previewImg([avatar])" />
+						<div class="info">
+							<div class="name-kj">
+								<div class="name">{{ username }}</div>
+								<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" />
+								<img class="armor" v-else src="../../static/no-head.png" alt="" />
+							</div>
+							<div class="about">
+								<div>
+									<span>关注：</span>
+									<span>{{ follow }}</span>
+								</div>
+								<div>
+									<span>粉丝：</span>
+									<span>{{ fans }}</span>
+								</div>
+								<div @click="popMoney = true">
+									<span>银子：</span>
+									<span>{{ silverNum }}</span>
+								</div>
+								<!-- 	<div @click="popMoney = true">银子：\n{{ silverNum }}</div>
+							<div @click="popMoney = true">鲜花：\n{{ flowerNum }}</div>
+								<div @click="popMoney = true">便便：\n{{ eggNum }}</div> -->
+							</div>
+						</div>
 					</div>
-					<div class="box2">
-						<img class="flower-img" src="../../static/flower.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ flowerNum }}</text>
-					</div>
-					<div class="box3">
-						<img class="eggs-img" src="../../static/poo.png" alt="" />
-						<text :style="{ flex: 1, 'text-align': 'center' }">{{ eggNum }}</text>
-					</div>
-				</div>
-				<!-- 房间名 -->
-				<div class="focus">
-					<div class="attention">关注：{{ follow }}</div>
-					<div class="fans">粉丝：{{ fans }}</div>
-				</div>
-				<!-- 名字 -->
-				<div class="name">{{ username }}</div>
-				<!-- 盔甲 -->
-				<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" />
-				<img class="armor" v-else src="../../static/no-head.png" alt="" />
-				<div class="medal">
-					<!-- 奖牌123  -->
-					<div class="me1">
-						<img v-if="silverNo === 1" src="../../static/first-money.png" alt="" />
-						<img v-if="silverNo === 2" src="../../static/second-money.png" alt="" />
-						<img v-if="silverNo === 3" src="../../static/third-money.png" alt="" />
-					</div>
-					<!-- 鲜花123 -->
-					<div class="me2">
-						<img v-if="flowerNo === 1" src="../../static/first.png" alt="" />
-						<img v-if="flowerNo === 2" src="../../static/second.png" alt="" />
-						<img v-if="flowerNo === 3" src="../../static/third.png" alt="" />
+					<div class="infos-2">{{ myDes ? myDes : ' ' }}</div>
+					<div class="infos-3">
+						<img v-if="isFollow" class="contorl-1" src="../ua_static/likes.png" alt="" @click="changeMylikes" />
+						<img v-else class="contorl-1" src="../ua_static/no-likes.png" alt="" @click="changeMylikes" />
+						<img class="contorl-2" src="../ua_static/chat-with.png" alt="" @click="toChatWith" />
+						<div class="contorl-3"></div>
+						<div class="contorl-4"></div>
 					</div>
 				</div>
 			</div>
-			<!-- 签名 -->
-			<div class="my-des">{{ myDes ? myDes : ' ' }}</div>
+
 			<!--列表 -->
 			<div v-if="type === 1 && otherList.length !== 0" class="list-item" v-for="(i, index) in otherList" :key="i.id">
 				<!-- 头 -->
@@ -148,7 +151,7 @@
 						inputAlign="center"
 						fontSize="18"
 					></u--input>
-					<u--input
+					<!-- <u--input
 						placeholder="请输入赠送数量"
 						prefixIcon="../../../../static/flower.png"
 						prefixIconStyle="font-size: 38px;color: #909399"
@@ -163,7 +166,7 @@
 						v-model="sendPoo"
 						inputAlign="center"
 						fontSize="18"
-					></u--input>
+					></u--input> -->
 					<div class="send-ok" @click="sendMoneyOrFlowerOrPoo">确认</div>
 				</div>
 			</u-popup>
@@ -175,7 +178,7 @@
 // 引入组件
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { enterRoom, getUserInfoById, getPostListByCateId, obtainSliver, addFollow, cancelFollow } from '@/api/otherUser.js';
-import { giveSilver, giveFlower } from '@/api/index.js';
+import { giveSilver, giveFlower, randomRoom } from '@/api/index.js';
 import { giveEgg } from '@/api/articleDes.js';
 import { redDot, getUserStatistics, getUserRank } from '@/api/user.js';
 import { getArmourConfig } from '@/api/exchangeArmor.js';
@@ -239,13 +242,25 @@ export default {
 			otherList: [],
 			isFollow: false,
 			close: false,
-			armour: false
+			armour: false,
+			index: false
 		};
 	},
 	computed: {
 		...mapState(['uid', 'house', 'myWs'])
 	},
+	watch: {
+		myWs: {
+			immediate: true,
+			handler(news, olds) {
+				console.log('chatList开启侦听');
+				this.close = false;
+				this.ws = app.globalData.ws;
+			}
+		}
+	},
 	onLoad(option) {
+		this.index = option.index === 'true' ? true : false;
 		this.ocateId = option.ocateId;
 		this.ouid = option.ouid;
 		this.getUserStatistics(option.ouid);
@@ -256,6 +271,7 @@ export default {
 		this.getObtainSliver();
 		this.getArmourConfig();
 	},
+
 	onShow() {},
 	onUnload() {
 		this.close = true;
@@ -279,9 +295,8 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '请求他人关注/粉丝数失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 					return;
 				}
@@ -295,9 +310,8 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取其他用户各数量情况失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 					return;
 				}
@@ -313,9 +327,8 @@ export default {
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '获取该用户盔甲状态失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -349,9 +362,8 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取用户信息失败',
-					icon: 'none',
-					duration: 2000
+					title: res.msg,
+					icon: 'none'
 				});
 				return;
 			}
@@ -370,9 +382,8 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取空间信息失败',
-					icon: 'none',
-					duration: 2000
+					title: res.msg,
+					icon: 'none'
 				});
 				return;
 			}
@@ -399,9 +410,8 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取动态列表失败',
-					icon: 'none',
-					duration: 2000
+					title: res.msg,
+					icon: 'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -440,8 +450,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -450,9 +459,8 @@ export default {
 				let res = await addFollow({ id: this.ouid });
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '关注失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 					return;
 				}
@@ -471,9 +479,8 @@ export default {
 				let res = await cancelFollow({ id: this.ouid });
 				if (res.code !== 0) {
 					uni.showToast({
-						title: '取消关注失败',
-						icon: 'none',
-						duration: 2000
+						title: res.msg,
+						icon: 'none'
 					});
 					return;
 				}
@@ -490,8 +497,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -503,8 +509,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -520,8 +525,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 			}
 		},
@@ -530,8 +534,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -551,8 +554,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -568,8 +570,7 @@ export default {
 			if ((!this.sendMoney || this.sendMoney <= 0) && (!this.sendFlower || this.sendFlower <= 0) && (!this.sendPoo || this.sendPoo <= 0)) {
 				uni.showToast({
 					title: '助力数量有误',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -580,17 +581,19 @@ export default {
 			if (this.sendMoney) {
 				let res1 = await giveSilver({ num: this.sendMoney, receiveUid: this.ouid, type: 1 });
 				uni.hideLoading();
+				this.sending = false;
 				if (res1.code !== 0) {
 					uni.showToast({
-						title: '赠送银元失败',
-						icon: 'none',
-						duration: 2000
+						title: res1.msg,
+						icon: 'none'
 					});
-					this.sending = false;
 					return;
 				}
+				uni.showToast({
+					title: '赠送银子成功',
+					icon: 'none'
+				});
 				this.silverNum = parseInt(this.silverNum) + parseInt(this.sendMoney);
-				//----------
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `赠送了` + this.sendMoney + `两银子给您`, type: 'silver' };
 				this.ws.send({
 					data: JSON.stringify(content),
@@ -602,17 +605,19 @@ export default {
 			if (this.sendFlower) {
 				let res2 = await giveFlower({ num: this.sendFlower, receiveUid: this.ouid, type: 2 });
 				uni.hideLoading();
+				this.sending = false;
 				if (res2.code !== 0) {
 					uni.showToast({
-						title: '赠送鲜花失败',
-						icon: 'none',
-						duration: 2000
+						title: res2.msg,
+						icon: 'none'
 					});
-					this.sending = false;
 					return;
 				}
+				uni.showToast({
+					title: '赠送鲜花成功',
+					icon: 'none'
+				});
 				this.flowerNum = parseInt(this.flowerNum) + parseInt(this.sendFlower);
-				//----------
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `赠送了` + this.sendFlower + `朵鲜花给您`, type: 'flower' };
 				this.ws.send({
 					data: JSON.stringify(content),
@@ -624,17 +629,19 @@ export default {
 			if (this.sendPoo) {
 				let res3 = await giveEgg({ num: this.sendPoo, receiveUid: this.ouid, type: 3 });
 				uni.hideLoading();
+				this.sending = false;
 				if (res3.code !== 0) {
 					uni.showToast({
-						title: '赠送粪便失败',
-						icon: 'none',
-						duration: 2000
+						title: res3.msg,
+						icon: 'none'
 					});
-					this.sending = false;
 					return;
 				}
+				uni.showToast({
+					title: '赠送便便成功',
+					icon: 'none'
+				});
 				this.eggNum = parseInt(this.eggNum) + parseInt(this.sendPoo);
-				//----------
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `向你丢了` + this.sendPoo + `坨便便`, type: 'shit' };
 				this.ws.send({
 					data: JSON.stringify(content),
@@ -643,11 +650,39 @@ export default {
 					}
 				});
 			}
-			this.sending = false;
 			this.popMoney = false;
 			this.sendMoney = '';
 			this.sendFlower = '';
 			this.sendPoo = '';
+		},
+		reloadUser() {
+			randomRoom().then(res => {
+				console.log('获取随机房间');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.showToast({
+						title: '获取随机房间失败',
+						icon: 'none'
+					});
+					return;
+				}
+				if (res.room.uid === this.uid) {
+					//自己
+					uni.switchTab({
+						url: '../../pages/user/user'
+					});
+				} else {
+					this.ocateId = res.room.cateId;
+					this.ouid = res.room.uid;
+					this.getUserStatistics(this.ouid);
+					this.getUserRank(this.ouid);
+					this.getGetUserInfoById();
+					this.otherList = [];
+					this.getEnterRoom();
+					this.getObtainSliver();
+					this.getArmourConfig();
+				}
+			});
 		}
 	}
 };
@@ -655,6 +690,7 @@ export default {
 
 <style lang="less" scoped>
 .pages {
+	position: relative;
 	.bg-img {
 		width: 100%;
 		height: 100%;
@@ -667,7 +703,7 @@ export default {
 .box-title {
 	position: relative;
 	width: 750rpx;
-	height: 750rpx;
+	margin-bottom: 12rpx;
 	.my-img {
 		position: absolute;
 		top: 0;
@@ -676,165 +712,101 @@ export default {
 		height: 514rpx;
 	}
 	.width-bottom {
-		position: absolute;
-		top: 0;
-		left: 0;
+		position: relative;
 		width: 750rpx;
-		height: 752rpx;
-		background: linear-gradient(transparent 60%, white 68%);
-		// background: linear-gradient(transparent 60%, white 90%);
-		color: #888586;
-		text-align: center;
-		line-height: 400rpx;
-		font-size: 32rpx;
-		letter-spacing: 10rpx;
+		height: 480rpx;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		img {
+			width: 95rpx;
+			height: 94rpx;
+			margin: 20rpx;
+		}
 	}
-	.img-my-name {
-		position: absolute;
-		width: 288rpx;
-		height: 148rpx;
-		background: url('../../static/my-name.png') no-repeat;
-		background-size: 288rpx 148rpx;
-		top: 0rpx;
-		left: 20rpx;
-		text-align: center;
-		color: white;
-		padding-top: 54rpx;
-	}
-	.img-my-name-guanf {
-		position: absolute;
-		width: 288rpx;
-		height: 148rpx;
-		background: url('../../static/my-name.png') no-repeat;
-		background-size: 288rpx 148rpx;
-		top: 0rpx;
-		left: 20rpx;
-		text-align: center;
-		color: white;
-		padding-top: 72rpx;
-	}
-	.dynamic,
-	.chat,
-	.setting {
-		position: absolute;
-		width: 90rpx;
-		height: 110rpx;
-		top: 24rpx;
-	}
-	.dynamic {
-		left: 444rpx;
-	}
-	.chat {
-		left: 544rpx;
-	}
-
-	.setting {
-		left: 644rpx;
-	}
-	.portrait {
-		position: absolute;
-		width: 160rpx;
-		height: 160rpx;
-		right: 32rpx;
-		bottom: 94rpx;
-		border-radius: 50%;
-	}
-	.flower {
-		position: absolute;
-		height: 46rpx;
-		width: 520rpx;
-		right: 210rpx;
-		bottom: 98rpx;
-		.box1,
-		.box2,
-		.box3 {
-			padding: 0rpx 20rpx;
-			float: left;
+	.my-info {
+		position: relative;
+		width: 670rpx;
+		background: linear-gradient(to bottom left, #dedfdf, #ffffff);
+		border-radius: 20rpx;
+		margin: 0 auto;
+		padding: 14rpx 28rpx;
+		box-shadow: 2rpx 6rpx 6rpx rgba(0, 0, 0, 0.2);
+		.armor {
+			position: absolute;
+			top: 50rpx;
+			width: 102rpx;
+			height: 100rpx;
+			left: 94rpx;
+		}
+		.infos-1 {
 			display: flex;
-			width: 172rpx;
-			height: 44rpx;
-			box-sizing: border-box;
-		}
-		.box1 {
-			border-right: 2rpx solid #000000;
-			.money-img {
-				width: 46rpx;
-				height: 46rpx;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			align-items: center;
+			.portrait {
+				width: 140rpx;
+				height: 140rpx;
+				border-radius: 50%;
 			}
-		}
-		.box2 {
-			border-right: 2rpx solid #000000;
-			.flower-img {
-				width: 40rpx;
-				height: 40rpx;
-			}
-		}
-		.box3 {
-			.eggs-img {
-				width: 40rpx;
-				height: 40rpx;
-			}
-		}
-	}
+			.info {
+				flex: 1;
+				padding-right: 20rpx;
 
-	.focus {
-		position: absolute;
-		right: 4rpx;
-		bottom: 14rpx;
-		height: 76rpx;
-		width: 212rpx;
-		text-align: center;
-		color: #767374;
-	}
-	.name {
-		position: absolute;
-		right: 210rpx;
-		bottom: 162rpx;
-		width: 382rpx;
-		height: 90rpx;
-		background: url('../../static/my-name.png') no-repeat;
-		background-size: 382rpx 90rpx;
-		font-size: 30rpx;
-		text-align: center;
-		line-height: 90rpx;
-	}
-	.armor {
-		position: absolute;
-		right: 610rpx;
-		bottom: 182rpx;
-		width: 42rpx;
-		height: 52rpx;
-	}
-	.medal {
-		position: absolute;
-		right: 210rpx;
-		bottom: 14rpx;
-		width: 520rpx;
-		height: 80rpx;
-		.me1,
-		.me2 {
-			float: left;
-			width: 172rpx;
-			height: 100%;
-			image {
-				width: 158rpx;
-				height: 74rpx;
+				.name-kj {
+					display: flex;
+					flex-direction: row-reverse;
+					align-items: center;
+					.name {
+						font-size: 44rpx;
+					}
+				}
+				.about {
+					display: flex;
+					flex-direction: row-reverse;
+					justify-content: space-between;
+					margin: 20rpx 0;
+					width: 308rpx;
+					margin-left: 204rpx;
+					div {
+						display: flex;
+						flex-direction: column;
+					}
+				}
 			}
 		}
-	}
-}
-.my-des {
-	box-sizing: border-box;
-	width: 94%;
-	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-	border-radius: 16rpx;
-	margin: 0 auto;
-	padding: 6rpx 16rpx;
-	opacity: 0.8;
-	color: #333;
-	/deep/.u-textarea {
-		padding: 0 !important;
-		background-color: transparent !important;
+		.infos-2 {
+			// margin-top: 15rpx;
+			/deep/.u-textarea {
+				padding: 0 !important;
+				background-color: transparent !important;
+			}
+		}
+		.infos-3 {
+			display: flex;
+			flex-direction: row-reverse;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			[class^='contorl'] {
+				position: relative;
+				width: 144rpx;
+				height: 102rpx;
+				margin-top: 20rpx;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+				.mes-dot {
+					position: absolute;
+					width: 20rpx;
+					height: 20rpx;
+					background-color: #f56c6c;
+					top: 12rpx;
+					left: 12rpx;
+					border-radius: 50%;
+				}
+			}
+		}
 	}
 }
 .list-item {
@@ -1032,7 +1004,7 @@ button::after {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	// justify-content: space-between;
 	align-items: center;
 	/deep/.u-input {
 		flex: 0;
@@ -1056,6 +1028,7 @@ button::after {
 		background: #ffffff;
 		border-radius: 20rpx;
 		border: 2rpx solid #888586;
+		margin-top: 50rpx;
 	}
 }
 .next {
@@ -1063,5 +1036,11 @@ button::after {
 	width: 100%;
 	color: #a7a3a5;
 	text-align: center;
+}
+.reload2 {
+	position: fixed;
+	top: 804rpx !important;
+	right: 26rpx;
+	z-index: 50;
 }
 </style>

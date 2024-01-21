@@ -339,4 +339,20 @@ button.data-v-214b4c74::after {
   right: 26rpx;
   z-index: 50;
 }
+.message.data-v-214b4c74 {
+  position: fixed;
+  bottom: 400rpx;
+  right: 26rpx;
+  z-index: 50;
+}
+.message .icon-dot.data-v-214b4c74 {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #f56c6c;
+  top: 8rpx;
+  right: 8rpx;
+  border-radius: 50%;
+  z-index: 999;
+}
 

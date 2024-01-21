@@ -1,6 +1,6 @@
 <template>
 	<div class="pages">
-		<img class="bg-img" src="../cm_static/costMoney.jpg" alt="" />
+		<img class="bg-img" src="../cm_static/costMoney.png" alt="" />
 		<div class="send-list" @click="showSendList = true">礼单</div>
 		<div class="record" @click="openRecord">充值记录</div>
 
@@ -8,23 +8,42 @@
 
 		<!-- 换盔甲 -->
 		<div class="box-armor">
-			<div class="learn-more" @click="goExchangeArmor">了解详情</div>
 			<div class="armor-details">
-				<u-number-box
-					v-model="eArmor"
-					integer
-					min="0"
-					max="1"
-					bgColor="#00000000"
-					iconStyle="color: #f08221"
-					buttonSize="80rpx"
-				></u-number-box>
-				<div class="armor-confirm" @click="comfirmExchange('tk')">确认更换</div>
+				<div
+					class="armor-confirm"
+					@click="
+						showAttention = true;
+						day = 30;
+					"
+				>
+					确认更换30
+				</div>
+				<div
+					class="armor-confirm"
+					@click="
+						showAttention = true;
+						day = 180;
+					"
+				>
+					确认更换180
+				</div>
+				<div
+					class="armor-confirm"
+					@click="
+						showAttention = true;
+						day = 365;
+					"
+				>
+					确认更换365
+				</div>
+			</div>
+			<div class="read-more">
 				<div class="armor-record" @click="openConvert('tk')">换购记录</div>
+				<div class="learn-more" @click="goExchangeArmor">了解详情</div>
 			</div>
 		</div>
 		<!-- 换鲜花便便 -->
-		<div class="box-fp">
+		<!-- <div class="box-fp">
 			<div class="fp-details">
 				<u-number-box v-model="eFlower" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
 				<u-number-box v-model="ePoo" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
@@ -33,7 +52,7 @@
 				<div class="fp-confirm" @click="comfirmExchange">确认更换</div>
 				<div class="fp-record" @click="openConvert">换购记录</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- 礼单列表 -->
 		<u-popup :show="showSendList" @close="showSendList = false" @open="openSendList" bgColor="rgba(255,255,255,0.8)">
 			<img class="send-img" src="../cm_static/send-list.png" alt="" />
@@ -43,10 +62,9 @@
 				</div>
 			</div>
 			<div class="send-box">
-				<div class="box-list">
-					<!-- 图片-->
+				<!-- 鲜花 -->
+				<!-- <div class="box-list">
 					<img class="list-title" src="../../static/flower.png" alt="" />
-					<!-- 鲜花下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="flowerList && flowerList.length !== 0"
@@ -60,13 +78,11 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingFlower" color="#767374" size="16"></u-loading-icon>
-				</div>
+				</div> -->
+				<!-- 元宝 -->
 				<div class="box-list">
-					<!-- 元宝图片 -->
 					<img class="list-title" src="../../static/money.png" alt="" />
-					<!-- 下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="moneyList && moneyList.length !== 0"
@@ -80,14 +96,11 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingMoney" color="#767374" size="16"></u-loading-icon>
-					<!-- <div class="next" v-if="!loadingMoney && pageNumMoney >= lastPageNumMoney">已加载全部记录</div> -->
 				</div>
-				<div class="box-list">
-					<!-- 便便图片 -->
+				<!-- 便便 -->
+				<!-- <div class="box-list">
 					<img class="list-title" src="../../static/poo.png" alt="" />
-					<!-- 下拉列表 -->
 					<div>
 						<scroll-view
 							v-if="pooList && pooList.length !== 0"
@@ -101,9 +114,8 @@
 							</div>
 						</scroll-view>
 					</div>
-					<!-- 底部加载提示 -->
 					<u-loading-icon v-if="loadingPoo" color="#767374" size="16"></u-loading-icon>
-				</div>
+				</div> -->
 			</div>
 		</u-popup>
 		<!-- 充值记录遮罩层 -->
@@ -133,7 +145,7 @@
 							<div>{{ i.createTime }}</div>
 							<div>
 								{{ i.type === 2 ? '鲜花 ' : i.type === 3 ? '便便 ' : '头盔 ' }}{{ i.num
-								}}{{ i.type === 2 ? '朵' : i.type === 3 ? '坨' : '个' }}
+								}}{{ i.type === 2 ? '朵' : i.type === 3 ? '坨' : '天' }}
 							</div>
 						</div>
 					</scroll-view>
@@ -143,6 +155,15 @@
 				<div v-if="!loadingConvert && pageNumConvert >= lastPageNumConvert" class="next">已加载全部兑换记录</div>
 			</div>
 		</u-overlay>
+		<u-modal
+			:show="showAttention"
+			:title="'确定兑换' + day + '天盔甲吗'"
+			confirmColor="#e89406"
+			showCancelButton="true"
+			@cancel="showAttention = false"
+			@confirm="acquireArmor"
+			width="550rpx"
+		></u-modal>
 	</div>
 </template>
 
@@ -158,7 +179,8 @@ export default {
 	data() {
 		return {
 			//兑换盔甲
-			eArmor: 0,
+			day: 30,
+			showAttention: false,
 			//兑换鲜花
 			eFlower: 0,
 			//兑换粪便
@@ -248,8 +270,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				return;
 			}
@@ -311,8 +332,7 @@ export default {
 				this.loadingRecord = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingRecord = false;
 				return;
@@ -364,8 +384,7 @@ export default {
 				this.loadingFlower = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				//关闭节流阀
 				this.loadingFlower = false;
@@ -402,8 +421,7 @@ export default {
 				this.loadingMoney = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				//关闭节流阀
 				this.loadingMoney = false;
@@ -437,8 +455,7 @@ export default {
 				this.loadingPoo = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingPoo = false;
 				return;
@@ -478,8 +495,7 @@ export default {
 				this.loadingConvert = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				this.loadingConvert = false;
 				return;
@@ -496,32 +512,19 @@ export default {
 			this.pageNumConvert += 1;
 			this.getConvertList();
 		},
-		goExchangeArmor() {
-			uni.navigateTo({
-				url: '../exchangeArmor/exchangeArmor'
-			});
-		},
+
 		//---------------
-		comfirmExchange(n) {
+		comfirmExchange(n, day) {
 			if (this.exchageing) {
 				return;
 			}
 			if (n === 'tk') {
-				if (this.eArmor === 0) {
-					uni.showToast({
-						title: '不可以兑换空数量',
-						icon: 'none',
-						duration: 2000
-					});
-					return;
-				}
 				this.acquireArmor();
 			} else {
 				if (this.eFlower === 0 && this.ePoo === 0) {
 					uni.showToast({
 						title: '不可以兑换空数量',
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
@@ -538,23 +541,20 @@ export default {
 			uni.showLoading({
 				title: '兑换中'
 			});
-			exchangeArmour().then(res => {
+			exchangeArmour({ day: this.day }).then(res => {
 				uni.hideLoading();
 				this.exchageing = false;
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '兑换盔甲成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
-				this.eArmor = 0;
 			});
 		},
 		acquire(i) {
@@ -568,15 +568,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none',
-						duration: 2000
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: i === 2 ? '兑换鲜花成功' : '兑换便便成功',
-					icon: 'none',
-					duration: 2000
+					icon: 'none'
 				});
 				i === 2 ? (this.eFlower = 0) : (this.ePoo = 0);
 			});
@@ -585,6 +583,11 @@ export default {
 			let ouid = this.bigLook === 0 ? i.sendUid : i.receiveUid;
 			uni.navigateTo({
 				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + ouid
+			});
+		},
+		goExchangeArmor() {
+			uni.navigateTo({
+				url: '../exchangeArmor/exchangeArmor'
 			});
 		}
 	}
@@ -642,28 +645,35 @@ export default {
 	}
 }
 .box-armor {
-	.learn-more {
-		margin-top: 93rpx;
-		width: 150rpx;
-		margin-left: 540rpx;
-	}
 	.armor-details {
 		width: 680rpx;
 		display: flex;
-		margin: 16rpx auto;
+		margin: 142rpx auto 0;
+		justify-content: space-between;
 		align-items: center;
+
 		.armor-confirm {
-			padding-left: 42rpx;
+			width: 210rpx;
+			height: 128rpx;
+		}
+	}
+	.read-more {
+		display: flex;
+		justify-content: space-between;
+		width: 388rpx;
+		margin: 42rpx auto 0;
+		.learn-more {
+			width: 154rpx;
 		}
 		.armor-record {
-			padding-left: 22rpx;
+			width: 154rpx;
 		}
 	}
 }
 .box-fp {
 	display: flex;
 	width: 650rpx;
-	margin: 248rpx auto 0;
+	margin: 166rpx auto 0;
 	.fp-details {
 	}
 	.fp-confirm-record {
@@ -721,7 +731,7 @@ export default {
 	height: 850rpx;
 	.box-list {
 		position: relative;
-		width: 33%;
+		width: 100%;
 		.list-title {
 			width: 76rpx;
 			height: 76rpx;
