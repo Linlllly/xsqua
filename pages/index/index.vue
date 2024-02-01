@@ -11,7 +11,7 @@
 		</div>
 		<div class="who-are-you">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_3034e0cef9.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20241/compressed_c99ab46582.jpg"
 				mode="widthFix"
 				style="width: 100%;"
 				@click="toOtherUser()"

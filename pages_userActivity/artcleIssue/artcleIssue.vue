@@ -27,12 +27,21 @@
 				:placeholder="
 					secret ? '字数无限制' : meeting === 2 ? '有感而发，随便写两句，吐槽、赞美都行！' : '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
 				"
+				:confirmType="null"
+				style="white-space: pre-wrap;"
 				autoHeight
 				border="none"
 				:show-confirm-bar="false"
 				maxlength="-1"
 			></u--textarea>
-
+			<!-- <div
+				style=" display: flex;
+  justify-content: flex-end;"
+			>
+				<div style="background-color: #f9ae3d;width: 40rpx;padding: 6rpx;border-radius: 6rpx;">
+					<u-icon name="arrow-leftward" size="20" color="#fff"></u-icon>
+				</div>
+			</div> -->
 			<!-- 上传图片 -->
 			<u-upload
 				v-if="value === 1"
