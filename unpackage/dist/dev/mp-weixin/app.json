@@ -14,7 +14,8 @@
       "root": "pages_costMoney",
       "pages": [
         "costMoney/costMoney",
-        "exchangeArmor/exchangeArmor"
+        "exchangeArmor/exchangeArmor",
+        "game/game"
       ]
     },
     {

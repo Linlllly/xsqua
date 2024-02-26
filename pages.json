@@ -69,6 +69,14 @@
 					"enablePullDownRefresh": false
 				}
 
+			},
+			{
+				"path" : "game/game",
+				"style" : 
+				{
+					"navigationBarTitleText" : "",
+					"enablePullDownRefresh" : false
+				}
 			}]
 		},
 		{

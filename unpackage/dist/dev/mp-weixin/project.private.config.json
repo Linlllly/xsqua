@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "老虎机",
+          "pathName": "pages_costMoney/game/game",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "u-空间介绍",
           "pathName": "pages_userActivity/xIntroduce/xIntroduce",
           "query": "",
