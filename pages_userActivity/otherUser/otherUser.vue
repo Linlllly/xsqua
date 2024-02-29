@@ -293,7 +293,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
@@ -308,7 +308,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
@@ -325,7 +325,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -339,7 +339,7 @@ export default {
 			if (res.code === 0) {
 				uni.showToast({
 					title: '触发好运~恭喜获得银两',
-					icon: 'none',
+					,
 					duration: 3000
 				});
 				//----------
@@ -360,7 +360,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -380,7 +380,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -408,7 +408,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -447,7 +447,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -457,7 +457,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
@@ -477,7 +477,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
@@ -494,7 +494,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -506,7 +506,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -522,7 +522,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon: 'none'
+					
 				});
 			}
 		},
@@ -531,7 +531,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -551,7 +551,7 @@ export default {
 			if (!this.house) {
 				uni.showToast({
 					title: '请先成为空间主人',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -567,7 +567,7 @@ export default {
 			if ((!this.sendMoney || this.sendMoney <= 0) && (!this.sendFlower || this.sendFlower <= 0) && (!this.sendPoo || this.sendPoo <= 0)) {
 				uni.showToast({
 					title: '助力数量有误',
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -582,13 +582,13 @@ export default {
 				if (res1.code !== 0) {
 					uni.showToast({
 						title: res1.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
 				uni.showToast({
 					title: '赠送银子成功',
-					icon: 'none'
+					
 				});
 				this.silverNum = parseInt(this.silverNum) + parseInt(this.sendMoney);
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `赠送了` + this.sendMoney + `两银子给您`, type: 'silver' };
@@ -606,13 +606,13 @@ export default {
 				if (res2.code !== 0) {
 					uni.showToast({
 						title: res2.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
 				uni.showToast({
 					title: '赠送鲜花成功',
-					icon: 'none'
+					
 				});
 				this.flowerNum = parseInt(this.flowerNum) + parseInt(this.sendFlower);
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `赠送了` + this.sendFlower + `朵鲜花给您`, type: 'flower' };
@@ -630,13 +630,13 @@ export default {
 				if (res3.code !== 0) {
 					uni.showToast({
 						title: res3.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
 				uni.showToast({
 					title: '赠送便便成功',
-					icon: 'none'
+					
 				});
 				this.eggNum = parseInt(this.eggNum) + parseInt(this.sendPoo);
 				var content = { fromUid: this.uid, toUid: this.ouid - 0, text: `向你丢了` + this.sendPoo + `坨便便`, type: 'shit' };
@@ -659,7 +659,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: '获取随机房间失败',
-						icon: 'none'
+						
 					});
 					return;
 				}

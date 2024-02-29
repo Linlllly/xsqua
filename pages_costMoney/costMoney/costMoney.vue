@@ -120,8 +120,7 @@ export default {
 			let res = await buy({ num: this.num });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: res.msg,
-					icon: 'none'
+					title: res.msg
 				});
 				return;
 			}
@@ -137,16 +136,12 @@ export default {
 				success: function(res) {
 					// this.loading = false;
 					uni.showToast({
-						icon: 'none',
-						title: '充值成功',
-						duration: 1000
+						title: '充值成功'
 					});
 				},
 				fail: function(err) {
 					uni.showToast({
-						icon: 'none',
-						title: err,
-						duration: 1000
+						title: err
 					});
 				}
 			});
@@ -183,7 +178,7 @@ export default {
 				this.loadingRecord = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				this.loadingRecord = false;
 				return;
@@ -223,7 +218,7 @@ export default {
 				this.loadingMoney = false;
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				//关闭节流阀
 				this.loadingMoney = false;

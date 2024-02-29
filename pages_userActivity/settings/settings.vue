@@ -178,7 +178,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				this.inviteContent = '';
 			}
@@ -205,7 +205,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -250,7 +250,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -264,7 +264,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}

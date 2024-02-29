@@ -87,7 +87,7 @@ export default {
 				uni.hideLoading();
 				uni.showToast({
 					title: '密码错误',
-					icon: 'none'
+					
 				});
 			}
 		},

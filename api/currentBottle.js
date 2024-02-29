@@ -29,6 +29,10 @@ export function delLostBottle(data) {
 export function delPickBottle(data) {
 	return get('/app/bottleRecord/delById', data)
 }
+//查看他人回复列表
+export function bottleRecord(data) {
+	return get('/app/bottleRecord/myPage', data)
+}
 //查看瓶子消息详情
 export function detailPickBottle(data) {
 	return get('/app/bottleRecord/getById', data)

@@ -100,7 +100,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -117,7 +117,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
@@ -146,7 +146,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}

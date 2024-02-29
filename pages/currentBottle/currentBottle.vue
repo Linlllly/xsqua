@@ -41,7 +41,7 @@
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}

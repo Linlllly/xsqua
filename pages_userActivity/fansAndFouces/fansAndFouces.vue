@@ -155,7 +155,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '未激活，需兑换超级安全盔甲',
-					icon: 'none'
+					
 				});
 			}
 		},
@@ -166,13 +166,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon: 'none'
+						
 					});
 					return;
 				}
 				uni.showToast({
 					title: '移除粉丝成功',
-					icon: 'none'
+					
 				});
 
 				const index = this.fansList.findIndex(item => item.uid === this.attention.uid);
@@ -192,13 +192,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon: 'none'
+					
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改备注成功',
-				icon: 'none'
+				
 			});
 			let list;
 			this.$set(this.fansList[this.findex], 'remark', this.remark);
