@@ -2,8 +2,8 @@
   <view v-if="isShow" class="lucky-box" :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }">
     <canvas
       type="2d"
-      id="lucky-wheel"
-      canvas-id="lucky-wheel"
+      id="lucky-grid"
+      canvas-id="lucky-grid"
       :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }"
     ></canvas>
     <image
@@ -13,33 +13,58 @@
       :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }"
     ></image>
     <!-- #ifdef APP-PLUS -->
-    <view class="lucky-wheel-btn" @click="toPlay" :style="{ width: btnWidth + 'px', height: btnHeight + 'px' }"></view>
+    <view v-if="btnShow">
+      <view class="lucky-grid-btn" v-for="(btn, index) in btns" :key="index" @click="toPlay(btn, index)" :style="{
+        top: btn.top + 'px',
+        left: btn.left + 'px',
+        width: btn.width + 'px',
+        height: btn.height + 'px',
+      }"></view>
+    </view>
     <!-- #endif -->
     <!-- #ifndef APP-PLUS -->
-    <cover-view class="lucky-wheel-btn" @click="toPlay" :style="{ width: btnWidth + 'px', height: btnHeight + 'px' }"></cover-view>
+    <view v-if="btnShow">
+      <cover-view class="lucky-grid-btn" v-for="(btn, index) in btns" :key="index" @click="toPlay(btn, index)" :style="{
+        top: btn.top + 'px',
+        left: btn.left + 'px',
+        width: btn.width + 'px',
+        height: btn.height + 'px',
+      }"></cover-view>
+    </view>
     <!-- #endif -->
     <!-- #ifndef H5 -->
     <view v-if="myLucky">
       <div class="lucky-imgs">
         <div v-for="(block, index) in blocks" :key="index">
           <div v-if="block.imgs">
-            <image v-for="(img, i) in block.imgs" :key="i" :src="img.src" @load="e => imgBindload(e, 'blocks', index, i)"></image>
+            <div v-for="(img, i) in block.imgs" :key="i">
+              <image :src="img.src" :data-index="index" :data-i="i" @load="e => imgBindload(e, 'blocks')"></image>
+              <image :src="img.activeSrc" :data-index="index" :data-i="i" @load="e => imgBindloadActive(e, 'blocks')"></image>
+            </div>
           </div>
         </div>
       </div>
       <div class="lucky-imgs">
         <div v-for="(prize, index) in prizes" :key="index">
           <div v-if="prize.imgs">
-            <image v-for="(img, i) in prize.imgs" :key="i" :src="img.src" @load="e => imgBindload(e, 'prizes', index, i)"></image>
+            <div v-for="(img, i) in prize.imgs" :key="i">
+              <image :src="img.src" :data-index="index" :data-i="i" @load="e => imgBindload(e, 'prizes')"></image>
+              <image :src="img.activeSrc" :data-index="index" :data-i="i" @load="e => imgBindloadActive(e, 'prizes')"></image>
+            </div>
           </div>
         </div>
       </div>
       <div class="lucky-imgs">
         <div v-for="(btn, index) in buttons" :key="index">
           <div v-if="btn.imgs">
-            <image v-for="(img, i) in btn.imgs" :key="i" :src="img.src" @load="e => imgBindload(e, 'buttons', index, i)"></image>
+            <image v-for="(img, i) in btn.imgs" :key="i" :src="img.src" :data-index="index" :data-i="i" @load="e => imgBindload(e, 'buttons')"></image>
           </div>
         </div>
+      </div>
+      <div class="lucky-imgs">
+        <span v-if="button && button.imgs">
+          <image v-for="(img, i) in button.imgs" :key="i" :src="img.src" :data-i="i" @load="e => imgBindloadBtn(e, 'button')"></image>
+        </span>
       </div>
     </view>
     <!-- #endif -->
@@ -48,10 +73,9 @@
 
 <script>
   import { changeUnits, resolveImage, getImage } from './utils.js'
-  import { LuckyWheel } from '../../lucky-canvas'
-  let myCanvas
+  import { LuckyGrid } from '../../lucky-canvas'
   export default {
-    name: 'lucky-wheel',
+    name: 'lucky-grid',
     data () {
       return {
         imgSrc: '',
@@ -60,9 +84,9 @@
         isShow: false,
         boxWidth: 100,
         boxHeight: 100,
-        btnWidth: 0,
-        btnHeight: 0,
         dpr: 1,
+        btns: [],
+        btnShow: false,
       }
     },
     props: {
@@ -73,6 +97,14 @@
       height: {
         type: String,
         default: '600rpx'
+      },
+      cols: {
+        type: [String, Number],
+        default: 3,
+      },
+      rows: {
+        type: [String, Number],
+        default: 3,
       },
       blocks: {
         type: Array,
@@ -86,6 +118,10 @@
         type: Array,
         default: () => []
       },
+      button: {
+        type: Object,
+        default: undefined
+      },
       defaultConfig: {
         type: Object,
         default: () => ({})
@@ -94,6 +130,10 @@
         type: Object,
         default: () => ({})
       },
+      activeStyle: {
+        type: Object,
+        default: () => ({})
+      }
     },
     mounted () {
       // #ifdef APP-PLUS
@@ -104,6 +144,12 @@
       // #endif
     },
     watch: {
+      cols (newData) {
+        this.myLucky && (this.myLucky.cols = newData)
+      },
+      rows (newData) {
+        this.myLucky && (this.myLucky.rows = newData)
+      },
       blocks (newData) {
         this.myLucky && (this.myLucky.blocks = newData)
       },
@@ -113,20 +159,37 @@
       buttons (newData) {
         this.myLucky && (this.myLucky.buttons = newData)
       },
+      button (newData) {
+        this.myLucky && (this.myLucky.button = newData)
+      },
       defaultStyle (newData) {
         this.myLucky && (this.myLucky.defaultStyle = newData)
       },
       defaultConfig (newData) {
         this.myLucky && (this.myLucky.defaultConfig = newData)
       },
+      activeStyle (newData) {
+        this.myLucky && (this.myLucky.activeStyle = newData)
+      },
     },
     methods: {
-      async imgBindload (res, name, index, i) {
+      async imgBindload (res, name) {
+        const { index, i } = res.currentTarget.dataset
         const img = this[name][index].imgs[i]
-        resolveImage(img, myCanvas)
+        resolveImage(img, this.canvas)
+      },
+      async imgBindloadActive (res, name) {
+        const { index, i } = res.currentTarget.dataset
+        const img = this[name][index].imgs[i]
+        resolveImage(img, this.canvas, 'activeSrc', '$activeResolve')
+      },
+      async imgBindloadBtn (res, name) {
+        const { i } = res.currentTarget.dataset
+        const img = this[name].imgs[i]
+        resolveImage(img, this.canvas)
       },
       getImage () {
-        return getImage.call(this, 'lucky-wheel', myCanvas)
+        return getImage.call(this, 'lucky-grid', this.canvas)
       },
       hideCanvas () {
         // #ifdef MP
@@ -148,15 +211,15 @@
       },
       draw () {
         const _this = this
-        uni.createSelectorQuery().in(this).select('#lucky-wheel').fields({
+        uni.createSelectorQuery().in(this).select('#lucky-grid').fields({
           node: true, size: true
         }).exec((res) => {
           // #ifdef H5
-          res[0].node = document.querySelector('#lucky-wheel canvas')
+          res[0].node = document.querySelector('#lucky-grid canvas')
           // #endif
           if (!res[0] || !res[0].node) return console.error('lucky-canvas 获取不到 canvas 标签')
           const { node, width, height } = res[0]
-          const canvas = myCanvas = node
+          const canvas = this.canvas = node
           const ctx = this.ctx = canvas.getContext('2d')
           const dpr = this.dpr = uni.getSystemInfoSync().pixelRatio
           // #ifndef H5
@@ -164,8 +227,7 @@
           canvas.height = height * dpr
           ctx.scale(dpr, dpr)
           // #endif
-          const Radius = Math.min(width, height) / 2
-          const myLucky = this.myLucky = new LuckyWheel({
+          const myLucky = this.myLucky = new LuckyGrid({
             // #ifdef H5
             flag: 'WEB',
             // #endif
@@ -182,16 +244,17 @@
             rAF: requestAnimationFrame,
             // #endif
             unitFunc: (num, unit) => changeUnits(num + unit),
-            beforeCreate: function () {
-              ctx.translate(Radius, Radius)
-            },
-            beforeResize: function () {
-              ctx.translate(-Radius, -Radius)
-            },
             afterInit: function () {
-              // 动态设置按钮
-              _this.btnWidth = this.maxBtnRadius * 2
-              _this.btnHeight = this.maxBtnRadius * 2
+              [..._this.$props.buttons, _this.$props.button].forEach((btn, index) => {
+                if (!btn) return
+                const [left, top, width, height] = this.getGeometricProperty([
+                  btn.x,
+                  btn.y,
+                  btn.col || 1,
+                  btn.row || 1
+                ])
+                _this.btns[index] = { top, left, width, height }
+              })
               _this.$forceUpdate()
             },
             afterStart: () => {
@@ -209,10 +272,11 @@
               this.hideCanvas()
             },
           })
+          this.btnShow = true
         })
       },
-      toPlay (e) {
-        this.myLucky.startCallback()
+      toPlay (btn, index) {
+        this.myLucky.startCallback(btn, this.$props.buttons[index])
       },
       init () {
         this.myLucky.init()
@@ -239,13 +303,10 @@
     left: 0;
     top: 0;
   }
-  .lucky-wheel-btn {
+  .lucky-grid-btn {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0);
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
   }
   .lucky-imgs {

@@ -15,8 +15,5 @@
             "前端组件",
             "通用组件"
         ]
-    },
-    "dependencies": {
-        "@lucky-canvas/uni": "^0.0.13"
     }
 }

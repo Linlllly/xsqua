@@ -1,16 +1,16 @@
 
-.lucky-box.data-v-5c9f5330 {
+.lucky-box.data-v-e6243d38 {
   position: relative;
   overflow: hidden;
   margin: 0 auto;
 }
-.lucky-box canvas.data-v-5c9f5330 {
+.lucky-box canvas.data-v-e6243d38 {
   position: absolute;
   pointer-events: none;
   left: 0;
   top: 0;
 }
-.lucky-imgs.data-v-5c9f5330 {
+.lucky-imgs.data-v-e6243d38 {
   width: 0;
   height: 0;
   visibility: hidden;

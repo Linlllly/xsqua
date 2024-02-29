@@ -18,15 +18,11 @@
 			  <button @click="startCallBack()">开始</button>
 		</view>
 		
-		
-		<view @click="endClick()" style="margin-top: 30px;">
-			<button>结束</button>
-		</view>
 	</view>
 </template>
  
 <script>
-    import SlotMachine from '@lucky-canvas/uni/slot-machine' 
+    import SlotMachine from '@/components/@lucky-canvas/uni/slot-machine' 
   export default {
     components: { SlotMachine },
     data () {
@@ -91,18 +87,18 @@
       startCallBack () {
 			// 先开始旋转
 			this.$refs.myLucky.play()
-			// setTimeout(() => {
-			//   // 假设后端返回的中奖索引是0
-			//   const index = [5,7,1]
-			//   // 调用stop停止旋转并传递中奖索引
-			//   this.$refs.myLucky.stop(index)
-			// }, 3000)
+			setTimeout(() => {
+			  // 假设后端返回的中奖索引是0
+			  const index = [2,0,1]
+			  // 调用stop停止旋转并传递中奖索引
+			  this.$refs.myLucky.stop(index)
+			}, 3000)
       },
-	  endClick(){
-		  const index = [0,2,1]
-		  // 调用stop停止旋转并传递中奖索引
-		  this.$refs.myLucky.stop(index)
-	  },
+	 //  endClick(){
+		//   const index = [0,2,1]
+		//   // 调用stop停止旋转并传递中奖索引
+		//   this.$refs.myLucky.stop(index)
+	 //  },
       // 抽奖结束触发回调
       endCallBack (prize) {
         // 奖品详情

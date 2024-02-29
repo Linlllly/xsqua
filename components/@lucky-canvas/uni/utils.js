@@ -8,7 +8,6 @@ export const rpx2px = (value) => {
 }
 
 export const changeUnits = (value) => {
-  value = String(value)
   return Number(value.replace(/^(\-*[0-9.]*)([a-z%]*)$/, (value, num, unit) => {
     switch (unit) {
       case 'px':
@@ -26,7 +25,13 @@ export const changeUnits = (value) => {
 }
 
 export const resolveImage = async (img, canvas, srcName = 'src', resolveName = '$resolve') => {
-  const imgObj = canvas.createImage()
+  let imgObj
+  // 区分 H5 和小程序
+  if (window) {
+    imgObj = new Image()
+  } else {
+    imgObj = canvas.createImage()
+  }
   // 成功回调
   imgObj.onload = () => {
     img[resolveName](imgObj)

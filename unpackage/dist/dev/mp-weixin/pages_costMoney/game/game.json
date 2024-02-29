@@ -2,6 +2,6 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "slot-machine": "/node-modules/@lucky-canvas/uni/slot-machine"
+    "slot-machine": "/components/@lucky-canvas/uni/slot-machine"
   }
 }

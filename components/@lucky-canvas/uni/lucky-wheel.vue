@@ -2,8 +2,8 @@
   <view v-if="isShow" class="lucky-box" :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }">
     <canvas
       type="2d"
-      id="slot-machine"
-      canvas-id="slot-machine"
+      id="lucky-wheel"
+      canvas-id="lucky-wheel"
       :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }"
     ></canvas>
     <image
@@ -12,6 +12,12 @@
       @load="myLucky.clearCanvas()"
       :style="{ width: boxWidth + 'px', height: boxHeight + 'px' }"
     ></image>
+    <!-- #ifdef APP-PLUS -->
+    <view class="lucky-wheel-btn" @click="toPlay" :style="{ width: btnWidth + 'px', height: btnHeight + 'px' }"></view>
+    <!-- #endif -->
+    <!-- #ifndef APP-PLUS -->
+    <cover-view class="lucky-wheel-btn" @click="toPlay" :style="{ width: btnWidth + 'px', height: btnHeight + 'px' }"></cover-view>
+    <!-- #endif -->
     <!-- #ifndef H5 -->
     <view v-if="myLucky">
       <div class="lucky-imgs">
@@ -28,6 +34,13 @@
           </div>
         </div>
       </div>
+      <div class="lucky-imgs">
+        <div v-for="(btn, index) in buttons" :key="index">
+          <div v-if="btn.imgs">
+            <image v-for="(img, i) in btn.imgs" :key="i" :src="img.src" @load="e => imgBindload(e, 'buttons', index, i)"></image>
+          </div>
+        </div>
+      </div>
     </view>
     <!-- #endif -->
   </view>
@@ -35,10 +48,9 @@
 
 <script>
   import { changeUnits, resolveImage, getImage } from './utils.js'
-  import { SlotMachine } from '../../lucky-canvas'
-  let myCanvas
+  import { LuckyWheel } from '../../lucky-canvas'
   export default {
-    name: 'slot-machine',
+    name: 'lucky-wheel',
     data () {
       return {
         imgSrc: '',
@@ -69,7 +81,7 @@
         type: Array,
         default: () => []
       },
-      slots: {
+      buttons: {
         type: Array,
         default: () => []
       },
@@ -83,6 +95,9 @@
       },
     },
     mounted () {
+      // #ifdef APP-PLUS
+      console.error('该抽奖插件的最新版暂不支持app端, 请通过npm安装旧版本【npm i uni-luck-draw@1.3.9】')
+      // #endif
       // #ifndef APP-PLUS
       this.initLucky()
       // #endif
@@ -94,8 +109,8 @@
       prizes (newData) {
         this.myLucky && (this.myLucky.prizes = newData)
       },
-      slots (newData) {
-        this.myLucky && (this.myLucky.slots = newData)
+      buttons (newData) {
+        this.myLucky && (this.myLucky.buttons = newData)
       },
       defaultStyle (newData) {
         this.myLucky && (this.myLucky.defaultStyle = newData)
@@ -107,10 +122,10 @@
     methods: {
       async imgBindload (res, name, index, i) {
         const img = this[name][index].imgs[i]
-        resolveImage(img, myCanvas)
+        resolveImage(img, this.canvas)
       },
       getImage () {
-        return getImage.call(this, 'slot-machine', myCanvas)
+        return getImage.call(this, 'lucky-wheel', this.canvas)
       },
       hideCanvas () {
         // #ifdef MP
@@ -132,15 +147,15 @@
       },
       draw () {
         const _this = this
-        uni.createSelectorQuery().in(this).select('#slot-machine').fields({
+        uni.createSelectorQuery().in(this).select('#lucky-wheel').fields({
           node: true, size: true
         }).exec((res) => {
           // #ifdef H5
-          res[0].node = document.querySelector('#slot-machine canvas')
+          res[0].node = document.querySelector('#lucky-wheel canvas')
           // #endif
           if (!res[0] || !res[0].node) return console.error('lucky-canvas 获取不到 canvas 标签')
           const { node, width, height } = res[0]
-          const canvas = myCanvas = node
+          const canvas = this.canvas = node
           const ctx = this.ctx = canvas.getContext('2d')
           const dpr = this.dpr = uni.getSystemInfoSync().pixelRatio
           // #ifndef H5
@@ -148,7 +163,8 @@
           canvas.height = height * dpr
           ctx.scale(dpr, dpr)
           // #endif
-          const myLucky = this.myLucky = new SlotMachine({
+          const Radius = Math.min(width, height) / 2
+          const myLucky = this.myLucky = new LuckyWheel({
             // #ifdef H5
             flag: 'WEB',
             // #endif
@@ -157,9 +173,6 @@
             // #endif
             ctx,
             dpr,
-            // #ifndef H5
-            offscreenCanvas: uni.createOffscreenCanvas({ type: '2d' }),
-            // #endif
             setTimeout,
             clearTimeout,
             setInterval,
@@ -168,6 +181,18 @@
             rAF: requestAnimationFrame,
             // #endif
             unitFunc: (num, unit) => changeUnits(num + unit),
+            beforeCreate: function () {
+              ctx.translate(Radius, Radius)
+            },
+            beforeResize: function () {
+              ctx.translate(-Radius, -Radius)
+            },
+            afterInit: function () {
+              // 动态设置按钮
+              _this.btnWidth = this.maxBtnRadius * 2
+              _this.btnHeight = this.maxBtnRadius * 2
+              _this.$forceUpdate()
+            },
             afterStart: () => {
               this.imgSrc = ''
             },
@@ -175,12 +200,18 @@
             ...this.$props,
             width,
             height,
+            start: (...rest) => {
+              this.$emit('start', ...rest)
+            },
             end: (...rest) => {
               this.$emit('end', ...rest)
               this.hideCanvas()
             },
           })
         })
+      },
+      toPlay (e) {
+        this.myLucky.startCallback()
       },
       init () {
         this.myLucky.init()
@@ -206,6 +237,15 @@
     pointer-events: none;
     left: 0;
     top: 0;
+  }
+  .lucky-wheel-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
   }
   .lucky-imgs {
     width: 0;

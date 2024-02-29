@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages_costMoney/common/vendor"],{
 
 /***/ 261:
-/*!***************************************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_costMoney/cm_static/costMoney.png ***!
-  \***************************************************************************************/
+/*!****************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/costMoney.png ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -12,9 +12,9 @@ module.exports = "/pages_costMoney/cm_static/costMoney.png";
 /***/ }),
 
 /***/ 262:
-/*!***************************************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_costMoney/cm_static/send-list.png ***!
-  \***************************************************************************************/
+/*!****************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/send-list.png ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -23,9 +23,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADICAYAAABs
 /***/ }),
 
 /***/ 266:
-/*!****************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/costMoney.js ***!
-  \****************************************************************/
+/*!*****************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/api/costMoney.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -56,9 +56,9 @@ function buy(data) {
 /***/ }),
 
 /***/ 273:
-/*!************************************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_costMoney/cm_static/kuijia.png ***!
-  \************************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/kuijia.png ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
