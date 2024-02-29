@@ -147,9 +147,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '获取瞧一瞧列表失败',
-					icon: 'none',
-					duration: 2000
+					title: '获取瞧一瞧列表失败'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;

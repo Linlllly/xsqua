@@ -113,9 +113,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '鲜花排行榜获取失败',
-					icon: 'none',
-					duration: 2000
+					title: '鲜花排行榜获取失败'
 				});
 				return;
 			}
@@ -127,9 +125,7 @@ export default {
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '银两排行榜获取失败',
-					icon: 'none',
-					duration: 2000
+					title: '银两排行榜获取失败'
 				});
 				return;
 			}
@@ -152,9 +148,7 @@ export default {
 			}
 			if (!this.sendCount || this.sendCount <= 0) {
 				uni.showToast({
-					title: '助力数量有误',
-					icon: 'none',
-					duration: 2000
+					title: '助力数量有误'
 				});
 				return;
 			}
@@ -170,16 +164,12 @@ export default {
 				if (res.code !== 0) {
 					this.sending = false;
 					uni.showToast({
-						title: '赠送银子失败',
-						icon: 'none',
-						duration: 2000
+						title: '赠送银子失败'
 					});
 					return;
 				}
 				uni.showToast({
-					title: '赠送银子成功',
-					icon: 'none',
-					duration: 2000
+					title: '赠送银子成功'
 				});
 				//----------
 				var content = { fromUid: this.uid, toUid: receiveUid, text: `赠送了` + this.sendCount + `两银子给您`, type: 'silver' };
@@ -196,16 +186,12 @@ export default {
 				if (res.code !== 0) {
 					this.sending = false;
 					uni.showToast({
-						title: '赠送鲜花失败',
-						icon: 'none',
-						duration: 2000
+						title: '赠送鲜花失败'
 					});
 					return;
 				}
 				uni.showToast({
-					title: '赠送鲜花成功',
-					icon: 'none',
-					duration: 2000
+					title: '赠送鲜花成功'
 				});
 				//----------
 				var content = { fromUid: this.uid, toUid: receiveUid, text: `赠送了` + this.sendCount + `朵鲜花给您`, type: 'flower' };
