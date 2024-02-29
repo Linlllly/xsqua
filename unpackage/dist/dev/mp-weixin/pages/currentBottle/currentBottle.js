@@ -134,7 +134,7 @@ var components
 try {
   components = {
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 449))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 453))
     },
   }
 } catch (e) {
@@ -265,8 +265,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context.abrupt("return");
               case 8:
@@ -472,9 +471,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

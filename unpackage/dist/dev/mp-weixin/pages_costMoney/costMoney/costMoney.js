@@ -134,13 +134,13 @@ var components
 try {
   components = {
     uPopup: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 504))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 508))
     },
     uLoadingIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon.vue */ 474))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon.vue */ 478))
     },
     uOverlay: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 488))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 492))
     },
   }
 } catch (e) {
@@ -352,8 +352,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context.abrupt("return");
               case 6:
@@ -376,16 +375,12 @@ var _default = {
                   success: function success(res) {
                     // this.loading = false;
                     uni.showToast({
-                      icon: 'none',
-                      title: '充值成功',
-                      duration: 1000
+                      title: '充值成功'
                     });
                   },
                   fail: function fail(err) {
                     uni.showToast({
-                      icon: 'none',
-                      title: err,
-                      duration: 1000
+                      title: err
                     });
                   }
                 });
@@ -446,8 +441,7 @@ var _default = {
                 }
                 _this3.loadingRecord = false;
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 _this3.loadingRecord = false;
                 return _context2.abrupt("return");
@@ -511,8 +505,7 @@ var _default = {
                 }
                 _this4.loadingMoney = false;
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 //关闭节流阀
                 _this4.loadingMoney = false;
@@ -671,9 +664,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

@@ -141,7 +141,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var SlotMachine = function SlotMachine() {
   Promise.all(/*! require.ensure | components/@lucky-canvas/uni/slot-machine */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/@lucky-canvas/uni/slot-machine")]).then((function () {
-    return resolve(__webpack_require__(/*! @/components/@lucky-canvas/uni/slot-machine */ 564));
+    return resolve(__webpack_require__(/*! @/components/@lucky-canvas/uni/slot-machine */ 568));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

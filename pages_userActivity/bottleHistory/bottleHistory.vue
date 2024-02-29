@@ -9,7 +9,7 @@
 						<u-icon name="play-circle" size="28"></u-icon>
 						<div class="contents">xx  xxxxxxxxxxxxxxxxxxxxxxxxxx</div>
 						<div class="time">2022.10.18</div>
-						<u-icon name="trash" size="28" @click.stop="delHistory(i)"></u-icon>
+						<u-icon name="trash" size="28" @tap.stop="delHistory(i)"></u-icon>
 					</view>
 				</z-paging>
 				<u-modal
@@ -40,7 +40,8 @@ import { lostHistry, pickHistry,delLostBottle,delPickBottle } from '@/api/curren
 			};
 		},
 		methods:{
-			getHistory(page, limit){
+		async	getHistory(page, limit){
+			
 				if(this.type===0){
 					// lostHistry({ page, limit })
 				// 				.then(res => {
@@ -71,50 +72,35 @@ import { lostHistry, pickHistry,delLostBottle,delPickBottle } from '@/api/curren
 					url: '../bottleDetail/bottleDetail?id=' + i
 				});
 			},
-			delHistory(){
+			delHistory(i){
 				this.showAttention = true;
 				this.attention = i;
 			},
-			changeAttentionState() {
-				// if(this.type===0){
-				// 	delLostBottle({id}).then(res=>{
-				// 			console.log('删除丢瓶子');
-				// 	console.log(res);
+			async changeAttentionState() {
+				
+					 // let res=this.type === 0 ?await delLostBottle({id}):await delPickBottle({id})
+					  // let title = this.type === 0 ? '成功删除投放的瓶子' : '成功删除捡来的瓶子';
+					
+				// 			console.log('删除丢/捡瓶子');
+				//  	console.log(res);
 				// 	if (res.code !== 0) {
 				// 		uni.showToast({
 				// 			title: res.msg
 				// 		});
 				// 		return;
 				// 	}
+					
 				// 	uni.showToast({
-				// 		title: '成功删除投放的瓶子',
+				// 		title: title
 						
 				// 	});
+				// 	//找下标   item.historyList.uid === this.attention.blackUserInfo.uid记得替换
 				// 	const index = this.historyList.findIndex(item => item.historyList.uid === this.attention.blackUserInfo.uid);
 				// 	this.$delete(this.historyList, index);
-				// 	this.showAttention = false;
-				// 	})
+					this.showAttention = false;
 					
-				// }else{
-				// 	delPickBottle({id}).then(res=>{
-				// 		console.log('删除捡瓶子');
-				// 		console.log(res);
-				// 		if (res.code !== 0) {
-				// 			uni.showToast({
-				// 				title: res.msg
-				// 			});
-				// 			return;
-				// 		}
-				// 		uni.showToast({
-				// 			title: '成功删除捡来的瓶子',
-							
-				// 		});
-				// 		const index = this.historyList.findIndex(item => item.historyList.uid === this.attention.blackUserInfo.uid);
-				// 		this.$delete(this.historyList, index);
-				// 		this.showAttention = false;
-				// 	})
 					
-				// }
+				
 				
 			}
 		}

@@ -134,7 +134,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 548))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 552))
     },
   }
 } catch (e) {
@@ -725,8 +725,7 @@ var _default = {
       } else if (i === 2) {
         if (this.pageNum >= this.totalPageNum) {
           uni.showToast({
-            title: '已经在最后一页了~',
-            icon: 'none'
+            title: '已经在最后一页了~'
           });
           return;
         }
@@ -967,9 +966,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

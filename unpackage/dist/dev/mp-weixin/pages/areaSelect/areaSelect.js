@@ -238,8 +238,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: '获取区域列表失败',
-                  icon: 'none'
+                  title: '获取区域列表失败'
                 });
                 return _context.abrupt("return");
               case 8:
@@ -419,9 +418,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

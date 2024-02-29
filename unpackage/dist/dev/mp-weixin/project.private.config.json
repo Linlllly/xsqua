@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "漂流瓶历史",
+          "pathName": "pages_userActivity/bottleHistory/bottleHistory",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "漂流瓶",
           "pathName": "pages/currentBottle/currentBottle",
           "query": "",

@@ -338,9 +338,7 @@ export default {
 			console.log(res);
 			if (res.code === 0) {
 				uni.showToast({
-					title: '触发好运~恭喜获得银两',
-					,
-					duration: 3000
+					title: '触发好运~恭喜获得银两'
 				});
 				//----------
 				var content = { fromUid: this.ouid - 0, toUid: this.uid, text: `赠送了` + res.msg + `两银子给您`, type: 'silver' };

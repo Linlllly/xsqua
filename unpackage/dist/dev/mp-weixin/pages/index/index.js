@@ -134,7 +134,7 @@ var components
 try {
   components = {
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 449))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 453))
     },
   }
 } catch (e) {
@@ -219,7 +219,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var RankingList = function RankingList() {
   Promise.all(/*! require.ensure | components/rankingList/rankingList */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/rankingList/rankingList")]).then((function () {
-    return resolve(__webpack_require__(/*! @/components/rankingList/rankingList.vue */ 457));
+    return resolve(__webpack_require__(/*! @/components/rankingList/rankingList.vue */ 461));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {
@@ -283,8 +283,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context.abrupt("return");
               case 8:
@@ -322,8 +321,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context2.abrupt("return");
               case 7:
@@ -359,8 +357,7 @@ var _default = {
         console.log(res);
         if (res.code !== 0) {
           uni.showToast({
-            title: res.msg,
-            icon: 'none'
+            title: res.msg
           });
           return;
         }
@@ -567,9 +564,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

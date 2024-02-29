@@ -164,9 +164,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');
@@ -302,28 +300,28 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 548))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 552))
     },
     uModal: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 512))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 516))
     },
     uRadioGroup: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio-group/u-radio-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio-group/u-radio-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio-group/u-radio-group.vue */ 573))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio-group/u-radio-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio-group/u-radio-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio-group/u-radio-group.vue */ 608))
     },
     uRadio: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio/u-radio */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio/u-radio")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio/u-radio.vue */ 581))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio/u-radio */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio/u-radio")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio/u-radio.vue */ 616))
     },
     "u-Form": function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 520))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 524))
     },
     uFormItem: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 526))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 530))
     },
     uInput: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-input/u-input.vue */ 534))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-input/u-input.vue */ 538))
     },
     uActionSheet: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 589))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 624))
     },
   }
 } catch (e) {
@@ -559,8 +557,7 @@ var _default = {
             if (data.type === 'err_msg' && data.toUid === _this.uid && data.fromUid === _this.uid) {
               _this.$delete(_this.chatWithList, _this.chatWithList.length - 1);
               uni.showToast({
-                title: data.text,
-                icon: 'none'
+                title: data.text
               });
               // this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0_' + Date.now().toString());
               return;
@@ -627,8 +624,7 @@ var _default = {
         this.showshield = true;
       } else {
         uni.showToast({
-          title: '只有盔甲用户可以拉黑用户',
-          icon: 'none'
+          title: '只有盔甲用户可以拉黑用户'
         });
       }
     },
@@ -640,14 +636,12 @@ var _default = {
         console.log(res);
         if (res.code !== 0) {
           uni.showToast({
-            title: res.msg,
-            icon: 'none'
+            title: res.msg
           });
           return;
         }
         uni.showToast({
-          title: '加入黑名单成功',
-          icon: 'none'
+          title: '加入黑名单成功'
         });
         setTimeout(function (res) {
           uni.navigateBack();
@@ -676,8 +670,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context.abrupt("return");
               case 8:
@@ -710,8 +703,7 @@ var _default = {
         if (_this4.page > _this4.lastPage) {
           _this4.isHistoryLoading = false;
           uni.showToast({
-            title: '已加载所有数据',
-            icon: 'none'
+            title: '已加载所有数据'
           });
           return;
         }
@@ -734,8 +726,7 @@ var _default = {
                 }
                 _this5.isHistoryLoading = false;
                 uni.showToast({
-                  title: '已加载所有数据',
-                  icon: 'none'
+                  title: '已加载所有数据'
                 });
                 _this5.$nextTick(function () {
                   this.scrollAnimation = true;
@@ -758,8 +749,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
                 return _context2.abrupt("return");
               case 14:
@@ -801,8 +791,7 @@ var _default = {
       }
       if (!this.go) {
         uni.showToast({
-          title: '网络异常，发送失败！',
-          icon: 'none'
+          title: '网络异常，发送失败！'
         });
         return;
       }
@@ -901,8 +890,7 @@ var _default = {
             fail: function fail() {
               uni.hideLoading();
               uni.showToast({
-                title: res.msg,
-                icon: 'none'
+                title: res.msg
               });
             }
           });
@@ -938,8 +926,7 @@ var _default = {
           fail: function fail() {
             uni.hideLoading();
             uni.showToast({
-              title: res.msg,
-              icon: 'none'
+              title: res.msg
             });
           }
         });
@@ -951,8 +938,7 @@ var _default = {
     this.hideDrawer(); //隐藏抽屉
     if (!this.go) {
       uni.showToast({
-        title: '网络异常，发送失败！',
-        icon: 'none'
+        title: '网络异常，发送失败！'
       });
       return;
     }
@@ -990,8 +976,7 @@ var _default = {
     this.hideDrawer(); //隐藏抽屉
     if (!this.go) {
       uni.showToast({
-        title: '网络异常，发送失败！',
-        icon: 'none'
+        title: '网络异常，发送失败！'
       });
       return;
     }
@@ -1085,14 +1070,12 @@ var _default = {
                 break;
               }
               uni.showToast({
-                title: res.msg,
-                icon: 'none'
+                title: res.msg
               });
               return _context3.abrupt("return");
             case 8:
               uni.showToast({
-                title: '修改备注成功',
-                icon: 'none'
+                title: '修改备注成功'
               });
               _this13.realRemark = _this13.remark;
               _this13.changeName = false;
@@ -1132,23 +1115,20 @@ var _default = {
               success: function success() {
                 uni.hideLoading();
                 uni.showToast({
-                  title: '保存视频成功',
-                  icon: 'none'
+                  title: '保存视频成功'
                 });
               },
               fail: function fail(err) {
                 uni.hideLoading();
                 uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
+                  title: res.msg
                 });
               }
             });
           } else {
             uni.hideLoading();
             uni.showToast({
-              title: res.msg,
-              icon: 'none'
+              title: res.msg
             });
           }
         },
@@ -1185,8 +1165,7 @@ var _default = {
         console.log('fail');
         console.log(res);
         uni.showToast({
-          title: res,
-          icon: 'none'
+          title: res
         });
       }
     });
@@ -1203,8 +1182,7 @@ var _default = {
                 break;
               }
               uni.showToast({
-                title: '未激活，需兑换超级安全盔甲',
-                icon: 'none'
+                title: '未激活，需兑换超级安全盔甲'
               });
               return _context4.abrupt("return");
             case 3:
@@ -1219,8 +1197,7 @@ var _default = {
                 console.log(res);
                 if (res.code !== 0) {
                   uni.showToast({
-                    title: res.msg,
-                    icon: 'none'
+                    title: res.msg
                   });
                   return;
                 }

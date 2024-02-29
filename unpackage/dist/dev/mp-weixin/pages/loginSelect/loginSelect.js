@@ -264,8 +264,7 @@ var _default = {
             if (cts.statusCode !== 200 || cts.data.code !== 0) {
               uni.hideLoading();
               uni.showToast({
-                title: '服务器出错，正在尝试重连...',
-                icon: 'none'
+                title: '服务器出错，正在尝试重连...'
               });
               //显示失败
               setTimeout(function () {
@@ -287,8 +286,7 @@ var _default = {
           fail: function fail() {
             uni.hideLoading();
             uni.showToast({
-              title: '微信登录出错，请尝试重新进入小程序...',
-              icon: 'none'
+              title: '微信登录出错，请尝试重新进入小程序...'
             });
             // setTimeout(() => {
             // 	this.getCode();
@@ -322,8 +320,7 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res,
-                  icon: 'none'
+                  title: res
                 });
                 return _context.abrupt("return");
               case 9:
@@ -543,9 +540,7 @@ var _default = {
         console.log(res);
         if (!res.isConnected) {
           uni.showToast({
-            title: '网络断开！',
-            icon: 'none',
-            duration: 2000
+            title: '网络断开！'
           });
         } else {
           // console.log('有网');

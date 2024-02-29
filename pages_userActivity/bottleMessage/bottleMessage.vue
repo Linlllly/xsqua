@@ -4,7 +4,7 @@
 				
 				<div  class="content-list" v-for="(i, index) in messageList" :key="i.id">
 					<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
-					<div class="content-info" @click="toArticleDes(i)">
+					<div class="content-info" @click="goBottleDetail(i)">
 						回复了您的漂流瓶
 					</div>
 				</div>
@@ -43,17 +43,9 @@ export default {
 							});
 		},
 		
-		//去详情页
-		toArticleDes(i) {
-			if (i.postId) {
-				uni.navigateTo({
-					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId
-				});
-			}
-		},
-		toOtherUser(i) {
+		goBottleDetail(i){
 			uni.navigateTo({
-				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
+				url: '../bottleDetail/bottleDetail?id=' + i
 			});
 		}
 	}
