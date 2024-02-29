@@ -7,14 +7,14 @@
     "pages/citySelect/citySelect",
     "pages/areaSelect/areaSelect",
     "pages/index2/index2",
-    "pages/index3/index3"
+    "pages/index3/index3",
+    "pages/currentBottle/currentBottle"
   ],
   "subPackages": [
     {
       "root": "pages_costMoney",
       "pages": [
         "costMoney/costMoney",
-        "exchangeArmor/exchangeArmor",
         "game/game"
       ]
     },
@@ -25,6 +25,9 @@
         "adminLogin/adminLogin",
         "chatWith/chatWith",
         "messageList/messageList",
+        "bottleMessage/bottleMessage",
+        "bottleHistory/bottleHistory",
+        "bottleDetail/bottleDetail",
         "fansAndFouces/fansAndFouces",
         "otherUser/otherUser",
         "settings/settings",

@@ -1557,7 +1557,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8934,7 +8934,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8955,14 +8955,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9058,7 +9058,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -21353,9 +21353,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 /* 206 */,
 /* 207 */,
 /* 208 */
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/exchangeArmor.js ***!
-  \*********************************************************/
+/*!*******************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/api/updateArmor.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21366,7 +21366,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.closeMyRoom = closeMyRoom;
-exports.exchangeArmour = exchangeArmour;
 exports.getArmourConfig = getArmourConfig;
 exports.openMyRoom = openMyRoom;
 exports.updateArmourConfig = updateArmourConfig;
@@ -21375,10 +21374,7 @@ var _api = __webpack_require__(/*! @/api/api.js */ 35);
 function getArmourConfig(data) {
   return (0, _api.get)('/app/user/getArmourConfig', data);
 }
-//兑换（盔甲）
-function exchangeArmour(data) {
-  return (0, _api.post)('/app/account/exchangeArmour', data);
-}
+
 // 修改盔甲配置
 function updateArmourConfig(data) {
   return (0, _api.post)('/app/user/updateArmourConfig', data);
@@ -22406,13 +22402,59 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAALUAQMAAADK
 /* 261 */,
 /* 262 */,
 /* 263 */
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/money.png ***!
-  \*****************************************************/
+/*!*********************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/api/currentBottle.js ***!
+  \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACZUExURUdwTJ+fn7e3t4GBgerq6sfHx+fn55ycnKGhoe7u7ujo6Onp6cbGxp+fn7a2tuHh4aioqNvb27GxsZiYmNfX19/f35GRkbu7u8rKyqqqqr+/v8fHx62trb+/v+3t7czMzNra2tnZ2bq6ur+/v7e3t8HBwb29vbS0tKampsPDw5eXl7CwsM3Nzaurq8fHx4+Pj9LS0vn5+d7e3mXBqrgAAAArdFJOUwDwwP4rhA/+/QUfPZTdpl3OUNzsbnr3dKPwH7W50fPq1Ob///////////7k48dUAAADS0lEQVRIx+2Va5ejKBCG1UHxbrzkYi69M4CAoJjM//9xW2BM956e2T37ZT516fEYw+P7UlCl533FV/yhSJK0Di/f397+6vte933TBHmFol8PTV63AJW3H4+3u9AaTj3LfleGR5R8gtKsytJzZP+Isn3gx9Pj8VPPgjFhMawO7S7PnGASnc8IpTA0QftgF5RhlUVJWpWFkneghGac85WLMVZtUJ3Bf3Y8luVpD+9A+5tclrgJTvtqH7QLBq03PrNhoJwAN0PEeDkExxr874r20H/fZ1536XW8LAr7fdNjhcfH4zGB1oZZTspYHZqg+GZDzfyy9/IGEy7VomxgLH6CRaY5pXylHGedqoOj8GDY7eSdGqzNKGKllgVjaUDMaEEpIZASh2krJ+PFQgumd6Obq1WTfJqsICi6LDLNABIAiXURnEvAFiXpZNj8xAQ308gcKO53AismnkIbhJcFIM2NGbmem9KDhZqFIOM0DRqc4hjyHYMpOUvnDX7bWUPO5mGaDJif+1vuVRd/ZowRaiar7+bosqPWWBZnXvPpfjcDJ4D5kMn6BBhMn3AQnMxAhDNlAxILwrMWfDDT3UnBOCKLvPZQ6EtBbHA6GkuagdqfzD6yzwCBMCPlbpiQRYe8qNrFM1s5Tgc7ysL3LdyLzDg8IcJ0vKsjL8lKX7Lt5XxDLWkvk0NeDJzSzxHs6rQr8OrSYtSBgLoYhmGkdsPwl22Nd5WthiS7KpsUOFY1OOnw4l4QWS3NuESu4NKwwPolZzm6qY3jC7MQczPr1lqH2R0+zG61OY4GDqvGNzWHyTbfKj2qCvVM5qq3yllupZwa7GxCtpm5QKHjGCMf0vn0uIlBEbGRxEWYvvcTFLZKCsZegs+kvM/MUpTqIkQf2xDK24PUgrH35VvDUsw1I2KoBOofLSxB4Q427LyCnG9LsVJQRvBci+BT40vS7toqbDfuu6IzCOOh5gRnxbU+f26y5zoMDgcVv8hn+tYmFDeX4/mXzdlLq/y685WtUjvStR4X/e1SHqE5Jr/r/9nRtsK29X0o69j3fbgrrmVYp1Hyb1+OM6q7MD8F1+B2g8vllIddjdLoP785EcqqLgT0lB/DrqszFP3fr9bXh/sr/nz8DRwxqdzbWsSlAAAAAElFTkSuQmCC"
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.commentBottle = commentBottle;
+exports.delLostBottle = delLostBottle;
+exports.delPickBottle = delPickBottle;
+exports.detailPickBottle = detailPickBottle;
+exports.lostBottle = lostBottle;
+exports.lostHistry = lostHistry;
+exports.pickBottle = pickBottle;
+exports.pickHistry = pickHistry;
+var _api = __webpack_require__(/*! @/api/api.js */ 35);
+// 丢瓶子
+function lostBottle(data) {
+  return (0, _api.post)('/app/bottle/add', data);
+}
+// 捡瓶子
+function pickBottle(data) {
+  return (0, _api.post)('/app/bottleRecord/getOne', data);
+}
+//查询我丢的瓶子
+function lostHistry(data) {
+  return (0, _api.get)('/app/bottle/page', data);
+}
+//查询我捡的瓶子
+function pickHistry(data) {
+  return (0, _api.get)('/app/bottleRecord/page', data);
+}
+//删除我丢的瓶子记录
+function delLostBottle(data) {
+  return (0, _api.get)('/app/bottle/del', data);
+}
+//删除我捡的瓶子记录
+function delPickBottle(data) {
+  return (0, _api.get)('/app/bottleRecord/delById', data);
+}
+//查看瓶子消息详情
+function detailPickBottle(data) {
+  return (0, _api.get)('/app/bottleRecord/getById', data);
+}
+//回复瓶子
+function commentBottle(data) {
+  return (0, _api.post)('/app/bottleRecord/comment', data);
+}
 
 /***/ }),
 /* 264 */,
@@ -22423,7 +22465,16 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7
 /* 269 */,
 /* 270 */,
 /* 271 */,
-/* 272 */,
+/* 272 */
+/*!*****************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/static/money.png ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACZUExURUdwTJ+fn7e3t4GBgerq6sfHx+fn55ycnKGhoe7u7ujo6Onp6cbGxp+fn7a2tuHh4aioqNvb27GxsZiYmNfX19/f35GRkbu7u8rKyqqqqr+/v8fHx62trb+/v+3t7czMzNra2tnZ2bq6ur+/v7e3t8HBwb29vbS0tKampsPDw5eXl7CwsM3Nzaurq8fHx4+Pj9LS0vn5+d7e3mXBqrgAAAArdFJOUwDwwP4rhA/+/QUfPZTdpl3OUNzsbnr3dKPwH7W50fPq1Ob///////////7k48dUAAADS0lEQVRIx+2Va5ejKBCG1UHxbrzkYi69M4CAoJjM//9xW2BM956e2T37ZT516fEYw+P7UlCl533FV/yhSJK0Di/f397+6vte933TBHmFol8PTV63AJW3H4+3u9AaTj3LfleGR5R8gtKsytJzZP+Isn3gx9Pj8VPPgjFhMawO7S7PnGASnc8IpTA0QftgF5RhlUVJWpWFkneghGac85WLMVZtUJ3Bf3Y8luVpD+9A+5tclrgJTvtqH7QLBq03PrNhoJwAN0PEeDkExxr874r20H/fZ1536XW8LAr7fdNjhcfH4zGB1oZZTspYHZqg+GZDzfyy9/IGEy7VomxgLH6CRaY5pXylHGedqoOj8GDY7eSdGqzNKGKllgVjaUDMaEEpIZASh2krJ+PFQgumd6Obq1WTfJqsICi6LDLNABIAiXURnEvAFiXpZNj8xAQ308gcKO53AismnkIbhJcFIM2NGbmem9KDhZqFIOM0DRqc4hjyHYMpOUvnDX7bWUPO5mGaDJif+1vuVRd/ZowRaiar7+bosqPWWBZnXvPpfjcDJ4D5kMn6BBhMn3AQnMxAhDNlAxILwrMWfDDT3UnBOCKLvPZQ6EtBbHA6GkuagdqfzD6yzwCBMCPlbpiQRYe8qNrFM1s5Tgc7ysL3LdyLzDg8IcJ0vKsjL8lKX7Lt5XxDLWkvk0NeDJzSzxHs6rQr8OrSYtSBgLoYhmGkdsPwl22Nd5WthiS7KpsUOFY1OOnw4l4QWS3NuESu4NKwwPolZzm6qY3jC7MQczPr1lqH2R0+zG61OY4GDqvGNzWHyTbfKj2qCvVM5qq3yllupZwa7GxCtpm5QKHjGCMf0vn0uIlBEbGRxEWYvvcTFLZKCsZegs+kvM/MUpTqIkQf2xDK24PUgrH35VvDUsw1I2KoBOofLSxB4Q427LyCnG9LsVJQRvBci+BT40vS7toqbDfuu6IzCOOh5gRnxbU+f26y5zoMDgcVv8hn+tYmFDeX4/mXzdlLq/y685WtUjvStR4X/e1SHqE5Jr/r/9nRtsK29X0o69j3fbgrrmVYp1Hyb1+OM6q7MD8F1+B2g8vllIddjdLoP785EcqqLgT0lB/DrqszFP3fr9bXh/sr/nz8DRwxqdzbWsSlAAAAAElFTkSuQmCC"
+
+/***/ }),
 /* 273 */,
 /* 274 */,
 /* 275 */,
@@ -22587,7 +22638,25 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7
 /* 433 */,
 /* 434 */,
 /* 435 */,
-/* 436 */
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-swiper/props.js ***!
   \**************************************************************************************/
@@ -22730,12 +22799,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */
 /*!*********************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/mouth-one.png ***!
   \*********************************************************/
@@ -22745,7 +22814,7 @@ exports.default = _default;
 module.exports = "data:image/png;base64,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"
 
 /***/ }),
-/* 443 */
+/* 461 */
 /*!*********************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/mouth-two.png ***!
   \*********************************************************/
@@ -22755,7 +22824,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAADNCAMAAADu
 module.exports = "data:image/png;base64,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"
 
 /***/ }),
-/* 444 */
+/* 462 */
 /*!***********************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/mouth-three.png ***!
   \***********************************************************/
@@ -22765,7 +22834,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAACjBAMAAAC9
 module.exports = "data:image/png;base64,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"
 
 /***/ }),
-/* 445 */
+/* 463 */
 /*!******************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/flower.png ***!
   \******************************************************/
@@ -22775,16 +22844,16 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAACcCAMAAABh
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURUdwTPu0mvq1nPq1nfu1nfu1nPq1nfq1nf2vl/u1nPu1nfq1neuDdPetlvGYhe2Jee+Qf/ShjeyHbey0KuufR+qxKeuRXOuqN3sZrT4AAAALdFJOUwAjyq9CXeD4DZFyvf3cLAAAAMNJREFUGNNdkFkSwyAMQwkQltRmCSS5/01rBNNpqz/eCFm2UlCIzmurfhTMS+R3a8MH2fha8m6faHd4M4N60OXikiqwkwTrJymUKcG7LWMiKJcB7YQs8Lz7SbnKywTAkul8rvbclJPkHsisme6rtasTFYFx/OdMdDeBD9iAhzglsrdLnAg9lDIYns/+jElpdtLiTMBSCp0CnDJfPFQL19UeK9XKTDwXHnuqXXuP7deh1p22zfzfDlwDabuF79sf2ru4yBv4kQ6edqSjmQAAAABJRU5ErkJggg=="
 
 /***/ }),
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */,
+/* 473 */
 /*!****************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-textarea/props.js ***!
   \****************************************************************************************/
@@ -22921,12 +22990,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */
 /*!********************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
   \********************************************************************************************/
@@ -23003,14 +23072,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-input/props.js ***!
   \*************************************************************************************/
@@ -23215,12 +23284,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */
 /*!***************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-overlay/props.js ***!
   \***************************************************************************************/
@@ -23262,14 +23331,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-search/props.js ***!
   \**************************************************************************************/
@@ -23405,14 +23474,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-popup/props.js ***!
   \*************************************************************************************/
@@ -23509,14 +23578,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-modal/props.js ***!
   \*************************************************************************************/
@@ -23618,14 +23687,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-form/props.js ***!
   \************************************************************************************/
@@ -23688,12 +23757,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */,
-/* 512 */,
-/* 513 */
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-form-item/props.js ***!
   \*****************************************************************************************/
@@ -23759,28 +23828,28 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */,
 /* 532 */,
 /* 533 */,
 /* 534 */,
-/* 535 */
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-icon/icons.js ***!
   \************************************************************************************/
@@ -24011,7 +24080,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 536 */
+/* 554 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-icon/props.js ***!
   \************************************************************************************/
@@ -24118,21 +24187,21 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */,
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */
 /*!**************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/components/@lucky-canvas/uni/utils.js ***!
   \**************************************************************************/
@@ -24260,7 +24329,7 @@ function getImage(canvasId, canvas) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 552 */
+/* 570 */
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/components/lucky-canvas/dist/index.esm.js ***!
   \******************************************************************************/
@@ -25971,14 +26040,14 @@ exports.LuckyGrid = W;
 exports.LuckyWheel = T;
 
 /***/ }),
-/* 553 */,
-/* 554 */,
-/* 555 */,
-/* 556 */,
-/* 557 */,
-/* 558 */,
-/* 559 */,
-/* 560 */
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-radio-group/props.js ***!
   \*******************************************************************************************/
@@ -26080,14 +26149,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 561 */,
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-radio/props.js ***!
   \*************************************************************************************/
@@ -26169,14 +26238,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 569 */,
-/* 570 */,
-/* 571 */,
-/* 572 */,
-/* 573 */,
-/* 574 */,
-/* 575 */,
-/* 576 */
+/* 587 */,
+/* 588 */,
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */
 /*!********************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/openType.js ***!
   \********************************************************************************/
@@ -26218,7 +26287,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 577 */
+/* 595 */
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/button.js ***!
   \******************************************************************************/
@@ -26248,7 +26317,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 578 */
+/* 596 */
 /*!********************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
   \********************************************************************************************/
@@ -26320,14 +26389,4753 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 579 */,
-/* 580 */,
-/* 581 */,
-/* 582 */,
-/* 583 */,
-/* 584 */,
-/* 585 */,
-/* 586 */
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */
+/*!**************************************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./z-paging-main.js?vue&type=script&lang=js& */ 603);
+/* harmony import */ var _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 603 */
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
+var _zPagingStatic = _interopRequireDefault(__webpack_require__(/*! ./z-paging-static */ 604));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 605));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! ./z-paging-utils */ 606));
+var _commonLayout = _interopRequireDefault(__webpack_require__(/*! ./modules/common-layout */ 608));
+var _dataHandle = _interopRequireDefault(__webpack_require__(/*! ./modules/data-handle */ 609));
+var _i18n = _interopRequireDefault(__webpack_require__(/*! ./modules/i18n */ 612));
+var _nvue = _interopRequireDefault(__webpack_require__(/*! ./modules/nvue */ 617));
+var _empty = _interopRequireDefault(__webpack_require__(/*! ./modules/empty */ 618));
+var _refresher = _interopRequireDefault(__webpack_require__(/*! ./modules/refresher */ 619));
+var _loadMore = _interopRequireDefault(__webpack_require__(/*! ./modules/load-more */ 620));
+var _loading = _interopRequireDefault(__webpack_require__(/*! ./modules/loading */ 621));
+var _chatRecordMode = _interopRequireDefault(__webpack_require__(/*! ./modules/chat-record-mode */ 622));
+var _scroller = _interopRequireDefault(__webpack_require__(/*! ./modules/scroller */ 623));
+var _backToTop = _interopRequireDefault(__webpack_require__(/*! ./modules/back-to-top */ 624));
+var _virtualList = _interopRequireDefault(__webpack_require__(/*! ./modules/virtual-list */ 625));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! ./z-paging-enum */ 610));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+var zPagingRefresh = function zPagingRefresh() {
+  __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging/components/z-paging-refresh */ "uni_modules/z-paging/components/z-paging/components/z-paging-refresh").then((function () {
+    return resolve(__webpack_require__(/*! ../components/z-paging-refresh */ 752));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+var zPagingLoadMore = function zPagingLoadMore() {
+  __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging/components/z-paging-load-more */ "uni_modules/z-paging/components/z-paging/components/z-paging-load-more").then((function () {
+    return resolve(__webpack_require__(/*! ../components/z-paging-load-more */ 759));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+var zPagingEmptyView = function zPagingEmptyView() {
+  __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging-empty-view/z-paging-empty-view */ "uni_modules/z-paging/components/z-paging-empty-view/z-paging-empty-view").then((function () {
+    return resolve(__webpack_require__(/*! ../../z-paging-empty-view/z-paging-empty-view */ 745));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
+var systemInfo = uni.getSystemInfoSync();
+var _default = {
+  name: "z-paging",
+  components: {
+    zPagingRefresh: zPagingRefresh,
+    zPagingLoadMore: zPagingLoadMore,
+    zPagingEmptyView: zPagingEmptyView
+  },
+  mixins: [_commonLayout.default, _dataHandle.default, _i18n.default, _nvue.default, _empty.default, _refresher.default, _loadMore.default, _loading.default, _chatRecordMode.default, _scroller.default, _backToTop.default, _virtualList.default],
+  data: function data() {
+    return {
+      // --------------静态资源---------------
+      base64Arrow: _zPagingStatic.default.base64Arrow,
+      base64Flower: _zPagingStatic.default.base64Flower,
+      base64BackToTop: _zPagingStatic.default.base64BackToTop,
+      // -------------全局数据相关--------------
+      // 当前加载类型
+      loadingType: _zPagingEnum.default.LoadingType.Refresher,
+      requestTimeStamp: 0,
+      wxsPropType: '',
+      renderPropScrollTop: -1,
+      checkScrolledToBottomTimeOut: null,
+      cacheTopHeight: -1,
+      statusBarHeight: systemInfo.statusBarHeight,
+      // --------------状态&判断---------------
+      insideOfPaging: -1,
+      isLoadFailed: false,
+      isIos: systemInfo.platform === 'ios',
+      disabledBounce: false,
+      fromCompleteEmit: false,
+      disabledCompleteEmit: false,
+      pageLaunched: false,
+      active: false,
+      // ---------------wxs相关---------------
+      wxsIsScrollTopInTopRange: true,
+      wxsScrollTop: 0,
+      wxsPageScrollTop: 0,
+      wxsOnPullingDown: false
+    };
+  },
+  props: {
+    // 调用complete后延迟处理的时间，单位为毫秒，默认0毫秒，优先级高于minDelay
+    delay: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('delay', 0)
+    },
+    // 触发@query后最小延迟处理的时间，单位为毫秒，默认0毫秒，优先级低于delay（假设设置为300毫秒，若分页请求时间小于300毫秒，则在调用complete后延迟[300毫秒-请求时长]；若请求时长大于300毫秒，则不延迟），当show-refresher-when-reload为true或reload(true)时，其最小值为400
+    minDelay: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('minDelay', 0)
+    },
+    // 设置z-paging的style，部分平台(如微信小程序)无法直接修改组件的style，可使用此属性代替
+    pagingStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('pagingStyle', {})
+    },
+    // z-paging的高度，优先级低于pagingStyle中设置的height；传字符串，如100px、100rpx、100%
+    height: {
+      type: String,
+      default: _zPagingUtils.default.gc('height', '')
+    },
+    // z-paging的宽度，优先级低于pagingStyle中设置的width；传字符串，如100px、100rpx、100%
+    width: {
+      type: String,
+      default: _zPagingUtils.default.gc('width', '')
+    },
+    // z-paging的背景色，优先级低于pagingStyle中设置的background。传字符串，如"#ffffff"
+    bgColor: {
+      type: String,
+      default: _zPagingUtils.default.gc('bgColor', '')
+    },
+    // 设置z-paging的容器(插槽的父view)的style
+    pagingContentStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('pagingContentStyle', {})
+    },
+    // z-paging是否自动高度，若自动高度则会自动铺满屏幕
+    autoHeight: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoHeight', false)
+    },
+    // z-paging是否自动高度时，附加的高度，注意添加单位px或rpx，若需要减少高度，则传负数
+    autoHeightAddition: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('autoHeightAddition', '0px')
+    },
+    // loading(下拉刷新、上拉加载更多)的主题样式，支持black，white，默认black
+    defaultThemeStyle: {
+      type: String,
+      default: _zPagingUtils.default.gc('defaultThemeStyle', 'black')
+    },
+    // z-paging是否使用fixed布局，若使用fixed布局，则z-paging的父view无需固定高度，z-paging高度默认为100%，默认为是(当使用内置scroll-view滚动时有效)
+    fixed: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('fixed', true)
+    },
+    // 是否开启底部安全区域适配
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('safeAreaInsetBottom', false)
+    },
+    // 开启底部安全区域适配后，是否使用placeholder形式实现，默认为否。为否时滚动区域会自动避开底部安全区域，也就是所有滚动内容都不会挡住底部安全区域，若设置为是，则滚动时滚动内容会挡住底部安全区域，但是当滚动到底部时才会避开底部安全区域
+    useSafeAreaPlaceholder: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useSafeAreaPlaceholder', false)
+    },
+    // z-paging bottom的背景色，默认透明，传字符串，如"#ffffff"
+    bottomBgColor: {
+      type: String,
+      default: _zPagingUtils.default.gc('bottomBgColor', '')
+    },
+    // slot="top"的view的z-index，默认为99，仅使用页面滚动时有效
+    topZIndex: {
+      type: Number,
+      default: _zPagingUtils.default.gc('topZIndex', 99)
+    },
+    // z-paging内容容器父view的z-index，默认为1
+    superContentZIndex: {
+      type: Number,
+      default: _zPagingUtils.default.gc('superContentZIndex', 1)
+    },
+    // z-paging内容容器部分的z-index，默认为10
+    contentZIndex: {
+      type: Number,
+      default: _zPagingUtils.default.gc('contentZIndex', 10)
+    },
+    // 使用页面滚动时，是否在不满屏时自动填充满屏幕，默认为是
+    autoFullHeight: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoFullHeight', true)
+    },
+    // 是否监听列表触摸方向改变，默认为否
+    watchTouchDirectionChange: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('watchTouchDirectionChange', false)
+    },
+    // z-paging中布局的单位，默认为rpx
+    unit: {
+      type: String,
+      default: _zPagingUtils.default.gc('unit', 'rpx')
+    }
+  },
+  created: function created() {
+    // 组件创建时，检测是否开始加载状态
+    if (this.createdReload && !this.refresherOnly && this.auto) {
+      this._startLoading();
+      this.$nextTick(this._preReload);
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+    this.active = true;
+    this.wxsPropType = _zPagingUtils.default.getTime().toString();
+    this.renderJsIgnore;
+    if (!this.createdReload && !this.refresherOnly && this.auto) {
+      // 开始预加载
+      this.$nextTick(this._preReload);
+    }
+    // 如果开启了列表缓存，在初始化的时候通过缓存数据填充列表数据
+    this.finalUseCache && this._setListByLocalCache();
+    var delay = 0;
+    delay = _zPagingConstant.default.delayTime;
+    this.$nextTick(function () {
+      // 初始化systemInfo
+      _this.systemInfo = uni.getSystemInfoSync();
+      // 初始化z-paging高度
+      !_this.usePageScroll && _this.autoHeight && _this._setAutoHeight();
+      _this.loaded = true;
+      // 更新fixed模式下z-paging的布局，主要是更新windowTop、windowBottom
+      _zPagingUtils.default.delay(_this.updateFixedLayout);
+    });
+    // 初始化页面滚动模式下slot="top"、slot="bottom"高度
+    this.updatePageScrollTopHeight();
+    this.updatePageScrollBottomHeight();
+    // 初始化slot="left"、slot="right"宽度
+    this.updateLeftAndRightWidth();
+    if (this.finalRefresherEnabled && this.useCustomRefresher) {
+      this.$nextTick(function () {
+        _this.isTouchmoving = true;
+      });
+    }
+    // 监听uni.$emit中全局emit的complete error等事件
+    this._onEmit();
+
+    // 虚拟列表模式时，初始化数据
+    this.finalUseVirtualList && this._virtualListInit();
+
+    // 非app平台中，在通过获取css设置的底部安全区域占位view高度设置bottom距离后，更新页面滚动底部高度
+    this.$nextTick(function () {
+      setTimeout(function () {
+        _this._getCssSafeAreaInsetBottom(function () {
+          return _this.safeAreaInsetBottom && _this.updatePageScrollBottomHeight();
+        });
+      }, delay);
+    });
+  },
+  destroyed: function destroyed() {
+    this._handleUnmounted();
+  },
+  watch: {
+    defaultThemeStyle: {
+      handler: function handler(newVal) {
+        if (newVal.length) {
+          this.finalRefresherDefaultStyle = newVal;
+        }
+      },
+      immediate: true
+    },
+    autoHeight: function autoHeight(newVal) {
+      this.loaded && !this.usePageScroll && this._setAutoHeight(newVal);
+    },
+    autoHeightAddition: function autoHeightAddition(newVal) {
+      this.loaded && !this.usePageScroll && this.autoHeight && this._setAutoHeight(newVal);
+    }
+  },
+  computed: {
+    // 当前z-paging的内置样式
+    finalPagingStyle: function finalPagingStyle() {
+      var pagingStyle = _objectSpread({}, this.pagingStyle);
+      if (!this.systemInfo) return pagingStyle;
+      var windowTop = this.windowTop,
+        windowBottom = this.windowBottom;
+      if (!this.usePageScroll && this.fixed) {
+        if (windowTop && !pagingStyle.top) {
+          pagingStyle.top = windowTop + 'px';
+        }
+        if (windowBottom && !pagingStyle.bottom) {
+          pagingStyle.bottom = windowBottom + 'px';
+        }
+      }
+      if (this.bgColor.length && !pagingStyle['background']) {
+        pagingStyle['background'] = this.bgColor;
+      }
+      if (this.height.length && !pagingStyle['height']) {
+        pagingStyle['height'] = this.height;
+      }
+      if (this.width.length && !pagingStyle['width']) {
+        pagingStyle['width'] = this.width;
+      }
+      return pagingStyle;
+    },
+    // 当前z-paging内容的样式
+    finalPagingContentStyle: function finalPagingContentStyle() {
+      if (this.contentZIndex != 1) {
+        this.pagingContentStyle['z-index'] = this.contentZIndex;
+        this.pagingContentStyle['position'] = 'relative';
+      }
+      return this.pagingContentStyle;
+    },
+    renderJsIgnore: function renderJsIgnore() {
+      var _this2 = this;
+      if (this.usePageScroll && this.useChatRecordMode || !this.refresherEnabled && this.scrollable || !this.useCustomRefresher) {
+        this.$nextTick(function () {
+          _this2.renderPropScrollTop = 10;
+        });
+      }
+      return 0;
+    },
+    windowHeight: function windowHeight() {
+      if (!this.systemInfo) return 0;
+      return this.systemInfo.windowHeight || 0;
+    },
+    windowBottom: function windowBottom() {
+      if (!this.systemInfo) return 0;
+      var windowBottom = this.systemInfo.windowBottom || 0;
+      // 如果开启底部安全区域适配并且不使用placeholder的形式体现并且不是聊天记录模式（因为聊天记录模式在keyboardHeight计算初已添加了底部安全区域），在windowBottom添加底部安全区域高度
+      if (this.safeAreaInsetBottom && !this.useSafeAreaPlaceholder && !this.useChatRecordMode) {
+        windowBottom += this.safeAreaBottom;
+      }
+      return windowBottom;
+    },
+    isIosAndH5: function isIosAndH5() {
+      return false;
+      return this.isIos;
+    }
+  },
+  methods: {
+    // 当前版本号
+    getVersion: function getVersion() {
+      return "z-paging v".concat(_zPagingConstant.default.version);
+    },
+    // 设置nvue List的specialEffects
+    setSpecialEffects: function setSpecialEffects(args) {
+      this.setListSpecialEffects(args);
+    },
+    // 与setSpecialEffects等效，兼容旧版本
+    setListSpecialEffects: function setListSpecialEffects(args) {
+      this.nFixFreezing = args && Object.keys(args).length;
+      if (this.isIos) {
+        this.privateRefresherEnabled = 0;
+      }
+      !this.usePageScroll && this.$refs['zp-n-list'].setSpecialEffects(args);
+    },
+    // 使手机发生较短时间的振动（15ms）
+    _doVibrateShort: function _doVibrateShort() {
+      uni.vibrateShort();
+    },
+    // 设置z-paging高度
+    _setAutoHeight: function _setAutoHeight() {
+      var _arguments = arguments,
+        _this3 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var shouldFullHeight, scrollViewNode, heightKey, finalScrollViewNode, finalScrollBottomNode, scrollViewTop, scrollViewHeight, additionHeight, finalHeight;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                shouldFullHeight = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : true;
+                scrollViewNode = _arguments.length > 1 && _arguments[1] !== undefined ? _arguments[1] : null;
+                heightKey = 'min-height';
+                heightKey = 'min-height';
+                _context.prev = 4;
+                if (!shouldFullHeight) {
+                  _context.next = 18;
+                  break;
+                }
+                _context.t0 = scrollViewNode;
+                if (_context.t0) {
+                  _context.next = 11;
+                  break;
+                }
+                _context.next = 10;
+                return _this3._getNodeClientRect('.zp-scroll-view');
+              case 10:
+                _context.t0 = _context.sent;
+              case 11:
+                finalScrollViewNode = _context.t0;
+                _context.next = 14;
+                return _this3._getNodeClientRect('.zp-page-bottom');
+              case 14:
+                finalScrollBottomNode = _context.sent;
+                if (finalScrollViewNode) {
+                  scrollViewTop = finalScrollViewNode[0].top;
+                  scrollViewHeight = _this3.windowHeight - scrollViewTop;
+                  scrollViewHeight -= finalScrollBottomNode ? finalScrollBottomNode[0].height : 0;
+                  additionHeight = _zPagingUtils.default.convertToPx(_this3.autoHeightAddition);
+                  finalHeight = scrollViewHeight + additionHeight - (_this3.insideMore ? 1 : 0) + 'px !important';
+                  _this3.$set(_this3.scrollViewStyle, heightKey, finalHeight);
+                  _this3.$set(_this3.scrollViewInStyle, heightKey, finalHeight);
+                }
+                _context.next = 20;
+                break;
+              case 18:
+                _this3.$delete(_this3.scrollViewStyle, heightKey);
+                _this3.$delete(_this3.scrollViewInStyle, heightKey);
+              case 20:
+                _context.next = 24;
+                break;
+              case 22:
+                _context.prev = 22;
+                _context.t1 = _context["catch"](4);
+              case 24:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[4, 22]]);
+      }))();
+    },
+    // 组件销毁后续处理
+    _handleUnmounted: function _handleUnmounted() {
+      this.active = false;
+      this._offEmit();
+      // 取消监听键盘高度变化事件（H5、百度小程序、抖音小程序、飞书小程序、QQ小程序、快手小程序不支持）
+
+      this.useChatRecordMode && uni.offKeyboardHeightChange(function () {});
+    },
+    // 触发更新是否超出页面状态
+    _updateInsideOfPaging: function _updateInsideOfPaging() {
+      this.insideMore && this.insideOfPaging === true && setTimeout(this.doLoadMore, 200);
+    },
+    // 清除timeout
+    _cleanTimeout: function _cleanTimeout(timeout) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      return timeout;
+    },
+    // 添加全局emit监听
+    _onEmit: function _onEmit() {
+      var _this4 = this;
+      uni.$on(_zPagingConstant.default.errorUpdateKey, function (errorMsg) {
+        if (_this4.loading) {
+          if (!!errorMsg) {
+            _this4.customerEmptyViewErrorText = errorMsg;
+          }
+          _this4.complete(false).catch(function () {});
+        }
+      });
+      uni.$on(_zPagingConstant.default.completeUpdateKey, function (data) {
+        setTimeout(function () {
+          if (_this4.loading) {
+            if (!_this4.disabledCompleteEmit) {
+              var type = data.type || 'normal';
+              var list = data.list || data;
+              var rule = data.rule;
+              _this4.fromCompleteEmit = true;
+              switch (type) {
+                case 'normal':
+                  _this4.complete(list);
+                  break;
+                case 'total':
+                  _this4.completeByTotal(list, rule);
+                  break;
+                case 'nomore':
+                  _this4.completeByNoMore(list, rule);
+                  break;
+                case 'key':
+                  _this4.completeByKey(list, rule);
+                  break;
+                default:
+                  break;
+              }
+            } else {
+              _this4.disabledCompleteEmit = false;
+            }
+          }
+        }, 1);
+      });
+    },
+    // 销毁全局emit和listener监听
+    _offEmit: function _offEmit() {
+      uni.$off(_zPagingConstant.default.errorUpdateKey);
+      uni.$off(_zPagingConstant.default.completeUpdateKey);
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 604 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-static.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// [z-paging]公用的静态图片资源
+var _default = {
+  base64Arrow: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAD1BMVEVHcExRUVFMTExRUVFRUVE9CdWsAAAABHRSTlMAjjrY9ZnUjwAAAQFJREFUWMPt2MsNgzAMgGEEE1B1gKJmAIRYoCH7z9RCXrabh33iYktcIv35EEg5ZBh07pvxJU6MFSPOSRnjnBUjUsaciRUjMsb4xIoRCWNiYsUInzE5sWKEyxiYWDbyefqHx1zIeiYTk7mQYziTYecxHvEJjwmIT3hMQELCYSISEg4TkZj0mYTEpM8kJCU9JiMp6TEZyUmbAUhO2gxAQNJiIAKSFgMRmNQZhMCkziAEJTUGIyipMRjBSZkhCE7KDEFIUmTeGCHJxWz0zXaE0GTCG8ZFtEaS347r/1fe11YyHYVfubxayfjoHmc0YYwmmmiiiSaaaKLJ7ckyz5ve+dw3Xw2emdwm9xSbAAAAAElFTkSuQmCC',
+  base64ArrowWhite: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAElBMVEVHcEz///////////////////+IGTx/AAAABnRSTlMA/dAkXZOhASU/AAABYElEQVRYw+2YwXLCIBCGsdAHWGbyAKZ4zxi9O017rxLf/1UaWFAgA1m8dcpedNSPf/l/Vh0Ya/Wn6hN0JcGvoCqRM4C8VBFiDwBqqNuJKV0rAnCgy3AUqZE57x0iqTL8Br4U3WBf/YWaIlTKfAcELU/h9w72CSVPa3C3OCDvhpHbRp/s2vq4fHhCeiCl2A3m4Qd71DQR257mFBlMcTlbFnFWzNtHxewYEfSiaLS4el8d8nyhmKJd1CF4eOS0keLMAuSxubLBIeIGQW8YHCFFo7EH9+YDcQt9FMZEswTheaNxTHwHT8SZorJjMrEVwo4Zo0U8HSEyZvJMOg4RjnmmRr8nDYeIz3OMkbfE/QhBo+U9RnZJxjGCRh/WKmHEMWLNkfPKsGh/CWJk1JjG0kcuJggTt34VDP8aWAFhp4nybVb5+9qQhjSkIQ1pSEMa8k+Q5U9rV3dF8MpFBK+/7miVq1/HZ2qmo9D+pAAAAABJRU5ErkJggg==',
+  base64Flower: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAKlBMVEVHcEzDw8Ovr6+pqamUlJTCwsKenp61tbWxsbGysrLNzc2bm5u5ubmjo6MpovhuAAAACnRSTlMA/P79/sHDhiZS0DxZowAABBBJREFUWMPtl89rE0EUx7ctTXatB3MI1SWnDbUKPUgXqh4ED8Uf7KUVSm3ooVSpSii0Fn/gD4j4o+APiEoVmos9FO2celiqZVgwgaKHPQiCCkv+F99kM7Ozm5kxq1dfD91k9pPve9/3ZjbRNHHok/mKli4eIPNgSuRObuN9SqSEzM20iGnm0yIbqCuV7NSSSIV7uyPM6JMBYdeTOanh/QihJYZsUCSby+VkMj2AvOt0rAeQAwqE3lfKMZVlQCZk1QOCKkkVPadITCfIRNKxfoJI5+0OIFtJx14CMSg1mRSDko7VAfksRQzEbGYqxOJcVTWMCH2I1/IACNW0PWU2M8cmAVHtnH5mM1VRWtwKZjOd5JbF6s1IbaYqaotjNlPHgDAnlAizubTR6ovMYn052g/U5qcmOpi0WL8xTS/3IfSet5m8MEr5ajjF5le6dq/OJpobrdY0t3i9QgefWrxW9/1BLhk0E9m8FeUMhhXal499iD0eQRfDF+ts/tttORRerfp+oV7f4xJj82iUYm1Yzod+ZQEAlS/8mMBwKebVmCVp1f0JLS6zKd17+iwRKTARVg2SHtz3iEbBH+Q+U28zW2Jiza8Tjb1YFoYZMsJyjDqp3M9XBQdSdPLFdxEpvOB37JrHcmR/y9+LgoTlCFGZEa2sc6d4PGlweEa2JSVPoVm+IfGG3ZL037iV9oH+P+Jxc4HGVflNq1M0pivao/EopO4b/ojVCP9GjmiXOeS0DOn1o/iiccT4ORnyvBGF3yUywkQajW4Ti0SGuiy/wVSg/L8w+X/8Q+hvUx8Xd90z4oV5a1i88MbFWHz0WZZ1UrTwBGPX3Rat9AFiXRMRjoMdIdJLEOt2h7jrYOzgOamKZSWSNspOS0X8SAqRYmxRL7sg4eLzYmNehcxh3uoyud/BH2Udux4ywxFTc1xC7Mgf4vMhc5S+kSH3Y7yj+qpwIWSoPTVCOOPVthGx9FbGqrwFw6wSFxJr+17zeKcztt3u+2roAEVgUjDd+AHGuxHy2rZHaa8JMkTHEeyi85ANPO9j9BVuBRD2FY5LDMo/Sz/2hReqGIs/KiFin+CsPsYO/yvM3jL2vE8EbX7/Bf8ejtr2GLN65bioAdgLd8Bis/mD5GmP2qeqyo2ZwQEOtAjRIDH7mBKpUcMoApbZJ5UIxkEwxyMZyMxW/uKFvHCFR3SSmerHyDNQ2dF4JG6zIMpBgLfjSF9x1D6smFcYnGApjmSLICO3ecCDWrQ48geba9DI3STy2i7ax6WIB62fSyIZIiO3GFQqSURp8wCo7GhJBGwuSovJBNjb7kT6FPVnIa9qJ2Ko+l9mefGIdinaMp0yC1URYiwsdfNE45EuA5Cx9EhalfvN5s+UyItm81vaB3p4joniN+SCP7Qc1hblAAAAAElFTkSuQmCC',
+  base64FlowerWhite: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAElBMVEX///9HcEz///////////////84chYNAAAABnRSTlP/AGzCOYZj5g1nAAACfklEQVRYw+2YTVPDIBCGtza9Jw25a0bvcax30o73OOr//yvma2F3YWlpPTijXNpAHrK8LLALVPFium2vNIFSbwGKTGQA2GUiHcD29yDNy3sMIdUBQl7r2H8mOEVqAHgPkYZUS6Qc2zYhQqtjyDZEximCZwWZLIBeIgYShs2NzxKpSUehYpMJhURGb+O+w5BpMCAREKPnCDHbIY20SzhM5yxziAXpOiBXydrekT9i5XDEq4NIIHHgyU5mRGqviII4mREJJA4QJzMiILwlRJzpKxJKvCBm8OsBBbLux0tsPl4RKYm5aPu6jw1U4mGxEUR9g8M1PcqBEp/WJliNgYOXueBzS4jZSIcgY5lCtevgDSgyzE+rAfuOTQMq0yzvoGH18qju27Mayzs4fPyMziCx81NJa5RNfW7vPYK9KOfDiVkBxFHG8hAj9txuoBuSWORsFfkpBf7xKFLSeaOefEojh5jz22DJEqMP8fUyaKdQx+RnG+yXMpe8Aars8ueR1pVH/bW3FyyvPRw90upLDHwpgBDtg4aUBNkxRLXMAi03IhcZtr1m+FeI/O/JNyDmmL1djLOauSlNflBpW18RQ2bPqXI22MXXEk75KRHTnkPkYbESbdKP2ZFk0r5sIwffAjy1lx+vx7NLjB6/E7Jfv5ERKhzpN0w8IDE8IGFDv5dhz10s7GFiXRZcUeLCEG5P5nDq9k4PFDcoMpE3GY4OuxuCXhmuyNB6k0RsLIAvqp9NE5r8ZCSS8gxnUp7ODdYhZTqxuiJ9uyJJtPmpqJ7wVj+XVieS903iViHziqAhchLEJAyb7jWU647EpUofQ0ziUuXXXhDddtlllSwjgSQu7r4BRWhQqfDPMVwAAAAASUVORK5CYII=',
+  base64Success: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAElBMVEVRUVFHcExTU1NRUVFRUVFRUVFOSlSUAAAABnRSTlP/AI6+VySB3ZENAAACcElEQVRYw+2YyYKCMAyGI8hdpdxdZu7gcpdZ7jL6/s8yYheSNi0aPdqbwOffpGmaFOYPD3gj4bisN7vddv17N/JVgxn5x12IWgIaWTuO/IE3PseQbwjGPo2cgRmHFLJwdm/X643zwiqOKPPJ1nj3sjEP2iiifZWj5bhopSyGaEO2HX5fbQJzwJ+W7x/jw5ZFjsEU0PMph9xE8i5EqprKALW95eJQURkgzw98uJ/JvwGecR7bIjWWsUgVrrIfFZ2HlLy3sKETD1mmRLRMRhGVssRa0xJkdn3SpJBymBkM8+pSSDXMDNyDaToVHd2fgpNt0sjwiUZO19+jGQ+gQEg9Oq+bufmAVGihomNmjQG7UG3020vrlm7lkFnKFGU3kZ0KGAdmKe821pipQ+qEKcrZeTL2g5FsUks4cStjEZWwXg0b0n4GxmEpkWwIs5VBynjgK7xZaz1/0D7OxkVuLpsY5BQNFyLS84VBjjbg0iL2r2EQHBOxBhikuUOkdxODVF1cxHoWtPPsiyXO455Iv34hssCO8EV4ZIYTjS8SR4qYSHRiTiYQ4ZFbHi0iIhhBTi6dTCgSWRcnw4h4yGTuyTAiOGBIWGoZTgSHJQl+LcOJ4OCnW6yX2bMnJ9pidCOXtkTkTrIGpYuOynAiOF14SamMiOCk5Ke+mq8BcOrrvym8d0zKIQnWT+M1WwOQNO4fFiWb18hhERxJPx2fblbPHHyC41VyiAtKBUFBIih7JMWVoIQTFIr3lKPN80WvoLSWFPC653ioTZA0I0FrQ7qU6asaK0H7JmkSJa2ooOGVtNUsc3j9FYHkIkJy3SG6VHnfXKXGP9t4N9Q4Ye98AAAAAElFTkSuQmCC',
+  base64SuccessWhite: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAGFBMVEVHcEz///////////////////////////8dS1W+AAAAB3RSTlMAiVYk6KvDHLfaegAAAo1JREFUWMPtWEtzmzAQNhCTq910ytXpiyvxTNOr60zrayepx9d02gnX4sTm7xcEiJX2gdnkGJ1A4tOnfWqXyeR1vMRYzrcPD9v5h5MBl3/Ldvx4cxIg/FWC8X0xjLjalM54uhhCfCrRuJURX0pi3EmIqZV7O59vrRZmguStHL9b7S7ftfLwOtiZDw7AHMtmquAQ12b5Wwbnordm8g9zLLO49qc/m2n6aKnhwPOGZ08hAiNHhheiHae1lOUPGZpQkPKa3q0mOUjaRzSRaGUjpy/mmWSwySSpllcEteBKAT52KEnSbblA51pJEPxBQoiH1FP4E3s5+FJv07h6/ylD6ui7B+9fq/ehrFB98ghec9EoVtyjK8pqCHLmCBOwMWSCeWFNN4MbPAk55NhsvoFHSSVR0k5TCTTEzlUGcqV/nVp7n9oIVkmtaqbAEqEgfdgHJPwsEAyZ9r4VAZXFjpEwyaw3+H2v42KYxKhs1XvY/gSSGv+IHyUSuHXCeZhLAgVI3EjgSGo1Fb3xO0tGGU9S2/KAIbtjxpJASG73qox6w5LUq0cEOa+iIONIWIilQSQ0pPa2jgaRQAgQP7c0mITRWGxpMAmEQFN2NAQJNCV0mI6GIIEO47hlQ0ORQLd0nL+hoUjg1m6I1TRr8uYEAriBHLcVFQ5UEMiBe3XkTBEG04WXlGKGxPnMS305XQPA1Ocn2JiuAZwE66fxnKwBnDTuXxZTMq85lwW6kt5ndLqZPefiU1yvmktcUSooChJF2aMprhQlnKJQ5FxRKkcVRa+itNYU8Io2oVkY14w0NMWYlqft91Bj9VHq+ca3b43BxjWJmla0sfKohlfTVpPN+93L/yLQ/IjQ/O5Q/VR5HdL4D7mlxmjwVdELAAAAAElFTkSuQmCC',
+  base64Empty: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAALeGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0NDg4LCAyMDIwLzA3LzEwLTIyOjA2OjUzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIyLTAyLTIyVDIxOjIxOjQ1KzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0LTAxLTEzVDE5OjA5OjQwKzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyNC0wMS0xM1QxOTowOTo0MCswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ZWQwMWYzNWQtOWRjOC00MDBiLWEyMmQtNjM5OGZiNzVhNGRiIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZDhlMzQ3ZmEtMDY2My1jYTRiLTgzNTctNTk4YjBkNGIzOTU2IiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZDA4MDI4MDItMzUyYS04NTRhLTkxYjctNmRlNmQ1MmViM2QwIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHRpZmY6T3JpZW50YXRpb249IjEiIHRpZmY6WFJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6WVJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiIGV4aWY6Q29sb3JTcGFjZT0iMSIgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMwMCIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjMwMCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZDA4MDI4MDItMzUyYS04NTRhLTkxYjctNmRlNmQ1MmViM2QwIiBzdEV2dDp3aGVuPSIyMDIyLTAyLTIyVDIxOjIxOjQ1KzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNjg2NzJkLWY5NDMtOTU0Mi1iMDBiLTVlMDExNmE1NmIzZSIgc3RFdnQ6d2hlbj0iMjAyNC0wMS0xM1QxMDoyNjoxNiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDphYmJkZmUyZC0xY2Q2LTJiNDgtYjUyNS05YzlhZjdlNjA4NDMiIHN0RXZ0OndoZW49IjIwMjQtMDEtMTNUMTE6MjM6NDArMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY29udmVydGVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJmcm9tIGFwcGxpY2F0aW9uL3ZuZC5hZG9iZS5waG90b3Nob3AgdG8gaW1hZ2UvcG5nIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJkZXJpdmVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJjb252ZXJ0ZWQgZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6YTQ5MjM5MDAtNDhiZC03YTQ1LWI4NGItYmVlZTVjOWUxYTM1IiBzdEV2dDp3aGVuPSIyMDI0LTAxLTEzVDExOjIzOjQwKzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmVkMDFmMzVkLTlkYzgtNDAwYi1hMjJkLTYzOThmYjc1YTRkYiIgc3RFdnQ6d2hlbj0iMjAyNC0wMS0xM1QxOTowOTo0MCswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjAgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDx4bXBNTTpEZXJpdmVkRnJvbSBz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',
+  base64Error: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAALeGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0NDg4LCAyMDIwLzA3LzEwLTIyOjA2OjUzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIyLTAyLTIyVDIxOjIxOjQ1KzA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0LTAxLTEzVDE5OjEwOjEwKzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyNC0wMS0xM1QxOToxMDoxMCswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTQ3NTExNjAtZDY5MC00ZTkzLWFhNGUtNGMwYTViNGU1ZGFjIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YzRiNzlkYWMtZTJmYS1iNzQ0LWIxM2ItOWU1N2VjMDhhM2YwIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZDA4MDI4MDItMzUyYS04NTRhLTkxYjctNmRlNmQ1MmViM2QwIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHRpZmY6T3JpZW50YXRpb249IjEiIHRpZmY6WFJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6WVJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiIGV4aWY6Q29sb3JTcGFjZT0iMSIgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMwMCIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjMwMCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZDA4MDI4MDItMzUyYS04NTRhLTkxYjctNmRlNmQ1MmViM2QwIiBzdEV2dDp3aGVuPSIyMDIyLTAyLTIyVDIxOjIxOjQ1KzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNjg2NzJkLWY5NDMtOTU0Mi1iMDBiLTVlMDExNmE1NmIzZSIgc3RFdnQ6d2hlbj0iMjAyNC0wMS0xM1QxMDoyNjoxNiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpjZjk1NTE1OC04MjFiLTA4NDUtYWJmNS05YTE1NGM1ZTY4NjEiIHN0RXZ0OndoZW49IjIwMjQtMDEtMTNUMTE6MDQ6MDQrMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY29udmVydGVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJmcm9tIGFwcGxpY2F0aW9uL3ZuZC5hZG9iZS5waG90b3Nob3AgdG8gaW1hZ2UvcG5nIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJkZXJpdmVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJjb252ZXJ0ZWQgZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZGM1Y2IyNWItZDZlNC0yZjQ2LTgyODQtZmUwOTNlY2M2ZTkxIiBzdEV2dDp3aGVuPSIyMDI0LTAxLTEzVDExOjA0OjA0KzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjE0NzUxMTYwLWQ2OTAtNGU5My1hYTRlLTRjMGE1YjRlNWRhYyIgc3RFdnQ6d2hlbj0iMjAyNC0wMS0xM1QxOToxMDoxMCswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjAgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDx4bXBNTTpEZXJpdmVkRnJvbSBz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',
+  base64BackToTop: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAElBMVEVRUVH+/v5HcEyZmZlRUVFRUVGm1ByOAAAABnRSTlPMzADMTZAJBBGsAAAEnElEQVR42t2cS27jMAyGf7/2U+QCQeDsbeQCgZDujaC5/1UmkzaJn+JDFGcw3LdfflKibJkkDnxrL7dbg7sNt6+L4O8OYBM+B0ys+QrGkHZG+OEEQ8g6go8Bx1GIGMdpNOQyIG6XdMgnSPtKhLQDGEZFBgYMkhKFtGBb0EIEjDgFRowoBVaMGAWpMedEfxMiZtwpUsgZCqtlkCNUdpVAWigtCCCDFtLwIWeoreZCWiRYYEKGFEjDg+yRZCUH0iLRAgNyToXUNCRZyMqWhGnUN2IPm3wSlwJ7IUspyCBkIQUZhCykIIeQuRTkEDKXAuM9srrtYbrZN7Y98giZSoFd+t1OxmMITG0dcrSFXFchZ1tIvQZpYWxhBbK3hpQrkMEa0iwh5t4a+QvZvDXyF7J5a+Qv5PPW21/I5623v5DPW29/IaO3Xv5Clrw1y1/Ikrdm+Qs5svw83yNnSJ5BQb4F/F7EIEJSnThGBAXxkFQfLOviQUE8JAUPsosHBfGQfDAtHhREQ1JxIV00KIgmrnRI84S0yAd5BAXxxJUck0f6Qnwr9qmr6xF5xLMjcwn/iudIEAdWnyjkEXlQKZiRVzoqRyLbgeUKKR8Q4alY7cSnoxzSf2ggsqehKr6YVpcXpOd7H93f60cKhOd7Re2LteUF4eLqiVS1mr0ge4io6C2+soaFkJ7MuuuQs1yITEp9hwwKISIpzR2iESKSIoT0rLNwuVHQqoSIpAQJpGce60vIUSdEIuUqgPTsJ5QFZK8UIpBS8iG94GFrDjlrhfCl8CG96Llxmle4kEr6vKWBPIVo9kqDQSRk9/3cWoikcCFPAd33v4dIChPyEvLzBA6RlEYWke4JEUnhKXkLeUEKxRHJFfKCQHGucIW8IdZSRkLeEGMpYyEjiK2UsZARxFTKRMgYYillImQMMZQyFTKB2EmZCplAuFLIHT8TMoWwpQwiIVMIUwqpZP5bp5CCvCTiQKr5f5lCQN+tPCBn2ZvVDFJwIDUP0m1BYAfZYRNSsCB7BqTbhoARePIxtZ9tgwWkoJcwCalmv3MBAemtO4R6dah2HaKQqj8Zvp9sQDjvJ21+SPCBHPJDDk6QITekEV7gqCC19CpKAym9IMfckKv4olMBCeIrWwVEfvkshzQekO9r9P1/ALk+IG1eSPCDiCJfyG+FyU+A6ZCa/piZDinpz7LpkCv5gdkAEshP5emQhv7onw6pGeULyZCSUYiRDAmMkpJkCKs4JhFSq8p8hJBSVbAkhARV6ZUQoisik0FqXTmcDHLVFfbJIEFXoiiCNMpiSxGkVJaNiiBBWQArgTTaUl4JpNQWJUsgQVteXQg+AKkLxQWFGKW+5J2+eVp4S168X3CF1CltCKdTJ8lb84YK2bUBO+wZW0Pqv9nk4tKu49N45NJC5dMM5tLW5tOg59Jq6NM06dL+abFXwr/RkuvTXJwae1abtE/Dt0/ruksTvs84AZ/BCC4jHnyGVfiM3VBQFANEXEah+Ax18RlP4zNox2dkkM/wI58xTn8yDCXGYCDV3W5RGSajtXyGhG1jbpbjzpwGt/0MJft8jqC7iUbQ/QZaxdnKqcIftwAAAABJRU5ErkJggg=='
+};
+exports.default = _default;
+
+/***/ }),
+/* 605 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-constant.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// [z-paging]常量
+var _default = {
+  // 当前版本号
+  version: '2.7.5',
+  // 延迟操作的通用时间
+  delayTime: 100,
+  // 请求失败时候全局emit使用的key
+  errorUpdateKey: 'z-paging-error-emit',
+  // 全局emit complete的key
+  completeUpdateKey: 'z-paging-complete-emit',
+  // z-paging缓存的前缀key
+  cachePrefixKey: 'z-paging-cache',
+  // 虚拟列表中列表index的key
+  listCellIndexKey: 'zp_index',
+  // 虚拟列表中列表的唯一key
+  listCellIndexUniqueKey: 'zp_unique_index'
+};
+exports.default = _default;
+
+/***/ }),
+/* 606 */
+/*!**************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-utils.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _index = _interopRequireDefault(__webpack_require__(/*! ../config/index */ 607));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 605));
+// [z-paging]工具类
+
+var storageKey = 'Z-PAGING-REFRESHER-TIME-STORAGE-KEY';
+var config = null;
+var configLoaded = false;
+var timeoutMap = {};
+
+// 获取默认配置信息
+function gc(key, defaultValue) {
+  // 这里return一个函数以解决在vue3+appvue中，props默认配置读取在main.js之前执行导致uni.$zp全局配置无效的问题。相当于props的default中传入一个带有返回值的函数
+  return function () {
+    // 处理z-paging全局配置
+    _handleDefaultConfig();
+    // 如果全局配置不存在，则返回默认值
+    if (!config) return defaultValue;
+    var value = config[key];
+    // 如果全局配置存在但对应的配置项不存在，则返回默认值；反之返回配置项
+    return value === undefined ? defaultValue : value;
+  };
+}
+
+// 获取最终的touch位置
+function getTouch(e) {
+  var touch = null;
+  if (e.touches && e.touches.length) {
+    touch = e.touches[0];
+  } else if (e.changedTouches && e.changedTouches.length) {
+    touch = e.changedTouches[0];
+  } else if (e.datail && e.datail != {}) {
+    touch = e.datail;
+  } else {
+    return {
+      touchX: 0,
+      touchY: 0
+    };
+  }
+  return {
+    touchX: touch.clientX,
+    touchY: touch.clientY
+  };
+}
+
+// 判断当前手势是否在z-paging内触发
+function getTouchFromZPaging(target) {
+  if (target && target.tagName && target.tagName !== 'BODY' && target.tagName !== 'UNI-PAGE-BODY') {
+    var classList = target.classList;
+    if (classList && classList.contains('z-paging-content')) {
+      return {
+        isFromZp: true,
+        isPageScroll: classList.contains('z-paging-content-page'),
+        isReachedTop: classList.contains('z-paging-reached-top')
+      };
+    } else {
+      return getTouchFromZPaging(target.parentNode);
+    }
+  } else {
+    return {
+      isFromZp: false
+    };
+  }
+}
+
+// 递归获取z-paging所在的parent，如果查找不到则返回null
+function getParent(parent) {
+  if (!parent) return null;
+  if (parent.$refs.paging) return parent;
+  return getParent(parent.$parent);
+}
+
+// 打印错误信息
+function consoleErr(err) {
+  console.error("[z-paging]".concat(err));
+}
+
+// 延时操作，如果key存在，调用时清除对应key之前的延时操作
+function delay(callback) {
+  var ms = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _zPagingConstant.default.delayTime;
+  var key = arguments.length > 2 ? arguments[2] : undefined;
+  var timeout = setTimeout(callback, ms);
+  ;
+  if (!!key) {
+    timeoutMap[key] && clearTimeout(timeoutMap[key]);
+    timeoutMap[key] = timeout;
+  }
+  return timeout;
+}
+
+// 设置下拉刷新时间
+function setRefesrherTime(time, key) {
+  var datas = getRefesrherTime() || {};
+  datas[key] = time;
+  uni.setStorageSync(storageKey, datas);
+}
+
+// 获取下拉刷新时间
+function getRefesrherTime() {
+  return uni.getStorageSync(storageKey);
+}
+
+// 通过下拉刷新标识key获取下拉刷新时间
+function getRefesrherTimeByKey(key) {
+  var datas = getRefesrherTime();
+  return datas && datas[key] ? datas[key] : null;
+}
+
+// 通过下拉刷新标识key获取下拉刷新时间(格式化之后)
+function getRefesrherFormatTimeByKey(key, textMap) {
+  var time = getRefesrherTimeByKey(key);
+  var timeText = time ? _timeFormat(time, textMap) : textMap.none;
+  return "".concat(textMap.title).concat(timeText);
+}
+
+// 将文本的px或者rpx转为px的值
+function convertToPx(text) {
+  var dataType = Object.prototype.toString.call(text);
+  if (dataType === '[object Number]') return text;
+  var isRpx = false;
+  if (text.indexOf('rpx') !== -1 || text.indexOf('upx') !== -1) {
+    text = text.replace('rpx', '').replace('upx', '');
+    isRpx = true;
+  } else if (text.indexOf('px') !== -1) {
+    text = text.replace('px', '');
+  }
+  if (!isNaN(text)) {
+    if (isRpx) return Number(uni.upx2px(text));
+    return Number(text);
+  }
+  return 0;
+}
+
+// 获取当前时间
+function getTime() {
+  return new Date().getTime();
+}
+
+// 获取z-paging实例id，随机生成10位数字+字母
+function getInstanceId() {
+  var s = [];
+  var hexDigits = "0123456789abcdef";
+  for (var i = 0; i < 10; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+  }
+  return s.join('') + getTime();
+}
+
+// 等待一段时间
+function wait(ms) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, ms);
+  });
+}
+
+// 添加单位
+function addUnit(value, unit) {
+  if (Object.prototype.toString.call(value) === '[object String]') {
+    var tempValue = value;
+    tempValue = tempValue.replace('rpx', '').replace('upx', '').replace('px', '');
+    if (value.indexOf('rpx') === -1 && value.indexOf('upx') === -1 && value.indexOf('px') !== -1) {
+      tempValue = parseFloat(tempValue) * 2;
+    }
+    value = tempValue;
+  }
+  return unit === 'rpx' ? value + 'rpx' : value / 2 + 'px';
+}
+
+// ------------------ 私有方法 ------------------------
+// 处理全局配置
+function _handleDefaultConfig() {
+  // 确保只加载一次全局配置
+  if (configLoaded) return;
+  // 优先从config.js中读取
+  if (_index.default && Object.keys(_index.default).length) {
+    config = _index.default;
+  }
+  // 如果在config.js中读取不到，则尝试到uni.$zp读取
+  if (!config && uni.$zp) {
+    config = uni.$zp.config;
+  }
+  // 将config中的短横线写法全部转为驼峰写法，使得读取配置时可以直接通过key去匹配，而非读取每个配置时候再去转，减少不必要的性能开支
+  config = config ? Object.keys(config).reduce(function (result, key) {
+    result[_toCamelCase(key)] = config[key];
+    return result;
+  }, {}) : null;
+  configLoaded = true;
+}
+
+// 时间格式化
+function _timeFormat(time, textMap) {
+  var date = new Date(time);
+  var currentDate = new Date();
+  // 设置time对应的天，去除时分秒，使得可以直接比较日期
+  var dateDay = new Date(time).setHours(0, 0, 0, 0);
+  // 设置当前的天，去除时分秒，使得可以直接比较日期
+  var currentDateDay = new Date().setHours(0, 0, 0, 0);
+  var disTime = dateDay - currentDateDay;
+  var dayStr = '';
+  var timeStr = _dateTimeFormat(date);
+  if (disTime === 0) {
+    dayStr = textMap.today;
+  } else if (disTime === -86400000) {
+    dayStr = textMap.yesterday;
+  } else {
+    dayStr = _dateDayFormat(date, date.getFullYear() !== currentDate.getFullYear());
+  }
+  return "".concat(dayStr, " ").concat(timeStr);
+}
+
+// date格式化为年月日
+function _dateDayFormat(date) {
+  var showYear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  return showYear ? "".concat(year, "-").concat(_fullZeroToTwo(month), "-").concat(_fullZeroToTwo(day)) : "".concat(_fullZeroToTwo(month), "-").concat(_fullZeroToTwo(day));
+}
+
+// data格式化为时分
+function _dateTimeFormat(date) {
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  return "".concat(_fullZeroToTwo(hour), ":").concat(_fullZeroToTwo(minute));
+}
+
+// 不满2位在前面填充0
+function _fullZeroToTwo(str) {
+  str = str.toString();
+  return str.length === 1 ? '0' + str : str;
+}
+
+// 驼峰转短横线
+function _toKebab(value) {
+  return value.replace(/([A-Z])/g, "-$1").toLowerCase();
+}
+
+// 短横线转驼峰
+function _toCamelCase(value) {
+  return value.replace(/-([a-z])/g, function (_, group1) {
+    return group1.toUpperCase();
+  });
+}
+var _default = {
+  gc: gc,
+  setRefesrherTime: setRefesrherTime,
+  getRefesrherFormatTimeByKey: getRefesrherFormatTimeByKey,
+  getTouch: getTouch,
+  getTouchFromZPaging: getTouchFromZPaging,
+  getParent: getParent,
+  convertToPx: convertToPx,
+  getTime: getTime,
+  getInstanceId: getInstanceId,
+  consoleErr: consoleErr,
+  delay: delay,
+  wait: wait,
+  addUnit: addUnit
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 607 */
+/*!*********************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/config/index.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// z-paging全局配置文件，注意避免更新时此文件被覆盖，若被覆盖，可在此文件中右键->点击本地历史记录，找回覆盖前的配置
+var _default = {};
+exports.default = _default;
+
+/***/ }),
+/* 608 */
+/*!*********************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/common-layout.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// [z-paging]通用布局相关模块
+var _default = {
+  data: function data() {
+    return {
+      systemInfo: null,
+      cssSafeAreaInsetBottom: -1,
+      isReadyDestroy: false
+    };
+  },
+  computed: {
+    // 顶部可用距离
+    windowTop: function windowTop() {
+      if (!this.systemInfo) return 0;
+      // 暂时修复vue3中隐藏系统导航栏后windowTop获取不正确的问题，具体bug详见https://ask.dcloud.net.cn/question/141634
+      // 感谢litangyu！！https://github.com/SmileZXLee/uni-z-paging/issues/25
+
+      return this.systemInfo.windowTop || 0;
+    },
+    // 底部安全区域高度
+    safeAreaBottom: function safeAreaBottom() {
+      if (!this.systemInfo) return 0;
+      var safeAreaBottom = 0;
+      safeAreaBottom = Math.max(this.cssSafeAreaInsetBottom, 0);
+      return safeAreaBottom;
+    },
+    // 是否是比较老的webview，在一些老的webview中，需要进行一些特殊处理
+    isOldWebView: function isOldWebView() {
+      try {
+        var systemInfos = uni.getSystemInfoSync().system.split(' ');
+        var deviceType = systemInfos[0];
+        var version = parseInt(systemInfos[1]);
+        if (deviceType === 'iOS' && version <= 10 || deviceType === 'Android' && version <= 6) {
+          return true;
+        }
+      } catch (e) {
+        return false;
+      }
+      return false;
+    },
+    // 当前组件的$slots，兼容不同平台
+    zSlots: function zSlots() {
+      return this.$scopedSlots || this.$slots;
+      return this.$slots;
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.isReadyDestroy = true;
+  },
+  methods: {
+    // 更新fixed模式下z-paging的布局
+    updateFixedLayout: function updateFixedLayout() {
+      var _this = this;
+      this.fixed && this.$nextTick(function () {
+        _this.systemInfo = uni.getSystemInfoSync();
+      });
+    },
+    // 获取节点尺寸
+    _getNodeClientRect: function _getNodeClientRect(select) {
+      var inDom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var scrollOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      if (this.isReadyDestroy) {
+        return Promise.resolve(false);
+      }
+      ;
+      // nvue中获取节点信息
+
+      // vue中获取节点信息
+
+      var res = !!inDom ? uni.createSelectorQuery().in(inDom === true ? this : inDom) : uni.createSelectorQuery();
+      scrollOffset ? res.select(select).scrollOffset() : res.select(select).boundingClientRect();
+      return new Promise(function (resolve, reject) {
+        res.exec(function (data) {
+          resolve(data && data != '' && data != undefined && data.length ? data : false);
+        });
+      });
+    },
+    // 获取slot="left"和slot="right"宽度并且更新布局
+    _updateLeftAndRightWidth: function _updateLeftAndRightWidth(targetStyle, parentNodePrefix) {
+      var _this2 = this;
+      this.$nextTick(function () {
+        var delayTime = 0;
+        setTimeout(function () {
+          ['left', 'right'].map(function (position) {
+            _this2._getNodeClientRect(".".concat(parentNodePrefix, "-").concat(position)).then(function (res) {
+              _this2.$set(targetStyle, position, res ? res[0].width + 'px' : '0px');
+            });
+          });
+        }, delayTime);
+      });
+    },
+    // 通过获取css设置的底部安全区域占位view高度设置bottom距离（直接通过systemInfo在部分平台上无法获取到底部安全区域）
+    _getCssSafeAreaInsetBottom: function _getCssSafeAreaInsetBottom(success) {
+      var _this3 = this;
+      this._getNodeClientRect('.zp-safe-area-inset-bottom').then(function (res) {
+        _this3.cssSafeAreaInsetBottom = res ? res[0].height : -1;
+        res && success && success();
+      });
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 609 */
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/data-handle.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 605));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 611));
+// [z-paging]数据处理模块
+var _default2 = {
+  props: {
+    // 自定义初始的pageNo，默认为1
+    defaultPageNo: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('defaultPageNo', 1),
+      observer: function observer(newVal) {
+        this.pageNo = newVal;
+      }
+    },
+    // 自定义pageSize，默认为10
+    defaultPageSize: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('defaultPageSize', 10),
+      validator: function validator(value) {
+        if (value <= 0) _zPagingUtils.default.consoleErr('default-page-size必须大于0！');
+        return value > 0;
+      }
+    },
+    // 为保证数据一致，设置当前tab切换时的标识key，并在complete中传递相同key，若二者不一致，则complete将不会生效
+    dataKey: {
+      type: [Number, String, Object],
+      default: _zPagingUtils.default.gc('dataKey', null)
+    },
+    // 使用缓存，若开启将自动缓存第一页的数据，默认为否。请注意，因考虑到切换tab时不同tab数据不同的情况，默认仅会缓存组件首次加载时第一次请求到的数据，后续的下拉刷新操作不会更新缓存。
+    useCache: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useCache', false)
+    },
+    // 使用缓存时缓存的key，用于区分不同列表的缓存数据，useCache为true时必须设置，否则缓存无效
+    cacheKey: {
+      type: String,
+      default: _zPagingUtils.default.gc('cacheKey', null)
+    },
+    // 缓存模式，默认仅会缓存组件首次加载时第一次请求到的数据，可设置为always，即代表总是缓存，每次列表刷新(下拉刷新、调用reload等)都会更新缓存
+    cacheMode: {
+      type: String,
+      default: _zPagingUtils.default.gc('cacheMode', _zPagingEnum.default.CacheMode.Default)
+    },
+    // 自动注入的list名，可自动修改父view(包含ref="paging")中对应name的list值
+    autowireListName: {
+      type: String,
+      default: _zPagingUtils.default.gc('autowireListName', '')
+    },
+    // 自动注入的query名，可自动调用父view(包含ref="paging")中的query方法
+    autowireQueryName: {
+      type: String,
+      default: _zPagingUtils.default.gc('autowireQueryName', '')
+    },
+    // z-paging mounted后自动调用reload方法(mounted后自动调用接口)，默认为是
+    auto: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('auto', true)
+    },
+    // 用户下拉刷新时是否触发reload方法，默认为是
+    reloadWhenRefresh: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('reloadWhenRefresh', true)
+    },
+    // reload时自动滚动到顶部，默认为是
+    autoScrollToTopWhenReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoScrollToTopWhenReload', true)
+    },
+    // reload时立即自动清空原list，默认为是，若立即自动清空，则在reload之后、请求回调之前页面是空白的
+    autoCleanListWhenReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoCleanListWhenReload', true)
+    },
+    // 列表刷新时自动显示下拉刷新view，默认为否
+    showRefresherWhenReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showRefresherWhenReload', false)
+    },
+    // 列表刷新时自动显示加载更多view，且为加载中状态，默认为否
+    showLoadingMoreWhenReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showLoadingMoreWhenReload', false)
+    },
+    // 组件created时立即触发reload(可解决一些情况下先看到页面再看到loading的问题)，auto为true时有效。为否时将在mounted+nextTick后触发reload，默认为否
+    createdReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('createdReload', false)
+    },
+    // 本地分页时上拉加载更多延迟时间，单位为毫秒，默认200毫秒
+    localPagingLoadingTime: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('localPagingLoadingTime', 200)
+    },
+    // 自动拼接complete中传过来的数组(使用聊天记录模式时无效)
+    concat: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('concat', true)
+    },
+    // 请求失败是否触发reject，默认为是
+    callNetworkReject: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('callNetworkReject', true)
+    },
+    // 父组件v-model所绑定的list的值
+    value: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      currentData: [],
+      totalData: [],
+      realTotalData: [],
+      totalLocalPagingList: [],
+      dataPromiseResultMap: {
+        reload: null,
+        complete: null,
+        localPaging: null
+      },
+      isSettingCacheList: false,
+      pageNo: 1,
+      currentRefreshPageSize: 0,
+      isLocalPaging: false,
+      isAddedData: false,
+      isTotalChangeFromAddData: false,
+      privateConcat: true,
+      myParentQuery: -1,
+      firstPageLoaded: false,
+      pagingLoaded: false,
+      loaded: false,
+      isUserReload: true,
+      fromEmptyViewReload: false,
+      queryFrom: '',
+      listRendering: false,
+      isHandlingRefreshToPage: false,
+      isFirstPageAndNoMore: false
+    };
+  },
+  computed: {
+    pageSize: function pageSize() {
+      return this.defaultPageSize;
+    },
+    finalConcat: function finalConcat() {
+      return this.concat && this.privateConcat;
+    },
+    finalUseCache: function finalUseCache() {
+      if (this.useCache && !this.cacheKey) {
+        _zPagingUtils.default.consoleErr('use-cache为true时，必须设置cache-key，否则缓存无效！');
+      }
+      return this.useCache && !!this.cacheKey;
+    },
+    finalCacheKey: function finalCacheKey() {
+      return this.cacheKey ? "".concat(_zPagingConstant.default.cachePrefixKey, "-").concat(this.cacheKey) : null;
+    },
+    isFirstPage: function isFirstPage() {
+      return this.pageNo === this.defaultPageNo;
+    }
+  },
+  watch: {
+    totalData: function totalData(newVal, oldVal) {
+      this._totalDataChange(newVal, oldVal);
+    },
+    currentData: function currentData(newVal, oldVal) {
+      this._currentDataChange(newVal, oldVal);
+    },
+    useChatRecordMode: function useChatRecordMode(newVal, oldVal) {
+      if (newVal) {
+        this.nLoadingMoreFixedHeight = false;
+      }
+    },
+    value: {
+      handler: function handler(newVal) {
+        this.realTotalData = newVal;
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    // 请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理，第一个参数为请求结果数组，第二个参数为是否成功(默认为是）
+    complete: function complete(data) {
+      var success = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      this.customNoMore = -1;
+      return this.addData(data, success);
+    },
+    //【保证数据一致】请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理，第一个参数为请求结果数组，第二个参数为dataKey，需与:data-key绑定的一致，第三个参数为是否成功(默认为是）
+    completeByKey: function completeByKey(data) {
+      var dataKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      if (dataKey !== null && this.dataKey !== null && dataKey !== this.dataKey) {
+        this.isFirstPage && this.endRefresh();
+        return new Promise(function (resolve) {
+          return resolve();
+        });
+      }
+      this.customNoMore = -1;
+      return this.addData(data, success);
+    },
+    //【通过total判断是否有更多数据】请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理，第一个参数为请求结果数组，第二个参数为total(列表总数)，第三个参数为是否成功(默认为是）
+    completeByTotal: function completeByTotal(data, total) {
+      var _this = this;
+      var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      if (total == 'undefined') {
+        this.customNoMore = -1;
+      } else {
+        var dataTypeRes = this._checkDataType(data, success, false);
+        data = dataTypeRes.data;
+        success = dataTypeRes.success;
+        if (total >= 0 && success) {
+          return new Promise(function (resolve, reject) {
+            _this.$nextTick(function () {
+              var nomore = false;
+              var realTotalDataCount = _this.pageNo == _this.defaultPageNo ? 0 : _this.realTotalData.length;
+              var dataLength = _this.privateConcat ? data.length : 0;
+              var exceedCount = realTotalDataCount + dataLength - total;
+              // 没有更多数据了
+              if (exceedCount >= 0) {
+                nomore = true;
+                // 仅截取total内部分的数据
+                exceedCount = _this.defaultPageSize - exceedCount;
+                if (_this.privateConcat && exceedCount > 0 && exceedCount < data.length) {
+                  data = data.splice(0, exceedCount);
+                }
+              }
+              _this.completeByNoMore(data, nomore, success).then(function (res) {
+                return resolve(res);
+              }).catch(function () {
+                return reject();
+              });
+            });
+          });
+        }
+      }
+      return this.addData(data, success);
+    },
+    //【自行判断是否有更多数据】请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理，第一个参数为请求结果数组，第二个参数为是否没有更多数据，第三个参数为是否成功(默认是是）
+    completeByNoMore: function completeByNoMore(data, nomore) {
+      var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      if (nomore != 'undefined') {
+        this.customNoMore = nomore == true ? 1 : 0;
+      }
+      return this.addData(data, success);
+    },
+    // 请求结束且请求失败时调用，支持传入请求失败原因
+    completeByError: function completeByError(errorMsg) {
+      this.customerEmptyViewErrorText = errorMsg;
+      return this.complete(false);
+    },
+    // 与上方complete方法功能一致，新版本中设置服务端回调数组请使用complete方法
+    addData: function addData(data) {
+      var _this2 = this;
+      var success = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      if (!this.fromCompleteEmit) {
+        this.disabledCompleteEmit = true;
+        this.fromCompleteEmit = false;
+      }
+      var currentTimeStamp = _zPagingUtils.default.getTime();
+      var disTime = currentTimeStamp - this.requestTimeStamp;
+      var minDelay = this.minDelay;
+      if (this.isFirstPage && this.finalShowRefresherWhenReload) {
+        minDelay = Math.max(400, minDelay);
+      }
+      var addDataDalay = this.requestTimeStamp > 0 && disTime < minDelay ? minDelay - disTime : 0;
+      this.$nextTick(function () {
+        _zPagingUtils.default.delay(function () {
+          _this2._addData(data, success, false);
+        }, _this2.delay > 0 ? _this2.delay : addDataDalay);
+      });
+      return new Promise(function (resolve, reject) {
+        _this2.dataPromiseResultMap.complete = {
+          resolve: resolve,
+          reject: reject
+        };
+      });
+    },
+    // 从顶部添加数据，不会影响分页的pageNo和pageSize
+    addDataFromTop: function addDataFromTop(data) {
+      var _this3 = this;
+      var toTop = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var toTopWithAnimate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      // 数据是否拼接到顶部，如果是聊天记录模式并且列表没有倒置，则应该拼接在底部
+      var addFromTop = !this.isChatRecordModeAndNotInversion;
+      data = Object.prototype.toString.call(data) !== '[object Array]' ? [data] : addFromTop ? data.reverse() : data;
+      this.finalUseVirtualList && this._setCellIndex(data, 'top');
+      this.totalData = addFromTop ? [].concat((0, _toConsumableArray2.default)(data), (0, _toConsumableArray2.default)(this.totalData)) : [].concat((0, _toConsumableArray2.default)(this.totalData), (0, _toConsumableArray2.default)(data));
+      if (toTop) {
+        _zPagingUtils.default.delay(function () {
+          return _this3.useChatRecordMode ? _this3.scrollToBottom(toTopWithAnimate) : _this3.scrollToTop(toTopWithAnimate);
+        });
+      }
+    },
+    // 重新设置列表数据，调用此方法不会影响pageNo和pageSize，也不会触发请求。适用场景：当需要删除列表中某一项时，将删除对应项后的数组通过此方法传递给z-paging。(当出现类似的需要修改列表数组的场景时，请使用此方法，请勿直接修改page中:list.sync绑定的数组)
+    resetTotalData: function resetTotalData(data) {
+      this.isTotalChangeFromAddData = true;
+      data = Object.prototype.toString.call(data) !== '[object Array]' ? [data] : data;
+      this.totalData = data;
+    },
+    // 设置本地分页数据，请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging作分页处理（若调用了此方法，则上拉加载更多时内部会自动分页，不会触发@query所绑定的事件）
+    setLocalPaging: function setLocalPaging(data) {
+      var _this4 = this;
+      var success = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      this.isLocalPaging = true;
+      this.$nextTick(function () {
+        _this4._addData(data, success, true);
+      });
+      return new Promise(function (resolve, reject) {
+        _this4.dataPromiseResultMap.localPaging = {
+          resolve: resolve,
+          reject: reject
+        };
+      });
+    },
+    // 重新加载分页数据，pageNo会恢复为默认值，相当于下拉刷新的效果(animate为true时会展示下拉刷新动画，默认为false)
+    reload: function reload() {
+      var _this5 = this;
+      var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.showRefresherWhenReload;
+      if (animate) {
+        this.privateShowRefresherWhenReload = animate;
+        this.isUserPullDown = true;
+      }
+      if (!this.showLoadingMoreWhenReload) {
+        this.listRendering = true;
+      }
+      this.$nextTick(function () {
+        _this5._preReload(animate, false);
+      });
+      return new Promise(function (resolve, reject) {
+        _this5.dataPromiseResultMap.reload = {
+          resolve: resolve,
+          reject: reject
+        };
+      });
+    },
+    // 刷新列表数据，pageNo和pageSize不会重置，列表数据会重新从服务端获取。必须保证@query绑定的方法中的pageNo和pageSize和传给服务端的一致
+    refresh: function refresh() {
+      return this._handleRefreshWithDisPageNo(this.pageNo - this.defaultPageNo + 1);
+    },
+    // 刷新列表数据至指定页，例如pageNo=5时则代表刷新列表至第5页，此时pageNo会变为5，列表会展示前5页的数据。必须保证@query绑定的方法中的pageNo和pageSize和传给服务端的一致
+    refreshToPage: function refreshToPage(pageNo) {
+      this.isHandlingRefreshToPage = true;
+      return this._handleRefreshWithDisPageNo(pageNo + this.defaultPageNo - 1);
+    },
+    // 手动更新列表缓存数据，将自动截取v-model绑定的list中的前pageSize条覆盖缓存，请确保在list数据更新到预期结果后再调用此方法
+    updateCache: function updateCache() {
+      if (this.finalUseCache && this.totalData.length) {
+        this._saveLocalCache(this.totalData.slice(0, Math.min(this.totalData.length, this.pageSize)));
+      }
+    },
+    // 清空分页数据
+    clean: function clean() {
+      this._reload(true);
+      this._addData([], true, false);
+    },
+    // 清空分页数据
+    clear: function clear() {
+      this.clean();
+    },
+    // reload之前的一些处理
+    _preReload: function _preReload() {
+      var _this6 = this;
+      var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.showRefresherWhenReload;
+      var isFromMounted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var retryCount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+      var showRefresher = this.finalRefresherEnabled && this.useCustomRefresher;
+
+      // 如果获取slot="refresher"高度失败，则不触发reload，直到获取slot="refresher"高度成功
+      if (this.customRefresherHeight === -1 && showRefresher) {
+        _zPagingUtils.default.delay(function () {
+          retryCount++;
+          // 如果重试次数是10的倍数(也就是每500毫秒)，尝试重新获取一下slot="refresher"高度
+          // 此举是为了解决在某些特殊情况下，z-paging组件mounted了，但是未展示在用户面前，（比如在tabbar页面中，未切换到对应tabbar但是通过代码让z-paging展示了，此时控制台会报Error: Not Found：Page，因为这时候去获取dom节点信息获取不到）
+          // 当用户在某个时刻让此z-paging展示在面前时，即可顺利获取到slot="refresher"高度，递归停止
+          if (retryCount % 10 === 0) {
+            _this6._updateCustomRefresherHeight();
+          }
+          _this6._preReload(animate, isFromMounted, retryCount);
+        }, _zPagingConstant.default.delayTime / 2);
+        return;
+      }
+      this.isUserReload = true;
+      this.loadingType = _zPagingEnum.default.LoadingType.Refresher;
+      if (animate) {
+        this.privateShowRefresherWhenReload = animate;
+        if (this.useCustomRefresher) {
+          this._doRefresherRefreshAnimate();
+        } else {
+          this.refresherTriggered = true;
+        }
+      } else {
+        this._refresherEnd(false, false, false, false);
+      }
+      this._reload(false, isFromMounted);
+    },
+    // 重新加载分页数据
+    _reload: function _reload() {
+      var isClean = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var isFromMounted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var isUserPullDown = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      this.isAddedData = false;
+      this.insideOfPaging = -1;
+      this.cacheScrollNodeHeight = -1;
+      this.pageNo = this.defaultPageNo;
+      this._cleanRefresherEndTimeout();
+      !this.privateShowRefresherWhenReload && !isClean && this._startLoading(true);
+      this.firstPageLoaded = true;
+      this.isTotalChangeFromAddData = false;
+      if (!this.isSettingCacheList) {
+        this.totalData = [];
+      }
+      if (!isClean) {
+        this._emitQuery(this.pageNo, this.defaultPageSize, isUserPullDown ? _zPagingEnum.default.QueryFrom.UserPullDown : _zPagingEnum.default.QueryFrom.Reload);
+        var delay = 0;
+        _zPagingUtils.default.delay(this._callMyParentQuery, delay);
+        if (!isFromMounted && this.autoScrollToTopWhenReload) {
+          var checkedNRefresherLoading = true;
+          checkedNRefresherLoading && this._scrollToTop(false);
+        }
+      }
+    },
+    // 处理服务端返回的数组
+    _addData: function _addData(data, success, isLocal) {
+      var _this7 = this;
+      this.isAddedData = true;
+      this.fromEmptyViewReload = false;
+      this.isTotalChangeFromAddData = true;
+      this.refresherTriggered = false;
+      this._endSystemLoadingAndRefresh();
+      var tempIsUserPullDown = this.isUserPullDown;
+      if (this.showRefresherUpdateTime && this.isFirstPage) {
+        _zPagingUtils.default.setRefesrherTime(_zPagingUtils.default.getTime(), this.refresherUpdateTimeKey);
+        this.$refs.refresh && this.$refs.refresh.updateTime();
+      }
+      if (!isLocal && tempIsUserPullDown && this.isFirstPage) {
+        this.isUserPullDown = false;
+      }
+      if (!this.isFirstPage) {
+        this.listRendering = true;
+        this.$nextTick(function () {
+          _zPagingUtils.default.delay(function () {
+            return _this7.listRendering = false;
+          });
+        });
+      } else {
+        this.listRendering = false;
+      }
+      var dataTypeRes = this._checkDataType(data, success, isLocal);
+      data = dataTypeRes.data;
+      success = dataTypeRes.success;
+      var delayTime = _zPagingConstant.default.delayTime;
+      if (this.useChatRecordMode) delayTime = 0;
+      this.loadingForNow = false;
+      _zPagingUtils.default.delay(function () {
+        _this7.pagingLoaded = true;
+        _this7.$nextTick(function () {
+          !isLocal && _this7._refresherEnd(delayTime > 0, true, tempIsUserPullDown);
+        });
+      });
+      if (this.isFirstPage) {
+        this.isLoadFailed = !success;
+        this.$emit('isLoadFailedChange', this.isLoadFailed);
+        if (this.finalUseCache && success && (this.cacheMode === _zPagingEnum.default.CacheMode.Always ? true : this.isSettingCacheList)) {
+          this._saveLocalCache(data);
+        }
+      }
+      this.isSettingCacheList = false;
+      if (success) {
+        if (!(this.privateConcat === false && !this.isHandlingRefreshToPage && this.loadingStatus === _zPagingEnum.default.More.NoMore)) {
+          this.loadingStatus = _zPagingEnum.default.More.Default;
+        }
+        if (isLocal) {
+          this.totalLocalPagingList = data;
+          var localPageNo = this.defaultPageNo;
+          var localPageSize = this.queryFrom !== _zPagingEnum.default.QueryFrom.Refresh ? this.defaultPageSize : this.currentRefreshPageSize;
+          this._localPagingQueryList(localPageNo, localPageSize, 0, function (res) {
+            _this7.completeByTotal(res, _this7.totalLocalPagingList.length);
+          });
+        } else {
+          var dataChangeDelayTime = 0;
+          _zPagingUtils.default.delay(function () {
+            _this7._currentDataChange(data, _this7.currentData);
+            _this7._callDataPromise(true, _this7.totalData);
+          }, dataChangeDelayTime);
+        }
+        if (this.isHandlingRefreshToPage) {
+          this.isHandlingRefreshToPage = false;
+          this.pageNo = this.defaultPageNo + Math.ceil(data.length / this.pageSize) - 1;
+          if (data.length % this.pageSize !== 0) {
+            this.customNoMore = 1;
+          }
+        }
+      } else {
+        this._currentDataChange(data, this.currentData);
+        this._callDataPromise(false);
+        this.loadingStatus = _zPagingEnum.default.More.Fail;
+        this.isHandlingRefreshToPage = false;
+        if (this.loadingType === _zPagingEnum.default.LoadingType.LoadingMore) {
+          this.pageNo--;
+        }
+      }
+    },
+    // 所有数据改变时调用
+    _totalDataChange: function _totalDataChange(newVal, oldVal) {
+      var _this8 = this;
+      var eventThrow = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      if ((!this.isUserReload || !this.autoCleanListWhenReload) && this.firstPageLoaded && !newVal.length && oldVal.length) {
+        return;
+      }
+      this._doCheckScrollViewShouldFullHeight(newVal);
+      if (!this.realTotalData.length && !newVal.length) {
+        eventThrow = false;
+      }
+      this.realTotalData = newVal;
+      // emit列表更新事件
+      if (eventThrow) {
+        this.$emit('input', newVal);
+        this.$emit('update:list', newVal);
+        this.$emit('listChange', newVal);
+        this._callMyParentList(newVal);
+      }
+      this.firstPageLoaded = false;
+      this.isTotalChangeFromAddData = false;
+      this.$nextTick(function () {
+        _zPagingUtils.default.delay(function () {
+          // emit z-paging内容区域高度改变事件
+          _this8._getNodeClientRect('.zp-paging-container-content').then(function (res) {
+            res && _this8.$emit('contentHeightChanged', res[0].height);
+          });
+        }, _zPagingConstant.default.delayTime * (_this8.isIos ? 1 : 3));
+      });
+    },
+    // 当前数据改变时调用
+    _currentDataChange: function _currentDataChange(newVal, oldVal) {
+      var _this9 = this;
+      newVal = (0, _toConsumableArray2.default)(newVal);
+      this.finalUseVirtualList && this._setCellIndex(newVal, 'bottom');
+      if (this.isFirstPage && this.finalConcat) {
+        this.totalData = [];
+      }
+      // customNoMore：-1代表交由z-paging自行判断；1代表没有更多了；0代表还有更多数据
+      if (this.customNoMore !== -1) {
+        // 如果customNoMore等于1 或者 customNoMore不是0并且新增数组长度为0(也就是不是明确的还有更多数据并且新增的数组长度为0)，则没有更多数据了
+        if (this.customNoMore === 1 || this.customNoMore !== 0 && !newVal.length) {
+          this.loadingStatus = _zPagingEnum.default.More.NoMore;
+        }
+      } else {
+        // 如果新增的数据数组长度为0 或者 新增的数组长度小于默认的pageSize，则没有更多数据了
+        if (!newVal.length || newVal.length && newVal.length < this.defaultPageSize) {
+          this.loadingStatus = _zPagingEnum.default.More.NoMore;
+        }
+      }
+      if (!this.totalData.length) {
+        this.totalData = newVal;
+      } else {
+        if (this.finalConcat) {
+          var currentScrollTop = this.oldScrollTop;
+          this.totalData = [].concat((0, _toConsumableArray2.default)(this.totalData), (0, _toConsumableArray2.default)(newVal));
+          // 此处是为了解决在微信小程序中，在某些情况下滚动到底部加载更多后滚动位置直接变为最底部的问题，因此需要通过代码强制滚动回加载更多前的位置
+
+          if (!this.isIos && !this.refresherOnly && !this.usePageScroll && newVal.length) {
+            this.loadingMoreTimeStamp = _zPagingUtils.default.getTime();
+            this.$nextTick(function () {
+              _this9.scrollToY(currentScrollTop);
+            });
+          }
+        } else {
+          this.totalData = newVal;
+        }
+      }
+      this.privateConcat = true;
+    },
+    // 根据pageNo处理refresh操作
+    _handleRefreshWithDisPageNo: function _handleRefreshWithDisPageNo(pageNo) {
+      var _this10 = this;
+      if (!this.isHandlingRefreshToPage && !this.realTotalData.length) return this.reload();
+      if (pageNo >= 1) {
+        this.loading = true;
+        this.privateConcat = false;
+        var totalPageSize = pageNo * this.pageSize;
+        this.currentRefreshPageSize = totalPageSize;
+        // 如果是本地分页，则在组件内部自己处理分页逻辑，不emit query相关事件
+        if (this.isLocalPaging && this.isHandlingRefreshToPage) {
+          this._localPagingQueryList(this.defaultPageNo, totalPageSize, 0, function (res) {
+            _this10.complete(res);
+          });
+        } else {
+          // emit query相关事件
+          this._emitQuery(this.defaultPageNo, totalPageSize, _zPagingEnum.default.QueryFrom.Refresh);
+          this._callMyParentQuery(this.defaultPageNo, totalPageSize);
+        }
+      }
+      return new Promise(function (resolve, reject) {
+        _this10.dataPromiseResultMap.reload = {
+          resolve: resolve,
+          reject: reject
+        };
+      });
+    },
+    // 本地分页请求
+    _localPagingQueryList: function _localPagingQueryList(pageNo, pageSize, localPagingLoadingTime, callback) {
+      pageNo = Math.max(1, pageNo);
+      pageSize = Math.max(1, pageSize);
+      var totalPagingList = (0, _toConsumableArray2.default)(this.totalLocalPagingList);
+      var pageNoIndex = (pageNo - 1) * pageSize;
+      var finalPageNoIndex = Math.min(totalPagingList.length, pageNoIndex + pageSize);
+      var resultPagingList = totalPagingList.splice(pageNoIndex, finalPageNoIndex - pageNoIndex);
+      _zPagingUtils.default.delay(function () {
+        return callback(resultPagingList);
+      }, localPagingLoadingTime);
+    },
+    // 存储列表缓存数据
+    _saveLocalCache: function _saveLocalCache(data) {
+      uni.setStorageSync(this.finalCacheKey, data);
+    },
+    // 通过缓存数据填充列表数据
+    _setListByLocalCache: function _setListByLocalCache() {
+      this.totalData = uni.getStorageSync(this.finalCacheKey) || [];
+      this.isSettingCacheList = true;
+    },
+    // 修改父view的list
+    _callMyParentList: function _callMyParentList(newVal) {
+      if (this.autowireListName.length) {
+        var myParent = _zPagingUtils.default.getParent(this.$parent);
+        if (myParent && myParent[this.autowireListName]) {
+          myParent[this.autowireListName] = newVal;
+        }
+      }
+    },
+    // 调用父view的query
+    _callMyParentQuery: function _callMyParentQuery() {
+      var customPageNo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var customPageSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      if (this.autowireQueryName) {
+        if (this.myParentQuery === -1) {
+          var myParent = _zPagingUtils.default.getParent(this.$parent);
+          if (myParent && myParent[this.autowireQueryName]) {
+            this.myParentQuery = myParent[this.autowireQueryName];
+          }
+        }
+        if (this.myParentQuery !== -1) {
+          customPageSize > 0 ? this.myParentQuery(customPageNo, customPageSize) : this.myParentQuery(this.pageNo, this.defaultPageSize);
+        }
+      }
+    },
+    // emit query事件
+    _emitQuery: function _emitQuery(pageNo, pageSize, from) {
+      this.queryFrom = from;
+      this.requestTimeStamp = _zPagingUtils.default.getTime();
+      var _this$realTotalData$s = this.realTotalData.slice(-1),
+        _this$realTotalData$s2 = (0, _slicedToArray2.default)(_this$realTotalData$s, 1),
+        lastItem = _this$realTotalData$s2[0];
+      this.$emit.apply(this, ['query'].concat((0, _toConsumableArray2.default)(_zPagingInterceptor.default._handleQuery(pageNo, pageSize, from, lastItem || null))));
+    },
+    // 触发数据改变promise
+    _callDataPromise: function _callDataPromise(success, totalList) {
+      for (var key in this.dataPromiseResultMap) {
+        var obj = this.dataPromiseResultMap[key];
+        if (!obj) continue;
+        success ? obj.resolve({
+          totalList: totalList,
+          noMore: this.loadingStatus === _zPagingEnum.default.More.NoMore
+        }) : this.callNetworkReject && obj.reject("z-paging-".concat(key, "-error"));
+      }
+    },
+    // 检查complete data的类型
+    _checkDataType: function _checkDataType(data, success, isLocal) {
+      var dataType = Object.prototype.toString.call(data);
+      if (dataType === '[object Boolean]') {
+        success = data;
+        data = [];
+      } else if (dataType !== '[object Array]') {
+        data = [];
+        if (dataType !== '[object Undefined]' && dataType !== '[object Null]') {
+          _zPagingUtils.default.consoleErr("".concat(isLocal ? 'setLocalPaging' : 'complete', "\u53C2\u6570\u7C7B\u578B\u4E0D\u6B63\u786E\uFF0C\u7B2C\u4E00\u4E2A\u53C2\u6570\u7C7B\u578B\u5FC5\u987B\u4E3AArray!"));
+        }
+      }
+      return {
+        data: data,
+        success: success
+      };
+    }
+  }
+};
+exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 610 */
+/*!*************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-enum.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// [z-paging]枚举
+var _default = {
+  // 当前加载类型 0.下拉刷新 1.上拉加载更多
+  LoadingType: {
+    Refresher: 0,
+    LoadingMore: 1
+  },
+  // 下拉刷新状态 0.默认状态 1.松手立即刷新 2.刷新中 3.刷新结束
+  Refresher: {
+    Default: 0,
+    ReleaseToRefresh: 1,
+    Loading: 2,
+    Complete: 3
+  },
+  // 底部加载更多状态 0.默认状态 1.加载中 2.没有更多数据 3.加载失败
+  More: {
+    Default: 0,
+    Loading: 1,
+    NoMore: 2,
+    Fail: 3
+  },
+  // @query触发来源 0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发
+  QueryFrom: {
+    UserPullDown: 0,
+    Reload: 1,
+    Refresh: 2,
+    LoadingMore: 3
+  },
+  // 虚拟列表cell高度模式
+  CellHeightMode: {
+    // 固定高度
+    Fixed: 'fixed',
+    // 动态高度
+    Dynamic: 'dynamic'
+  },
+  // 列表缓存模式
+  CacheMode: {
+    // 默认模式，只会缓存一次
+    Default: 'default',
+    // 总是缓存，每次列表刷新(下拉刷新、调用reload等)都会更新缓存
+    Always: 'always'
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 611 */
+/*!********************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-interceptor.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// [z-paging]拦截器
+
+// 拦截&处理@query事件
+function handleQuery(callback) {
+  try {
+    setTimeout(function () {
+      _getApp().globalData.zp_handleQueryCallback = callback;
+    }, 1);
+  } catch (e) {}
+}
+
+// 拦截&处理@query事件(私有，请勿调用)
+function _handleQuery(pageNo, pageSize, from, lastItem) {
+  var callback = _getApp().globalData.zp_handleQueryCallback;
+  return callback ? callback(pageNo, pageSize, from, lastItem) : [pageNo, pageSize, from];
+}
+
+// 拦截&处理系统language转i18n local
+function handleLanguage2Local(callback) {
+  try {
+    setTimeout(function () {
+      _getApp().globalData.zp_handleLanguage2LocalCallback = callback;
+    }, 1);
+  } catch (e) {}
+}
+
+// 拦截&处理系统language转i18n local(私有，请勿调用)
+function _handleLanguage2Local(language, local) {
+  var callback = _getApp().globalData.zp_handleLanguage2LocalCallback;
+  return callback ? callback(language, local) : local;
+}
+
+// 获取当前app对象
+function _getApp() {
+  return getApp();
+}
+var _default = {
+  handleQuery: handleQuery,
+  _handleQuery: _handleQuery,
+  handleLanguage2Local: handleLanguage2Local,
+  _handleLanguage2Local: _handleLanguage2Local
+};
+exports.default = _default;
+
+/***/ }),
+/* 612 */
+/*!************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/i18n.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 22);
+var _index = _interopRequireDefault(__webpack_require__(/*! ../../i18n/index.js */ 613));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 605));
+var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 611));
+// [z-paging]i18n模块
+
+var _initVueI18n = (0, _uniI18n.initVueI18n)(_index.default),
+  t = _initVueI18n.t;
+var language = uni.getSystemInfoSync().language;
+var _default = {
+  data: function data() {
+    return {
+      language: language
+    };
+  },
+  computed: {
+    finalLanguage: function finalLanguage() {
+      try {
+        var local = uni.getLocale();
+        var _language = this.language;
+        return local === 'auto' ? _zPagingInterceptor.default._handleLanguage2Local(_language, this._language2Local(_language)) : local;
+      } catch (e) {
+        // 如果获取系统本地语言异常，则默认返回中文，uni.getLocale在部分低版本HX或者cli中可能报找不到的问题
+        return 'zh-Hans';
+      }
+    },
+    // 最终的下拉刷新默认状态的文字
+    finalRefresherDefaultText: function finalRefresherDefaultText() {
+      return this._getI18nText('zp.refresher.default', this.refresherDefaultText);
+    },
+    // 最终的下拉刷新下拉中的文字
+    finalRefresherPullingText: function finalRefresherPullingText() {
+      return this._getI18nText('zp.refresher.pulling', this.refresherPullingText);
+    },
+    // 最终的下拉刷新中文字
+    finalRefresherRefreshingText: function finalRefresherRefreshingText() {
+      return this._getI18nText('zp.refresher.refreshing', this.refresherRefreshingText);
+    },
+    // 最终的下拉刷新完成文字
+    finalRefresherCompleteText: function finalRefresherCompleteText() {
+      return this._getI18nText('zp.refresher.complete', this.refresherCompleteText);
+    },
+    // 最终的下拉刷新上次更新时间文字
+    finalRefresherUpdateTimeTextMap: function finalRefresherUpdateTimeTextMap() {
+      return {
+        title: t('zp.refresherUpdateTime.title'),
+        none: t('zp.refresherUpdateTime.none'),
+        today: t('zp.refresherUpdateTime.today'),
+        yesterday: t('zp.refresherUpdateTime.yesterday')
+      };
+    },
+    // 最终的底部加载更多默认状态文字
+    finalLoadingMoreDefaultText: function finalLoadingMoreDefaultText() {
+      return this._getI18nText('zp.loadingMore.default', this.loadingMoreDefaultText);
+    },
+    // 最终的底部加载更多加载中文字
+    finalLoadingMoreLoadingText: function finalLoadingMoreLoadingText() {
+      return this._getI18nText('zp.loadingMore.loading', this.loadingMoreLoadingText);
+    },
+    // 最终的底部加载更多没有更多数据文字
+    finalLoadingMoreNoMoreText: function finalLoadingMoreNoMoreText() {
+      return this._getI18nText('zp.loadingMore.noMore', this.loadingMoreNoMoreText);
+    },
+    // 最终的底部加载更多加载失败文字
+    finalLoadingMoreFailText: function finalLoadingMoreFailText() {
+      return this._getI18nText('zp.loadingMore.fail', this.loadingMoreFailText);
+    },
+    // 最终的空数据图title
+    finalEmptyViewText: function finalEmptyViewText() {
+      return this.isLoadFailed ? this.finalEmptyViewErrorText : this._getI18nText('zp.emptyView.title', this.emptyViewText);
+    },
+    // 最终的空数据图reload title
+    finalEmptyViewReloadText: function finalEmptyViewReloadText() {
+      return this._getI18nText('zp.emptyView.reload', this.emptyViewReloadText);
+    },
+    // 最终的空数据图加载失败文字
+    finalEmptyViewErrorText: function finalEmptyViewErrorText() {
+      return this.customerEmptyViewErrorText || this._getI18nText('zp.emptyView.error', this.emptyViewErrorText);
+    },
+    // 最终的系统loading title
+    finalSystemLoadingText: function finalSystemLoadingText() {
+      return this._getI18nText('zp.systemLoading.title', this.systemLoadingText);
+    }
+  },
+  methods: {
+    // 获取当前z-paging的语言
+    getLanguage: function getLanguage() {
+      return this.finalLanguage;
+    },
+    // 获取国际化转换后的文本
+    _getI18nText: function _getI18nText(key, value) {
+      var dataType = Object.prototype.toString.call(value);
+      if (dataType === '[object Object]') {
+        var nextValue = value[this.finalLanguage];
+        if (nextValue) return nextValue;
+      } else if (dataType === '[object String]') {
+        return value;
+      }
+      return t(key);
+    },
+    // 系统language转i18n local
+    _language2Local: function _language2Local(language) {
+      var formatedLanguage = language.toLowerCase().replace(new RegExp('_', ''), '-');
+      if (formatedLanguage.indexOf('zh') !== -1) {
+        if (formatedLanguage === 'zh' || formatedLanguage === 'zh-cn' || formatedLanguage.indexOf('zh-hans') !== -1) {
+          return 'zh-Hans';
+        }
+        return 'zh-Hant';
+      }
+      if (formatedLanguage.indexOf('en') !== -1) return 'en';
+      return language;
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 613 */
+/*!*******************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/index.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 614));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 615));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 616));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+/* 614 */
+/*!******************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/en.json ***!
+  \******************************************************************************************/
+/*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"zp.refresher.default\":\"Pull down to refresh\",\"zp.refresher.pulling\":\"Release to refresh\",\"zp.refresher.refreshing\":\"Refreshing...\",\"zp.refresher.complete\":\"Refresh succeeded\",\"zp.loadingMore.default\":\"Click to load more\",\"zp.loadingMore.loading\":\"Loading...\",\"zp.loadingMore.noMore\":\"No more data\",\"zp.loadingMore.fail\":\"Load failed,click to reload\",\"zp.emptyView.title\":\"No data\",\"zp.emptyView.reload\":\"Reload\",\"zp.emptyView.error\":\"Sorry,load failed\",\"zp.refresherUpdateTime.title\":\"Last update: \",\"zp.refresherUpdateTime.none\":\"None\",\"zp.refresherUpdateTime.today\":\"Today\",\"zp.refresherUpdateTime.yesterday\":\"Yesterday\",\"zp.systemLoading.title\":\"Loading...\"}");
+
+/***/ }),
+/* 615 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hans.json ***!
+  \***********************************************************************************************/
+/*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"zp.refresher.default\":\"继续下拉刷新\",\"zp.refresher.pulling\":\"松开立即刷新\",\"zp.refresher.refreshing\":\"正在刷新...\",\"zp.refresher.complete\":\"刷新成功\",\"zp.loadingMore.default\":\"点击加载更多\",\"zp.loadingMore.loading\":\"正在加载...\",\"zp.loadingMore.noMore\":\"没有更多了\",\"zp.loadingMore.fail\":\"加载失败，点击重新加载\",\"zp.emptyView.title\":\"没有数据哦~\",\"zp.emptyView.reload\":\"重新加载\",\"zp.emptyView.error\":\"很抱歉，加载失败\",\"zp.refresherUpdateTime.title\":\"最后更新：\",\"zp.refresherUpdateTime.none\":\"无\",\"zp.refresherUpdateTime.today\":\"今天\",\"zp.refresherUpdateTime.yesterday\":\"昨天\",\"zp.systemLoading.title\":\"加载中...\"}");
+
+/***/ }),
+/* 616 */
+/*!***********************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hant.json ***!
+  \***********************************************************************************************/
+/*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"zp.refresher.default\":\"繼續下拉重繪\",\"zp.refresher.pulling\":\"鬆開立即重繪\",\"zp.refresher.refreshing\":\"正在重繪...\",\"zp.refresher.complete\":\"重繪成功\",\"zp.loadingMore.default\":\"點擊加載更多\",\"zp.loadingMore.loading\":\"正在加載...\",\"zp.loadingMore.noMore\":\"沒有更多了\",\"zp.loadingMore.fail\":\"加載失敗，點擊重新加載\",\"zp.emptyView.title\":\"沒有數據哦~\",\"zp.emptyView.reload\":\"重新加載\",\"zp.emptyView.error\":\"很抱歉，加載失敗\",\"zp.refresherUpdateTime.title\":\"最後更新：\",\"zp.refresherUpdateTime.none\":\"無\",\"zp.refresherUpdateTime.today\":\"今天\",\"zp.refresherUpdateTime.yesterday\":\"昨天\",\"zp.systemLoading.title\":\"加載中...\"}");
+
+/***/ }),
+/* 617 */
+/*!************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/nvue.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 605));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]nvue独有部分模块
+var _default = {
+  props: {},
+  data: function data() {
+    return {
+      nRefresherLoading: false,
+      nListIsDragging: false,
+      nShowBottom: true,
+      nFixFreezing: false,
+      nShowRefresherReveal: false,
+      nLoadingMoreFixedHeight: false,
+      nShowRefresherRevealHeight: 0,
+      nOldShowRefresherRevealHeight: -1,
+      nRefresherWidth: uni.upx2px(750)
+    };
+  },
+  computed: {},
+  mounted: function mounted() {},
+  methods: {}
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 618 */
+/*!*************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/empty.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+// [z-paging]空数据图view模块
+var _default = {
+  props: {
+    // 是否强制隐藏空数据图，默认为否
+    hideEmptyView: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('hideEmptyView', false)
+    },
+    // 空数据图描述文字，默认为“没有数据哦~”
+    emptyViewText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('emptyViewText', null)
+    },
+    // 是否显示空数据图重新加载按钮(无数据时)，默认为否
+    showEmptyViewReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showEmptyViewReload', false)
+    },
+    // 加载失败时是否显示空数据图重新加载按钮，默认为是
+    showEmptyViewReloadWhenError: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showEmptyViewReloadWhenError', true)
+    },
+    // 空数据图点击重新加载文字，默认为“重新加载”
+    emptyViewReloadText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('emptyViewReloadText', null)
+    },
+    // 空数据图图片，默认使用z-paging内置的图片
+    emptyViewImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('emptyViewImg', '')
+    },
+    // 空数据图“加载失败”描述文字，默认为“很抱歉，加载失败”
+    emptyViewErrorText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('emptyViewErrorText', null)
+    },
+    // 空数据图“加载失败”图片，默认使用z-paging内置的图片
+    emptyViewErrorImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('emptyViewErrorImg', '')
+    },
+    // 空数据图样式
+    emptyViewStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('emptyViewStyle', {})
+    },
+    // 空数据图容器样式
+    emptyViewSuperStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('emptyViewSuperStyle', {})
+    },
+    // 空数据图img样式
+    emptyViewImgStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('emptyViewImgStyle', {})
+    },
+    // 空数据图描述文字样式
+    emptyViewTitleStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('emptyViewTitleStyle', {})
+    },
+    // 空数据图重新加载按钮样式
+    emptyViewReloadStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('emptyViewReloadStyle', {})
+    },
+    // 空数据图片是否铺满z-paging，默认为否，即填充满z-paging内列表(滚动区域)部分。若设置为否，则为填铺满整个z-paging
+    emptyViewFixed: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('emptyViewFixed', false)
+    },
+    // 空数据图片是否垂直居中，默认为是，若设置为否即为从空数据容器顶部开始显示。emptyViewFixed为false时有效
+    emptyViewCenter: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('emptyViewCenter', true)
+    },
+    // 加载中时是否自动隐藏空数据图，默认为是
+    autoHideEmptyViewWhenLoading: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoHideEmptyViewWhenLoading', true)
+    },
+    // 用户下拉列表触发下拉刷新加载中时是否自动隐藏空数据图，默认为是
+    autoHideEmptyViewWhenPull: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoHideEmptyViewWhenPull', true)
+    },
+    // 空数据view的z-index，默认为9
+    emptyViewZIndex: {
+      type: Number,
+      default: _zPagingUtils.default.gc('emptyViewZIndex', 9)
+    }
+  },
+  data: function data() {
+    return {
+      customerEmptyViewErrorText: ''
+    };
+  },
+  computed: {
+    finalEmptyViewImg: function finalEmptyViewImg() {
+      return this.isLoadFailed ? this.emptyViewErrorImg : this.emptyViewImg;
+    },
+    finalShowEmptyViewReload: function finalShowEmptyViewReload() {
+      return this.isLoadFailed ? this.showEmptyViewReloadWhenError : this.showEmptyViewReload;
+    },
+    // 是否展示空数据图
+    showEmpty: function showEmpty() {
+      if (this.refresherOnly || this.hideEmptyView || this.realTotalData.length) return false;
+      if (this.autoHideEmptyViewWhenLoading) {
+        if (this.isAddedData && !this.firstPageLoaded && !this.loading) return true;
+      } else {
+        return true;
+      }
+      return !this.autoHideEmptyViewWhenPull && !this.isUserReload;
+    }
+  },
+  methods: {
+    // 点击了空数据view重新加载按钮
+    _emptyViewReload: function _emptyViewReload() {
+      var _this = this;
+      var callbacked = false;
+      this.$emit('emptyViewReload', function (reload) {
+        if (reload === undefined || reload === true) {
+          _this.fromEmptyViewReload = true;
+          _this.reload().catch(function () {});
+        }
+        callbacked = true;
+      });
+      // 如果用户没有禁止默认的点击重新加载刷新列表事件，则触发列表重新刷新
+      this.$nextTick(function () {
+        if (!callbacked) {
+          _this.fromEmptyViewReload = true;
+          _this.reload().catch(function () {});
+        }
+      });
+    },
+    // 点击了空数据view
+    _emptyViewClick: function _emptyViewClick() {
+      this.$emit('emptyViewClick');
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 619 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/refresher.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 605));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]下拉刷新view模块
+var _default = {
+  props: {
+    // 下拉刷新的主题样式，支持black，white，默认black
+    refresherThemeStyle: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherThemeStyle', '')
+    },
+    // 自定义下拉刷新中左侧图标的样式
+    refresherImgStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('refresherImgStyle', {})
+    },
+    // 自定义下拉刷新中右侧状态描述文字的样式
+    refresherTitleStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('refresherTitleStyle', {})
+    },
+    // 自定义下拉刷新中右侧最后更新时间文字的样式(show-refresher-update-time为true时有效)
+    refresherUpdateTimeStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('refresherUpdateTimeStyle', {})
+    },
+    // 在微信小程序和QQ小程序中，是否实时监听下拉刷新中进度，默认为否
+    watchRefresherTouchmove: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('watchRefresherTouchmove', false)
+    },
+    // 底部加载更多的主题样式，支持black，white，默认black
+    loadingMoreThemeStyle: {
+      type: String,
+      default: _zPagingUtils.default.gc('loadingMoreThemeStyle', '')
+    },
+    // 是否只使用下拉刷新，设置为true后将关闭mounted自动请求数据、关闭滚动到底部加载更多，强制隐藏空数据图。默认为否
+    refresherOnly: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherOnly', false)
+    },
+    // 自定义下拉刷新默认状态下回弹动画时间，单位为毫秒，默认为100毫秒，nvue无效
+    refresherDefaultDuration: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherDefaultDuration', 100)
+    },
+    // 自定义下拉刷新结束以后延迟回弹的时间，单位为毫秒，默认为0
+    refresherCompleteDelay: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherCompleteDelay', 0)
+    },
+    // 自定义下拉刷新结束回弹动画时间，单位为毫秒，默认为300毫秒(refresherEndBounceEnabled为false时，refresherCompleteDuration为设定值的1/3)，nvue无效
+    refresherCompleteDuration: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherCompleteDuration', 300)
+    },
+    // 自定义下拉刷新结束状态下是否允许列表滚动，默认为否
+    refresherCompleteScrollable: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherCompleteScrollable', false)
+    },
+    // 是否使用自定义的下拉刷新，默认为是，即使用z-paging的下拉刷新。设置为false即代表使用uni scroll-view自带的下拉刷新，h5、App、微信小程序以外的平台不支持uni scroll-view自带的下拉刷新
+    useCustomRefresher: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useCustomRefresher', true)
+    },
+    // 自定义下拉刷新下拉帧率，默认为40，过高可能会出现抖动问题
+    refresherFps: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherFps', 40)
+    },
+    // 自定义下拉刷新允许触发的最大下拉角度，默认为40度，当下拉角度小于设定值时，自定义下拉刷新动画不会被触发
+    refresherMaxAngle: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherMaxAngle', 40)
+    },
+    // 自定义下拉刷新的角度由未达到最大角度变到达到最大角度时，是否继续下拉刷新手势，默认为否
+    refresherAngleEnableChangeContinued: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherAngleEnableChangeContinued', false)
+    },
+    // 自定义下拉刷新默认状态下的文字
+    refresherDefaultText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('refresherDefaultText', null)
+    },
+    // 自定义下拉刷新松手立即刷新状态下的文字
+    refresherPullingText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('refresherPullingText', null)
+    },
+    // 自定义下拉刷新刷新中状态下的文字
+    refresherRefreshingText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('refresherRefreshingText', null)
+    },
+    // 自定义下拉刷新刷新结束状态下的文字
+    refresherCompleteText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('refresherCompleteText', null)
+    },
+    // 自定义下拉刷新默认状态下的图片
+    refresherDefaultImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherDefaultImg', null)
+    },
+    // 自定义下拉刷新松手立即刷新状态下的图片，默认与refresherDefaultImg一致
+    refresherPullingImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherPullingImg', null)
+    },
+    // 自定义下拉刷新刷新中状态下的图片
+    refresherRefreshingImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherRefreshingImg', null)
+    },
+    // 自定义下拉刷新刷新结束状态下的图片
+    refresherCompleteImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherCompleteImg', null)
+    },
+    // 自定义下拉刷新刷新中状态下是否展示旋转动画
+    refresherRefreshingAnimated: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherRefreshingAnimated', true)
+    },
+    // 是否开启自定义下拉刷新刷新结束回弹效果，默认为是
+    refresherEndBounceEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherEndBounceEnabled', true)
+    },
+    // 是否开启自定义下拉刷新，默认为是
+    refresherEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherEnabled', true)
+    },
+    // 设置自定义下拉刷新阈值，默认为80rpx
+    refresherThreshold: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherThreshold', '80rpx')
+    },
+    // 设置系统下拉刷新默认样式，支持设置 black，white，none，none 表示不使用默认样式，默认为black
+    refresherDefaultStyle: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherDefaultStyle', 'black')
+    },
+    // 设置自定义下拉刷新区域背景
+    refresherBackground: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherBackground', 'transparent')
+    },
+    // 设置固定的自定义下拉刷新区域背景
+    refresherFixedBackground: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherFixedBackground', 'transparent')
+    },
+    // 设置固定的自定义下拉刷新区域高度，默认为0
+    refresherFixedBacHeight: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('refresherFixedBacHeight', 0)
+    },
+    // 设置自定义下拉刷新下拉超出阈值后继续下拉位移衰减的比例，范围0-1，值越大代表衰减越多。默认为0.65(nvue无效)
+    refresherOutRate: {
+      type: Number,
+      default: _zPagingUtils.default.gc('refresherOutRate', 0.65)
+    },
+    // 设置自定义下拉刷新下拉时实际下拉位移与用户下拉距离的比值，默认为0.75，即代表若用户下拉10px，则实际位移为7.5px(nvue无效)
+    refresherPullRate: {
+      type: Number,
+      default: _zPagingUtils.default.gc('refresherPullRate', 0.75)
+    },
+    // 是否显示最后更新时间，默认为否
+    showRefresherUpdateTime: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showRefresherUpdateTime', false)
+    },
+    // 如果需要区别不同页面的最后更新时间，请为不同页面的z-paging的`refresher-update-time-key`设置不同的字符串
+    refresherUpdateTimeKey: {
+      type: String,
+      default: _zPagingUtils.default.gc('refresherUpdateTimeKey', 'default')
+    },
+    // 下拉刷新时下拉到“松手立即刷新”状态时是否使手机短振动，默认为否（h5无效）
+    refresherVibrate: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherVibrate', false)
+    },
+    // 下拉刷新时是否禁止下拉刷新view跟随用户触摸竖直移动，默认为否。注意此属性只是禁止下拉刷新view移动，其他下拉刷新逻辑依然会正常触发
+    refresherNoTransform: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('refresherNoTransform', false)
+    },
+    // 是否开启下拉刷新状态栏占位，适用于隐藏导航栏时，下拉刷新需要避开状态栏高度的情况，默认为否
+    useRefresherStatusBarPlaceholder: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useRefresherStatusBarPlaceholder', false)
+    }
+  },
+  data: function data() {
+    return {
+      R: _zPagingEnum.default.Refresher,
+      //下拉刷新状态
+      refresherStatus: _zPagingEnum.default.Refresher.Default,
+      refresherTouchstartY: 0,
+      lastRefresherTouchmove: null,
+      refresherReachMaxAngle: true,
+      refresherTransform: 'translateY(0px)',
+      refresherTransition: '',
+      finalRefresherDefaultStyle: 'black',
+      refresherRevealStackCount: 0,
+      refresherCompleteTimeout: null,
+      refresherCompleteSubTimeout: null,
+      refresherEndTimeout: null,
+      isTouchmovingTimeout: null,
+      refresherTriggered: false,
+      isTouchmoving: false,
+      isTouchEnded: false,
+      isUserPullDown: false,
+      privateRefresherEnabled: -1,
+      privateShowRefresherWhenReload: false,
+      customRefresherHeight: -1,
+      showCustomRefresher: false,
+      doRefreshAnimateAfter: false,
+      isRefresherInComplete: false,
+      pullDownTimeStamp: 0,
+      moveDis: 0,
+      oldMoveDis: 0,
+      currentDis: 0,
+      oldCurrentMoveDis: 0,
+      oldRefresherTouchmoveY: 0,
+      oldTouchDirection: '',
+      oldEmitedTouchDirection: '',
+      oldPullingDistance: -1,
+      refresherThresholdUpdateTag: 0
+    };
+  },
+  watch: {
+    refresherDefaultStyle: {
+      handler: function handler(newVal) {
+        if (newVal.length) {
+          this.finalRefresherDefaultStyle = newVal;
+        }
+      },
+      immediate: true
+    },
+    refresherStatus: function refresherStatus(newVal) {
+      newVal === _zPagingEnum.default.Refresher.Loading && this._cleanRefresherEndTimeout();
+      this.refresherVibrate && newVal === _zPagingEnum.default.Refresher.ReleaseToRefresh && this._doVibrateShort();
+      this.$emit('refresherStatusChange', newVal);
+      this.$emit('update:refresherStatus', newVal);
+    },
+    // 监听当前下拉刷新启用/禁用状态
+    refresherEnabled: function refresherEnabled(newVal) {
+      // 当禁用下拉刷新时，强制收回正在展示的下拉刷新view
+      !newVal && this.endRefresh();
+    }
+  },
+  computed: {
+    pullDownDisTimeStamp: function pullDownDisTimeStamp() {
+      return 1000 / this.refresherFps;
+    },
+    refresherThresholdUnitConverted: function refresherThresholdUnitConverted() {
+      return _zPagingUtils.default.addUnit(this.refresherThreshold, this.unit);
+    },
+    finalRefresherEnabled: function finalRefresherEnabled() {
+      if (this.useChatRecordMode) return false;
+      if (this.privateRefresherEnabled === -1) return this.refresherEnabled;
+      return this.privateRefresherEnabled === 1;
+    },
+    finalRefresherThreshold: function finalRefresherThreshold() {
+      var refresherThreshold = this.refresherThresholdUnitConverted;
+      var idDefault = false;
+      if (refresherThreshold === _zPagingUtils.default.addUnit(80, this.unit)) {
+        idDefault = true;
+        if (this.showRefresherUpdateTime) {
+          refresherThreshold = _zPagingUtils.default.addUnit(120, this.unit);
+        }
+      }
+      if (idDefault && this.customRefresherHeight > 0) return this.customRefresherHeight + this.finalRefresherThresholdPlaceholder;
+      return _zPagingUtils.default.convertToPx(refresherThreshold) + this.finalRefresherThresholdPlaceholder;
+    },
+    finalRefresherThresholdPlaceholder: function finalRefresherThresholdPlaceholder() {
+      return this.useRefresherStatusBarPlaceholder ? this.statusBarHeight : 0;
+    },
+    finalRefresherFixedBacHeight: function finalRefresherFixedBacHeight() {
+      return _zPagingUtils.default.convertToPx(this.refresherFixedBacHeight);
+    },
+    finalRefresherThemeStyle: function finalRefresherThemeStyle() {
+      return this.refresherThemeStyle.length ? this.refresherThemeStyle : this.defaultThemeStyle;
+    },
+    finalRefresherOutRate: function finalRefresherOutRate() {
+      var rate = this.refresherOutRate;
+      rate = Math.max(0, rate);
+      rate = Math.min(1, rate);
+      return rate;
+    },
+    finalRefresherPullRate: function finalRefresherPullRate() {
+      var rate = this.refresherPullRate;
+      rate = Math.max(0, rate);
+      return rate;
+    },
+    finalRefresherTransform: function finalRefresherTransform() {
+      if (this.refresherNoTransform || this.refresherTransform === 'translateY(0px)') return 'none';
+      return this.refresherTransform;
+    },
+    finalShowRefresherWhenReload: function finalShowRefresherWhenReload() {
+      return this.showRefresherWhenReload || this.privateShowRefresherWhenReload;
+    },
+    finalRefresherTriggered: function finalRefresherTriggered() {
+      if (!(this.finalRefresherEnabled && !this.useCustomRefresher)) return false;
+      return this.refresherTriggered;
+    },
+    showRefresher: function showRefresher() {
+      var showRefresher = this.finalRefresherEnabled && this.useCustomRefresher;
+      this.active && this.customRefresherHeight === -1 && showRefresher && this.updateCustomRefresherHeight();
+      return showRefresher;
+    },
+    hasTouchmove: function hasTouchmove() {
+      return this.watchRefresherTouchmove;
+      return true;
+      return this.watchRefresherTouchmove;
+    }
+  },
+  methods: {
+    // 终止下拉刷新状态
+    endRefresh: function endRefresh() {
+      var _this = this;
+      this.totalData = this.realTotalData;
+      this._refresherEnd();
+      this._endSystemLoadingAndRefresh();
+      this._handleScrollViewBounce({
+        bounce: true
+      });
+      this.$nextTick(function () {
+        _this.refresherTriggered = false;
+      });
+    },
+    // 手动更新自定义下拉刷新view高度
+    updateCustomRefresherHeight: function updateCustomRefresherHeight() {
+      var _this2 = this;
+      _zPagingUtils.default.delay(function () {
+        return _this2.$nextTick(_this2._updateCustomRefresherHeight);
+      });
+    },
+    // 自定义下拉刷新被触发
+    _onRefresh: function _onRefresh() {
+      var fromScrollView = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var isUserPullDown = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      if (fromScrollView && !(this.finalRefresherEnabled && !this.useCustomRefresher)) return;
+      this.$emit('onRefresh');
+      this.$emit('Refresh');
+      if (this.loading || this.isRefresherInComplete) return;
+      this.loadingType = _zPagingEnum.default.LoadingType.Refresher;
+      if (this.nShowRefresherReveal) return;
+      this.isUserPullDown = isUserPullDown;
+      this.isUserReload = !isUserPullDown;
+      this._startLoading(true);
+      this.refresherTriggered = true;
+      if (this.reloadWhenRefresh && isUserPullDown) {
+        this.useChatRecordMode ? this._onLoadingMore('click') : this._reload(false, false, isUserPullDown);
+      }
+    },
+    // 自定义下拉刷新被复位
+    _onRestore: function _onRestore() {
+      this.refresherTriggered = 'restore';
+      this.$emit('onRestore');
+      this.$emit('Restore');
+    },
+    // 进一步处理touch开始结果
+    _handleRefresherTouchstart: function _handleRefresherTouchstart(touch) {
+      if (!this.loading && this.isTouchEnded) {
+        this.isTouchmoving = false;
+      }
+      this.loadingType = _zPagingEnum.default.LoadingType.Refresher;
+      this.isTouchmovingTimeout && clearTimeout(this.isTouchmovingTimeout);
+      this.isTouchEnded = false;
+      this.refresherTransition = '';
+      this.refresherTouchstartY = touch.touchY;
+      this.$emit('refresherTouchstart', this.refresherTouchstartY);
+      this.lastRefresherTouchmove = touch;
+      this._cleanRefresherCompleteTimeout();
+      this._cleanRefresherEndTimeout();
+    },
+    // 非appvue或微信小程序或QQ小程序或h5平台，使用js控制下拉刷新
+    // 进一步处理touch中结果
+    _handleRefresherTouchmove: function _handleRefresherTouchmove(moveDis, touch) {
+      this.refresherReachMaxAngle = true;
+      this.isTouchmovingTimeout && clearTimeout(this.isTouchmovingTimeout);
+      this.isTouchmoving = true;
+      this.isTouchEnded = false;
+      // 更新下拉刷新状态
+      this.refresherStatus = moveDis >= this.finalRefresherThreshold ? _zPagingEnum.default.Refresher.ReleaseToRefresh : this.refresherStatus = _zPagingEnum.default.Refresher.Default;
+      this.moveDis = moveDis;
+    },
+    // 进一步处理touch结束结果
+    _handleRefresherTouchend: function _handleRefresherTouchend(moveDis) {
+      var _this3 = this;
+      this.isTouchmovingTimeout && clearTimeout(this.isTouchmovingTimeout);
+      this.refresherReachMaxAngle = true;
+      this.isTouchEnded = true;
+      var refresherThreshold = this.finalRefresherThreshold;
+      if (moveDis >= refresherThreshold && this.refresherStatus === _zPagingEnum.default.Refresher.ReleaseToRefresh) {
+        _zPagingUtils.default.delay(function () {
+          _this3._emitTouchmove({
+            pullingDistance: refresherThreshold,
+            dy: _this3.moveDis - refresherThreshold
+          });
+        }, 0.1);
+        this.moveDis = refresherThreshold;
+        this.refresherStatus = _zPagingEnum.default.Refresher.Loading;
+        this._doRefresherLoad();
+      } else {
+        this._refresherEnd();
+        this.isTouchmovingTimeout = _zPagingUtils.default.delay(function () {
+          _this3.isTouchmoving = false;
+        }, this.refresherDefaultDuration);
+      }
+      this.scrollEnable = true;
+      this.$emit('refresherTouchend', moveDis);
+    },
+    // 处理列表触摸开始事件
+    _handleListTouchstart: function _handleListTouchstart() {
+      if (this.useChatRecordMode && this.autoHideKeyboardWhenChat) {
+        uni.hideKeyboard();
+        this.$emit('hidedKeyboard');
+      }
+    },
+    // 处理scroll-view bounce是否生效
+    _handleScrollViewBounce: function _handleScrollViewBounce(_ref) {
+      var bounce = _ref.bounce;
+      if (!this.usePageScroll && !this.scrollToTopBounceEnabled) {
+        if (this.wxsScrollTop <= 5) {
+          this.refresherTransition = '';
+          this.scrollEnable = bounce;
+        } else if (bounce) {
+          this.scrollEnable = bounce;
+        }
+      }
+    },
+    // wxs正在下拉状态改变处理
+    _handleWxsPullingDownStatusChange: function _handleWxsPullingDownStatusChange(onPullingDown) {
+      this.wxsOnPullingDown = onPullingDown;
+      if (onPullingDown && !this.useChatRecordMode) {
+        this.renderPropScrollTop = 0;
+      }
+    },
+    // wxs正在下拉处理
+    _handleWxsPullingDown: function _handleWxsPullingDown(_ref2) {
+      var moveDis = _ref2.moveDis,
+        diffDis = _ref2.diffDis;
+      this._emitTouchmove({
+        pullingDistance: moveDis,
+        dy: diffDis
+      });
+    },
+    // wxs触摸方向改变
+    _handleTouchDirectionChange: function _handleTouchDirectionChange(_ref3) {
+      var direction = _ref3.direction;
+      this.$emit('touchDirectionChange', direction);
+    },
+    // wxs通知更新其props
+    _handlePropUpdate: function _handlePropUpdate() {
+      this.wxsPropType = _zPagingUtils.default.getTime().toString();
+    },
+    // 下拉刷新结束
+    _refresherEnd: function _refresherEnd() {
+      var _this4 = this;
+      var shouldEndLoadingDelay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var fromAddData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var isUserPullDown = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var setLoading = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+      if (this.loadingType === _zPagingEnum.default.LoadingType.Refresher) {
+        var refresherCompleteDelay = fromAddData && (isUserPullDown || this.showRefresherWhenReload) ? this.refresherCompleteDelay : 0;
+        var refresherStatus = refresherCompleteDelay > 0 ? _zPagingEnum.default.Refresher.Complete : _zPagingEnum.default.Refresher.Default;
+        if (this.finalShowRefresherWhenReload) {
+          var stackCount = this.refresherRevealStackCount;
+          this.refresherRevealStackCount--;
+          if (stackCount > 1) return;
+        }
+        this._cleanRefresherEndTimeout();
+        this.refresherEndTimeout = _zPagingUtils.default.delay(function () {
+          _this4.refresherStatus = refresherStatus;
+        }, this.refresherStatus !== _zPagingEnum.default.Refresher.Default && refresherStatus === _zPagingEnum.default.Refresher.Default ? this.refresherCompleteDuration : 0);
+        if (refresherCompleteDelay > 0) {
+          this.isRefresherInComplete = true;
+        }
+        this._cleanRefresherCompleteTimeout();
+        this.refresherCompleteTimeout = _zPagingUtils.default.delay(function () {
+          var animateDuration = 1;
+          var animateType = _this4.refresherEndBounceEnabled && fromAddData ? 'cubic-bezier(0.19,1.64,0.42,0.72)' : 'linear';
+          if (fromAddData) {
+            animateDuration = _this4.refresherEndBounceEnabled ? _this4.refresherCompleteDuration / 1000 : _this4.refresherCompleteDuration / 3000;
+          }
+          _this4.refresherTransition = "transform ".concat(fromAddData ? animateDuration : _this4.refresherDefaultDuration / 1000, "s ").concat(animateType);
+          _this4.wxsPropType = _this4.refresherTransition + 'end' + _zPagingUtils.default.getTime();
+          _this4.moveDis = 0;
+          if (refresherStatus === _zPagingEnum.default.Refresher.Complete) {
+            if (_this4.refresherCompleteSubTimeout) {
+              clearTimeout(_this4.refresherCompleteSubTimeout);
+              _this4.refresherCompleteSubTimeout = null;
+            }
+            _this4.refresherCompleteSubTimeout = _zPagingUtils.default.delay(function () {
+              _this4.$nextTick(function () {
+                _this4.refresherStatus = _zPagingEnum.default.Refresher.Default;
+                _this4.isRefresherInComplete = false;
+              });
+            }, animateDuration * 800);
+          }
+          _this4._emitTouchmove({
+            pullingDistance: 0,
+            dy: _this4.moveDis
+          });
+        }, refresherCompleteDelay);
+      }
+      if (setLoading) {
+        _zPagingUtils.default.delay(function () {
+          return _this4.loading = false;
+        }, shouldEndLoadingDelay ? _zPagingConstant.default.delayTime : 0);
+        isUserPullDown && this._onRestore();
+      }
+    },
+    // 模拟用户手动触发下拉刷新
+    _doRefresherRefreshAnimate: function _doRefresherRefreshAnimate() {
+      this._cleanRefresherCompleteTimeout();
+      // 用户处理用户在短时间内多次调用reload的情况，此时下拉刷新view不需要重复显示，只需要保证最后一次reload对应的请求结束后收回下拉刷新view即可
+
+      var doRefreshAnimateAfter = !this.doRefreshAnimateAfter && this.finalShowRefresherWhenReload && this.customRefresherHeight === -1 && this.refresherThreshold === _zPagingUtils.default.addUnit(80, this.unit);
+      if (doRefreshAnimateAfter) {
+        this.doRefreshAnimateAfter = true;
+        return;
+      }
+      this.refresherRevealStackCount++;
+      this.wxsPropType = 'begin' + _zPagingUtils.default.getTime();
+      this.moveDis = this.finalRefresherThreshold;
+      this.refresherStatus = _zPagingEnum.default.Refresher.Loading;
+      this.isTouchmoving = true;
+      this.isTouchmovingTimeout && clearTimeout(this.isTouchmovingTimeout);
+      this._doRefresherLoad(false);
+    },
+    // 触发下拉刷新
+    _doRefresherLoad: function _doRefresherLoad() {
+      var isUserPullDown = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this._onRefresh(false, isUserPullDown);
+      this.loading = true;
+    },
+    // 更新自定义下拉刷新view高度
+    _updateCustomRefresherHeight: function _updateCustomRefresherHeight() {
+      var _this5 = this;
+      this._getNodeClientRect('.zp-custom-refresher-slot-view').then(function (res) {
+        _this5.customRefresherHeight = res ? res[0].height : 0;
+        _this5.showCustomRefresher = _this5.customRefresherHeight > 0;
+        if (_this5.doRefreshAnimateAfter) {
+          _this5.doRefreshAnimateAfter = false;
+          _this5._doRefresherRefreshAnimate();
+        }
+      });
+    },
+    // emit pullingDown事件
+    _emitTouchmove: function _emitTouchmove(e) {
+      e.viewHeight = this.finalRefresherThreshold;
+      e.rate = e.viewHeight > 0 ? e.pullingDistance / e.viewHeight : 0;
+      this.hasTouchmove && this.oldPullingDistance !== e.pullingDistance && this.$emit('refresherTouchmove', e);
+      this.oldPullingDistance = e.pullingDistance;
+    },
+    // 清除refresherCompleteTimeout
+    _cleanRefresherCompleteTimeout: function _cleanRefresherCompleteTimeout() {
+      this.refresherCompleteTimeout = this._cleanTimeout(this.refresherCompleteTimeout);
+    },
+    // 清除refresherEndTimeout
+    _cleanRefresherEndTimeout: function _cleanRefresherEndTimeout() {
+      this.refresherEndTimeout = this._cleanTimeout(this.refresherEndTimeout);
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 620 */
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/load-more.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]滚动到底部加载更多模块
+var _default = {
+  props: {
+    // 自定义底部加载更多样式
+    loadingMoreCustomStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('loadingMoreCustomStyle', {})
+    },
+    // 自定义底部加载更多文字样式
+    loadingMoreTitleCustomStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('loadingMoreTitleCustomStyle', {})
+    },
+    // 自定义底部加载更多加载中动画样式
+    loadingMoreLoadingIconCustomStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('loadingMoreLoadingIconCustomStyle', {})
+    },
+    // 自定义底部加载更多加载中动画图标类型，可选flower或circle，默认为flower
+    loadingMoreLoadingIconType: {
+      type: String,
+      default: _zPagingUtils.default.gc('loadingMoreLoadingIconType', 'flower')
+    },
+    // 自定义底部加载更多加载中动画图标图片
+    loadingMoreLoadingIconCustomImage: {
+      type: String,
+      default: _zPagingUtils.default.gc('loadingMoreLoadingIconCustomImage', '')
+    },
+    // 底部加载更多加载中view是否展示旋转动画，默认为是
+    loadingMoreLoadingAnimated: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('loadingMoreLoadingAnimated', true)
+    },
+    // 是否启用加载更多数据(含滑动到底部加载更多数据和点击加载更多数据)，默认为是
+    loadingMoreEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('loadingMoreEnabled', true)
+    },
+    // 是否启用滑动到底部加载更多数据，默认为是
+    toBottomLoadingMoreEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('toBottomLoadingMoreEnabled', true)
+    },
+    // 滑动到底部状态为默认状态时，以加载中的状态展示，默认为否。若设置为是，可避免滚动到底部看到默认状态然后立刻变为加载中状态的问题，但分页数量未超过一屏时，不会显示【点击加载更多】
+    loadingMoreDefaultAsLoading: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('loadingMoreDefaultAsLoading', false)
+    },
+    // 滑动到底部"默认"文字，默认为【点击加载更多】
+    loadingMoreDefaultText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('loadingMoreDefaultText', null)
+    },
+    // 滑动到底部"加载中"文字，默认为【正在加载...】
+    loadingMoreLoadingText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('loadingMoreLoadingText', null)
+    },
+    // 滑动到底部"没有更多"文字，默认为【没有更多了】
+    loadingMoreNoMoreText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('loadingMoreNoMoreText', null)
+    },
+    // 滑动到底部"加载失败"文字，默认为【加载失败，点击重新加载】
+    loadingMoreFailText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('loadingMoreFailText', null)
+    },
+    // 当没有更多数据且分页内容未超出z-paging时是否隐藏没有更多数据的view，默认为否
+    hideNoMoreInside: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('hideNoMoreInside', false)
+    },
+    // 当没有更多数据且分页数组长度少于这个值时，隐藏没有更多数据的view，默认为0，代表不限制。
+    hideNoMoreByLimit: {
+      type: Number,
+      default: _zPagingUtils.default.gc('hideNoMoreByLimit', 0)
+    },
+    // 是否显示默认的加载更多text，默认为是
+    showDefaultLoadingMoreText: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showDefaultLoadingMoreText', true)
+    },
+    // 是否显示没有更多数据的view
+    showLoadingMoreNoMoreView: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showLoadingMoreNoMoreView', true)
+    },
+    // 是否显示没有更多数据的分割线，默认为是
+    showLoadingMoreNoMoreLine: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showLoadingMoreNoMoreLine', true)
+    },
+    // 自定义底部没有更多数据的分割线样式
+    loadingMoreNoMoreLineCustomStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('loadingMoreNoMoreLineCustomStyle', {})
+    },
+    // 当分页未满一屏时，是否自动加载更多，默认为否(nvue无效)
+    insideMore: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('insideMore', false)
+    },
+    // 距底部/右边多远时（单位px），触发 scrolltolower 事件，默认为100rpx
+    lowerThreshold: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('lowerThreshold', '100rpx')
+    }
+  },
+  data: function data() {
+    return {
+      M: _zPagingEnum.default.More,
+      // 底部加载更多状态
+      loadingStatus: _zPagingEnum.default.More.Default,
+      // 在渲染之后的底部加载更多状态
+      loadingStatusAfterRender: _zPagingEnum.default.More.Default,
+      // 底部加载更多时间戳
+      loadingMoreTimeStamp: 0,
+      // 底部加载更多slot
+      loadingMoreDefaultSlot: null,
+      // 是否展示底部加载更多
+      showLoadingMore: false,
+      // 是否是开发者自定义的加载更多，-1代表交由z-paging自行判断；1代表没有更多了；0代表还有更多数据
+      customNoMore: -1
+    };
+  },
+  computed: {
+    // 底部加载更多配置
+    zLoadMoreConfig: function zLoadMoreConfig() {
+      return {
+        status: this.loadingStatusAfterRender,
+        defaultAsLoading: this.loadingMoreDefaultAsLoading || this.useChatRecordMode && this.chatLoadingMoreDefaultAsLoading,
+        defaultThemeStyle: this.finalLoadingMoreThemeStyle,
+        customStyle: this.loadingMoreCustomStyle,
+        titleCustomStyle: this.loadingMoreTitleCustomStyle,
+        iconCustomStyle: this.loadingMoreLoadingIconCustomStyle,
+        loadingIconType: this.loadingMoreLoadingIconType,
+        loadingIconCustomImage: this.loadingMoreLoadingIconCustomImage,
+        loadingAnimated: this.loadingMoreLoadingAnimated,
+        showNoMoreLine: this.showLoadingMoreNoMoreLine,
+        noMoreLineCustomStyle: this.loadingMoreNoMoreLineCustomStyle,
+        defaultText: this.finalLoadingMoreDefaultText,
+        loadingText: this.finalLoadingMoreLoadingText,
+        noMoreText: this.finalLoadingMoreNoMoreText,
+        failText: this.finalLoadingMoreFailText,
+        hideContent: !this.loadingMoreDefaultAsLoading && this.listRendering,
+        unit: this.unit,
+        isChat: this.useChatRecordMode,
+        chatDefaultAsLoading: this.chatLoadingMoreDefaultAsLoading
+      };
+    },
+    // 最终的底部加载更多主题
+    finalLoadingMoreThemeStyle: function finalLoadingMoreThemeStyle() {
+      return this.loadingMoreThemeStyle.length ? this.loadingMoreThemeStyle : this.defaultThemeStyle;
+    },
+    // 最终的底部加载更多触发阈值
+    finalLowerThreshold: function finalLowerThreshold() {
+      return _zPagingUtils.default.convertToPx(this.lowerThreshold);
+    },
+    // 是否显示默认状态下的底部加载更多
+    showLoadingMoreDefault: function showLoadingMoreDefault() {
+      return this._showLoadingMore('Default');
+    },
+    // 是否显示加载中状态下的底部加载更多
+    showLoadingMoreLoading: function showLoadingMoreLoading() {
+      return this._showLoadingMore('Loading');
+    },
+    // 是否显示没有更多了状态下的底部加载更多
+    showLoadingMoreNoMore: function showLoadingMoreNoMore() {
+      return this._showLoadingMore('NoMore');
+    },
+    // 是否显示加载失败状态下的底部加载更多
+    showLoadingMoreFail: function showLoadingMoreFail() {
+      return this._showLoadingMore('Fail');
+    },
+    // 是否显示自定义状态下的底部加载更多
+    showLoadingMoreCustom: function showLoadingMoreCustom() {
+      return this._showLoadingMore('Custom');
+    }
+  },
+  methods: {
+    // 页面滚动到底部时通知z-paging进行进一步处理
+    pageReachBottom: function pageReachBottom() {
+      !this.useChatRecordMode && this._onLoadingMore('toBottom');
+    },
+    // 手动触发上拉加载更多(非必须，可依据具体需求使用)
+    doLoadMore: function doLoadMore(type) {
+      this._onLoadingMore(type);
+    },
+    // 通过@scroll事件检测是否滚动到了底部(顺带检测下是否滚动到了顶部)
+    _checkScrolledToBottom: function _checkScrolledToBottom(scrollDiff) {
+      var _this = this;
+      var checked = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      // 如果当前scroll-view高度未获取，则获取其高度
+      if (this.cacheScrollNodeHeight === -1) {
+        // 获取当前scroll-view高度
+        this._getNodeClientRect('.zp-scroll-view').then(function (res) {
+          if (res) {
+            var scrollNodeHeight = res[0].height;
+            // 缓存当前scroll-view高度，如果获取过了不再获取
+            _this.cacheScrollNodeHeight = scrollNodeHeight;
+            // // scrollDiff - this.cacheScrollNodeHeight = 当前滚动区域的顶部与内容底部的距离 - scroll-view高度 = 当前滚动区域的底部与内容底部的距离(也就是最终的与底部的距离)
+            if (scrollDiff - scrollNodeHeight <= _this.finalLowerThreshold) {
+              // 如果与底部的距离小于阈值，则判断为滚动到了底部，触发滚动到底部事件
+              _this._onLoadingMore('toBottom');
+            }
+          }
+        });
+      } else {
+        // scrollDiff - this.cacheScrollNodeHeight = 当前滚动区域的顶部与内容底部的距离 - scroll-view高度 = 当前滚动区域的底部与内容底部的距离(也就是最终的与底部的距离)
+        if (scrollDiff - this.cacheScrollNodeHeight <= this.finalLowerThreshold) {
+          // 如果与底部的距离小于阈值，则判断为滚动到了底部，触发滚动到底部事件
+          this._onLoadingMore('toBottom');
+        } else if (scrollDiff - this.cacheScrollNodeHeight <= 500 && !checked) {
+          // 如果与底部的距离小于500px，则获取当前滚动的位置，延迟150毫秒重复上述步骤再次检测(避免@scroll触发时获取的scrollTop不正确导致的其他问题，此时获取的scrollTop不一定可信)。防止因为部分性能较差安卓设备@scroll采样率过低导致的滚动到底部但是依然没有触发的问题
+          _zPagingUtils.default.delay(function () {
+            _this._getNodeClientRect('.zp-scroll-view', true, true).then(function (res) {
+              if (res) {
+                _this.oldScrollTop = res[0].scrollTop;
+                var newScrollDiff = res[0].scrollHeight - _this.oldScrollTop;
+                _this._checkScrolledToBottom(newScrollDiff, true);
+              }
+            });
+          }, 150, 'checkScrolledToBottomDelay');
+        }
+        // 检测一下是否已经滚动到了顶部了，因为在安卓中滚动到顶部时scrollTop不一定为0(和滚动到底部一样的原因)，所以需要在scrollTop小于150px时，通过获取.zp-scroll-view的scrollTop再判断一下
+        if (this.oldScrollTop <= 150 && this.oldScrollTop !== 0) {
+          _zPagingUtils.default.delay(function () {
+            // 这里再判断一下是否确实已经滚动到顶部了，如果已经滚动到顶部了，则不用再判断了，再次判断的原因是可能150毫秒之后oldScrollTop才是0
+            if (_this.oldScrollTop !== 0) {
+              _this._getNodeClientRect('.zp-scroll-view', true, true).then(function (res) {
+                // 如果150毫秒后.zp-scroll-view的scrollTop为0，则认为已经滚动到了顶部了
+                if (res && res[0].scrollTop === 0 && _this.oldScrollTop !== 0) {
+                  _this._onScrollToUpper();
+                }
+              });
+            }
+          }, 150, 'checkScrolledToTopDelay');
+        }
+      }
+    },
+    // 触发加载更多时调用,from:toBottom-滑动到底部触发；1、click-点击加载更多触发
+    _onLoadingMore: function _onLoadingMore() {
+      var _this2 = this;
+      var from = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'click';
+      // 如果是ios并且是滚动到底部的，则在滚动到底部时候尝试将列表设置为禁止滚动然后设置为允许滚动，以禁止底部bounce的效果
+      if (this.isIos && from === 'toBottom' && !this.scrollToBottomBounceEnabled && this.scrollEnable) {
+        this.scrollEnable = false;
+        this.$nextTick(function () {
+          _this2.scrollEnable = true;
+        });
+      }
+      // emit scrolltolower
+      this.$emit('scrolltolower', from);
+      // 如果是只使用下拉刷新 或者 禁用底部加载更多 或者 底部加载更多不是默认状态或加载失败状态 或者 是加载中状态 或者 空数据图已经展示了，则return，不触发内部加载更多逻辑
+      if (this.refresherOnly || !this.loadingMoreEnabled || !(this.loadingStatus === _zPagingEnum.default.More.Default || this.loadingStatus === _zPagingEnum.default.More.Fail) || this.loading || this.showEmpty) return;
+      if (!this.isIos && !this.refresherOnly && !this.usePageScroll) {
+        var currentTimestamp = _zPagingUtils.default.getTime();
+        // 在非ios平台+scroll-view中节流处理
+        if (this.loadingMoreTimeStamp > 0 && currentTimestamp - this.loadingMoreTimeStamp < 100) {
+          this.loadingMoreTimeStamp = 0;
+          return;
+        }
+      }
+
+      // 处理加载更多数据
+      this._doLoadingMore();
+    },
+    // 处理开始加载更多
+    _doLoadingMore: function _doLoadingMore() {
+      var _this3 = this;
+      if (this.pageNo >= this.defaultPageNo && this.loadingStatus !== _zPagingEnum.default.More.NoMore) {
+        this.pageNo++;
+        this._startLoading(false);
+        // 如果是本地分页，则在组件内部对数据进行分页处理，不触发@query事件
+        if (this.isLocalPaging) {
+          this._localPagingQueryList(this.pageNo, this.defaultPageSize, this.localPagingLoadingTime, function (res) {
+            _this3.completeByTotal(res, _this3.totalLocalPagingList.length);
+          });
+        } else {
+          this._emitQuery(this.pageNo, this.defaultPageSize, _zPagingEnum.default.QueryFrom.LoadingMore);
+          this._callMyParentQuery();
+        }
+        // 设置当前加载状态为底部加载更多状态
+        this.loadingType = _zPagingEnum.default.LoadingType.LoadingMore;
+      }
+    },
+    // (预处理)判断当没有更多数据且分页内容未超出z-paging时是否显示没有更多数据的view
+    _preCheckShowNoMoreInside: function _preCheckShowNoMoreInside(newVal, scrollViewNode, pagingContainerNode) {
+      var _this4 = this;
+      if (this.loadingStatus === _zPagingEnum.default.More.NoMore && this.hideNoMoreByLimit > 0 && newVal.length) {
+        this.showLoadingMore = newVal.length > this.hideNoMoreByLimit;
+      } else if (this.loadingStatus === _zPagingEnum.default.More.NoMore && this.hideNoMoreInside && newVal.length || this.insideMore && this.insideOfPaging !== false && newVal.length) {
+        this.$nextTick(function () {
+          _this4._checkShowNoMoreInside(newVal, scrollViewNode, pagingContainerNode);
+        });
+        if (this.insideMore && this.insideOfPaging !== false && newVal.length) {
+          this.showLoadingMore = newVal.length;
+        }
+      } else {
+        this.showLoadingMore = newVal.length;
+      }
+    },
+    // 判断当没有更多数据且分页内容未超出z-paging时是否显示没有更多数据的view
+    _checkShowNoMoreInside: function _checkShowNoMoreInside(totalData, oldScrollViewNode, oldPagingContainerNode) {
+      var _this5 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var scrollViewNode, scrollViewTotalH, pagingContainerNode, pagingContainerH, scrollViewH;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.t0 = oldScrollViewNode;
+                if (_context.t0) {
+                  _context.next = 6;
+                  break;
+                }
+                _context.next = 5;
+                return _this5._getNodeClientRect('.zp-scroll-view');
+              case 5:
+                _context.t0 = _context.sent;
+              case 6:
+                scrollViewNode = _context.t0;
+                if (!_this5.usePageScroll) {
+                  _context.next = 11;
+                  break;
+                }
+                if (scrollViewNode) {
+                  // 获取滚动内容总高度
+                  scrollViewTotalH = scrollViewNode[0].top + scrollViewNode[0].height; // 如果滚动内容总高度小于窗口高度，则认为内容未超出z-paging
+                  _this5.insideOfPaging = scrollViewTotalH < _this5.windowHeight;
+                  // 如果需要没有更多数据时，隐藏底部加载更多view，并且内容未超过z-paging，则隐藏底部加载更多
+                  if (_this5.hideNoMoreInside) {
+                    _this5.showLoadingMore = !_this5.insideOfPaging;
+                  }
+                  // 如果需要内容未超过z-paging时自动加载更多，则触发加载更多
+                  _this5._updateInsideOfPaging();
+                }
+                _context.next = 22;
+                break;
+              case 11:
+                _context.t1 = oldPagingContainerNode;
+                if (_context.t1) {
+                  _context.next = 16;
+                  break;
+                }
+                _context.next = 15;
+                return _this5._getNodeClientRect('.zp-paging-container-content');
+              case 15:
+                _context.t1 = _context.sent;
+              case 16:
+                pagingContainerNode = _context.t1;
+                // 获取滚动内容总高度
+                pagingContainerH = pagingContainerNode ? pagingContainerNode[0].height : 0; // 获取z-paging内置scroll-view高度
+                scrollViewH = scrollViewNode ? scrollViewNode[0].height : 0; // 如果滚动内容总高度小于z-paging内置scroll-view高度，则认为内容未超出z-paging
+                _this5.insideOfPaging = pagingContainerH < scrollViewH;
+                if (_this5.hideNoMoreInside) {
+                  _this5.showLoadingMore = !_this5.insideOfPaging;
+                }
+                // 如果需要内容未超过z-paging时自动加载更多，则触发加载更多
+                _this5._updateInsideOfPaging();
+              case 22:
+                _context.next = 29;
+                break;
+              case 24:
+                _context.prev = 24;
+                _context.t2 = _context["catch"](0);
+                // 如果发生了异常，判断totalData数组长度为0，则认为内容未超出z-paging
+                _this5.insideOfPaging = !totalData.length;
+                if (_this5.hideNoMoreInside) {
+                  _this5.showLoadingMore = !_this5.insideOfPaging;
+                }
+                // 如果需要内容未超过z-paging时自动加载更多，则触发加载更多
+                _this5._updateInsideOfPaging();
+              case 29:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 24]]);
+      }))();
+    },
+    // 是否要展示上拉加载更多view
+    _showLoadingMore: function _showLoadingMore(type) {
+      if (!this.showLoadingMoreWhenReload && (!(this.loadingStatus === _zPagingEnum.default.More.Default ? this.nShowBottom : true) || !this.realTotalData.length)) return false;
+      if ((!this.showLoadingMoreWhenReload || this.isUserPullDown || this.loadingStatus !== _zPagingEnum.default.More.Loading) && !this.showLoadingMore || !this.loadingMoreEnabled && (!this.showLoadingMoreWhenReload || this.isUserPullDown || this.loadingStatus !== _zPagingEnum.default.More.Loading) || this.refresherOnly) {
+        return false;
+      }
+      if (this.useChatRecordMode && type !== 'Loading') return false;
+      if (!this.zSlots) return false;
+      if (type === 'Custom') {
+        return this.showDefaultLoadingMoreText && !(this.loadingStatus === _zPagingEnum.default.More.NoMore && !this.showLoadingMoreNoMoreView);
+      }
+      var res = this.loadingStatus === _zPagingEnum.default.More[type] && this.zSlots["loadingMore".concat(type)] && (type === 'NoMore' ? this.showLoadingMoreNoMoreView : true);
+      if (res) {}
+      return res;
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 621 */
+/*!***************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/loading.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]loading相关模块
+var _default = {
+  props: {
+    // 第一次加载后自动隐藏loading slot，默认为是
+    autoHideLoadingAfterFirstLoaded: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoHideLoadingAfterFirstLoaded', true)
+    },
+    // loading slot是否铺满屏幕并固定，默认为否
+    loadingFullFixed: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('loadingFullFixed', false)
+    },
+    // 是否自动显示系统Loading：即uni.showLoading，若开启则将在刷新列表时(调用reload、refresh时)显示，下拉刷新和滚动到底部加载更多不会显示，默认为false。
+    autoShowSystemLoading: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoShowSystemLoading', false)
+    },
+    // 显示系统Loading时是否显示透明蒙层，防止触摸穿透，默认为是(H5、App、微信小程序、百度小程序有效)
+    systemLoadingMask: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('systemLoadingMask', true)
+    },
+    // 显示系统Loading时显示的文字，默认为"加载中"
+    systemLoadingText: {
+      type: [String, Object],
+      default: _zPagingUtils.default.gc('systemLoadingText', null)
+    }
+  },
+  data: function data() {
+    return {
+      loading: false,
+      loadingForNow: false
+    };
+  },
+  watch: {
+    // loading状态
+    loadingStatus: function loadingStatus(newVal) {
+      var _this = this;
+      this.$emit('loadingStatusChange', newVal);
+      this.$nextTick(function () {
+        _this.loadingStatusAfterRender = newVal;
+      });
+      if (this.useChatRecordMode) {
+        if (this.isFirstPage && newVal === _zPagingEnum.default.More.NoMore) {
+          this.isFirstPageAndNoMore = true;
+          return;
+        }
+      }
+      this.isFirstPageAndNoMore = false;
+    },
+    loading: function loading(newVal) {
+      if (newVal) {
+        this.loadingForNow = newVal;
+      }
+    }
+  },
+  computed: {
+    // 是否显示loading
+    showLoading: function showLoading() {
+      if (this.firstPageLoaded || !this.loading || !this.loadingForNow) return false;
+      if (this.finalShowSystemLoading) {
+        // 显示系统loading
+        uni.showLoading({
+          title: this.finalSystemLoadingText,
+          mask: this.systemLoadingMask
+        });
+      }
+      return this.autoHideLoadingAfterFirstLoaded ? this.fromEmptyViewReload ? true : !this.pagingLoaded : this.loadingType === _zPagingEnum.default.LoadingType.Refresher;
+    },
+    // 最终的是否显示系统loading
+    finalShowSystemLoading: function finalShowSystemLoading() {
+      return this.autoShowSystemLoading && this.loadingType === _zPagingEnum.default.LoadingType.Refresher;
+    }
+  },
+  methods: {
+    // 处理开始加载更多状态
+    _startLoading: function _startLoading() {
+      var isReload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      if (this.showLoadingMoreWhenReload && !this.isUserPullDown || !isReload) {
+        this.loadingStatus = _zPagingEnum.default.More.Loading;
+      }
+      this.loading = true;
+    },
+    // 停止系统loading和refresh
+    _endSystemLoadingAndRefresh: function _endSystemLoadingAndRefresh() {
+      this.finalShowSystemLoading && uni.hideLoading();
+      !this.useCustomRefresher && uni.stopPullDownRefresh();
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 622 */
+/*!************************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/chat-record-mode.js ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+// [z-paging]聊天记录模式模块
+var _default = {
+  props: {
+    // 使用聊天记录模式，默认为否
+    useChatRecordMode: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useChatRecordMode', false)
+    },
+    // 使用聊天记录模式时滚动到顶部后，列表垂直移动偏移距离。默认0rpx。单位px（暂时无效）
+    chatRecordMoreOffset: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('chatRecordMoreOffset', '0rpx')
+    },
+    // 使用聊天记录模式时是否自动隐藏键盘：在用户触摸列表时候自动隐藏键盘，默认为是
+    autoHideKeyboardWhenChat: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoHideKeyboardWhenChat', true)
+    },
+    // 使用聊天记录模式中键盘弹出时是否自动调整slot="bottom"高度，默认为是
+    autoAdjustPositionWhenChat: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoAdjustPositionWhenChat', true)
+    },
+    // 使用聊天记录模式中键盘弹出时是否自动滚动到底部，默认为否
+    autoToBottomWhenChat: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoToBottomWhenChat', false)
+    },
+    // 使用聊天记录模式中reload时是否显示chatLoading，默认为否
+    showChatLoadingWhenReload: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showChatLoadingWhenReload', false)
+    },
+    // 在聊天记录模式中滑动到顶部状态为默认状态时，以加载中的状态展示，默认为是。若设置为否，则默认会显示【点击加载更多】，然后才会显示loading
+    chatLoadingMoreDefaultAsLoading: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('chatLoadingMoreDefaultAsLoading', true)
+    }
+  },
+  data: function data() {
+    return {
+      // 键盘高度
+      keyboardHeight: 0,
+      // 键盘高度是否未改变，此时占位高度变化不需要动画效果
+      isKeyboardHeightChanged: false
+    };
+  },
+  computed: {
+    finalChatRecordMoreOffset: function finalChatRecordMoreOffset() {
+      return _zPagingUtils.default.convertToPx(this.chatRecordMoreOffset);
+    },
+    // 聊天记录模式旋转180度style
+    chatRecordRotateStyle: function chatRecordRotateStyle() {
+      var _this = this;
+      var cellStyle;
+      // 在vue中，直接将列表倒置，因此在vue的cell中，也直接写style="transform: scaleY(-1)"转回来即可。
+
+      cellStyle = this.useChatRecordMode ? {
+        transform: 'scaleY(-1)'
+      } : {};
+
+      // 在nvue中，需要考虑数据量不满一页的情况，因为nvue中的list无法通过flex-end修改不满一页的起始位置，会导致不满一页时列表数据从底部开始，因此需要特别判断
+      // 当数据不满一屏的时候，不进行列表倒置
+
+      this.$emit('update:cellStyle', cellStyle);
+      this.$emit('cellStyleChange', cellStyle);
+
+      // 在聊天记录模式中，如果列表没有倒置并且当前是第一页，则需要自动滚动到最底部
+      this.$nextTick(function () {
+        if (_this.isFirstPage && _this.isChatRecordModeAndNotInversion) {
+          _this.$nextTick(function () {
+            // 这里多次触发滚动到底部是为了避免在某些情况下，即使是在nextTick但是cell未渲染完毕导致滚动到底部位置不正确的问题
+            _this._scrollToBottom(false);
+            _zPagingUtils.default.delay(function () {
+              _this._scrollToBottom(false);
+              _zPagingUtils.default.delay(function () {
+                _this._scrollToBottom(false);
+              }, 50);
+            }, 50);
+          });
+        }
+      });
+      return cellStyle;
+    },
+    // 是否是聊天记录列表并且有配置transform
+    isChatRecordModeHasTransform: function isChatRecordModeHasTransform() {
+      return this.useChatRecordMode && this.chatRecordRotateStyle && this.chatRecordRotateStyle.transform;
+    },
+    // 是否是聊天记录列表并且列表未倒置
+    isChatRecordModeAndNotInversion: function isChatRecordModeAndNotInversion() {
+      return this.isChatRecordModeHasTransform && this.chatRecordRotateStyle.transform === 'scaleY(1)';
+    },
+    // 是否是聊天记录列表并且列表倒置
+    isChatRecordModeAndInversion: function isChatRecordModeAndInversion() {
+      return this.isChatRecordModeHasTransform && this.chatRecordRotateStyle.transform === 'scaleY(-1)';
+    },
+    // 最终的聊天记录模式中底部安全区域的高度，如果开启了底部安全区域并且键盘未弹出，则添加底部区域高度
+    chatRecordModeSafeAreaBottom: function chatRecordModeSafeAreaBottom() {
+      return this.safeAreaInsetBottom && !this.keyboardHeight ? this.safeAreaBottom : 0;
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+    // 监听键盘高度变化（H5、百度小程序、抖音小程序、飞书小程序不支持）
+
+    if (this.useChatRecordMode) {
+      uni.onKeyboardHeightChange(function (res) {
+        _this2.$emit('keyboardHeightChange', res);
+        if (_this2.autoAdjustPositionWhenChat) {
+          _this2.isKeyboardHeightChanged = true;
+          _this2.keyboardHeight = res.height;
+        }
+        if (_this2.autoToBottomWhenChat && _this2.keyboardHeight > 0) {
+          _zPagingUtils.default.delay(function () {
+            _this2.scrollToBottom(false);
+          });
+        }
+      });
+    }
+  },
+  methods: {
+    // 添加聊天记录
+    addChatRecordData: function addChatRecordData(data) {
+      var toBottom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var toBottomWithAnimate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+      if (!this.useChatRecordMode) return;
+      this.isTotalChangeFromAddData = true;
+      this.addDataFromTop(data, toBottom, toBottomWithAnimate);
+    },
+    // 手动触发滚动到顶部加载更多，聊天记录模式时有效
+    doChatRecordLoadMore: function doChatRecordLoadMore() {
+      this.useChatRecordMode && this._onLoadingMore('click');
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 623 */
+/*!****************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/scroller.js ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]scroll相关模块
+var _default = {
+  props: {
+    // 使用页面滚动，默认为否，当设置为是时则使用页面的滚动而非此组件内部的scroll-view的滚动，使用页面滚动时z-paging无需设置确定的高度且对于长列表展示性能更高，但配置会略微繁琐
+    usePageScroll: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('usePageScroll', false)
+    },
+    // 是否可以滚动，使用内置scroll-view和nvue时有效，默认为是
+    scrollable: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('scrollable', true)
+    },
+    // 控制是否出现滚动条，默认为是
+    showScrollbar: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('showScrollbar', true)
+    },
+    // 是否允许横向滚动，默认为否
+    scrollX: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('scrollX', false)
+    },
+    // iOS设备上滚动到顶部时是否允许回弹效果，默认为否。关闭回弹效果后可使滚动到顶部与下拉刷新更连贯，但是有吸顶view时滚动到顶部时可能出现抖动。
+    scrollToTopBounceEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('scrollToTopBounceEnabled', false)
+    },
+    // iOS设备上滚动到底部时是否允许回弹效果，默认为是。
+    scrollToBottomBounceEnabled: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('scrollToBottomBounceEnabled', true)
+    },
+    // 在设置滚动条位置时使用动画过渡，默认为否
+    scrollWithAnimation: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('scrollWithAnimation', false)
+    },
+    // 值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素
+    scrollIntoView: {
+      type: String,
+      default: _zPagingUtils.default.gc('scrollIntoView', '')
+    }
+  },
+  data: function data() {
+    return {
+      scrollTop: 0,
+      oldScrollTop: 0,
+      scrollViewStyle: {},
+      scrollViewContainerStyle: {},
+      scrollViewInStyle: {},
+      pageScrollTop: -1,
+      scrollEnable: true,
+      privateScrollWithAnimation: -1,
+      cacheScrollNodeHeight: -1
+    };
+  },
+  watch: {
+    oldScrollTop: function oldScrollTop(newVal) {
+      !this.usePageScroll && this._scrollTopChange(newVal, false);
+    },
+    pageScrollTop: function pageScrollTop(newVal) {
+      this.usePageScroll && this._scrollTopChange(newVal, true);
+    },
+    usePageScroll: {
+      handler: function handler(newVal) {
+        this.loaded && this.autoHeight && this._setAutoHeight(!newVal);
+      },
+      immediate: true
+    },
+    finalScrollTop: function finalScrollTop(newVal) {
+      this.renderPropScrollTop = newVal < 6 ? 0 : 10;
+    }
+  },
+  computed: {
+    finalScrollWithAnimation: function finalScrollWithAnimation() {
+      if (this.privateScrollWithAnimation !== -1) {
+        var scrollWithAnimation = this.privateScrollWithAnimation === 1;
+        this.privateScrollWithAnimation = -1;
+        return scrollWithAnimation;
+      }
+      return this.scrollWithAnimation;
+    },
+    finalScrollViewStyle: function finalScrollViewStyle() {
+      if (this.superContentZIndex != 1) {
+        this.scrollViewStyle['z-index'] = this.superContentZIndex;
+        this.scrollViewStyle['position'] = 'relative';
+      }
+      return this.scrollViewStyle;
+    },
+    finalScrollTop: function finalScrollTop() {
+      return this.usePageScroll ? this.pageScrollTop : this.oldScrollTop;
+    },
+    finalIsOldWebView: function finalIsOldWebView() {
+      return this.isOldWebView && !this.usePageScroll;
+    }
+  },
+  methods: {
+    // 滚动到顶部，animate为是否展示滚动动画，默认为是
+    scrollToTop: function scrollToTop(animate) {
+      var _this = this;
+      var checkReverse = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      // 如果是聊天记录模式并且列表倒置了，则滚动到顶部实际上是滚动到底部
+      if (this.useChatRecordMode && checkReverse && !this.isChatRecordModeAndNotInversion) {
+        this.scrollToBottom(animate, false);
+        return;
+      }
+      this.$nextTick(function () {
+        _this._scrollToTop(animate, false);
+      });
+    },
+    // 滚动到底部，animate为是否展示滚动动画，默认为是
+    scrollToBottom: function scrollToBottom(animate) {
+      var _this2 = this;
+      var checkReverse = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      // 如果是聊天记录模式并且列表倒置了，则滚动到底部实际上是滚动到顶部
+      if (this.useChatRecordMode && checkReverse && !this.isChatRecordModeAndNotInversion) {
+        this.scrollToTop(animate, false);
+        return;
+      }
+      this.$nextTick(function () {
+        _this2._scrollToBottom(animate);
+      });
+    },
+    // 滚动到指定view(vue中有效)。sel为需要滚动的view的id值，不包含"#"；offset为偏移量，单位为px；animate为是否展示滚动动画，默认为否
+    scrollIntoViewById: function scrollIntoViewById(sel, offset, animate) {
+      this._scrollIntoView(sel, offset, animate);
+    },
+    // 滚动到指定view(vue中有效)。nodeTop为需要滚动的view的top值(通过uni.createSelectorQuery()获取)；offset为偏移量，单位为px；animate为是否展示滚动动画，默认为否
+    scrollIntoViewByNodeTop: function scrollIntoViewByNodeTop(nodeTop, offset, animate) {
+      var _this3 = this;
+      this.scrollTop = this.oldScrollTop;
+      this.$nextTick(function () {
+        _this3._scrollIntoViewByNodeTop(nodeTop, offset, animate);
+      });
+    },
+    // 滚动到指定位置(vue中有效)。y为与顶部的距离，单位为px；offset为偏移量，单位为px；animate为是否展示滚动动画，默认为否
+    scrollToY: function scrollToY(y, offset, animate) {
+      var _this4 = this;
+      this.scrollTop = this.oldScrollTop;
+      this.$nextTick(function () {
+        _this4._scrollToY(y, offset, animate);
+      });
+    },
+    // 滚动到指定view(nvue中有效)。index为需要滚动的view的index(第几个)；offset为偏移量，单位为px；animate为是否展示滚动动画，默认为否
+    scrollIntoViewByIndex: function scrollIntoViewByIndex(index, offset, animate) {
+      this._scrollIntoView(index, offset, animate);
+    },
+    // 滚动到指定view(nvue中有效)。view为需要滚动的view(通过`this.$refs.xxx`获取)，不包含"#"；offset为偏移量，单位为px；animate为是否展示滚动动画，默认为否
+    scrollIntoViewByView: function scrollIntoViewByView(view, offset, animate) {
+      this._scrollIntoView(view, offset, animate);
+    },
+    // 当使用页面滚动并且自定义下拉刷新时，请在页面的onPageScroll中调用此方法，告知z-paging当前的pageScrollTop，否则会导致在任意位置都可以下拉刷新
+    updatePageScrollTop: function updatePageScrollTop(value) {
+      this.pageScrollTop = value;
+    },
+    // 当使用页面滚动并且设置了slot="top"时，默认初次加载会自动获取其高度，并使内部容器下移，当slot="top"的view高度动态改变时，在其高度需要更新时调用此方法
+    updatePageScrollTopHeight: function updatePageScrollTopHeight() {
+      this._updatePageScrollTopOrBottomHeight('top');
+    },
+    // 当使用页面滚动并且设置了slot="bottom"时，默认初次加载会自动获取其高度，并使内部容器下移，当slot="bottom"的view高度动态改变时，在其高度需要更新时调用此方法
+    updatePageScrollBottomHeight: function updatePageScrollBottomHeight() {
+      this._updatePageScrollTopOrBottomHeight('bottom');
+    },
+    // 更新slot="left"和slot="right"宽度，当slot="left"或slot="right"宽度动态改变时调用
+    updateLeftAndRightWidth: function updateLeftAndRightWidth() {
+      var _this5 = this;
+      if (!this.finalIsOldWebView) return;
+      this.$nextTick(function () {
+        return _this5._updateLeftAndRightWidth(_this5.scrollViewContainerStyle, 'zp-page');
+      });
+    },
+    // 更新z-paging内置scroll-view的scrollTop
+    updateScrollViewScrollTop: function updateScrollViewScrollTop(scrollTop) {
+      var _this6 = this;
+      var animate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      this.privateScrollWithAnimation = animate ? 1 : 0;
+      this.scrollTop = this.oldScrollTop;
+      this.$nextTick(function () {
+        _this6.scrollTop = scrollTop;
+        _this6.oldScrollTop = _this6.scrollTop;
+      });
+    },
+    // 当滚动到顶部时
+    _onScrollToUpper: function _onScrollToUpper() {
+      var _this7 = this;
+      this.$emit('scrolltoupper');
+      this.$emit('scrollTopChange', 0);
+      this.$nextTick(function () {
+        _this7.oldScrollTop = 0;
+      });
+    },
+    // 当滚动到底部时
+    _onScrollToLower: function _onScrollToLower(e) {
+      (!e.detail || !e.detail.direction || e.detail.direction === 'bottom') && this._onLoadingMore(this.useChatRecordMode ? 'click' : 'toBottom');
+    },
+    // 滚动到顶部
+    _scrollToTop: function _scrollToTop() {
+      var _this8 = this;
+      var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var isPrivate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      if (this.usePageScroll) {
+        this.$nextTick(function () {
+          uni.pageScrollTo({
+            scrollTop: 0,
+            duration: animate ? 100 : 0
+          });
+        });
+        return;
+      }
+      this.privateScrollWithAnimation = animate ? 1 : 0;
+      this.scrollTop = this.oldScrollTop;
+      this.$nextTick(function () {
+        _this8.scrollTop = 0;
+        _this8.oldScrollTop = _this8.scrollTop;
+      });
+    },
+    // 滚动到底部
+    _scrollToBottom: function _scrollToBottom() {
+      var _arguments = arguments,
+        _this9 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var animate, pagingContainerNode, scrollViewNode, pagingContainerH, scrollViewH;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                animate = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : true;
+                if (!_this9.usePageScroll) {
+                  _context.next = 4;
+                  break;
+                }
+                _this9.$nextTick(function () {
+                  uni.pageScrollTo({
+                    scrollTop: Number.MAX_VALUE,
+                    duration: animate ? 100 : 0
+                  });
+                });
+                return _context.abrupt("return");
+              case 4:
+                _context.prev = 4;
+                _this9.privateScrollWithAnimation = animate ? 1 : 0;
+                _context.next = 8;
+                return _this9._getNodeClientRect('.zp-paging-container');
+              case 8:
+                pagingContainerNode = _context.sent;
+                _context.next = 11;
+                return _this9._getNodeClientRect('.zp-scroll-view');
+              case 11:
+                scrollViewNode = _context.sent;
+                pagingContainerH = pagingContainerNode ? pagingContainerNode[0].height : 0;
+                scrollViewH = scrollViewNode ? scrollViewNode[0].height : 0;
+                if (pagingContainerH > scrollViewH) {
+                  _this9.scrollTop = _this9.oldScrollTop;
+                  _this9.$nextTick(function () {
+                    _this9.scrollTop = pagingContainerH - scrollViewH + _this9.virtualPlaceholderTopHeight;
+                    _this9.oldScrollTop = _this9.scrollTop;
+                  });
+                }
+                _context.next = 19;
+                break;
+              case 17:
+                _context.prev = 17;
+                _context.t0 = _context["catch"](4);
+              case 19:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[4, 17]]);
+      }))();
+    },
+    // 滚动到指定view
+    _scrollIntoView: function _scrollIntoView(sel) {
+      var _this10 = this;
+      var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var animate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var finishCallback = arguments.length > 3 ? arguments[3] : undefined;
+      try {
+        this.scrollTop = this.oldScrollTop;
+        this.$nextTick(function () {
+          _this10._getNodeClientRect('#' + sel.replace('#', ''), _this10.$parent).then(function (node) {
+            if (node) {
+              var nodeTop = node[0].top;
+              _this10._scrollIntoViewByNodeTop(nodeTop, offset, animate);
+              finishCallback && finishCallback();
+            }
+          });
+        });
+      } catch (e) {}
+    },
+    // 通过nodeTop滚动到指定view
+    _scrollIntoViewByNodeTop: function _scrollIntoViewByNodeTop(nodeTop) {
+      var _this11 = this;
+      var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var animate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // 如果是聊天记录模式并且列表倒置了，此时nodeTop需要等于scroll-view高度 - nodeTop
+      if (this.isChatRecordModeAndInversion) {
+        this._getNodeClientRect('.zp-scroll-view').then(function (sNode) {
+          if (sNode) {
+            _this11._scrollToY(sNode[0].height - nodeTop, offset, animate, true);
+          }
+        });
+      } else {
+        this._scrollToY(nodeTop, offset, animate, true);
+      }
+    },
+    // 滚动到指定位置
+    _scrollToY: function _scrollToY(y) {
+      var _this12 = this;
+      var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var animate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var addScrollTop = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+      this.privateScrollWithAnimation = animate ? 1 : 0;
+      _zPagingUtils.default.delay(function () {
+        if (_this12.usePageScroll) {
+          if (addScrollTop && _this12.pageScrollTop !== -1) {
+            y += _this12.pageScrollTop;
+          }
+          var scrollTop = y - offset;
+          uni.pageScrollTo({
+            scrollTop: scrollTop,
+            duration: animate ? 100 : 0
+          });
+        } else {
+          if (addScrollTop) {
+            y += _this12.oldScrollTop;
+          }
+          _this12.scrollTop = y - offset;
+        }
+      }, 10);
+    },
+    // scroll-view滚动中
+    _scroll: function _scroll(e) {
+      this.$emit('scroll', e);
+      var scrollTop = e.detail.scrollTop;
+      this.finalUseVirtualList && this._updateVirtualScroll(scrollTop, this.oldScrollTop - scrollTop);
+      this.oldScrollTop = scrollTop;
+      // 滚动区域内容的总高度 - 当前滚动的scrollTop = 当前滚动区域的顶部与内容底部的距离
+      var scrollDiff = e.detail.scrollHeight - this.oldScrollTop;
+      // 在非ios平台滚动中，再次验证一下是否滚动到了底部。因为在一些安卓设备中，有概率滚动到底部不触发@scrolltolower事件，因此添加双重检测逻辑
+      !this.isIos && this._checkScrolledToBottom(scrollDiff);
+    },
+    // 检测scrollView是否要铺满屏幕
+    _doCheckScrollViewShouldFullHeight: function _doCheckScrollViewShouldFullHeight(totalData) {
+      var _this13 = this;
+      if (this.autoFullHeight && this.usePageScroll && this.isTotalChangeFromAddData) {
+        this.$nextTick(function () {
+          _this13._checkScrollViewShouldFullHeight(function (scrollViewNode, pagingContainerNode) {
+            _this13._preCheckShowNoMoreInside(totalData, scrollViewNode, pagingContainerNode);
+          });
+        });
+      } else {
+        this._preCheckShowNoMoreInside(totalData);
+      }
+    },
+    // 检测z-paging是否要全屏覆盖(当使用页面滚动并且不满全屏时，默认z-paging需要铺满全屏，避免数据过少时内部的empty-view无法正确展示)
+    _checkScrollViewShouldFullHeight: function _checkScrollViewShouldFullHeight(callback) {
+      var _this14 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var scrollViewNode, pagingContainerNode, scrollViewHeight, scrollViewTop;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _this14._getNodeClientRect('.zp-scroll-view');
+              case 3:
+                scrollViewNode = _context2.sent;
+                _context2.next = 6;
+                return _this14._getNodeClientRect('.zp-paging-container-content');
+              case 6:
+                pagingContainerNode = _context2.sent;
+                if (!(!scrollViewNode || !pagingContainerNode)) {
+                  _context2.next = 9;
+                  break;
+                }
+                return _context2.abrupt("return");
+              case 9:
+                scrollViewHeight = pagingContainerNode[0].height;
+                scrollViewTop = scrollViewNode[0].top;
+                if (_this14.isAddedData && scrollViewHeight + scrollViewTop <= _this14.windowHeight) {
+                  _this14._setAutoHeight(true, scrollViewNode);
+                  callback(scrollViewNode, pagingContainerNode);
+                } else {
+                  _this14._setAutoHeight(false);
+                  callback(null, null);
+                }
+                _context2.next = 17;
+                break;
+              case 14:
+                _context2.prev = 14;
+                _context2.t0 = _context2["catch"](0);
+                callback(null, null);
+              case 17:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 14]]);
+      }))();
+    },
+    // scrollTop改变时触发
+    _scrollTopChange: function _scrollTopChange(newVal, isPageScrollTop) {
+      this.$emit('scrollTopChange', newVal);
+      this.$emit('update:scrollTop', newVal);
+      this._checkShouldShowBackToTop(newVal);
+      // 之前在安卓中scroll-view有概率滚动到顶部时scrollTop不为0导致下拉刷新判断异常，经过测试在HX3.98+已修复，因此暂时关闭此容错判断
+      // const scrollTop = this.isIos ? (newVal > 5 ? 6 : 0) : (newVal > 105 ? 106 : (newVal > 5 ? 6 : 0));
+      var scrollTop = newVal > 5 ? 6 : 0;
+      if (isPageScrollTop && this.wxsPageScrollTop !== scrollTop) {
+        this.wxsPageScrollTop = scrollTop;
+      } else if (!isPageScrollTop && this.wxsScrollTop !== scrollTop) {
+        this.wxsScrollTop = scrollTop;
+        if (scrollTop > 6) {
+          this.scrollEnable = true;
+        }
+      }
+    },
+    // 更新使用页面滚动时slot="top"或"bottom"插入view的高度
+    _updatePageScrollTopOrBottomHeight: function _updatePageScrollTopOrBottomHeight(type) {
+      var _this15 = this;
+      if (!this.usePageScroll) return;
+      this._doCheckScrollViewShouldFullHeight(this.realTotalData);
+      var node = ".zp-page-".concat(type);
+      var marginText = "margin".concat(type.slice(0, 1).toUpperCase() + type.slice(1));
+      var safeAreaInsetBottomAdd = this.safeAreaInsetBottom;
+      this.$nextTick(function () {
+        var delayTime = 0;
+        _zPagingUtils.default.delay(function () {
+          _this15._getNodeClientRect(node).then(function (res) {
+            if (res) {
+              var pageScrollNodeHeight = res[0].height;
+              if (type === 'bottom') {
+                if (safeAreaInsetBottomAdd) {
+                  pageScrollNodeHeight += _this15.safeAreaBottom;
+                }
+              } else {
+                _this15.cacheTopHeight = pageScrollNodeHeight;
+              }
+              _this15.$set(_this15.scrollViewStyle, marginText, "".concat(pageScrollNodeHeight, "px"));
+            } else if (safeAreaInsetBottomAdd) {
+              _this15.$set(_this15.scrollViewStyle, marginText, "".concat(_this15.safeAreaBottom, "px"));
+            }
+          });
+        }, delayTime);
+      });
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 624 */
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/back-to-top.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+// [z-paging]点击返回顶部view模块
+var _default = {
+  props: {
+    // 自动显示点击返回顶部按钮，默认为否
+    autoShowBackToTop: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('autoShowBackToTop', false)
+    },
+    // 点击返回顶部按钮显示/隐藏的阈值(滚动距离)，单位为px，默认为400rpx
+    backToTopThreshold: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('backToTopThreshold', '400rpx')
+    },
+    // 点击返回顶部按钮的自定义图片地址，默认使用z-paging内置的图片
+    backToTopImg: {
+      type: String,
+      default: _zPagingUtils.default.gc('backToTopImg', '')
+    },
+    // 点击返回顶部按钮返回到顶部时是否展示过渡动画，默认为是
+    backToTopWithAnimate: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('backToTopWithAnimate', true)
+    },
+    // 点击返回顶部按钮与底部的距离，注意添加单位px或rpx，默认为160rpx
+    backToTopBottom: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('backToTopBottom', '160rpx')
+    },
+    // 点击返回顶部按钮的自定义样式
+    backToTopStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('backToTopStyle', {})
+    },
+    // iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向，默认为是
+    enableBackToTop: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('enableBackToTop', true)
+    }
+  },
+  data: function data() {
+    return {
+      // 点击返回顶部的class
+      backToTopClass: 'zp-back-to-top zp-back-to-top-hide',
+      // 上次点击返回顶部的时间
+      lastBackToTopShowTime: 0,
+      // 点击返回顶部显示的class是否在展示中，使得按钮展示/隐藏过度效果更自然
+      showBackToTopClass: false
+    };
+  },
+  computed: {
+    backToTopThresholdUnitConverted: function backToTopThresholdUnitConverted() {
+      return _zPagingUtils.default.addUnit(this.backToTopThreshold, this.unit);
+    },
+    backToTopBottomUnitConverted: function backToTopBottomUnitConverted() {
+      return _zPagingUtils.default.addUnit(this.backToTopBottom, this.unit);
+    },
+    finalEnableBackToTop: function finalEnableBackToTop() {
+      return this.usePageScroll ? false : this.enableBackToTop;
+    },
+    finalBackToTopThreshold: function finalBackToTopThreshold() {
+      return _zPagingUtils.default.convertToPx(this.backToTopThresholdUnitConverted);
+    },
+    finalBackToTopStyle: function finalBackToTopStyle() {
+      var backToTopStyle = this.backToTopStyle;
+      if (!backToTopStyle.bottom) {
+        backToTopStyle.bottom = this.windowBottom + _zPagingUtils.default.convertToPx(this.backToTopBottomUnitConverted) + 'px';
+      }
+      if (!backToTopStyle.position) {
+        backToTopStyle.position = this.usePageScroll ? 'fixed' : 'absolute';
+      }
+      return backToTopStyle;
+    },
+    finalBackToTopClass: function finalBackToTopClass() {
+      return "".concat(this.backToTopClass, " zp-back-to-top-").concat(this.unit);
+    }
+  },
+  methods: {
+    // 点击了返回顶部
+    _backToTopClick: function _backToTopClick() {
+      var _this = this;
+      var callbacked = false;
+      this.$emit('backToTopClick', function (toTop) {
+        (toTop === undefined || toTop === true) && _this._handleToTop();
+        callbacked = true;
+      });
+      // 如果用户没有禁止默认的返回顶部事件，则触发滚动到顶部
+      this.$nextTick(function () {
+        !callbacked && _this._handleToTop();
+      });
+    },
+    // 处理滚动到顶部
+    _handleToTop: function _handleToTop() {
+      !this.backToTopWithAnimate && this._checkShouldShowBackToTop(0);
+      this.scrollToTop(this.backToTopWithAnimate);
+    },
+    // 判断是否要显示返回顶部按钮
+    _checkShouldShowBackToTop: function _checkShouldShowBackToTop(scrollTop) {
+      var _this2 = this;
+      if (!this.autoShowBackToTop) {
+        this.showBackToTopClass = false;
+        return;
+      }
+      if (scrollTop > this.finalBackToTopThreshold) {
+        if (!this.showBackToTopClass) {
+          // 记录当前点击返回顶部按钮显示的class生效了
+          this.showBackToTopClass = true;
+          this.lastBackToTopShowTime = new Date().getTime();
+          // 当滚动到需要展示返回顶部的阈值内，则延迟300毫秒展示返回到顶部按钮
+          _zPagingUtils.default.delay(function () {
+            _this2.backToTopClass = 'zp-back-to-top zp-back-to-top-show';
+          }, 300);
+        }
+      } else {
+        // 如果当前点击返回顶部按钮显示的class是生效状态并且滚动小于触发阈值，则隐藏返回顶部按钮
+        if (this.showBackToTopClass) {
+          this.backToTopClass = 'zp-back-to-top zp-back-to-top-hide';
+          _zPagingUtils.default.delay(function () {
+            _this2.showBackToTopClass = false;
+          }, new Date().getTime() - this.lastBackToTopShowTime < 500 ? 0 : 300);
+        }
+      }
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 625 */
+/*!********************************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/virtual-list.js ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 606));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 605));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 610));
+// [z-paging]虚拟列表模块
+var _default = {
+  props: {
+    // 是否使用虚拟列表，默认为否
+    useVirtualList: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useVirtualList', false)
+    },
+    // 在使用虚拟列表时，是否使用兼容模式，默认为否
+    useCompatibilityMode: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useCompatibilityMode', false)
+    },
+    // 使用兼容模式时传递的附加数据
+    extraData: {
+      type: Object,
+      default: _zPagingUtils.default.gc('extraData', {})
+    },
+    // 是否在z-paging内部循环渲染列表(内置列表)，默认为否。若use-virtual-list为true，则此项恒为true
+    useInnerList: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('useInnerList', false)
+    },
+    // 强制关闭inner-list，默认为false，如果为true将强制关闭innerList，适用于开启了虚拟列表后需要强制关闭inner-list的情况
+    forceCloseInnerList: {
+      type: Boolean,
+      default: _zPagingUtils.default.gc('forceCloseInnerList', false)
+    },
+    // 内置列表cell的key名称，仅nvue有效，在nvue中开启use-inner-list时必须填此项
+    cellKeyName: {
+      type: String,
+      default: _zPagingUtils.default.gc('cellKeyName', '')
+    },
+    // innerList样式
+    innerListStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('innerListStyle', {})
+    },
+    // innerCell样式
+    innerCellStyle: {
+      type: Object,
+      default: _zPagingUtils.default.gc('innerCellStyle', {})
+    },
+    // 预加载的列表可视范围(列表高度)页数，默认为12，即预加载当前页及上下各12页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题
+    preloadPage: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('preloadPage', 12),
+      validator: function validator(value) {
+        if (value <= 0) _zPagingUtils.default.consoleErr('preload-page必须大于0！');
+        return value > 0;
+      }
+    },
+    // 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值【dynamic】，即代表高度是动态非固定的，【dynamic】性能低于【fixed】。
+    cellHeightMode: {
+      type: String,
+      default: _zPagingUtils.default.gc('cellHeightMode', _zPagingEnum.default.CellHeightMode.Fixed)
+    },
+    // 虚拟列表列数，默认为1。常用于每行有多列的情况，例如每行有2列数据，需要将此值设置为2
+    virtualListCol: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('virtualListCol', 1)
+    },
+    // 虚拟列表scroll取样帧率，默认为80，过低容易出现白屏问题，过高容易出现卡顿问题
+    virtualScrollFps: {
+      type: [Number, String],
+      default: _zPagingUtils.default.gc('virtualScrollFps', 80)
+    }
+  },
+  data: function data() {
+    return {
+      virtualListKey: _zPagingUtils.default.getInstanceId(),
+      virtualPageHeight: 0,
+      virtualCellHeight: 0,
+      virtualScrollTimeStamp: 0,
+      virtualList: [],
+      virtualPlaceholderTopHeight: 0,
+      virtualPlaceholderBottomHeight: 0,
+      virtualTopRangeIndex: 0,
+      virtualBottomRangeIndex: 0,
+      lastVirtualTopRangeIndex: 0,
+      lastVirtualBottomRangeIndex: 0,
+      virtualItemInsertedCount: 0,
+      virtualHeightCacheList: [],
+      getCellHeightRetryCount: {
+        fixed: 0,
+        dynamic: 0
+      },
+      pagingOrgTop: -1,
+      updateVirtualListFromDataChange: false
+    };
+  },
+  watch: {
+    // 监听总数据的改变，刷新虚拟列表布局
+    realTotalData: function realTotalData(newVal) {
+      var _this = this;
+      if (this.finalUseVirtualList) {
+        this.updateVirtualListFromDataChange = true;
+        this.$nextTick(function () {
+          _this.getCellHeightRetryCount.fixed = 0;
+          !newVal.length && _this._resetDynamicListState(!_this.isUserPullDown);
+          newVal.length && _this.cellHeightMode === _zPagingEnum.default.CellHeightMode.Fixed && _this.isFirstPage && _this._updateFixedCellHeight();
+          _this._updateVirtualScroll(_this.oldScrollTop);
+        });
+      }
+    },
+    // 监听虚拟列表渲染数组的改变并emit
+    virtualList: function virtualList(newVal) {
+      this.$emit('update:virtualList', newVal);
+      this.$emit('virtualListChange', newVal);
+    }
+  },
+  computed: {
+    virtualCellIndexKey: function virtualCellIndexKey() {
+      return _zPagingConstant.default.listCellIndexKey;
+    },
+    finalUseVirtualList: function finalUseVirtualList() {
+      if (this.useVirtualList && this.usePageScroll) {
+        _zPagingUtils.default.consoleErr('使用页面滚动时，开启虚拟列表无效！');
+      }
+      return this.useVirtualList && !this.usePageScroll;
+    },
+    finalUseInnerList: function finalUseInnerList() {
+      return this.useInnerList || this.finalUseVirtualList && !this.forceCloseInnerList;
+    },
+    finalCellKeyName: function finalCellKeyName() {
+      return this.cellKeyName;
+    },
+    finalVirtualPageHeight: function finalVirtualPageHeight() {
+      return this.virtualPageHeight > 0 ? this.virtualPageHeight : this.windowHeight;
+    },
+    virtualRangePageHeight: function virtualRangePageHeight() {
+      return this.finalVirtualPageHeight * this.preloadPage;
+    },
+    virtualScrollDisTimeStamp: function virtualScrollDisTimeStamp() {
+      return 1000 / this.virtualScrollFps;
+    }
+  },
+  methods: {
+    // 在使用动态高度虚拟列表时，若在列表数组中需要插入某个item，需要调用此方法；item:需要插入的item，index:插入的cell位置，若index为2，则插入的item在原list的index=1之后，index从0开始
+    doInsertVirtualListItem: function doInsertVirtualListItem(item, index) {
+      var _this2 = this;
+      if (this.cellHeightMode !== _zPagingEnum.default.CellHeightMode.Dynamic) return;
+      this.virtualItemInsertedCount++;
+      if (!item || Object.prototype.toString.call(item) !== '[object Object]') {
+        item = {
+          item: item
+        };
+      }
+      var cellIndexKey = this.virtualCellIndexKey;
+      item[cellIndexKey] = "custom-".concat(this.virtualItemInsertedCount);
+      item[_zPagingConstant.default.listCellIndexUniqueKey] = "".concat(this.virtualListKey, "-").concat(item[cellIndexKey]);
+      this.$nextTick( /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var retryCount, cellNode, currentHeight, lastHeightCache, lastTotalHeight, i, thisNode;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                retryCount = 0;
+              case 1:
+                if (!(retryCount <= 10)) {
+                  _context.next = 19;
+                  break;
+                }
+                _context.next = 4;
+                return _zPagingUtils.default.wait(_zPagingConstant.default.delayTime);
+              case 4:
+                _context.next = 6;
+                return _this2._getNodeClientRect("#zp-id-".concat(item[cellIndexKey]), _this2.finalUseInnerList);
+              case 6:
+                cellNode = _context.sent;
+                if (cellNode) {
+                  _context.next = 10;
+                  break;
+                }
+                retryCount++;
+                return _context.abrupt("continue", 1);
+              case 10:
+                currentHeight = cellNode ? cellNode[0].height : 0;
+                lastHeightCache = _this2.virtualHeightCacheList[index - 1];
+                lastTotalHeight = lastHeightCache ? lastHeightCache.totalHeight : 0; // 在缓存的cell高度数组中，插入此cell高度信息
+                _this2.virtualHeightCacheList.splice(index, 0, {
+                  height: currentHeight,
+                  lastTotalHeight: lastTotalHeight,
+                  totalHeight: lastTotalHeight + currentHeight
+                });
+
+                // 从当前index起后续的cell缓存高度的lastTotalHeight和totalHeight需要加上当前cell的高度
+                for (i = index + 1; i < _this2.virtualHeightCacheList.length; i++) {
+                  thisNode = _this2.virtualHeightCacheList[i];
+                  thisNode.lastTotalHeight += currentHeight;
+                  thisNode.totalHeight += currentHeight;
+                }
+                _this2._updateVirtualScroll(_this2.oldScrollTop);
+                return _context.abrupt("break", 19);
+              case 19:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      })));
+    },
+    // 在使用动态高度虚拟列表时，手动更新指定cell的缓存高度(当cell高度在初始化之后再次改变时调用)；index:需要更新的cell在列表中的位置，从0开始
+    didUpdateVirtualListCell: function didUpdateVirtualListCell(index) {
+      var _this3 = this;
+      if (this.cellHeightMode !== _zPagingEnum.default.CellHeightMode.Dynamic) return;
+      var currentNode = this.virtualHeightCacheList[index];
+      this.$nextTick(function () {
+        _this3._getNodeClientRect("#zp-id-".concat(index), _this3.finalUseInnerList).then(function (cellNode) {
+          // 更新当前cell的高度
+          var cellNodeHeight = cellNode ? cellNode[0].height : 0;
+          var heightDis = cellNodeHeight - currentNode.height;
+          currentNode.height = cellNodeHeight;
+          currentNode.totalHeight = currentNode.lastTotalHeight + cellNodeHeight;
+
+          // 从当前index起后续的cell缓存高度的lastTotalHeight和totalHeight需要加上当前cell变化的高度
+          for (var i = index + 1; i < _this3.virtualHeightCacheList.length; i++) {
+            var thisNode = _this3.virtualHeightCacheList[i];
+            thisNode.totalHeight += heightDis;
+            thisNode.lastTotalHeight += heightDis;
+          }
+        });
+      });
+    },
+    // 在使用动态高度虚拟列表时，若删除了列表数组中的某个item，需要调用此方法以更新高度缓存数组；index:删除的cell在列表中的位置，从0开始
+    didDeleteVirtualListCell: function didDeleteVirtualListCell(index) {
+      if (this.cellHeightMode !== _zPagingEnum.default.CellHeightMode.Dynamic) return;
+      var currentNode = this.virtualHeightCacheList[index];
+      // 从当前index起后续的cell缓存高度的lastTotalHeight和totalHeight需要减去当前cell的高度
+      for (var i = index + 1; i < this.virtualHeightCacheList.length; i++) {
+        var thisNode = this.virtualHeightCacheList[i];
+        thisNode.totalHeight -= currentNode.height;
+        thisNode.lastTotalHeight -= currentNode.height;
+      }
+      // 将当前cell的高度信息从高度缓存数组中删除
+      this.virtualHeightCacheList.splice(index, 1);
+    },
+    // 初始化虚拟列表
+    _virtualListInit: function _virtualListInit() {
+      var _this4 = this;
+      this.$nextTick(function () {
+        _zPagingUtils.default.delay(function () {
+          // 获取虚拟列表滚动区域的高度
+          _this4._getNodeClientRect('.zp-scroll-view').then(function (node) {
+            if (node) {
+              _this4.pagingOrgTop = node[0].top;
+              _this4.virtualPageHeight = node[0].height;
+            }
+          });
+        });
+      });
+    },
+    // cellHeightMode为fixed时获取第一个cell高度
+    _updateFixedCellHeight: function _updateFixedCellHeight() {
+      var _this5 = this;
+      this.$nextTick(function () {
+        _zPagingUtils.default.delay(function () {
+          _this5._getNodeClientRect("#zp-id-".concat(0), _this5.finalUseInnerList).then(function (cellNode) {
+            if (!cellNode) {
+              if (_this5.getCellHeightRetryCount.fixed > 10) return;
+              _this5.getCellHeightRetryCount.fixed++;
+              // 如果获取第一个cell的节点信息失败，则重试（不超过10次）
+              _this5._updateFixedCellHeight();
+            } else {
+              _this5.virtualCellHeight = cellNode[0].height;
+              _this5._updateVirtualScroll(_this5.oldScrollTop);
+            }
+          });
+        }, _zPagingConstant.default.delayTime, 'updateFixedCellHeightDelay');
+      });
+    },
+    // cellHeightMode为dynamic时获取每个cell高度
+    _updateDynamicCellHeight: function _updateDynamicCellHeight(list) {
+      var _this6 = this;
+      var dataFrom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'bottom';
+      var dataFromTop = dataFrom === 'top';
+      var heightCacheList = this.virtualHeightCacheList;
+      var currentCacheList = dataFromTop ? [] : heightCacheList;
+      var listTotalHeight = 0;
+      this.$nextTick(function () {
+        _zPagingUtils.default.delay( /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+          var i, cellNode, currentHeight, lastHeightCache, lastTotalHeight, _i, heightCacheItem;
+          return _regenerator.default.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  i = 0;
+                case 1:
+                  if (!(i < list.length)) {
+                    _context2.next = 16;
+                    break;
+                  }
+                  _context2.next = 4;
+                  return _this6._getNodeClientRect("#zp-id-".concat(list[i][_this6.virtualCellIndexKey]), _this6.finalUseInnerList);
+                case 4:
+                  cellNode = _context2.sent;
+                  currentHeight = cellNode ? cellNode[0].height : 0;
+                  if (cellNode) {
+                    _context2.next = 9;
+                    break;
+                  }
+                  if (_this6.getCellHeightRetryCount.dynamic <= 10) {
+                    heightCacheList.splice(heightCacheList.length - i, i);
+                    _this6.getCellHeightRetryCount.dynamic++;
+                    // 如果获取当前cell的节点信息失败，则重试（不超过10次）
+                    _this6._updateDynamicCellHeight(list, dataFrom);
+                  }
+                  return _context2.abrupt("return");
+                case 9:
+                  lastHeightCache = currentCacheList.length ? currentCacheList.slice(-1)[0] : null;
+                  lastTotalHeight = lastHeightCache ? lastHeightCache.totalHeight : 0; // 缓存当前cell的高度信息：height-当前cell高度；lastTotalHeight-前面所有cell的高度总和；totalHeight-包含当前cell的所有高度总和
+                  currentCacheList.push({
+                    height: currentHeight,
+                    lastTotalHeight: lastTotalHeight,
+                    totalHeight: lastTotalHeight + currentHeight
+                  });
+                  if (dataFromTop) {
+                    listTotalHeight += currentHeight;
+                  }
+                case 13:
+                  i++;
+                  _context2.next = 1;
+                  break;
+                case 16:
+                  // 如果数据是从顶部拼接的
+                  if (dataFromTop && list.length) {
+                    for (_i = 0; _i < heightCacheList.length; _i++) {
+                      // 更新之前所有项的缓存高度，需要加上此次插入的所有cell高度之和（因为是从顶部插入的cell）
+                      heightCacheItem = heightCacheList[_i];
+                      heightCacheItem.lastTotalHeight += listTotalHeight;
+                      heightCacheItem.totalHeight += listTotalHeight;
+                    }
+                    _this6.virtualHeightCacheList = currentCacheList.concat(heightCacheList);
+                  }
+                  _this6._updateVirtualScroll(_this6.oldScrollTop);
+                case 18:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        })), _zPagingConstant.default.delayTime, 'updateDynamicCellHeightDelay');
+      });
+    },
+    // 设置cellItem的index
+    _setCellIndex: function _setCellIndex(list) {
+      var dataFrom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'bottom';
+      var currentItemIndex = 0;
+      var cellIndexKey = this.virtualCellIndexKey;
+      if (this.totalData.length) {
+        if (dataFrom === 'bottom') {
+          currentItemIndex = this.realTotalData.length;
+          var lastItem = this.realTotalData.length ? this.realTotalData.slice(-1)[0] : null;
+          if (lastItem && lastItem[cellIndexKey] !== undefined) {
+            currentItemIndex = lastItem[cellIndexKey] + 1;
+          }
+        } else if (dataFrom === 'top') {
+          var firstItem = this.realTotalData.length ? this.realTotalData[0] : null;
+          if (firstItem && firstItem[cellIndexKey] !== undefined) {
+            currentItemIndex = firstItem[cellIndexKey] - list.length;
+          }
+        }
+      } else {
+        this._resetDynamicListState();
+      }
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        if (!item || Object.prototype.toString.call(item) !== '[object Object]') {
+          item = {
+            item: item
+          };
+        }
+        item[cellIndexKey] = currentItemIndex + i;
+        item[_zPagingConstant.default.listCellIndexUniqueKey] = "".concat(this.virtualListKey, "-").concat(item[cellIndexKey]);
+        list[i] = item;
+      }
+      this.getCellHeightRetryCount.dynamic = 0;
+      this.cellHeightMode === _zPagingEnum.default.CellHeightMode.Dynamic && this._updateDynamicCellHeight(list, dataFrom);
+    },
+    // 更新scroll滚动（虚拟列表滚动时触发）
+    _updateVirtualScroll: function _updateVirtualScroll(scrollTop) {
+      var scrollDiff = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var currentTimeStamp = _zPagingUtils.default.getTime();
+      scrollTop === 0 && this._resetTopRange();
+      if (scrollTop !== 0 && this.virtualScrollTimeStamp && currentTimeStamp - this.virtualScrollTimeStamp <= this.virtualScrollDisTimeStamp) {
+        return;
+      }
+      this.virtualScrollTimeStamp = currentTimeStamp;
+      var scrollIndex = 0;
+      var cellHeightMode = this.cellHeightMode;
+      if (cellHeightMode === _zPagingEnum.default.CellHeightMode.Fixed) {
+        // 如果是固定高度的虚拟列表
+        // 计算当前滚动到的cell的index = scrollTop / 虚拟列表cell的固定高度
+        scrollIndex = parseInt(scrollTop / this.virtualCellHeight) || 0;
+        // 更新顶部和底部占位view的高度（为兼容考虑，顶部采用transformY的方式占位)
+        this._updateFixedTopRangeIndex(scrollIndex);
+        this._updateFixedBottomRangeIndex(scrollIndex);
+      } else if (cellHeightMode === _zPagingEnum.default.CellHeightMode.Dynamic) {
+        // 如果是不固定高度的虚拟列表
+        // 当前滚动的方向
+        var scrollDirection = scrollDiff > 0 ? 'top' : 'bottom';
+        // 视图区域的高度
+        var rangePageHeight = this.virtualRangePageHeight;
+        // 顶部视图区域外的高度（顶部不需要渲染而是需要占位部分的高度）
+        var topRangePageOffset = scrollTop - rangePageHeight;
+        // 底部视图区域外的高度（底部不需要渲染而是需要占位部分的高度）
+        var bottomRangePageOffset = scrollTop + this.finalVirtualPageHeight + rangePageHeight;
+        var virtualBottomRangeIndex = 0;
+        var virtualPlaceholderBottomHeight = 0;
+        var reachedLimitBottom = false;
+        var heightCacheList = this.virtualHeightCacheList;
+        var lastHeightCache = !!heightCacheList ? heightCacheList.slice(-1)[0] : null;
+        var startTopRangeIndex = this.virtualTopRangeIndex;
+        // 如果是向底部滚动（顶部占位的高度不断增大，顶部的实际渲染cell数量不断减少）
+        if (scrollDirection === 'bottom') {
+          // 从顶部视图边缘的cell的位置开始向后查找
+          for (var i = startTopRangeIndex; i < heightCacheList.length; i++) {
+            var heightCacheItem = heightCacheList[i];
+            // 如果查找到某个cell对应的totalHeight大于顶部视图区域外的高度，则此cell为顶部视图边缘的cell
+            if (heightCacheItem && heightCacheItem.totalHeight > topRangePageOffset) {
+              // 记录顶部视图边缘cell的index并更新顶部占位区域的高度并停止继续查找
+              this.virtualTopRangeIndex = i;
+              this.virtualPlaceholderTopHeight = heightCacheItem.lastTotalHeight;
+              break;
+            }
+          }
+        } else {
+          // 如果是向顶部滚动（顶部占位的高度不断减少，顶部的实际渲染cell数量不断增加）
+          var topRangeMatched = false;
+          // 从顶部视图边缘的cell的位置开始向前查找
+          for (var _i2 = startTopRangeIndex; _i2 >= 0; _i2--) {
+            var _heightCacheItem = heightCacheList[_i2];
+            // 如果查找到某个cell对应的totalHeight小于顶部视图区域外的高度，则此cell为顶部视图边缘的cell
+            if (_heightCacheItem && _heightCacheItem.totalHeight < topRangePageOffset) {
+              // 记录顶部视图边缘cell的index并更新顶部占位区域的高度并停止继续查找
+              this.virtualTopRangeIndex = _i2;
+              this.virtualPlaceholderTopHeight = _heightCacheItem.lastTotalHeight;
+              topRangeMatched = true;
+              break;
+            }
+          }
+          // 如果查找不到，则认为顶部占位高度为0了，顶部cell不需要继续复用，重置topRangeIndex和placeholderTopHeight
+          !topRangeMatched && this._resetTopRange();
+        }
+        // 从顶部视图边缘的cell的位置开始向后查找
+        for (var _i3 = this.virtualTopRangeIndex; _i3 < heightCacheList.length; _i3++) {
+          var _heightCacheItem2 = heightCacheList[_i3];
+          // 如果查找到某个cell对应的totalHeight大于底部视图区域外的高度，则此cell为底部视图边缘的cell
+          if (_heightCacheItem2 && _heightCacheItem2.totalHeight > bottomRangePageOffset) {
+            // 记录底部视图边缘cell的index并更新底部占位区域的高度并停止继续查找
+            virtualBottomRangeIndex = _i3;
+            virtualPlaceholderBottomHeight = lastHeightCache.totalHeight - _heightCacheItem2.totalHeight;
+            reachedLimitBottom = true;
+            break;
+          }
+        }
+        if (!reachedLimitBottom || this.virtualBottomRangeIndex === 0) {
+          this.virtualBottomRangeIndex = this.realTotalData.length ? this.realTotalData.length - 1 : this.pageSize;
+          this.virtualPlaceholderBottomHeight = 0;
+        } else {
+          this.virtualBottomRangeIndex = virtualBottomRangeIndex;
+          this.virtualPlaceholderBottomHeight = virtualPlaceholderBottomHeight;
+        }
+        this._updateVirtualList();
+      }
+    },
+    // 更新fixedCell模式下topRangeIndex&placeholderTopHeight
+    _updateFixedTopRangeIndex: function _updateFixedTopRangeIndex(scrollIndex) {
+      var virtualTopRangeIndex = this.virtualCellHeight === 0 ? 0 : scrollIndex - (parseInt(this.finalVirtualPageHeight / this.virtualCellHeight) || 1) * this.preloadPage;
+      virtualTopRangeIndex *= this.virtualListCol;
+      virtualTopRangeIndex = Math.max(0, virtualTopRangeIndex);
+      this.virtualTopRangeIndex = virtualTopRangeIndex;
+      this.virtualPlaceholderTopHeight = virtualTopRangeIndex / this.virtualListCol * this.virtualCellHeight;
+    },
+    // 更新fixedCell模式下bottomRangeIndex&placeholderBottomHeight
+    _updateFixedBottomRangeIndex: function _updateFixedBottomRangeIndex(scrollIndex) {
+      var virtualBottomRangeIndex = this.virtualCellHeight === 0 ? this.pageSize : scrollIndex + (parseInt(this.finalVirtualPageHeight / this.virtualCellHeight) || 1) * (this.preloadPage + 1);
+      virtualBottomRangeIndex *= this.virtualListCol;
+      virtualBottomRangeIndex = Math.min(this.realTotalData.length, virtualBottomRangeIndex);
+      this.virtualBottomRangeIndex = virtualBottomRangeIndex;
+      this.virtualPlaceholderBottomHeight = (this.realTotalData.length - virtualBottomRangeIndex) * this.virtualCellHeight / this.virtualListCol;
+      this._updateVirtualList();
+    },
+    // 更新virtualList
+    _updateVirtualList: function _updateVirtualList() {
+      var shouldUpdateList = this.updateVirtualListFromDataChange || this.lastVirtualTopRangeIndex !== this.virtualTopRangeIndex || this.lastVirtualBottomRangeIndex !== this.virtualBottomRangeIndex;
+      if (shouldUpdateList) {
+        this.updateVirtualListFromDataChange = false;
+        this.lastVirtualTopRangeIndex = this.virtualTopRangeIndex;
+        this.lastVirtualBottomRangeIndex = this.virtualBottomRangeIndex;
+        this.virtualList = this.realTotalData.slice(this.virtualTopRangeIndex, this.virtualBottomRangeIndex + 1);
+      }
+    },
+    // 重置动态cell模式下的高度缓存数据、虚拟列表和滚动状态
+    _resetDynamicListState: function _resetDynamicListState() {
+      var resetVirtualList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      this.virtualHeightCacheList = [];
+      if (resetVirtualList) {
+        this.virtualList = [];
+      }
+      this.virtualTopRangeIndex = 0;
+      this.virtualPlaceholderTopHeight = 0;
+    },
+    // 重置topRangeIndex和placeholderTopHeight
+    _resetTopRange: function _resetTopRange() {
+      this.virtualTopRangeIndex = 0;
+      this.virtualPlaceholderTopHeight = 0;
+      this._updateVirtualList();
+    },
+    // 检测虚拟列表当前滚动位置，如发现滚动位置不正确则重新计算虚拟列表相关参数(为解决在App中可能出现的长时间进入后台后打开App白屏的问题)
+    _checkVirtualListScroll: function _checkVirtualListScroll() {
+      var _this7 = this;
+      if (this.finalUseVirtualList) {
+        this.$nextTick(function () {
+          _this7._getNodeClientRect('.zp-paging-touch-view').then(function (node) {
+            var currentTop = node ? node[0].top : 0;
+            if (!node || currentTop === _this7.pagingOrgTop && _this7.virtualPlaceholderTopHeight !== 0) {
+              _this7._updateVirtualScroll(0);
+            }
+          });
+        });
+      }
+    },
+    // 处理使用内置列表时点击了cell事件
+    _innerCellClick: function _innerCellClick(item, index) {
+      this.$emit('innerCellClick', item, index);
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */
+/*!************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-tabs/props.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 滑块的移动过渡时间，单位ms
+    duration: {
+      type: Number,
+      default: uni.$u.props.tabs.duration
+    },
+    // tabs标签数组
+    list: {
+      type: Array,
+      default: uni.$u.props.tabs.list
+    },
+    // 滑块颜色
+    lineColor: {
+      type: String,
+      default: uni.$u.props.tabs.lineColor
+    },
+    // 菜单选择中时的样式
+    activeStyle: {
+      type: [String, Object],
+      default: uni.$u.props.tabs.activeStyle
+    },
+    // 菜单非选中时的样式
+    inactiveStyle: {
+      type: [String, Object],
+      default: uni.$u.props.tabs.inactiveStyle
+    },
+    // 滑块长度
+    lineWidth: {
+      type: [String, Number],
+      default: uni.$u.props.tabs.lineWidth
+    },
+    // 滑块高度
+    lineHeight: {
+      type: [String, Number],
+      default: uni.$u.props.tabs.lineHeight
+    },
+    // 滑块背景显示大小，当滑块背景设置为图片时使用
+    lineBgSize: {
+      type: String,
+      default: uni.$u.props.tabs.lineBgSize
+    },
+    // 菜单item的样式
+    itemStyle: {
+      type: [String, Object],
+      default: uni.$u.props.tabs.itemStyle
+    },
+    // 菜单是否可滚动
+    scrollable: {
+      type: Boolean,
+      default: uni.$u.props.tabs.scrollable
+    },
+    // 当前选中标签的索引
+    current: {
+      type: [Number, String],
+      default: uni.$u.props.tabs.current
+    },
+    // 默认读取的键名
+    keyName: {
+      type: String,
+      default: uni.$u.props.tabs.keyName
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 636 */,
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-album/props.js ***!
   \*************************************************************************************/
@@ -26404,14 +31212,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 587 */,
-/* 588 */,
-/* 589 */,
-/* 590 */,
-/* 591 */,
-/* 592 */,
-/* 593 */,
-/* 594 */
+/* 644 */,
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */,
+/* 649 */,
+/* 650 */,
+/* 651 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-sticky/props.js ***!
   \**************************************************************************************/
@@ -26463,14 +31271,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 595 */,
-/* 596 */,
-/* 597 */,
-/* 598 */,
-/* 599 */,
-/* 600 */,
-/* 601 */,
-/* 602 */
+/* 652 */,
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */,
+/* 657 */,
+/* 658 */,
+/* 659 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-button/props.js ***!
   \**************************************************************************************/
@@ -26649,14 +31457,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 603 */,
-/* 604 */,
-/* 605 */,
-/* 606 */,
-/* 607 */,
-/* 608 */,
-/* 609 */,
-/* 610 */
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/utils.js ***!
   \**************************************************************************************/
@@ -26800,7 +31608,7 @@ function chooseFile(_ref) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 611 */
+/* 668 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/mixin.js ***!
   \**************************************************************************************/
@@ -26827,7 +31635,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 612 */
+/* 669 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/props.js ***!
   \**************************************************************************************/
@@ -26969,14 +31777,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 613 */,
-/* 614 */,
-/* 615 */,
-/* 616 */,
-/* 617 */,
-/* 618 */,
-/* 619 */,
-/* 620 */
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */,
+/* 677 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-switch/props.js ***!
   \**************************************************************************************/
@@ -27048,14 +31856,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 621 */,
-/* 622 */,
-/* 623 */,
-/* 624 */,
-/* 625 */,
-/* 626 */,
-/* 627 */,
-/* 628 */
+/* 678 */,
+/* 679 */,
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
+/* 684 */,
+/* 685 */
 /*!************************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-swiper-indicator/props.js ***!
   \************************************************************************************************/
@@ -27102,21 +31910,21 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 629 */,
-/* 630 */,
-/* 631 */,
-/* 632 */,
-/* 633 */,
-/* 634 */,
-/* 635 */,
-/* 636 */,
-/* 637 */,
-/* 638 */,
-/* 639 */,
-/* 640 */,
-/* 641 */,
-/* 642 */,
-/* 643 */
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */,
+/* 691 */,
+/* 692 */,
+/* 693 */,
+/* 694 */,
+/* 695 */,
+/* 696 */,
+/* 697 */,
+/* 698 */,
+/* 699 */,
+/* 700 */
 /*!******************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/props.js ***!
   \******************************************************************************************/
@@ -27158,7 +31966,7 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 644 */
+/* 701 */
 /*!***********************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/transition.js ***!
   \***********************************************************************************************/
@@ -27175,7 +31983,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 645));
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 702));
 // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {
   return new Promise(function (resolve) {
@@ -27267,7 +32075,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 645 */
+/* 702 */
 /*!*************************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \*************************************************************************************************/
@@ -27460,14 +32268,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 646 */,
-/* 647 */,
-/* 648 */,
-/* 649 */,
-/* 650 */,
-/* 651 */,
-/* 652 */,
-/* 653 */
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */,
+/* 707 */,
+/* 708 */,
+/* 709 */,
+/* 710 */
 /*!******************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-status-bar/props.js ***!
   \******************************************************************************************/
@@ -27493,14 +32301,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 654 */,
-/* 655 */,
-/* 656 */,
-/* 657 */,
-/* 658 */,
-/* 659 */,
-/* 660 */,
-/* 661 */
+/* 711 */,
+/* 712 */,
+/* 713 */,
+/* 714 */,
+/* 715 */,
+/* 716 */,
+/* 717 */,
+/* 718 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \*******************************************************************************************/
@@ -27520,14 +32328,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 662 */,
-/* 663 */,
-/* 664 */,
-/* 665 */,
-/* 666 */,
-/* 667 */,
-/* 668 */,
-/* 669 */
+/* 719 */,
+/* 720 */,
+/* 721 */,
+/* 722 */,
+/* 723 */,
+/* 724 */,
+/* 725 */,
+/* 726 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-line/props.js ***!
   \************************************************************************************/
@@ -27578,14 +32386,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 670 */,
-/* 671 */,
-/* 672 */,
-/* 673 */,
-/* 674 */,
-/* 675 */,
-/* 676 */,
-/* 677 */
+/* 727 */,
+/* 728 */,
+/* 729 */,
+/* 730 */,
+/* 731 */,
+/* 732 */,
+/* 733 */,
+/* 734 */
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/util/async-validator.js ***!
   \**************************************************************************************/
@@ -27623,7 +32431,7 @@ function _extends() {
 var formatRegExp = /%[sdj%]/g;
 var warning = function warning() {}; // don't print warning message when in production env or node runtime
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}) && "development" !== 'production' && typeof window !== 'undefined' && typeof document !== 'undefined') {
+if (typeof process !== 'undefined' && Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"xsqua","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}) && "development" !== 'production' && typeof window !== 'undefined' && typeof document !== 'undefined') {
   warning = function warning(type, errors) {
     if (typeof console !== 'undefined' && console.warn) {
       if (errors.every(function (e) {
@@ -28766,10 +33574,10 @@ Schema.warning = warning;
 Schema.messages = messages;
 var _default = Schema; // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 678)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 735)))
 
 /***/ }),
-/* 678 */
+/* 735 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -28800,7 +33608,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 679);
+        if (!path) path = __webpack_require__(/*! path */ 736);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -28813,7 +33621,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 679 */
+/* 736 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -29123,15 +33931,15 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 678)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 735)))
 
 /***/ }),
-/* 680 */,
-/* 681 */,
-/* 682 */,
-/* 683 */,
-/* 684 */,
-/* 685 */
+/* 737 */,
+/* 738 */,
+/* 739 */,
+/* 740 */,
+/* 741 */,
+/* 742 */
 /*!***********************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-gap/props.js ***!
   \***********************************************************************************/
@@ -29173,14 +33981,132 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 686 */,
-/* 687 */,
-/* 688 */,
-/* 689 */,
-/* 690 */,
-/* 691 */,
-/* 692 */,
-/* 693 */
+/* 743 */,
+/* 744 */,
+/* 745 */,
+/* 746 */,
+/* 747 */,
+/* 748 */,
+/* 749 */,
+/* 750 */,
+/* 751 */,
+/* 752 */,
+/* 753 */,
+/* 754 */,
+/* 755 */,
+/* 756 */,
+/* 757 */,
+/* 758 */,
+/* 759 */,
+/* 760 */,
+/* 761 */,
+/* 762 */,
+/* 763 */,
+/* 764 */,
+/* 765 */,
+/* 766 */,
+/* 767 */,
+/* 768 */,
+/* 769 */,
+/* 770 */,
+/* 771 */
+/*!*************************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-badge/props.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否显示圆点
+    isDot: {
+      type: Boolean,
+      default: uni.$u.props.badge.isDot
+    },
+    // 显示的内容
+    value: {
+      type: [Number, String],
+      default: uni.$u.props.badge.value
+    },
+    // 是否显示
+    show: {
+      type: Boolean,
+      default: uni.$u.props.badge.show
+    },
+    // 最大值，超过最大值会显示 '{max}+'
+    max: {
+      type: [Number, String],
+      default: uni.$u.props.badge.max
+    },
+    // 主题类型，error|warning|success|primary
+    type: {
+      type: String,
+      default: uni.$u.props.badge.type
+    },
+    // 当数值为 0 时，是否展示 Badge
+    showZero: {
+      type: Boolean,
+      default: uni.$u.props.badge.showZero
+    },
+    // 背景颜色，优先级比type高，如设置，type参数会失效
+    bgColor: {
+      type: [String, null],
+      default: uni.$u.props.badge.bgColor
+    },
+    // 字体颜色
+    color: {
+      type: [String, null],
+      default: uni.$u.props.badge.color
+    },
+    // 徽标形状，circle-四角均为圆角，horn-左下角为直角
+    shape: {
+      type: String,
+      default: uni.$u.props.badge.shape
+    },
+    // 设置数字的显示方式，overflow|ellipsis|limit
+    // overflow会根据max字段判断，超出显示`${max}+`
+    // ellipsis会根据max判断，超出显示`${max}...`
+    // limit会依据1000作为判断条件，超出1000，显示`${value/1000}K`，比如2.2k、3.34w，最多保留2位小数
+    numberType: {
+      type: String,
+      default: uni.$u.props.badge.numberType
+    },
+    // 设置badge的位置偏移，格式为 [x, y]，也即设置的为top和right的值，absolute为true时有效
+    offset: {
+      type: Array,
+      default: uni.$u.props.badge.offset
+    },
+    // 是否反转背景和字体颜色
+    inverted: {
+      type: Boolean,
+      default: uni.$u.props.badge.inverted
+    },
+    // 是否绝对定位
+    absolute: {
+      type: Boolean,
+      default: uni.$u.props.badge.absolute
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 772 */,
+/* 773 */,
+/* 774 */,
+/* 775 */,
+/* 776 */,
+/* 777 */,
+/* 778 */,
+/* 779 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-text/props.js ***!
   \************************************************************************************/
@@ -29308,12 +34234,12 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 694 */,
-/* 695 */,
-/* 696 */,
-/* 697 */,
-/* 698 */,
-/* 699 */
+/* 780 */,
+/* 781 */,
+/* 782 */,
+/* 783 */,
+/* 784 */,
+/* 785 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-text/value.js ***!
   \************************************************************************************/
@@ -29421,14 +34347,14 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 700 */,
-/* 701 */,
-/* 702 */,
-/* 703 */,
-/* 704 */,
-/* 705 */,
-/* 706 */,
-/* 707 */
+/* 786 */,
+/* 787 */,
+/* 788 */,
+/* 789 */,
+/* 790 */,
+/* 791 */,
+/* 792 */,
+/* 793 */
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-link/props.js ***!
   \************************************************************************************/

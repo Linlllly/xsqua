@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages_costMoney/common/vendor"],{
 
-/***/ 261:
+/***/ 270:
 /*!****************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/costMoney.png ***!
   \****************************************************************************/
@@ -11,7 +11,7 @@ module.exports = "/pages_costMoney/cm_static/costMoney.png";
 
 /***/ }),
 
-/***/ 262:
+/***/ 271:
 /*!****************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/send-list.png ***!
   \****************************************************************************/
@@ -22,7 +22,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADICAYAAABs
 
 /***/ }),
 
-/***/ 266:
+/***/ 275:
 /*!*****************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/api/costMoney.js ***!
   \*****************************************************/
@@ -52,17 +52,6 @@ function buy(data) {
   return (0, _api.get)('/app/pay/buy', data);
 }
 //
-
-/***/ }),
-
-/***/ 273:
-/*!*************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/kuijia.png ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/pages_costMoney/cm_static/kuijia.png";
 
 /***/ })
 

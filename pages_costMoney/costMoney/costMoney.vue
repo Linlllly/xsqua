@@ -6,53 +6,6 @@
 
 		<div class="cost"><div class="cost-item" v-for="(i, index) in 4" :key="index" @click="payMoney(i)">花钱</div></div>
 
-		<!-- 换盔甲 -->
-		<div class="box-armor">
-			<div class="armor-details">
-				<div
-					class="armor-confirm"
-					@click="
-						showAttention = true;
-						day = 30;
-					"
-				>
-					确认更换30
-				</div>
-				<div
-					class="armor-confirm"
-					@click="
-						showAttention = true;
-						day = 180;
-					"
-				>
-					确认更换180
-				</div>
-				<div
-					class="armor-confirm"
-					@click="
-						showAttention = true;
-						day = 365;
-					"
-				>
-					确认更换365
-				</div>
-			</div>
-			<div class="read-more">
-				<div class="armor-record" @click="openConvert('tk')">换购记录</div>
-				<div class="learn-more" @click="goExchangeArmor">了解详情</div>
-			</div>
-		</div>
-		<!-- 换鲜花便便 -->
-		<!-- <div class="box-fp">
-			<div class="fp-details">
-				<u-number-box v-model="eFlower" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
-				<u-number-box v-model="ePoo" integer min="0" bgColor="#00000000" iconStyle="color: #f08221" buttonSize="80rpx"></u-number-box>
-			</div>
-			<div class="fp-confirm-record">
-				<div class="fp-confirm" @click="comfirmExchange">确认更换</div>
-				<div class="fp-record" @click="openConvert">换购记录</div>
-			</div>
-		</div> -->
 		<!-- 礼单列表 -->
 		<u-popup :show="showSendList" @close="showSendList = false" @open="openSendList" bgColor="rgba(255,255,255,0.8)">
 			<img class="send-img" src="../cm_static/send-list.png" alt="" />
@@ -62,24 +15,6 @@
 				</div>
 			</div>
 			<div class="send-box">
-				<!-- 鲜花 -->
-				<!-- <div class="box-list">
-					<img class="list-title" src="../../static/flower.png" alt="" />
-					<div>
-						<scroll-view
-							v-if="flowerList && flowerList.length !== 0"
-							:scroll-y="true"
-							style="width:100%;height:696rpx;"
-							@scrolltolower="lowerFlower"
-						>
-							<div class="list-tiem" v-for="(i, index) in flowerList" :key="index">
-								<img class="ava" :src="bigLook === 0 ? i.sendUserAvatar : i.receiveUserAvatar" alt="" @click="toOtherUser(i)" />
-								<div class="count">{{ i.num }}</div>
-							</div>
-						</scroll-view>
-					</div>
-					<u-loading-icon v-if="loadingFlower" color="#767374" size="16"></u-loading-icon>
-				</div> -->
 				<!-- 元宝 -->
 				<div class="box-list">
 					<img class="list-title" src="../../static/money.png" alt="" />
@@ -98,24 +33,7 @@
 					</div>
 					<u-loading-icon v-if="loadingMoney" color="#767374" size="16"></u-loading-icon>
 				</div>
-				<!-- 便便 -->
-				<!-- <div class="box-list">
-					<img class="list-title" src="../../static/poo.png" alt="" />
-					<div>
-						<scroll-view
-							v-if="pooList && pooList.length !== 0"
-							:scroll-y="true"
-							style="width:100%;height:696rpx;"
-							@scrolltolower="lowerPoo"
-						>
-							<div class="list-tiem" v-for="(i, index) in pooList" :key="index">
-								<img class="ava" :src="bigLook === 0 ? i.sendUserAvatar : i.receiveUserAvatar" alt="" @click="toOtherUser(i)" />
-								<div class="count">{{ i.num }}</div>
-							</div>
-						</scroll-view>
-					</div>
-					<u-loading-icon v-if="loadingPoo" color="#767374" size="16"></u-loading-icon>
-				</div> -->
+				
 			</div>
 		</u-popup>
 		<!-- 充值记录遮罩层 -->
@@ -135,41 +53,12 @@
 				<div v-if="!loadingRecord && pageNumRecord >= lastPageNumRecord" class="next">已加载全部充值记录</div>
 			</div>
 		</u-overlay>
-		<!-- 盔甲鲜花粪便记录遮罩层 -->
-		<u-overlay :show="showConvertList" @click="showConvertList = false">
-			<div class="box" @tap.stop>
-				<!-- 列表 -->
-				<div>
-					<scroll-view v-if="convertList.length !== 0" :scroll-y="true" style="width:100%;height:710rpx;" @scrolltolower="lowerConvert">
-						<div class="box-tiem" v-for="(i, index) in convertList" :key="index">
-							<div>{{ i.createTime }}</div>
-							<div>
-								{{ i.type === 2 ? '鲜花 ' : i.type === 3 ? '便便 ' : '头盔 ' }}{{ i.num
-								}}{{ i.type === 2 ? '朵' : i.type === 3 ? '坨' : '天' }}
-							</div>
-						</div>
-					</scroll-view>
-				</div>
-				<!-- 底部加载提示 -->
-				<u-loading-icon v-if="loadingConvert" color="#767374" size="16"></u-loading-icon>
-				<div v-if="!loadingConvert && pageNumConvert >= lastPageNumConvert" class="next">已加载全部兑换记录</div>
-			</div>
-		</u-overlay>
-		<u-modal
-			:show="showAttention"
-			:title="'确定兑换' + day + '天盔甲吗'"
-			confirmColor="#e89406"
-			showCancelButton="true"
-			@cancel="showAttention = false"
-			@confirm="acquireArmor"
-			width="550rpx"
-		></u-modal>
 	</div>
 </template>
 
 <script>
 import { list, exchange, buy } from '@/api/costMoney.js';
-import { exchangeArmour } from '@/api/exchangeArmor.js';
+
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
@@ -178,26 +67,10 @@ export default {
 	},
 	data() {
 		return {
-			//兑换盔甲
-			day: 30,
-			showAttention: false,
-			//兑换鲜花
-			eFlower: 0,
-			//兑换粪便
-			ePoo: 0,
 			//礼单选收到0或者送出1
 			bigLook: 0,
 			//礼单显示
 			showSendList: false,
-			//礼单鲜花-------------------------------
-			//鲜花列表
-			flowerList: [],
-			//是否显示加载
-			loadingFlower: false,
-			//当前页和最后一页是同一页显示没有更多了
-			pageNumFlower: 1,
-			pageSizeFlower: 20,
-			lastPageNumFlower: '',
 			//礼单元宝-------------------------------
 			//元宝列表
 			moneyList: [],
@@ -207,17 +80,6 @@ export default {
 			pageNumMoney: 1,
 			pageSizeMoney: 20,
 			lastPageNumMoney: '',
-			//礼单便便--------------------------------
-			//便便列表
-			pooList: [],
-			//是否显示加载
-			loadingPoo: false,
-			//当前页和最后一页是同一页显示没有更多了
-			pageNumPoo: 1,
-			pageSizePoo: 20,
-			lastPageNumPoo: '',
-			//充值记录显示
-			showRecordList: false,
 			//充值记录---------------------------------
 			//充值列表
 			recordList: [],
@@ -227,17 +89,6 @@ export default {
 			pageNumRecord: 1,
 			pageSizeRecord: 12,
 			lastPageNumRecord: '',
-			//兑换记录显示
-			showConvertList: false,
-			//兑换记录---------------------------------
-			//兑换列表
-			convertList: [],
-			//是否显示加载
-			loadingConvert: false,
-			//当前页和最后一页是同一页显示没有更多了
-			pageNumConvert: 1,
-			pageSizeConvert: 12,
-			lastPageNumConvert: '',
 			//----------------------------------------
 			// loading:false,
 			timer: null,
@@ -247,7 +98,7 @@ export default {
 	methods: {
 		//充值
 		payMoney(i) {
-			i === 0 ? (this.num = 1) : i === 1 ? (this.num = 10) : i === 2 ? (this.num = 30) : (this.num = 50);
+			i === 0 ? (this.num = 2.99) : i === 1 ? (this.num = 9.9) : i === 2 ? (this.num = 49.9) : (this.num = 99.9);
 			// this.loading = true;
 			if (this.timer) {
 				return;
@@ -345,66 +196,17 @@ export default {
 		//打开送礼层
 		openSendList() {
 			//默认请求收到送礼信息
-			this.flowerList = [];
-			this.pageNumFlower = 1;
-			this.lastPageNumFlower = '';
 			this.moneyList = [];
 			this.pageNumMoney = 1;
 			this.lastPageNumMoney = '';
-			this.pooList = [];
-			this.pageNumPoo = 1;
-			this.lastPageNumPoo = '';
-			this.getFlowerList();
 			this.getMoneyList();
-			this.getPooList();
 		},
 		//切换状态
 		changeLookList(i) {
 			this.bigLook = i;
 			//切换请求收到送礼信息
-			this.flowerList = [];
 			this.moneyList = [];
-			this.pooList = [];
-			this.getFlowerList();
 			this.getMoneyList();
-			this.getPooList();
-		},
-		//--------------------
-		async getFlowerList() {
-			//请求送礼信息 0收到-16 1送出-8
-			let state = 16;
-			if (this.bigLook === 1) {
-				state = 8;
-			}
-			this.loadingFlower = true;
-			let res = await list({ page: this.pageNumFlower, limit: this.pageSizeFlower, status: state, type: 2 });
-			console.log('收到/送出鲜花');
-			console.log(res);
-			if (res.code !== 0) {
-				this.loadingFlower = false;
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
-				//关闭节流阀
-				this.loadingFlower = false;
-				return;
-			}
-			this.flowerList = [...this.flowerList, ...res.page.data];
-			this.lastPageNumFlower = res.page.last_page;
-			this.loadingFlower = false;
-		},
-		//下拉加载更多鲜花
-		lowerFlower() {
-			if (this.pageNumFlower >= this.lastPageNumFlower) {
-				return;
-			}
-			// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-			if (this.loadingFlower) return;
-			// 让页码值自增 +1
-			this.pageNumFlower += 1;
-			// 重新获取列表数据
-			this.getFlowerList();
 		},
 		//----------------------
 		async getMoneyList() {
@@ -440,156 +242,12 @@ export default {
 			this.pageNumMoney += 1;
 			this.getMoneyList();
 		},
-		//--------------------------------
-		async getPooList() {
-			//请求送礼信息 0收到-16 1送出-8
-			let state = 16;
-			if (this.bigLook === 1) {
-				state = 8;
-			}
-			this.loadingPoo = true;
-			let res = await list({ page: this.pageNumPoo, limit: this.pageSizePoo, status: state, type: 3 });
-			console.log('收到/送出粪便');
-			console.log(res);
-			if (res.code !== 0) {
-				this.loadingPoo = false;
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
-				this.loadingPoo = false;
-				return;
-			}
-			this.pooList = [...this.pooList, ...res.page.data];
-			this.lastPageNumPoo = res.page.last_page;
-			this.loadingPoo = false;
-		},
-		//下拉加载更多粪便
-		lowerPoo() {
-			if (this.pageNumPoo >= this.lastPageNumPoo) {
-				return;
-			}
-			if (this.loadingPoo) return;
-			this.pageNumPoo += 1;
-			this.getPooList();
-		},
-		//-------------------
-		openConvert(n) {
-			this.convertList = [];
-			this.pageNumConvert = 1;
-			this.lastPageNumConvert = '';
-			this.showConvertList = true;
-			this.getConvertList(n);
-		},
-		async getConvertList(n) {
-			this.loadingConvert = true;
-			let res;
-			if (n === 'tk') {
-				res = await list({ page: this.pageNumConvert, limit: this.pageSizeConvert, status: 2, type: 4 });
-			} else {
-				res = await list({ page: this.pageNumConvert, limit: this.pageSizeConvert, status: 2 });
-			}
-			console.log('兑换头盔/鲜花/粪便记录');
-			console.log(res);
-			if (res.code !== 0) {
-				this.loadingConvert = false;
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
-				this.loadingConvert = false;
-				return;
-			}
-			this.convertList = [...this.convertList, ...res.page.data];
-			this.lastPageNumConvert = res.page.last_page;
-			this.loadingConvert = false;
-		},
-		lowerConvert() {
-			if (this.pageNumConvert >= this.lastPageNumConvert) {
-				return;
-			}
-			if (this.loadingConvert) return;
-			this.pageNumConvert += 1;
-			this.getConvertList();
-		},
-
-		//---------------
-		comfirmExchange(n, day) {
-			if (this.exchageing) {
-				return;
-			}
-			if (n === 'tk') {
-				this.acquireArmor();
-			} else {
-				if (this.eFlower === 0 && this.ePoo === 0) {
-					uni.showToast({
-						title: '不可以兑换空数量',
-						icon: 'none'
-					});
-					return;
-				}
-				if (this.eFlower) {
-					this.acquire(2);
-				}
-				if (this.ePoo) {
-					this.acquire(3);
-				}
-			}
-		},
-		acquireArmor() {
-			this.exchageing = true;
-			uni.showLoading({
-				title: '兑换中'
-			});
-			exchangeArmour({ day: this.day }).then(res => {
-				uni.hideLoading();
-				this.exchageing = false;
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				uni.showToast({
-					title: '兑换盔甲成功',
-					icon: 'none'
-				});
-			});
-		},
-		acquire(i) {
-			this.exchageing = true;
-			uni.showLoading({
-				title: '兑换中'
-			});
-			exchange({ num: i === 2 ? this.eFlower : this.ePoo, receiveUid: this.uid, type: i }).then(res => {
-				uni.hideLoading();
-				this.exchageing = false;
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				uni.showToast({
-					title: i === 2 ? '兑换鲜花成功' : '兑换便便成功',
-					icon: 'none'
-				});
-				i === 2 ? (this.eFlower = 0) : (this.ePoo = 0);
-			});
-		},
 		toOtherUser(i) {
 			let ouid = this.bigLook === 0 ? i.sendUid : i.receiveUid;
 			uni.navigateTo({
 				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + ouid
 			});
 		},
-		goExchangeArmor() {
-			uni.navigateTo({
-				url: '../exchangeArmor/exchangeArmor'
-			});
-		}
 	}
 };
 </script>

@@ -238,7 +238,7 @@ function message(data) {
 
 /***/ }),
 
-/***/ 332:
+/***/ 350:
 /*!**************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/cancel-attention.png ***!
   \**************************************************************************************/
@@ -249,7 +249,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAmCAYAAAC/
 
 /***/ }),
 
-/***/ 341:
+/***/ 359:
 /*!*******************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/no-head.png ***!
   \*******************************************************/
@@ -260,7 +260,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABsCAYAAAAM
 
 /***/ }),
 
-/***/ 342:
+/***/ 360:
 /*!***************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/likes.png ***!
   \***************************************************************************/
@@ -271,7 +271,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 
 /***/ }),
 
-/***/ 343:
+/***/ 361:
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/no-likes.png ***!
   \******************************************************************************/
@@ -282,7 +282,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 
 /***/ }),
 
-/***/ 344:
+/***/ 362:
 /*!*******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/chat-with.png ***!
   \*******************************************************************************/
@@ -293,7 +293,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 
 /***/ }),
 
-/***/ 345:
+/***/ 363:
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/mimasuo2.png ***!
   \******************************************************************************/
@@ -304,7 +304,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAEhCAYAAABB
 
 /***/ }),
 
-/***/ 346:
+/***/ 364:
 /*!****************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/biguan.png ***!
   \****************************************************************************/
@@ -315,7 +315,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOwAAAD1CAYAAABT
 
 /***/ }),
 
-/***/ 365:
+/***/ 383:
 /*!*******************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/api/artcleIssue.js ***!
   \*******************************************************/
@@ -347,7 +347,7 @@ function checkContent(data) {
 
 /***/ }),
 
-/***/ 372:
+/***/ 390:
 /*!*********************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/static/video-img.jpg ***!
   \*********************************************************/
@@ -358,7 +358,7 @@ module.exports = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAcHBwc
 
 /***/ }),
 
-/***/ 373:
+/***/ 391:
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/up-video.png ***!
   \******************************************************************************/
@@ -369,7 +369,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAF3CAYAAABe
 
 /***/ }),
 
-/***/ 374:
+/***/ 392:
 /*!*********************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/up-video-ok.png ***!
   \*********************************************************************************/
@@ -380,7 +380,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAF3CAYAAABe
 
 /***/ }),
 
-/***/ 383:
+/***/ 401:
 /*!************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/first-x-secret.png ***!
   \************************************************************************************/
@@ -391,7 +391,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAT+CAYAAACR
 
 /***/ }),
 
-/***/ 384:
+/***/ 402:
 /*!******************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/x-secret.png ***!
   \******************************************************************************/
@@ -402,7 +402,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAT+CAYAAACR
 
 /***/ }),
 
-/***/ 387:
+/***/ 405:
 /*!****************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/api/mySecret.js ***!
   \****************************************************/
@@ -430,7 +430,7 @@ function queryXFilePageList(data) {
 
 /***/ }),
 
-/***/ 394:
+/***/ 412:
 /*!*************************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/change-x-secret.png ***!
   \*************************************************************************************/

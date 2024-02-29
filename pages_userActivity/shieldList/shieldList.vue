@@ -1,40 +1,29 @@
 <template>
 	<view class="pages">
-		<!-- 顶部 -->
-		<div class="chat-title">
-			<!-- 左 -->
-			<div class="title-left"><div class="name-chat">黑名单</div></div>
-			<!-- 头像 -->
-			<img class="name-title" :src="ava" alt="" />
-		</div>
-		<!-- 搜索 -->
-		<!-- <div class="title-search">
-			<u-search
-				v-model="keyword"
-				:showAction="true"
-				actionText="搜索"
-				:animation="false"
-				@search="peopleSearch"
-				@custom="peopleSearch"
-			></u-search>
-			<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
-		</div> -->
-		<!-- 列表 -->
-		<div v-if="blackList.length !== 0" class="content-list" v-for="(i, index) in blackList" :key="i.blackUserInfo.uid">
-			<!-- 头像 -->
-			<img class="list-img" :src="i.blackUserInfo.avatar" alt="" />
-			<!-- 姓名和信息 -->
-			<div class="content-info">
-				<div class="info-name">
-					<div class="u-name">{{ i.blackUserInfo.username }}</div>
-				</div>
-				<div class="info-des">{{ i.blackUserInfo.intro ? i.blackUserInfo.intro : ' ' }}</div>
-			</div>
-
-			<div style="color:#e89406;font-size: 30rpx;" @click="cancelBlack(i)">移 除</div>
-		</div>
-		<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
-		<div v-if="isloading" class="next"><u-loading-icon></u-loading-icon></div>
+		
+				<z-paging  ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="blackList" @query="getblackList"  :empty-view-img-style='{width:0,height:0}'  >
+						<template #top>
+							<!-- 顶部 -->
+							<div class="chat-title">
+								<!-- 左 -->
+								<div class="title-left"><div class="name-chat">黑名单</div></div>
+								<!-- 头像 -->
+								<img class="name-title" :src="ava" alt="" />
+							</div>
+						</template>
+						<view class="content-list" v-for="(i, index) in blackList" :key="i.blackUserInfo.uid">
+							<!-- 头像 -->
+							<img class="list-img" :src="i.blackUserInfo.avatar" alt="" />
+							<!-- 姓名和信息 -->
+							<div class="content-info">
+								<div class="info-name">
+									<div class="u-name">{{ i.blackUserInfo.username }}</div>
+								</div>
+								<div class="info-des">{{ i.blackUserInfo.intro ? i.blackUserInfo.intro : ' ' }}</div>
+							</div>
+							<div style="color:#e89406;font-size: 30rpx;" @click="cancelBlack(i)">移 除</div>
+						</view>
+					</z-paging>
 		<u-modal
 			:show="showAttention"
 			title="确定将该用户移除黑名单吗"
@@ -60,12 +49,6 @@ export default {
 		return {
 			ws: '',
 			blackList: [],
-			//条数
-			limit: 12,
-			//页面
-			page: 1,
-			lastPage: '',
-			isloading: false, // 节流阀 是否正在请求数据
 			myAvatar: '',
 			//备注/房间号
 			keyword: '',
@@ -74,37 +57,17 @@ export default {
 		};
 	},
 
-	onLoad() {
-		this.getblackList();
-	},
-	onReachBottom() {
-		if (this.page >= this.lastPage) {
-			return;
-		}
-		// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-		if (this.isloading) return;
-		// 让页码值自增 +1
-		this.page += 1;
-		// 重新获取列表数据
-		this.getblackList();
-	},
 	methods: {
-		//请求列表
-		async getblackList() {
-			this.isloading = true;
-			let res = await blackList({ page: this.page, limit: this.limit, keyword: this.keyword });
-			console.log('请求黑名单列表');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
-				return;
-			}
-			this.isloading = false;
-			this.blackList = [...this.blackList, ...res.result.records];
-			this.lastPage = res.result.last_page;
+		
+		 getblackList(page, limit) {
+			blackList({ page, limit , keyword: this.keyword})
+							.then(res => {
+								this.blackList = res.result.records||[];
+								this.$refs.paging.complete(res.result.records);
+							})
+							.catch(res => {
+								this.$refs.paging.complete(false);
+							});
 		},
 		cancelBlack(i) {
 			if (this.armor) {
@@ -136,17 +99,6 @@ export default {
 				this.$delete(this.blackList, index);
 				this.showAttention = false;
 			});
-		},
-		peopleSearch() {
-			this.page = 1;
-			this.blackList = [];
-			this.getblackList();
-		},
-		reloadAll() {
-			this.keyword = '';
-			this.page = 1;
-			this.blackList = [];
-			this.getblackList();
 		}
 	}
 };

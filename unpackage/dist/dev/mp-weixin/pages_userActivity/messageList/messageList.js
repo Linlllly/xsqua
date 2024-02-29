@@ -299,19 +299,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    zPaging: function () {
+      return Promise.all(/*! import() | uni_modules/z-paging/components/z-paging/z-paging */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/z-paging/components/z-paging/z-paging")]).then(__webpack_require__.bind(null, /*! @/uni_modules/z-paging/components/z-paging/z-paging.vue */ 599))
+    },
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var g0 = _vm.messageList && _vm.messageList.length !== 0
-  _vm.$mp.data = Object.assign(
-    {},
-    {
-      $root: {
-        g0: g0,
-      },
-    }
-  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -352,9 +366,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _messageList = __webpack_require__(/*! @/api/messageList.js */ 325);
 var _vuex = __webpack_require__(/*! vuex */ 37);
@@ -365,68 +376,22 @@ var _default = {
   computed: _objectSpread({}, (0, _vuex.mapState)(['ava'])),
   data: function data() {
     return {
-      messageList: [],
-      //条数
-      limit: 12,
-      //页面
-      page: 1,
-      lastPage: '',
-      isloading: false
+      messageList: []
     };
-  },
-  onLoad: function onLoad() {
-    this.getMessageList();
-  },
-  onReachBottom: function onReachBottom() {
-    if (this.page >= this.lastPage) {
-      return;
-    }
-    if (this.isloading) return;
-    this.page += 1;
-    this.getMessageList();
   },
   methods: {
     //请求列表
-    getMessageList: function getMessageList() {
+    getMessageList: function getMessageList(page, limit) {
       var _this = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var res;
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                // ** 打开节流阀
-                _this.isloading = true;
-                _context.next = 3;
-                return (0, _messageList.message)({
-                  page: _this.page,
-                  limit: _this.limit
-                });
-              case 3:
-                res = _context.sent;
-                console.log('请求消息列表');
-                console.log(res);
-                if (!(res.code !== 0)) {
-                  _context.next = 10;
-                  break;
-                }
-                uni.showToast({
-                  title: '获取消息列表失败',
-                  icon: 'none'
-                });
-                _this.isloading = false;
-                return _context.abrupt("return");
-              case 10:
-                _this.isloading = false;
-                _this.messageList = [].concat((0, _toConsumableArray2.default)(_this.messageList), (0, _toConsumableArray2.default)(res.result.data));
-                _this.lastPage = res.result.last_page;
-              case 13:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+      (0, _messageList.message)({
+        page: page,
+        limit: limit
+      }).then(function (res) {
+        _this.messageList = res.result.data || [];
+        _this.$refs.paging.complete(res.result.data);
+      }).catch(function (res) {
+        _this.$refs.paging.complete(false);
+      });
     },
     //去详情页
     toArticleDes: function toArticleDes(i) {

@@ -15,8 +15,8 @@
 				<div class="width-bottom"><img src="../../static/changemy.png" alt="" @click="changeBg" /></div>
 				<div class="my-info">
 					<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
-					<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" @click="goExchangeArmor" />
-					<img class="armor-1" v-else src="../../static/no-head-big.png" alt="" @click="goExchangeArmor" />
+					<img class="armor" v-if="armour" src="../../static/has-head.png" alt="" @click="toCostMoney" />
+					<img class="armor-1" v-else src="../../static/no-head-big.png" alt="" @click="toCostMoney" />
 					<div class="infos-1">
 						<Cropping @upload="doUpload" ref="cropping" selWidth="300upx" selHeight="300upx" />
 						<img class="portrait" :src="avatar" alt="" @click="changeAvatar" />
@@ -282,7 +282,7 @@
 // 引入组件
 import Cropping from '@/components/cropping/cropping.vue';
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getArmourConfig } from '@/api/exchangeArmor.js';
+import { getArmourConfig } from '@/api/updateArmor.js';
 import {
 	userInfo,
 	userInfoEdit,
@@ -748,11 +748,7 @@ export default {
 			this.myList = [];
 			this.getMyPageList();
 		},
-		goExchangeArmor() {
-			uni.navigateTo({
-				url: '../../pages_costMoney/exchangeArmor/exchangeArmor'
-			});
-		},
+		
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
 				uni.switchTab({

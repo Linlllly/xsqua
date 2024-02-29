@@ -2,7 +2,7 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
     "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
   }
 }

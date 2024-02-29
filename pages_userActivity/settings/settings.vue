@@ -98,7 +98,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getArmourConfig } from '@/api/exchangeArmor.js';
+import { getArmourConfig } from '@/api/updateArmor.js';
 import { userInfo, userInfoEdit, getQRCode } from '@/api/user.js';
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
@@ -211,7 +211,7 @@ export default {
 					this.armour = res.result.armourStatus === 0 ? false : true;
 					if (!this.armour) {
 						uni.navigateTo({
-							url: '../../pages_costMoney/exchangeArmor/exchangeArmor'
+							url: '../../pages_costMoney/costMoney/costMoney'
 						});
 					} else {
 						uni.navigateTo({

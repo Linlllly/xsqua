@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "漂流瓶",
+          "pathName": "pages/currentBottle/currentBottle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "老虎机",
           "pathName": "pages_costMoney/game/game",
           "query": "",

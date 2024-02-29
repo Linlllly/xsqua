@@ -1,19 +1,22 @@
 <template>
 	<view class="pages">
-		<!-- 头像 -->
-		<div class="chat-title">
-			<div class="name-chat">消息</div>
-			<img class="name-title" :src="ava" alt="" />
-		</div>
-		<!-- 列表 -->
-		<div v-if="messageList && messageList.length !== 0" class="content-list" v-for="(i, index) in messageList" :key="i.id">
-			<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
-			<div class="content-info" @click="toArticleDes(i)">
-				<div class="info-name">{{ i.userInfo.username }}</div>
-				<div class="info-des" :style="{ color: index % 3 === 0 ? '#484BD8' : index % 2 === 0 ? '#E35A5A' : '#B726D6' }">{{ i.text }}</div>
-			</div>
-		</div>
-		<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+		<z-paging ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="messageList" @query="getMessageList"  :empty-view-img-style='{width:0,height:0}'  >
+				<template #top>
+					<div class="chat-title">
+						<div class="name-chat">消息</div>
+						<img class="name-title" :src="ava" alt="" />
+					</div>
+				</template>
+				<div  class="content-list" v-for="(i, index) in messageList" :key="i.id">
+					<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
+					<div class="content-info" @click="toArticleDes(i)">
+						<div class="info-name">{{ i.userInfo.username }}</div>
+						<div class="info-des" :style="{ color: index % 3 === 0 ? '#484BD8' : index % 2 === 0 ? '#E35A5A' : '#B726D6' }">{{ i.text }}</div>
+					</div>
+				</div>
+			</z-paging>
+		
+		
 	</view>
 </template>
 
@@ -29,46 +32,23 @@ export default {
 	},
 	data() {
 		return {
-			messageList: [],
-			//条数
-			limit: 12,
-			//页面
-			page: 1,
-			lastPage: '',
-			isloading: false
+			messageList: []
 		};
 	},
-	onLoad() {
-		this.getMessageList();
-	},
-	onReachBottom() {
-		if (this.page >= this.lastPage) {
-			return;
-		}
-		if (this.isloading) return;
-		this.page += 1;
-		this.getMessageList();
-	},
+	
 	methods: {
 		//请求列表
-		async getMessageList() {
-			// ** 打开节流阀
-			this.isloading = true;
-			let res = await message({ page: this.page, limit: this.limit });
-			console.log('请求消息列表');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '获取消息列表失败',
-					icon: 'none'
-				});
-				this.isloading = false;
-				return;
-			}
-			this.isloading = false;
-			this.messageList = [...this.messageList, ...res.result.data];
-			this.lastPage = res.result.last_page;
+		getMessageList(page, limit) {
+			message({ page, limit})
+							.then(res => {
+								this.messageList = res.result.data||[];
+								this.$refs.paging.complete(res.result.data);
+							})
+							.catch(res => {
+								this.$refs.paging.complete(false);
+							});
 		},
+		
 		//去详情页
 		toArticleDes(i) {
 			if (i.postId) {

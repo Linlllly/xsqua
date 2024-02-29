@@ -285,7 +285,7 @@ export default {
 		//去发布
 		toIssue() {
 			uni.navigateTo({
-				url: '../artcleIssue/artcleIssue?secret=true'
+				url: '../artcleIssue/artcleIssue?secret=1'
 			});
 		},
 		//确认密码

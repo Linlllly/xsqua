@@ -34,14 +34,7 @@
 				:show-confirm-bar="false"
 				maxlength="-1"
 			></u--textarea>
-			<!-- <div
-				style=" display: flex;
-  justify-content: flex-end;"
-			>
-				<div style="background-color: #f9ae3d;width: 40rpx;padding: 6rpx;border-radius: 6rpx;">
-					<u-icon name="arrow-leftward" size="20" color="#fff"></u-icon>
-				</div>
-			</div> -->
+			
 			<!-- 上传图片 -->
 			<u-upload
 				v-if="value === 1"
@@ -81,11 +74,11 @@
 <script>
 import { ip } from '@/api/api.js';
 import { addPost, checkContent, addXFilePost } from '@/api/artcleIssue.js';
-
+import { lostBottle } from '@/api/currentBottle.js';
 export default {
 	data() {
 		return {
-			//
+			//说说类型
 			meeting: 2,
 			//文本
 			content: '',
@@ -98,9 +91,9 @@ export default {
 			videoImg: '',
 			//显示视频上传状态
 			vtype: 1,
-			//单选
+			//说说内容类型
 			value: 1,
-			//是否私人
+			//字符串1为私人  2为漂流瓶
 			secret: null,
 			mediaImgList: [],
 			mediaVideoList: [],
@@ -277,62 +270,36 @@ export default {
 			}
 		},
 		async sendReallyArticle() {
-			if (this.value === 1) {
+
 				this.mediaImgList = this.fileList1.map((item, i, arr) => {
 					return item.url.result[0].url;
 				});
 				let res;
-				if (this.secret) {
-					res = await addXFilePost({ content: this.content, meeting: this.meeting, media: this.mediaImgList });
-				} else {
-					res = await addPost({ content: this.content, meeting: this.meeting, media: this.mediaImgList });
+				let contents = this.value === 1 ? (this.content || '') : (this.content2 || '');
+				let medias=this.value === 1 ? this.mediaImgList : this.mediaVideoList;
+				
+				if(this.secret==='1'){
+					res = await addXFilePost({ content: contents , meeting: this.meeting, media: medias });
+				}else if(this.secret==='2'){
+					res = await lostBottle({ content: contents, type: Number(this.value+1), media: medias });
+				}else{
+					res = await addPost({ content: contents, meeting: this.meeting, media: medias });
 				}
-
-				uni.hideLoading();
-				if (res.code !== 0) {
-					uni.showToast({
-						title: '发布失败',
-						icon: 'none'
-					});
-					return;
-				}
-				let pages = getCurrentPages();
-				let beforePage = pages[pages.length - 2];
-				beforePage.$vm.refresh = true;
-				uni.navigateBack({
-					success: function() {}
-				});
-			} else if (this.value === 2) {
-				let res;
-				if (this.secret) {
-					res = await addXFilePost({
-						content: this.content2 ? this.content2 : '',
-						meeting: this.meeting,
-						media: this.mediaVideoList
-					});
-				} else {
-					res = await addPost({
-						content: this.content2 ? this.content2 : '',
-						meeting: this.meeting,
-						media: this.mediaVideoList
-					});
-				}
-
-				uni.hideLoading();
-				if (res.code !== 0) {
-					uni.showToast({
-						title: '发布失败',
-						icon: 'none'
-					});
-					return;
-				}
-				let pages = getCurrentPages();
-				let beforePage = pages[pages.length - 2];
-				beforePage.$vm.refresh = true;
-				uni.navigateBack({
-					success: function() {}
-				});
+			uni.hideLoading();
+			if (res && res.code !== 0) {
+			  uni.showToast({
+			    title: '发布失败',
+			    icon: 'none'
+			  });
+			  return;
 			}
+			
+			let pages = getCurrentPages();
+			let beforePage = pages[pages.length - 2];
+			beforePage.$vm.refresh = true;
+			uni.navigateBack({
+			  success: function() {}
+			});
 		},
 		backTo() {
 			uni.navigateBack({});

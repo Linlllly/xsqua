@@ -1,5 +1,9 @@
 <template>
 	<div class="pages">
+		<div class="get-gift">兑换礼物</div>
+		<div class="slot-machine">老虎机</div>
+		<div class="know">玩法</div>
+		<div class="record">中奖记录</div>
 		<div class="area-all">
 			<image
 				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_25cb83852d.png"
@@ -32,6 +36,9 @@
 		</div>
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
+	<!-- 填写收货信息弹窗 -->
+	<!-- 下注弹窗 -->
+	<!-- 中奖弹窗 -->
 	</div>
 </template>
 

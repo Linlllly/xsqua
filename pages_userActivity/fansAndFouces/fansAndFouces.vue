@@ -1,38 +1,37 @@
 <template>
 	<view class="pages">
-		<!-- 头像和提示 -->
-		<div class="chat-title">
-			<!-- 提示 -->
-			<div class="title-left">
-				<!-- 上三个 -->
-				<div class="title-left-top">
-					<div v-for="(i, index) in 3" :key="index" :class="bigLook === i ? 'select-chat' : 'name-chat'" @click="changeLookList(i)">
-						<img
-							class="list-relative-img"
-							:src="i === 0 ? '../../static/fans.png' : i === 1 ? '../../static/foucs.png' : '../../static/double.png'"
-							alt=""
-						/>
-						{{ i === 0 ? '粉丝' : i === 1 ? '关注' : '互关' }}
+		<z-paging  ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="fansList" @query="getFriendList" :empty-view-img-style='{width:0,height:0}'  >
+				<template #top>
+					<!-- 头像和提示 -->
+					<div class="chat-title">
+						<div class="title-left">
+							<div class="title-left-top">
+								<div v-for="(i, index) in 3" :key="index" :class="bigLook === i ? 'select-chat' : 'name-chat'" @click="changeLookList(i)">
+									<img
+										class="list-relative-img"
+										:src="i === 0 ? '../../static/fans.png' : i === 1 ? '../../static/foucs.png' : '../../static/double.png'"
+										alt=""
+									/>
+									{{ i === 0 ? '粉丝' : i === 1 ? '关注' : '互关' }}
+								</div>
+							</div>
+						</div>
+						<img class="name-title" :src="ava" alt="" />
 					</div>
-				</div>
-			</div>
-			<!-- 头像 -->
-			<img class="name-title" :src="ava" alt="" />
-		</div>
-		<!-- 搜索 -->
-		<div class="title-search">
-			<u-search
-				v-model="keyword"
-				:showAction="true"
-				actionText="搜索"
-				:animation="false"
-				@search="peopleSearch"
-				@custom="peopleSearch"
-			></u-search>
-			<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
-		</div>
-		<!-- 粉丝列表 -->
-		<div v-if="fansList && fansList.length !== 0" class="content-list" v-for="(i, index) in fansList" :key="i.uid">
+					<!-- 搜索 -->
+					<div class="title-search">
+						<u-search
+							v-model="keyword"
+							:showAction="true"
+							actionText="搜索"
+							:animation="false"
+							@search="peopleSearch"
+							@custom="peopleSearch"
+						></u-search>
+						<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
+					</div>
+				</template>
+		<div  class="content-list" v-for="(i, index) in fansList" :key="i.uid">
 			<img class="list-img" @click="toOtherUser(i)" :src="i.avatar" alt="" />
 			<div
 				class="content-info"
@@ -52,59 +51,7 @@
 				<div class="info-des">{{ i.intro ? i.intro : ' ' }}</div>
 			</div>
 		</div>
-		<!-- 关注列表 -->
-		<div v-if="focusList && focusList.length !== 0" class="content-list" v-for="(i, index) in focusList" :key="i.uid">
-			<img class="list-img" @click="toOtherUser(i)" :src="i.avatar" alt="" />
-			<div
-				class="content-info"
-				@click="
-					changeName = true;
-					fid = i.uid;
-					findex = index;
-					remark = i.remark;
-				"
-			>
-				<div class="info-name">
-					{{ i.remark ? i.remark : i.username }}
-					<img v-if="i.remark" src="../ua_static/orangebeizhu.png" mode="" />
-					<img v-else src="../ua_static/greybeizhu.png" mode="" />
-				</div>
-				<div class="info-des">{{ i.intro ? i.intro : ' ' }}</div>
-			</div>
-		</div>
-		<!-- 互关列表 -->
-		<div v-if="friendList && friendList.length !== 0" class="content-list" v-for="(i, index) in friendList" :key="i.uid">
-			<img class="list-img" @click="toOtherUser(i)" :src="i.avatar" alt="" />
-			<div
-				class="content-info"
-				@click="
-					changeName = true;
-					fid = i.uid;
-					findex = index;
-					remark = i.remark;
-				"
-			>
-				<div class="info-name">
-					{{ i.remark ? i.remark : i.username }}
-					<img v-if="i.remark" src="../ua_static/orangebeizhu.png" mode="" />
-					<img v-else src="../ua_static/greybeizhu.png" mode="" />
-				</div>
-				<div class="info-des">{{ i.intro ? i.intro : ' ' }}</div>
-			</div>
-		</div>
-		<!-- 底部 -->
-		<div
-			v-if="
-				(!isloading && fansPage >= fansLastPage) ||
-					(!isloading && focusPage >= focusLastPage) ||
-					(!isloading && friendPage >= friendLastPage)
-			"
-			class="next"
-		>
-			———— 没有更多数据了 ————
-		</div>
-		<div v-if="isloading" class="next"><u-loading-icon></u-loading-icon></div>
-
+			</z-paging>
 		<!-- 改动 -->
 		<u-modal
 			title="修改用户备注"
@@ -147,24 +94,7 @@ export default {
 	data() {
 		return {
 			bigLook: 0,
-			peopleList: [],
-			//-------
-			fansPage: 1,
-			fansLimit: 12,
-			fansLastPage: '',
-			fansList: [],
-			//----------
-			focusPage: 1,
-			focusLimit: 12,
-			focusLastPage: '',
-			focusList: [],
-			//---------
-			friendPage: 1,
-			friendLimit: 12,
-			friendLastPage: '',
-			friendList: [],
-			//------
-			isloading: false,
+			 fansList: [],
 			changeName: false,
 			fid: null,
 			findex: null,
@@ -176,126 +106,46 @@ export default {
 			showAttention: false
 		};
 	},
-	onLoad() {
-		this.getFriendList();
-	},
-	onReachBottom() {
-		if (this.bigLook === 0) {
-			//粉丝
-			if (this.fansPage >= this.fansLastPage) {
-				return;
-			}
-			// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-			if (this.isloading) return;
-			// 让页码值自增 +1
-			this.fansPage += 1;
-			// 重新获取列表数据
-			this.getFriendList();
-		} else if (this.bigLook === 1) {
-			//关注
-			if (this.focusPage >= this.focusLastPage) {
-				return;
-			}
-			// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-			if (this.isloading) return;
-			// 让页码值自增 +1
-			this.focusPage += 1;
-			// 重新获取列表数据
-			this.getFriendList();
-		} else {
-			//互关
-			if (this.friendPage >= this.friendLastPage) {
-				return;
-			}
-			// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-			if (this.isloading) return;
-			// 让页码值自增 +1
-			this.friendPage += 1;
-			// 重新获取列表数据
-			this.getFriendList();
-		}
-	},
 	methods: {
 		changeLookList(i) {
-			this.bigLook = i;
-			this.keyword = '';
-			//请求接口换列表
-			this.fansList = [];
-			this.focusList = [];
-			this.friendList = [];
-			this.fansPage = 1;
-			this.focusPage = 1;
-			this.friendPage = 1;
-			this.getFriendList();
+			 this.bigLook = i;
+			this.$refs.paging.reload();
 		},
 		peopleSearch() {
-			this.fansList = [];
-			this.focusList = [];
-			this.friendList = [];
-			this.fansPage = 1;
-			this.focusPage = 1;
-			this.friendPage = 1;
-			this.getFriendList();
+			this.$refs.paging.reload();
 		},
 		reloadAll() {
-			this.keyword = '';
-			this.fansList = [];
-			this.focusList = [];
-			this.friendList = [];
-			this.fansPage = 1;
-			this.focusPage = 1;
-			this.friendPage = 1;
-			this.getFriendList();
+			 this.keyword = '';
+			this.$refs.paging.reload();
 		},
-		async getFriendList() {
-			if (this.bigLook === 0) {
-				// ** 打开节流阀
-				this.isloading = true;
-				let res = await userFans({ page: this.fansPage, limit: this.fansLimit, keyword: this.keyword });
-				console.log('请求粉丝列表');
-				console.log(res);
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				this.isloading = false;
-				this.fansList = [...this.fansList, ...res.result.data];
-				this.fansLastPage = res.result.last_page;
+		getFriendList(page, limit) {
+			if(this.bigLook === 0){
+				userFans({ page, limit , keyword: this.keyword})
+								.then(res => {
+									this.fansList = res.result.data||[];
+									this.$refs.paging.complete(res.result.data);
+								})
+								.catch(res => {
+									this.$refs.paging.complete(false);
+								});
 			} else if (this.bigLook === 1) {
-				// ** 打开节流阀
-				this.isloading = true;
-				let res = await follow({ page: this.focusPage, limit: this.focusLimit, keyword: this.keyword });
-				console.log('请求关注列表');
-				console.log(res);
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				this.isloading = false;
-				this.focusList = [...this.focusList, ...res.result.data];
-				this.focusLastPage = res.result.last_page;
-			} else {
-				// ** 打开节流阀
-				this.isloading = true;
-				let res = await mutualFollow({ page: this.friendPage, limit: this.friendLimit, keyword: this.keyword });
-				console.log('请求互关列表');
-				console.log(res);
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				this.isloading = false;
-				this.friendList = [...this.friendList, ...res.result.data];
-				this.friendLastPage = res.result.last_page;
+				follow({ page, limit , keyword: this.keyword})
+								.then(res => {
+									this.fansList = res.result.data||[];
+									this.$refs.paging.complete(res.result.data);
+								})
+								.catch(res => {
+									this.$refs.paging.complete(false);
+								});
+			}else{
+				mutualFollow({ page, limit , keyword: this.keyword})
+								.then(res => {
+									this.fansList = res.result.data||[];
+									this.$refs.paging.complete(res.result.data);
+								})
+								.catch(res => {
+									this.$refs.paging.complete(false);
+								});
 			}
 		},
 		cancelAttention(i) {
@@ -351,14 +201,7 @@ export default {
 				icon: 'none'
 			});
 			let list;
-			if (this.bigLook === 0) {
-				list = this.fansList;
-			} else if (this.bigLook === 1) {
-				list = this.focusList;
-			} else {
-				list = this.friendList;
-			}
-			this.$set(list[this.findex], 'remark', this.remark);
+			this.$set(this.fansList[this.findex], 'remark', this.remark);
 			this.remark = '';
 			this.changeName = false;
 		}

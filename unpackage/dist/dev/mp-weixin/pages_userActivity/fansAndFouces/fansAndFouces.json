@@ -2,9 +2,9 @@
   "onReachBottomDistance": 150,
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
     "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
-    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
     "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
     "u--form": "/uni_modules/uview-ui/components/u--form/u--form",
     "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",

@@ -189,14 +189,14 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    zPaging: function () {
+      return Promise.all(/*! import() | uni_modules/z-paging/components/z-paging/z-paging */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/z-paging/components/z-paging/z-paging")]).then(__webpack_require__.bind(null, /*! @/uni_modules/z-paging/components/z-paging/z-paging.vue */ 599))
+    },
     uSearch: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 478))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 496))
     },
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 530))
-    },
-    uLoadingIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon.vue */ 456))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 548))
     },
   }
 } catch (e) {
@@ -220,19 +220,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var g0 = _vm.chatList.length
   var l0 = _vm.__map(_vm.chatList, function (i, index) {
     var $orig = _vm.__get_orig(i)
     var m0 =
-      g0 !== 0 && i.relations !== 0 && i.relations === 1
+      i.relations !== 0 && i.relations === 1
         ? __webpack_require__(/*! ../../static/fans.png */ 288)
         : null
     var m1 =
-      g0 !== 0 && i.relations !== 0 && i.relations === 2
+      i.relations !== 0 && i.relations === 2
         ? __webpack_require__(/*! ../../static/foucs.png */ 289)
         : null
     var m2 =
-      g0 !== 0 && i.relations !== 0 && i.relations === 3
+      i.relations !== 0 && i.relations === 3
         ? __webpack_require__(/*! ../../static/double.png */ 290)
         : null
     return {
@@ -246,7 +245,6 @@ var render = function () {
     {},
     {
       $root: {
-        g0: g0,
         l0: l0,
       },
     }
@@ -403,9 +401,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _chatList = __webpack_require__(/*! @/api/chatList.js */ 293);
 var _vuex = __webpack_require__(/*! vuex */ 37);
@@ -418,15 +413,8 @@ var _default = {
     return {
       ws: '',
       chatList: [],
-      //条数
-      limit: 12,
-      //页面
-      page: 1,
-      lastPage: '',
-      isloading: false,
-      // 节流阀 是否正在请求数据
       myAvatar: '',
-      getList: true,
+      getList: false,
       //备注/房间号
       keyword: '',
       close: false
@@ -451,14 +439,13 @@ var _default = {
             if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video' || data.toUid !== _this.uid) {
               _this.page = 1;
               _this.chatList = [];
-              _this.getChatList();
+              _this.$refs.paging.reload();
             }
           }
         });
       }
     }
   },
-  onLoad: function onLoad() {},
   onHide: function onHide() {
     this.getList = false;
   },
@@ -467,90 +454,39 @@ var _default = {
     this.close = true;
   },
   onShow: function onShow() {
-    console.log('chatList onShow');
     this.getList = true;
-    this.page = 1;
     this.keyword = '';
-    this.chatList = [];
-    this.getChatList();
-  },
-  onReachBottom: function onReachBottom() {
-    if (this.page >= this.lastPage) {
-      return;
-    }
-    // 判断是否正在请求其它数据，如果是，则不发起额外的请求
-    if (this.isloading) return;
-    // 让页码值自增 +1
-    this.page += 1;
-    // 重新获取列表数据
-    this.getChatList();
+    this.$refs.paging.reload();
   },
   methods: {
     //请求列表
-    getChatList: function getChatList() {
+    getChatList: function getChatList(page, limit) {
       var _this2 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var res;
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (_this2.getList) {
-                  _context.next = 2;
-                  break;
-                }
-                return _context.abrupt("return");
-              case 2:
-                // ** 打开节流阀
-                _this2.isloading = true;
-                _context.next = 5;
-                return (0, _chatList.chatList)({
-                  page: _this2.page,
-                  limit: _this2.limit,
-                  keyword: _this2.keyword
-                });
-              case 5:
-                res = _context.sent;
-                console.log('请求聊天列表');
-                console.log(res);
-                if (!(res.code !== 0)) {
-                  _context.next = 11;
-                  break;
-                }
-                uni.showToast({
-                  title: '获取聊天列表失败',
-                  icon: 'none'
-                });
-                return _context.abrupt("return");
-              case 11:
-                _this2.isloading = false;
-                _this2.chatList = [].concat((0, _toConsumableArray2.default)(_this2.chatList), (0, _toConsumableArray2.default)(res.result.data));
-                _this2.lastPage = res.result.last_page;
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+      if (!this.getList) {
+        return;
+      }
+      (0, _chatList.chatList)({
+        page: page,
+        limit: limit,
+        keyword: this.keyword
+      }).then(function (res) {
+        _this2.chatList = res.result.data || [];
+        _this2.$refs.paging.complete(res.result.data);
+      }).catch(function (res) {
+        _this2.$refs.paging.complete(false);
+      });
     },
     goChatWith: function goChatWith(i) {
-      console.log('==========');
-      console.log(i.uid);
       uni.navigateTo({
         url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
       });
     },
     peopleSearch: function peopleSearch() {
-      this.page = 1;
-      this.chatList = [];
-      this.getChatList();
+      this.$refs.paging.reload();
     },
     reloadAll: function reloadAll() {
       this.keyword = '';
-      this.page = 1;
-      this.chatList = [];
-      this.getChatList();
+      this.$refs.paging.reload();
     }
   }
 };

@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { getArmourConfig, updateArmourConfig, closeMyRoom, openMyRoom } from '@/api/exchangeArmor.js';
+import { getArmourConfig, updateArmourConfig, closeMyRoom, openMyRoom } from '@/api/updateArmor.js';
 import { myRoom } from '@/api/loginSelect.js';
 
 const App = getApp();

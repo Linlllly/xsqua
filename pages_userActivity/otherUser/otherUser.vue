@@ -46,9 +46,6 @@
 									<span>银子：</span>
 									<span>{{ silverNum }}</span>
 								</div>
-								<!-- 	<div @click="popMoney = true">银子：\n{{ silverNum }}</div>
-							<div @click="popMoney = true">鲜花：\n{{ flowerNum }}</div>
-								<div @click="popMoney = true">便便：\n{{ eggNum }}</div> -->
 							</div>
 						</div>
 					</div>
@@ -181,7 +178,7 @@ import { enterRoom, getUserInfoById, getPostListByCateId, obtainSliver, addFollo
 import { giveSilver, giveFlower, randomRoom } from '@/api/index.js';
 import { giveEgg } from '@/api/articleDes.js';
 import { redDot, getUserStatistics, getUserRank } from '@/api/user.js';
-import { getArmourConfig } from '@/api/exchangeArmor.js';
+import { getArmourConfig } from '@/api/updateArmor.js';
 const app = getApp();
 
 export default {
