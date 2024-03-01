@@ -10,8 +10,15 @@
       "list": [
         {
           "name": "u-具体漂流瓶",
-          "pathName": "pages_userActivity/bottleMessageList/bottleMessageList",
-          "query": "",
+          "pathName": "pages_userActivity/bottleDetail/bottleDetail",
+          "query": "i=15373",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-文章详情",
+          "pathName": "pages_userActivity/articleDes/articleDes",
+          "query": "i=15373",
           "launchMode": "default",
           "scene": null
         },
@@ -46,13 +53,6 @@
         {
           "name": "u-空间介绍",
           "pathName": "pages_userActivity/xIntroduce/xIntroduce",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "c-盔甲",
-          "pathName": "pages_costMoney/exchangeArmor/exchangeArmor",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -159,13 +159,6 @@
           "name": "u-粉丝关注互关",
           "pathName": "pages_userActivity/fansAndFouces/fansAndFouces",
           "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "u-文章详情",
-          "pathName": "pages_userActivity/articleDes/articleDes",
-          "query": "i=214",
           "launchMode": "default",
           "scene": null
         },

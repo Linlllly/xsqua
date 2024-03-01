@@ -37,8 +37,11 @@
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
 	<!-- 填写收货信息弹窗 -->
+	
 	<!-- 下注弹窗 -->
+	
 	<!-- 中奖弹窗 -->
+	
 	</div>
 </template>
 
@@ -353,7 +356,7 @@ button::after {
 }
 /deep/.u-input__content {
 	padding: 10rpx 0;
-	background-color: #ccc;
+	background-color: #e5e5e5;
 	border-radius: 20rpx;
 }
 </style>

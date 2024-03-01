@@ -504,10 +504,6 @@ page {
   font-size: 26rpx;
   color: #888586;
 }
-.re-sm-title {
-  margin: 20rpx;
-  color: #565656;
-}
 .send-box {
   width: 100%;
   height: 750rpx;
@@ -543,13 +539,6 @@ page {
 }
  .u-popup__content {
   border-radius: 30rpx 30rpx 0 0;
-}
-swiper {
-  height: 750rpx;
-}
-swiper image {
-  width: 100%;
-  height: 100%;
 }
 .next {
   margin-top: 10rpx;

@@ -16,18 +16,30 @@
 			<div class="history" @click="toBottleHistory">历史</div>
 			<div class="message" @click="toBottleMessageList">消息提示</div>
 		</div>
-		<div class="pick" @click="pickBottle">捡</div>
+		<div class="pick" @click="judgeNumber">捡</div>
 		<div class="lost" @click="toIssue">丢</div>
+		<!-- 再捡一次 -->
+		<u-modal
+			:show="showPickAgain"
+			title=" "
+			content="确定花费5个星星再捡一次？"
+			@confirm="pickBottle"
+			showCancelButton
+			@cancel="showPickAgain = false"
+			confirmColor="#e89406"
+		></u-modal>
 	</view>
 </template>
 
 <script>
-	import {pickBottle } from '@/api/currentBottle.js';
+	import { pickBottle } from '@/api/currentBottle.js';
 	import { banner } from '@/api/index.js';
 	export default {
 		data() {
 			return {
 				list1: [],
+				showPickAgain:false,
+				first:true
 			};
 		},
 		onLoad() {
@@ -46,6 +58,13 @@
 					return;
 				}
 				this.list1 = res.result;
+			},
+			judgeNumber(){
+				if(first){
+					this.pickBottle()
+				}else{
+					this.showPickAgain=true
+				}
 			},
 		pickBottle(){
 			pickBottle().then(res=>{

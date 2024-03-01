@@ -259,11 +259,8 @@ export default {
 			page: 1,
 			lastPage: '',
 			//列表
-			myList: [],
 			isloading: false, // 节流阀 是否正在请求数据
 			oneRecordList: [],
-			//没有图片或视频
-			noMedia: false,
 			showInput: false,
 			textMsg: '',
 			// 查看全部回复(二级)--------------
@@ -993,10 +990,6 @@ export default {
 		}
 	}
 }
-.re-sm-title {
-	margin: 20rpx;
-	color: #565656;
-}
 .send-box {
 	width: 100%;
 	height: 750rpx;
@@ -1032,13 +1025,6 @@ export default {
 }
 /deep/.u-popup__content {
 	border-radius: 30rpx 30rpx 0 0;
-}
-swiper {
-	height: 750rpx;
-	image {
-		width: 100%;
-		height: 100%;
-	}
 }
 .next {
 	margin-top: 10rpx;

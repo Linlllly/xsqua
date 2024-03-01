@@ -136,6 +136,9 @@ try {
     uSwiper: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 452))
     },
+    uModal: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 515))
+    },
   }
 } catch (e) {
   if (
@@ -159,6 +162,11 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   var g0 = _vm.list1.length
+  if (!_vm._isMounted) {
+    _vm.e0 = function ($event) {
+      _vm.showPickAgain = false
+    }
+  }
   _vm.$mp.data = Object.assign(
     {},
     {
@@ -234,10 +242,22 @@ var _index = __webpack_require__(/*! @/api/index.js */ 179);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      list1: []
+      list1: [],
+      showPickAgain: false,
+      first: true
     };
   },
   onLoad: function onLoad() {
@@ -278,6 +298,13 @@ var _default = {
           }
         }, _callee);
       }))();
+    },
+    judgeNumber: function judgeNumber() {
+      if (first) {
+        this.pickBottle();
+      } else {
+        this.showPickAgain = true;
+      }
     },
     pickBottle: function pickBottle() {
       (0, _currentBottle.pickBottle)().then(function (res) {

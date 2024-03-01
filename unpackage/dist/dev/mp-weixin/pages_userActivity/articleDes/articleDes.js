@@ -470,12 +470,9 @@ var _default = {
       page: 1,
       lastPage: '',
       //列表
-      myList: [],
       isloading: false,
       // 节流阀 是否正在请求数据
       oneRecordList: [],
-      //没有图片或视频
-      noMedia: false,
       showInput: false,
       textMsg: '',
       // 查看全部回复(二级)--------------

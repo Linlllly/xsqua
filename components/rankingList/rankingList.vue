@@ -103,7 +103,6 @@ export default {
 	},
 	mounted() {
 		this.ws = app.globalData.ws;
-		this.getFlowerRank();
 		this.getSilverRank();
 	},
 	methods: {

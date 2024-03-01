@@ -251,7 +251,7 @@ export default {
 .pages {
 	position: relative;
 	min-height: 100vh;
-	color: transparent;
+	// color: transparent;
 }
 .pages::before {
 	content: '';
@@ -296,63 +296,6 @@ export default {
 		height: 140rpx;
 		margin-right: 14rpx;
 	}
-}
-.box-armor {
-	.armor-details {
-		width: 680rpx;
-		display: flex;
-		margin: 142rpx auto 0;
-		justify-content: space-between;
-		align-items: center;
-
-		.armor-confirm {
-			width: 210rpx;
-			height: 128rpx;
-		}
-	}
-	.read-more {
-		display: flex;
-		justify-content: space-between;
-		width: 388rpx;
-		margin: 42rpx auto 0;
-		.learn-more {
-			width: 154rpx;
-		}
-		.armor-record {
-			width: 154rpx;
-		}
-	}
-}
-.box-fp {
-	display: flex;
-	width: 650rpx;
-	margin: 166rpx auto 0;
-	.fp-details {
-	}
-	.fp-confirm-record {
-		margin-left: 70rpx;
-		.fp-confirm {
-			margin-top: 10rpx;
-			width: 140rpx;
-			height: 80rpx;
-		}
-		.fp-record {
-			width: 140rpx;
-			margin-top: 10rpx;
-		}
-	}
-}
-/deep/.u-number-box__input {
-	width: 240rpx !important;
-}
-/deep/.u-number-box__plus--disabled {
-	background-color: transparent !important;
-}
-/deep/.u-number-box__minus--disabled {
-	background-color: transparent !important;
-}
-/deep/.u-input {
-	padding: 12rpx 0 !important;
 }
 .send-img {
 	width: 60rpx;

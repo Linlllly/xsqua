@@ -210,7 +210,6 @@ var _default = {
   },
   mounted: function mounted() {
     this.ws = app.globalData.ws;
-    this.getFlowerRank();
     this.getSilverRank();
   },
   methods: {

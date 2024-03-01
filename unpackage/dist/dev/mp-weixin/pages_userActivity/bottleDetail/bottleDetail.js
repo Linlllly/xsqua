@@ -302,17 +302,8 @@ try {
     uAlbum: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-album/u-album.vue */ 641))
     },
-    uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 551))
-    },
     uLoadingIcon: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon.vue */ 477))
-    },
-    uPopup: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 507))
-    },
-    "u-Input": function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 485))
     },
     uModal: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 515))
@@ -349,45 +340,16 @@ var render = function () {
   var g3 = _vm.aImgList.length
   if (!_vm._isMounted) {
     _vm.e0 = function ($event) {
-      _vm.showRemoveArt = true
-    }
-    _vm.e1 = function ($event) {
-      _vm.showRemoveArt = true
-    }
-    _vm.e2 = function ($event, i) {
-      var _temp = arguments[arguments.length - 1].currentTarget.dataset,
-        _temp2 = _temp.eventParams || _temp["event-params"],
-        i = _temp2.i
-      var _temp, _temp2
-      _vm.showRemoveComment = true
-      _vm.removeId = i.id
-    }
-    _vm.e3 = function ($event) {
       _vm.showInput = false
     }
-    _vm.e4 = function ($event) {
-      _vm.showMoreRecord = false
-      _vm.pageMoreRecord = 1
-      _vm.lastPageMoreRecord = ""
-      _vm.loadingMoreRecord = false
-      _vm.twoRecordList = []
+    _vm.e1 = function ($event) {
+      _vm.showInput = true
     }
-    _vm.e5 = function ($event, i) {
-      var _temp3 = arguments[arguments.length - 1].currentTarget.dataset,
-        _temp4 = _temp3.eventParams || _temp3["event-params"],
-        i = _temp4.i
-      var _temp3, _temp4
-      _vm.showRemoveComment = true
-      _vm.removeId = i.id
+    _vm.e2 = function ($event) {
+      _vm.showPickAgain = true
     }
-    _vm.e6 = function ($event) {
-      _vm.popMoney = false
-    }
-    _vm.e7 = function ($event) {
-      _vm.showRemoveArt = false
-    }
-    _vm.e8 = function ($event) {
-      _vm.showRemoveComment = false
+    _vm.e3 = function ($event) {
+      _vm.showPickAgain = false
     }
   }
   _vm.$mp.data = Object.assign(
@@ -445,22 +407,18 @@ var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _articleDes = __webpack_require__(/*! @/api/articleDes.js */ 180);
-var _index = __webpack_require__(/*! @/api/index.js */ 179);
+var _currentBottle = __webpack_require__(/*! @/api/currentBottle.js */ 263);
 var _vuex = __webpack_require__(/*! vuex */ 37);
-var _artcleIssue = __webpack_require__(/*! @/api/artcleIssue.js */ 386);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var app = getApp();
 var _default = {
-  computed: _objectSpread({}, (0, _vuex.mapState)(['uid', 'house'])),
+  computed: _objectSpread({}, (0, _vuex.mapState)(['uid'])),
   data: function data() {
     return {
       ws: '',
       //帖子id
       id: '',
-      //评论id
-      removeId: '',
       aImgList: [],
       avideo: '',
       //一级------------
@@ -470,69 +428,25 @@ var _default = {
       page: 1,
       lastPage: '',
       //列表
-      myList: [],
       isloading: false,
       // 节流阀 是否正在请求数据
       oneRecordList: [],
-      //没有图片或视频
-      noMedia: false,
       showInput: false,
       textMsg: '',
-      // 查看全部回复(二级)--------------
-      twoRecordList: [],
-      showMoreRecord: false,
-      loadingMoreRecord: false,
-      pageMoreRecord: 1,
-      lastPageMoreRecord: '',
-      limitMoreRecord: 12,
-      isReply: 0,
       artObj: {},
-      //弹出花费窗户
-      popMoney: false,
-      //送钱
-      sendMoney: '',
-      //删除动态
-      showRemoveArt: false,
-      twoDadId: '',
-      //父级评论ID（评论动态时=0 ，评论其他评论时为对应评论的id）
-      pid: '',
-      //被回复用户ID 可能是帖主 也可能是评论家（评论发消息用）
+      showPickAgain: false,
+      //被回复用户ID
       toUid: '',
-      //永远代指发帖的帖主（点赞 发消息 送东西用）
-      receiveUid: '',
-      //删除评论
-      showRemoveComment: false,
       messBotton: 0,
-      inputYbHeight: 0,
-      holder: '',
-      //是否私人
-      secret: null,
-      // 正在送出
-      sending: false,
-      //1 or 2
-      sayOne: true
+      inputYbHeight: 0
     };
   },
   onLoad: function onLoad(option) {
     this.ws = app.globalData.ws;
-    // this.ws.onMessage(res => {
-    // 	console.log('接收消息ing');
-    // 	console.log(res);
-    // });
     this.id = option.i;
-    this.secret = option.secret ? option.secret : null;
     this.getDetail();
     this.oneRecordList = [];
     this.getCommentList();
-  },
-  //触发onShareAppMessage监听事件
-  onShareAppMessage: function onShareAppMessage() {
-    return {
-      title: 'X自由空间，微信里的新天地！',
-      path: '/pages_userActivity/articleDes/articleDes?i=' + this.id,
-      // 路径，传递参数到指定页面。
-      imgUrl: '/static/time.png'
-    };
   },
   onReachBottom: function onReachBottom() {
     if (this.page >= this.lastPage) {
@@ -547,159 +461,67 @@ var _default = {
   },
   methods: {
     //获取详情
-    getDetail: function getDetail() {
-      var _this = this;
+    detailPickBottle: function detailPickBottle() {
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var res, medias, zhengze;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return (0, _articleDes.detail)({
-                  id: _this.id
-                });
-              case 2:
-                res = _context.sent;
-                console.log('获取详情');
-                console.log(res);
-                if (!(res.code !== 0)) {
-                  _context.next = 8;
-                  break;
-                }
-                uni.showToast({
-                  title: '获取动态详情失败',
-                  icon: 'none'
-                });
-                return _context.abrupt("return");
-              case 8:
-                _this.artObj = res.result;
-                //评论用uid 可能会修改
-                _this.toUid = res.result.uid;
-                //帖主uid  不更改
-                _this.receiveUid = res.result.uid;
-                if (!(_this.artObj.media.length === 0)) {
-                  _context.next = 13;
-                  break;
-                }
-                return _context.abrupt("return");
-              case 13:
-                medias = _this.artObj.media[0];
-                zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
-                if (zhengze.test(medias)) {
-                  //是图片
-                  _this.aImgList = _this.artObj.media;
-                } else {
-                  _this.avideo = _this.artObj.media[0];
-                }
-              case 16:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
-    },
-    //改变点赞状态 没房子不许点
-    changeCollection: function changeCollection(flag) {
-      var _this2 = this;
+    } // let res = await detail({ id: this.id });
+    // console.log('获取详情');
+    // console.log(res);
+    // if (res.code !== 0) {
+    // 	uni.showToast({
+    // 		title: '获取动态详情失败',
+    // 		icon:'none'
+
+    // 	});
+    // 	return;
+    // }
+    // this.artObj = res.result;
+    // //发给谁
+    // this.toUid = res.result.uid;
+
+    // if (this.artObj.media.length === 0) {
+    // 	return;
+    // }
+    // let medias = this.artObj.media[0];
+    // let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
+    // if (zhengze.test(medias)) {
+    // 	//是图片
+    // 	this.aImgList = this.artObj.media;
+    // } else {
+    // 	this.avideo = this.artObj.media[0];
+    // }
+    ,
+    //获取一级评论列表
+    getCommentList: function getCommentList() {
+      var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        var res, coo, content, _res, _coo;
+        var res;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (_this2.house) {
-                  _context2.next = 3;
-                  break;
-                }
-                uni.showToast({
-                  title: '请先成为空间主人',
-                  icon: 'none'
+                _this.isloading = true;
+                _context2.next = 3;
+                return getComment({
+                  postId: _this.id,
+                  page: _this.page,
+                  limit: _this.limit
                 });
-                return _context2.abrupt("return");
               case 3:
-                if (!(flag === 1)) {
-                  _context2.next = 16;
-                  break;
-                }
-                _context2.next = 6;
-                return (0, _articleDes.addCollection)({
-                  id: _this2.id
-                });
-              case 6:
                 res = _context2.sent;
-                _this2.$set(_this2.artObj, 'isCollection', true);
-                coo = _this2.artObj.collectionCount + 1;
-                _this2.$set(_this2.artObj, 'collectionCount', coo);
-                //-----------
-                //自己点赞自己不给提示
-                if (!(_this2.uid === _this2.receiveUid)) {
-                  _context2.next = 12;
-                  break;
-                }
-                return _context2.abrupt("return");
-              case 12:
-                content = {
-                  fromUid: _this2.uid,
-                  toUid: _this2.receiveUid,
-                  text: '点赞了您的动态',
-                  type: 'collection',
-                  postId: _this2.id
-                };
-                _this2.ws.send({
-                  data: JSON.stringify(content),
-                  success: function success() {
-                    console.log('ws点赞消息发送成功');
-                  }
-                });
-                //-----------
-                _context2.next = 23;
-                break;
-              case 16:
-                if (!(flag === 2)) {
-                  _context2.next = 23;
-                  break;
-                }
-                _context2.next = 19;
-                return (0, _articleDes.cancelCollection)({
-                  id: _this2.id
-                });
-              case 19:
-                _res = _context2.sent;
-                _this2.$set(_this2.artObj, 'isCollection', false);
-                _coo = _this2.artObj.collectionCount - 1;
-                _this2.$set(_this2.artObj, 'collectionCount', _coo);
-              case 23:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-    //获取一级评论列表
-    getCommentList: function getCommentList() {
-      var _this3 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
-        var res;
-        return _regenerator.default.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _this3.isloading = true;
-                _context3.next = 3;
-                return (0, _articleDes.getComment)({
-                  postId: _this3.id,
-                  page: _this3.page,
-                  limit: _this3.limit
-                });
-              case 3:
-                res = _context3.sent;
                 console.log('请求用户评论');
                 console.log(res);
                 if (!(res.code !== 0)) {
-                  _context3.next = 10;
+                  _context2.next = 10;
                   break;
                 }
                 uni.showToast({
@@ -707,196 +529,19 @@ var _default = {
                   icon: 'none'
                 });
                 // ** 关闭节流阀
-                _this3.isloading = false;
-                return _context3.abrupt("return");
+                _this.isloading = false;
+                return _context2.abrupt("return");
               case 10:
                 // ** 关闭节流阀
-                _this3.isloading = false;
-                _this3.oneRecordList = [].concat((0, _toConsumableArray2.default)(_this3.oneRecordList), (0, _toConsumableArray2.default)(res.result.data));
-                _this3.lastPage = res.result.last_page;
+                _this.isloading = false;
+                _this.oneRecordList = [].concat((0, _toConsumableArray2.default)(_this.oneRecordList), (0, _toConsumableArray2.default)(res.result.data));
+                _this.lastPage = res.result.last_page;
               case 13:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3);
-      }))();
-    },
-    //打开输入弹出窗
-    openInput: function openInput(i, index) {
-      this.showInput = true;
-      if (!i) {
-        //评论帖主(动态)
-        this.pid = 0;
-        //帖主uid
-        this.toUid = this.receiveUid;
-        //提示
-        this.holder = '评论这条帖子...';
-        this.sayOne = true;
-      } else {
-        if (!index) {
-          //不是二级时候 点击的这条评论的id
-          this.pid = i.id;
-        }
-        //评论某个人评论 被回复的那个人uid
-        this.toUid = i.uid;
-        //提示
-        this.holder = '评论' + i.fromUserName;
-        this.sayOne = false;
-      }
-      if (index) {
-        this.isReply = 1;
-      } else {
-        this.isReply = 0;
-      }
-    },
-    //打开给别人花钱框  没房子不许点
-    openPop: function openPop() {
-      if (!this.house) {
-        uni.showToast({
-          title: '请先成为空间主人',
-          icon: 'none'
-        });
-        return;
-      }
-      if (this.receiveUid === this.uid) {
-        uni.showToast({
-          title: '不可以给自己助力',
-          icon: 'none'
-        });
-        return;
-      }
-      this.popMoney = true;
-    },
-    sendMoneyOrFlowerOrPoo: function sendMoneyOrFlowerOrPoo() {
-      var _this4 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
-        var res1, content;
-        return _regenerator.default.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                if (!_this4.sending) {
-                  _context4.next = 2;
-                  break;
-                }
-                return _context4.abrupt("return");
-              case 2:
-                if (!(!_this4.sendMoney || _this4.sendMoney <= 0)) {
-                  _context4.next = 5;
-                  break;
-                }
-                uni.showToast({
-                  title: '助力数量有误',
-                  icon: 'none'
-                });
-                return _context4.abrupt("return");
-              case 5:
-                _this4.sending = true;
-                uni.showLoading({
-                  title: '赠送中'
-                });
-                if (!_this4.sendMoney) {
-                  _context4.next = 19;
-                  break;
-                }
-                _context4.next = 10;
-                return (0, _index.giveSilver)({
-                  num: _this4.sendMoney,
-                  receiveUid: _this4.receiveUid,
-                  type: 1,
-                  receivePostid: _this4.id
-                });
-              case 10:
-                res1 = _context4.sent;
-                uni.hideLoading();
-                if (!(res1.code !== 0)) {
-                  _context4.next = 16;
-                  break;
-                }
-                uni.showToast({
-                  title: '赠送银元失败'
-                });
-                _this4.sending = false;
-                return _context4.abrupt("return");
-              case 16:
-                _this4.artObj.silverNum = parseInt(_this4.artObj.silverNum) + parseInt(_this4.sendMoney);
-                //----------
-                content = {
-                  fromUid: _this4.uid,
-                  toUid: _this4.receiveUid,
-                  text: "\u8D60\u9001\u4E86" + _this4.sendMoney + "\u4E24\u94F6\u5B50\u7ED9\u60A8",
-                  type: 'silver'
-                };
-                _this4.ws.send({
-                  data: JSON.stringify(content),
-                  success: function success() {
-                    console.log('ws赠送银元发送成功');
-                  }
-                });
-              case 19:
-                _this4.popMoney = false;
-                _this4.sending = false;
-                _this4.sendMoney = '';
-              case 22:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
-      }))();
-    },
-    //打开二级评论弹窗
-    openMoreRecord: function openMoreRecord(i) {
-      this.showInput = false;
-      if (i.collectionCount !== 0) {
-        this.twoDadId = i.id;
-        this.showMoreRecord = true;
-        // this.twoRecordList = i.children;
-        this.getMoreCommentList();
-      }
-    },
-    //请求二级评论
-    getMoreCommentList: function getMoreCommentList() {
-      var _this5 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
-        var res;
-        return _regenerator.default.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _this5.loadingMoreRecord = true;
-                _context5.next = 3;
-                return (0, _articleDes.getChildrenComment)({
-                  pid: _this5.twoDadId,
-                  page: _this5.pageMoreRecord,
-                  limit: _this5.limitMoreRecord
-                });
-              case 3:
-                res = _context5.sent;
-                if (!(res.code !== 0)) {
-                  _context5.next = 8;
-                  break;
-                }
-                uni.showToast({
-                  title: '请求二级评论失败',
-                  icon: 'none'
-                });
-                _this5.loadingMoreRecord = false;
-                return _context5.abrupt("return");
-              case 8:
-                console.log('请求二级评论');
-                console.log(res);
-                _this5.twoRecordList = [].concat((0, _toConsumableArray2.default)(_this5.twoRecordList), (0, _toConsumableArray2.default)(res.result.data));
-                _this5.lastPage = res.result.last_page;
-                // ** 关闭节流阀
-                _this5.loadingMoreRecord = false;
-              case 13:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
+        }, _callee2);
       }))();
     },
     //下拉加载更多评论
@@ -913,44 +558,34 @@ var _default = {
     },
     //发送文字 没房子不许点 需要验证发布文字内容
     sendText: function sendText() {
-      var _this6 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6() {
+      var _this2 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
         var res;
-        return _regenerator.default.wrap(function _callee6$(_context6) {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                if (_this6.house) {
-                  _context6.next = 3;
-                  break;
-                }
-                uni.showToast({
-                  title: '请先成为空间主人',
-                  icon: 'none'
-                });
-                return _context6.abrupt("return");
-              case 3:
-                if (_this6.textMsg) {
-                  _context6.next = 6;
+                if (_this2.textMsg) {
+                  _context3.next = 3;
                   break;
                 }
                 uni.showToast({
                   title: '不可以发表空评论哦',
                   icon: 'none'
                 });
-                return _context6.abrupt("return");
-              case 6:
+                return _context3.abrupt("return");
+              case 3:
                 uni.showLoading({
                   title: '评论发表中'
                 });
-                _context6.next = 9;
-                return (0, _artcleIssue.checkContent)({
-                  content: _this6.textMsg
+                _context3.next = 6;
+                return checkContent({
+                  content: _this2.textMsg
                 });
-              case 9:
-                res = _context6.sent;
+              case 6:
+                res = _context3.sent;
                 if (!(res.code !== 0 || res.result.errcode !== 0)) {
-                  _context6.next = 14;
+                  _context3.next = 11;
                   break;
                 }
                 uni.hideLoading();
@@ -958,229 +593,57 @@ var _default = {
                   title: '发布的内容包含违规信息，请修改',
                   icon: 'none'
                 });
-                return _context6.abrupt("return");
-              case 14:
-                _this6.sendReallyText();
-              case 15:
+                return _context3.abrupt("return");
+              case 11:
+                _this2.sendReallyText();
+              case 12:
               case "end":
-                return _context6.stop();
+                return _context3.stop();
             }
           }
-        }, _callee6);
+        }, _callee3);
       }))();
     },
     //真发送文字
     sendReallyText: function sendReallyText() {
-      var _this7 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7() {
-        var res, content;
-        return _regenerator.default.wrap(function _callee7$(_context7) {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context7.next = 2;
-                return (0, _articleDes.addComment)({
-                  content: _this7.textMsg,
-                  pid: _this7.isReply === 0 ? _this7.pid : _this7.twoDadId,
-                  postId: _this7.id,
-                  toUid: _this7.toUid,
-                  isReply: _this7.isReply
-                });
-              case 2:
-                res = _context7.sent;
-                uni.hideLoading();
-                if (!(res.code !== 0)) {
-                  _context7.next = 8;
-                  break;
-                }
-                _this7.showInput = false;
-                uni.showToast({
-                  title: '评论失败',
-                  icon: 'none'
-                });
-                return _context7.abrupt("return");
-              case 8:
-                _this7.textMsg = '';
-                _this7.showInput = false;
-                uni.showToast({
-                  title: '评论成功',
-                  icon: 'none'
-                });
-                //-----------
-                _this7.artObj = {};
-                _this7.getDetail();
-                if (_this7.isReply === 1) {
-                  _this7.twoRecordList = [];
-                  _this7.pageMoreRecord = 1;
-                  _this7.lastPageMoreRecord = '';
-                  _this7.getMoreCommentList();
-                } else {
-                  _this7.oneRecordList = [];
-                  _this7.page = 1;
-                  _this7.lastPage = '';
-                  _this7.getCommentList();
-                }
-                //-----------
-                //自己评论自己不给提示
-                if (!(_this7.uid === _this7.toUid)) {
-                  _context7.next = 16;
-                  break;
-                }
-                return _context7.abrupt("return");
-              case 16:
-                //一级提示 被回复id是帖主
-                if (_this7.sayOne) {
-                  content = {
-                    fromUid: _this7.uid,
-                    toUid: _this7.toUid,
-                    text: '评论了您的动态',
-                    type: 'comment',
-                    postId: _this7.id
-                  };
-                  _this7.ws.send({
-                    data: JSON.stringify(content),
-                    success: function success() {
-                      console.log('ws评论消息发送成功');
-                    }
-                  });
-                } else {
-                  //二级提示 被回复id不是帖主
-                  content = {
-                    fromUid: _this7.uid,
-                    toUid: _this7.toUid,
-                    text: '评论了您的评论',
-                    type: 'comment',
-                    postId: _this7.id
-                  };
-                  _this7.ws.send({
-                    data: JSON.stringify(content),
-                    success: function success() {
-                      console.log('ws二级评论消息发送成功');
-                    }
-                  });
-                }
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    } //评论 发送ws 更新页面onerecordList
+    // let res =await commentBottle({id,comment})
+    ,
+    // 再捡
+    confirmPickAgain: function confirmPickAgain() {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
+        return _regenerator.default.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    } // pickBottle().then(res=>{
 
-                //二级提示
+    // 	//获得瓶子id  更新这个页面
 
-                //-----------
-              case 17:
-              case "end":
-                return _context7.stop();
-            }
-          }
-        }, _callee7);
-      }))();
-    },
-    //删除动态
-    confirmRemoveArt: function confirmRemoveArt() {
-      var _this8 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee8() {
-        var res, pages, beforePage;
-        return _regenerator.default.wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                _context8.next = 2;
-                return (0, _articleDes.deletePost)({
-                  id: _this8.id
-                });
-              case 2:
-                res = _context8.sent;
-                console.log(res);
-                if (!(res.code !== 0)) {
-                  _context8.next = 7;
-                  break;
-                }
-                uni.showToast({
-                  title: '删除动态失败',
-                  icon: 'none'
-                });
-                return _context8.abrupt("return");
-              case 7:
-                uni.showToast({
-                  title: '已删除',
-                  icon: 'none'
-                });
-                //删除成功
-                // uni.navigateBack({ });
-                pages = getCurrentPages();
-                beforePage = pages[pages.length - 2];
-                beforePage.$vm.refresh = true;
-                uni.navigateBack({
-                  success: function success() {}
-                });
-              case 12:
-              case "end":
-                return _context8.stop();
-            }
-          }
-        }, _callee8);
-      }))();
-    },
-    //删除评论
-    confirmRemoveComment: function confirmRemoveComment() {
-      var _this9 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee9() {
-        var res;
-        return _regenerator.default.wrap(function _callee9$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-                _context9.next = 2;
-                return (0, _articleDes.deleteComment)({
-                  id: _this9.removeId
-                });
-              case 2:
-                res = _context9.sent;
-                console.log(res);
-                console.log('删除评论');
-                if (!(res.code !== 0)) {
-                  _context9.next = 8;
-                  break;
-                }
-                uni.showToast({
-                  title: '删除评论失败',
-                  icon: 'none'
-                });
-                return _context9.abrupt("return");
-              case 8:
-                uni.showToast({
-                  title: '已删除',
-                  icon: 'none'
-                });
-                _this9.artObj = {};
-                _this9.getDetail();
-                _this9.showRemoveComment = false;
-                _this9.showMoreRecord = false;
-                _this9.oneRecordList = [];
-                _this9.twoRecordList = [];
-                _this9.getCommentList();
-              case 16:
-              case "end":
-                return _context9.stop();
-            }
-          }
-        }, _callee9);
-      }))();
-    },
-    //去别人的空间
-    toOtherUser: function toOtherUser(i, n) {
-      if (i.uid === this.uid) {
-        //自己
-        uni.switchTab({
-          url: '../../pages/user/user'
-        });
-      } else {
-        if (n === 1) {
-          uni.navigateTo({
-            url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
-          });
-        } else {
-          uni.navigateTo({
-            url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateid + '&ouid=' + i.uid
-          });
-        }
-      }
+    // })	
+    ,
+    goChatWith: function goChatWith() {
+      //i哪里来？
+      uni.navigateTo({
+        url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
+      });
     },
     //单图预览
     previewImg: function previewImg() {
@@ -1196,25 +659,7 @@ var _default = {
     inputLow: function inputLow(e) {
       this.messBotton = 0;
     },
-    inputLine: function inputLine(e) {
-      //第一次进来就会刷一次 此时设置中部高度
-      // 	if (e.detail.lineCount === 1) {
-      // 		let query = uni.createSelectorQuery().in(this);
-      // 		query.select('.input-box').boundingClientRect();
-      // 		query.exec(res => {
-      // 			this.inputYbHeight = res[0].height;
-      // 		});
-      // 		return;
-      // 	}
-      // 	//多行时候的差值
-      // 	let nowHeight = '';
-      // 	let query = uni.createSelectorQuery().in(this);
-      // 	query.select('.input-box').boundingClientRect();
-      // 	query.exec(res => {
-      // 		nowHeight = res[0].height;
-      // 		this.inputLines = nowHeight - this.inputYbHeight;
-      // 	});
-    }
+    inputLine: function inputLine(e) {}
   }
 };
 exports.default = _default;
@@ -1280,5 +725,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[343,"common/runtime","common/vendor","pages_userActivity/common/vendor"]]]);
+},[[343,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages_userActivity/bottleDetail/bottleDetail.js.map
