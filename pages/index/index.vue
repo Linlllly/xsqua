@@ -36,8 +36,27 @@
 		</div>
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
+		<!-- 确认兑换吗 -->
 	<!-- 填写收货信息弹窗 -->
-	
+	<u-modal
+		title="填写收货信息"
+		:show="showAddress"
+		@confirm="confirmChangeSecret"
+		showCancelButton
+		@cancel="
+			showAddress = false;
+			addressForm={};
+		"
+		confirmColor="#e89406"
+	>
+		<view class="slot-content">
+			<u--form labelPosition="left" :model="addressForm" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#515151' }">
+				<u-form-item label="姓名"><u-input placeholder="姓名" v-model="addressForm.name" ></u-input></u-form-item>
+				<u-form-item label="联系电话"><u-input placeholder="联系电话" v-model="addressForm.tel" ></u-input></u-form-item>
+				<u-form-item label="收货地址"><u-input placeholder="收货地址" v-model="addressForm.address" ></u-input></u-form-item>
+			</u--form>
+		</view>
+	</u-modal>
 	<!-- 下注弹窗 -->
 	
 	<!-- 中奖弹窗 -->
@@ -77,7 +96,10 @@ export default {
 			//搜索数据
 			searchText: '',
 			popSearch: false,
-			peopleList: []
+			peopleList: [],
+			//兑换
+			showAddress:false,
+			addressForm:{}
 		};
 	},
 	onLoad() {
