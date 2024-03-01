@@ -76,7 +76,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '未激活，需兑换超级安全盔甲',
-					
+					icon:'none'
 				});
 			}
 		},
@@ -87,13 +87,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '移除黑名单成功',
-					
+					icon:'none'
 				});
 				const index = this.blackList.findIndex(item => item.blackUserInfo.uid === this.attention.blackUserInfo.uid);
 				this.$delete(this.blackList, index);

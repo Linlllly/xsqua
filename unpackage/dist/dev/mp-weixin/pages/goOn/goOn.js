@@ -219,7 +219,8 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: '获取开屏失败'
+                  title: '获取开屏失败',
+                  icon: 'none'
                 });
                 return _context.abrupt("return");
               case 6:

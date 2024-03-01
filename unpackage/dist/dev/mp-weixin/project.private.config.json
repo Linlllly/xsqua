@@ -9,7 +9,21 @@
     "miniprogram": {
       "list": [
         {
-          "name": "漂流瓶历史",
+          "name": "u-具体漂流瓶",
+          "pathName": "pages_userActivity/bottleMessageList/bottleMessageList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-漂流瓶消息列表",
+          "pathName": "pages_userActivity/bottleMessageList/bottleMessageList",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "u-漂流瓶历史",
           "pathName": "pages_userActivity/bottleHistory/bottleHistory",
           "query": "",
           "launchMode": "default",

@@ -89,7 +89,7 @@ export default {
 			//弹窗给钱给花
 			showMoneyOrFlower: false,
 			//1送钱 2送花
-			type: null,
+			type: 1,
 			//送出数量
 			sendCount: '',
 			//送出详细人
@@ -107,25 +107,13 @@ export default {
 		this.getSilverRank();
 	},
 	methods: {
-		async getFlowerRank() {
-			let res = await flowerRank();
-			console.log('鲜花排行榜');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '鲜花排行榜获取失败'
-				});
-				return;
-			}
-			this.flowerRankList = res.result.slice(0, 10);
-		},
 		async getSilverRank() {
 			let res = await silverRank();
 			console.log('银两排行榜');
 			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
-					title: '银两排行榜获取失败'
+					title: '银两排行榜获取失败',icon:'none'
 				});
 				return;
 			}
@@ -148,7 +136,7 @@ export default {
 			}
 			if (!this.sendCount || this.sendCount <= 0) {
 				uni.showToast({
-					title: '助力数量有误'
+					title: '助力数量有误',icon:'none'
 				});
 				return;
 			}
@@ -156,20 +144,19 @@ export default {
 			uni.showLoading({
 				title: '赠送中'
 			});
-			if (this.type === 1) {
-				//送钱this.type === 1送花this.type === 2
+			
 				let res = await giveSilver({ num: this.sendCount, receiveUid: receiveUid, type: this.type });
 
 				uni.hideLoading();
 				if (res.code !== 0) {
 					this.sending = false;
 					uni.showToast({
-						title: '赠送银子失败'
+						title: '赠送银子失败',icon:'none'
 					});
 					return;
 				}
 				uni.showToast({
-					title: '赠送银子成功'
+					title: '赠送银子成功',icon:'none'
 				});
 				//----------
 				var content = { fromUid: this.uid, toUid: receiveUid, text: `赠送了` + this.sendCount + `两银子给您`, type: 'silver' };
@@ -179,33 +166,10 @@ export default {
 						console.log('ws赠送银元发送成功');
 					}
 				});
-			}
-			if (this.type === 2) {
-				let res = await giveFlower({ num: this.sendCount, receiveUid: receiveUid, type: this.type });
-				uni.hideLoading();
-				if (res.code !== 0) {
-					this.sending = false;
-					uni.showToast({
-						title: '赠送鲜花失败'
-					});
-					return;
-				}
-				uni.showToast({
-					title: '赠送鲜花成功'
-				});
-				//----------
-				var content = { fromUid: this.uid, toUid: receiveUid, text: `赠送了` + this.sendCount + `朵鲜花给您`, type: 'flower' };
-				this.ws.send({
-					data: JSON.stringify(content),
-					success: () => {
-						console.log('ws赠送鲜花发送成功');
-					}
-				});
-			}
+			
 			this.sending = false;
 			this.sendCount = '';
 			this.showMoneyOrFlower = false;
-			this.getFlowerRank();
 			this.getSilverRank();
 		},
 		toOtherUser(i, n) {

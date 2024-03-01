@@ -14,7 +14,7 @@
 		</div>
 		<div class="clicks">
 			<div class="history" @click="toBottleHistory">历史</div>
-			<div class="message" @click="toBottleMessage">消息提示</div>
+			<div class="message" @click="toBottleMessageList">消息提示</div>
 		</div>
 		<div class="pick" @click="pickBottle">捡</div>
 		<div class="lost" @click="toIssue">丢</div>
@@ -41,7 +41,7 @@
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -68,9 +68,9 @@
 				url: '../../pages_userActivity/bottleHistory/bottleHistory'
 			});
 		},
-		toBottleMessage(){
+		toBottleMessageList(){
 			uni.navigateTo({
-				url: '../../pages_userActivity/bottleMessage/bottleMessage'
+				url: '../../pages_userActivity/bottleMessageList/bottleMessageList'
 			});
 		}
 		}

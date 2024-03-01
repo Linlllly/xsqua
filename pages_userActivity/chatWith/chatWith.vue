@@ -368,7 +368,7 @@ export default {
 							this.$delete(this.chatWithList, this.chatWithList.length - 1);
 							uni.showToast({
 								title: data.text,
-								
+					icon:'none'
 							});
 							// this.$set(this.chatWithList[this.chatWithList.length - 1], 'id', '0_' + Date.now().toString());
 							return;
@@ -439,7 +439,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '只有盔甲用户可以拉黑用户',
-					
+					icon:'none'
 				});
 			}
 		},
@@ -450,13 +450,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '加入黑名单成功',
-					
+					icon:'none'
 				});
 				setTimeout(res => {
 					uni.navigateBack();
@@ -497,7 +497,7 @@ export default {
 					this.isHistoryLoading = false;
 					uni.showToast({
 						title: '已加载所有数据',
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -513,7 +513,7 @@ export default {
 				this.isHistoryLoading = false;
 				uni.showToast({
 					title: '已加载所有数据',
-					
+					icon:'none'
 				});
 				this.$nextTick(function() {
 					this.scrollAnimation = true;
@@ -527,7 +527,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -563,7 +563,7 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -660,7 +660,7 @@ export default {
 								uni.hideLoading();
 								uni.showToast({
 									title: res.msg,
-									
+									icon:'none'
 								});
 							}
 						});
@@ -698,7 +698,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: res.msg,
-								
+								icon:'none'
 							});
 						}
 					});
@@ -712,7 +712,7 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -747,7 +747,7 @@ export default {
 			if (!this.go) {
 				uni.showToast({
 					title: '网络异常，发送失败！',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -826,13 +826,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改备注成功',
-				
+				icon:'none'
 			});
 			this.realRemark = this.remark;
 			this.changeName = false;
@@ -870,14 +870,14 @@ export default {
 									uni.hideLoading();
 									uni.showToast({
 										title: '保存视频成功',
-										
+										icon:'none'
 									});
 								},
 								fail: function(err) {
 									uni.hideLoading();
 									uni.showToast({
 										title: res.msg,
-										
+										icon:'none'
 									});
 								}
 							});
@@ -885,7 +885,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: res.msg,
-								
+								icon:'none'
 							});
 						}
 					},
@@ -930,7 +930,7 @@ export default {
 					console.log(res);
 					uni.showToast({
 						title: res,
-						
+						icon:'none'
 					});
 				}
 			});
@@ -939,7 +939,7 @@ export default {
 			if (!this.armor && this.cleanType === 1) {
 				uni.showToast({
 					title: '未激活，需兑换超级安全盔甲',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -955,7 +955,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}

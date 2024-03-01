@@ -2,17 +2,6 @@
 
 /***/ 270:
 /*!****************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/costMoney.png ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/pages_costMoney/cm_static/costMoney.png";
-
-/***/ }),
-
-/***/ 271:
-/*!****************************************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/send-list.png ***!
   \****************************************************************************/
 /*! no static exports found */
@@ -22,7 +11,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADICAYAAABs
 
 /***/ }),
 
-/***/ 275:
+/***/ 274:
 /*!*****************************************************!*\
   !*** C:/Users/admin/Desktop/xsqua/api/costMoney.js ***!
   \*****************************************************/

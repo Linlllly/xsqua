@@ -89,7 +89,7 @@ export default {
 							uni.hideLoading();
 							uni.showToast({
 								title: '服务器出错，正在尝试重连...',
-								
+								icon:'none'
 							});
 							//显示失败
 							setTimeout(() => {
@@ -112,11 +112,8 @@ export default {
 						uni.hideLoading();
 						uni.showToast({
 							title: '微信登录出错，请尝试重新进入小程序...',
-							
+							icon:'none'
 						});
-						// setTimeout(() => {
-						// 	this.getCode();
-						// }, 2000);
 						return;
 					}
 				});
@@ -132,7 +129,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res,
-					
+					icon:'none'
 				});
 				return;
 			}

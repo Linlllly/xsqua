@@ -238,7 +238,8 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: '获取区域列表失败'
+                  title: '获取区域列表失败',
+                  icon: 'none'
                 });
                 return _context.abrupt("return");
               case 8:

@@ -1,6 +1,6 @@
 <template>
 	<div class="pages">
-		<img class="bg-img" src="../cm_static/costMoney.png" alt="" />
+		<!-- <img class="bg-img" src="../cm_static/costMoney.png" alt="" /> -->
 		<div class="send-list" @click="showSendList = true">礼单</div>
 		<div class="record" @click="openRecord">充值记录</div>
 
@@ -120,7 +120,7 @@ export default {
 			let res = await buy({ num: this.num });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: res.msg
+					title: res.msg,icon:'none'
 				});
 				return;
 			}
@@ -136,12 +136,12 @@ export default {
 				success: function(res) {
 					// this.loading = false;
 					uni.showToast({
-						title: '充值成功'
+						title: '充值成功',icon:'none'
 					});
 				},
 				fail: function(err) {
 					uni.showToast({
-						title: err
+						title: err,icon:'none'
 					});
 				}
 			});
@@ -177,7 +177,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingRecord = false;
 				uni.showToast({
-					title: res.msg,
+					title: res.msg,icon:'none'
 					
 				});
 				this.loadingRecord = false;
@@ -217,7 +217,7 @@ export default {
 			if (res.code !== 0) {
 				this.loadingMoney = false;
 				uni.showToast({
-					title: res.msg,
+					title: res.msg,icon:'none'
 					
 				});
 				//关闭节流阀

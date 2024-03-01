@@ -483,7 +483,7 @@ export default {
 			} else if (i === 2) {
 				if (this.pageNum >= this.totalPageNum) {
 					uni.showToast({
-						title: '已经在最后一页了~'
+						title: '已经在最后一页了~',icon:'none'
 					});
 					return;
 				}
@@ -517,8 +517,7 @@ export default {
 			this.getPeopleAgain();
 			uni.showToast({
 				title: '已刷新',
-				icon: 'none',
-				duration: 1500
+				icon: 'none'
 			});
 		},
 		toOtherUser(i) {

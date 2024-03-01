@@ -458,7 +458,7 @@ export default {
 			if (!uni.getStorageSync('openId')) {
 				uni.showToast({
 					title: '只有微信用户才可以选择消息推送！',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -523,7 +523,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -557,7 +557,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -574,7 +574,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -591,7 +591,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -613,7 +613,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -631,7 +631,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -649,7 +649,7 @@ export default {
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -680,14 +680,14 @@ export default {
 			if (res.code === 500) {
 				uni.showToast({
 					title: '请先成为房间主人吧！',
-					
+					icon:'none'
 				});
 				return;
 			}
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -727,7 +727,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -740,7 +740,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -835,7 +835,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 			}
 		},
@@ -899,7 +899,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				this.inviteContent = '';
 			}
@@ -927,7 +927,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 			}
 		},
@@ -937,12 +937,12 @@ export default {
 			if (res.code === 0) {
 				uni.showToast({
 					title: '修改个人签名成功',
-					
+					icon:'none'
 				});
 			} else {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				this.myDes = '';
 			}
@@ -970,7 +970,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					
+					icon:'none'
 				});
 			}
 		},
@@ -984,7 +984,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -996,14 +996,14 @@ export default {
 			if (this.oldSecret !== this.password) {
 				uni.showToast({
 					title: '原密码输入错误',
-					
+					icon:'none'
 				});
 				return;
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
 				uni.showToast({
 					title: '密码长度必须设置为6位',
-					
+					icon:'none'
 				});
 				return;
 			}
@@ -1011,13 +1011,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改密码成功',
-				
+				icon:'none'
 			});
 			this.changeSecret = false;
 			this.password = this.newSecret;
@@ -1031,7 +1031,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}

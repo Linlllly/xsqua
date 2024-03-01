@@ -69,7 +69,7 @@ import { lostHistry, pickHistry,delLostBottle,delPickBottle } from '@/api/curren
 			},
 			goBottleDetail(i){
 				uni.navigateTo({
-					url: '../bottleDetail/bottleDetail?id=' + i
+					url: '../bottleDetail/bottleDetail?i=' + i.id
 				});
 			},
 			delHistory(i){
@@ -77,7 +77,7 @@ import { lostHistry, pickHistry,delLostBottle,delPickBottle } from '@/api/curren
 				this.attention = i;
 			},
 			async changeAttentionState() {
-				
+				// let id=this.attention.id
 					 // let res=this.type === 0 ?await delLostBottle({id}):await delPickBottle({id})
 					  // let title = this.type === 0 ? '成功删除投放的瓶子' : '成功删除捡来的瓶子';
 					
@@ -98,10 +98,7 @@ import { lostHistry, pickHistry,delLostBottle,delPickBottle } from '@/api/curren
 				// 	const index = this.historyList.findIndex(item => item.historyList.uid === this.attention.blackUserInfo.uid);
 				// 	this.$delete(this.historyList, index);
 					this.showAttention = false;
-					
-					
-				
-				
+
 			}
 		}
 	}

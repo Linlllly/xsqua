@@ -134,7 +134,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 552))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 551))
     },
   }
 } catch (e) {
@@ -725,7 +725,8 @@ var _default = {
       } else if (i === 2) {
         if (this.pageNum >= this.totalPageNum) {
           uni.showToast({
-            title: '已经在最后一页了~'
+            title: '已经在最后一页了~',
+            icon: 'none'
           });
           return;
         }
@@ -784,8 +785,7 @@ var _default = {
       this.getPeopleAgain();
       uni.showToast({
         title: '已刷新',
-        icon: 'none',
-        duration: 1500
+        icon: 'none'
       });
     },
     toOtherUser: function toOtherUser(i) {

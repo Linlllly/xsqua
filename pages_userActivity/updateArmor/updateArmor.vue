@@ -84,7 +84,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -100,7 +100,7 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
@@ -113,13 +113,13 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '开放空间成功',
-					
+					icon:'none'
 				});
 			}
 		},
@@ -130,19 +130,19 @@ export default {
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						
+						icon:'none'
 					});
 					return;
 				}
 				if (this.othersAttention === 1) {
 					uni.showToast({
 						title: '允许他人关注',
-						
+						icon:'none'
 					});
 				} else {
 					uni.showToast({
 						title: '拒绝他人关注',
-						
+						icon:'none'
 					});
 				}
 			});
@@ -152,12 +152,12 @@ export default {
 				console.log('修改私聊状态');
 				console.log(res);
 				if (res.code !== 0) {
-					uni.showToast({ title: res.msg,  });
+					uni.showToast({ title: res.msg,icon:'none'  });
 					return;
 				}
 				uni.showToast({
 					title: '修改私聊状态成功',
-					
+					icon:'none'
 				});
 				this.showChat = false;
 			});
@@ -175,7 +175,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					
+					icon:'none'
 				});
 				return;
 			}

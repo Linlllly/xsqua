@@ -134,7 +134,7 @@ var components
 try {
   components = {
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 453))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 452))
     },
   }
 } catch (e) {
@@ -265,7 +265,8 @@ var _default = {
                   break;
                 }
                 uni.showToast({
-                  title: res.msg
+                  title: res.msg,
+                  icon: 'none'
                 });
                 return _context.abrupt("return");
               case 8:
@@ -299,9 +300,9 @@ var _default = {
         url: '../../pages_userActivity/bottleHistory/bottleHistory'
       });
     },
-    toBottleMessage: function toBottleMessage() {
+    toBottleMessageList: function toBottleMessageList() {
       uni.navigateTo({
-        url: '../../pages_userActivity/bottleMessage/bottleMessage'
+        url: '../../pages_userActivity/bottleMessageList/bottleMessageList'
       });
     }
   }

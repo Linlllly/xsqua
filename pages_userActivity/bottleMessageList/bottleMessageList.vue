@@ -1,10 +1,10 @@
 <template>
 	<view class="pages">
-		<z-paging ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="messageList" @query="getMessageList"  :empty-view-img-style='{width:0,height:0}'  >
+		<z-paging ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="recordList" @query="getBottleRecord"  :empty-view-img-style='{width:0,height:0}'  >
 				
-				<div  class="content-list" v-for="(i, index) in messageList" :key="i.id">
-					<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
-					<div class="content-info" @click="goBottleDetail(i)">
+				<div  class="content-list" v-for="(i, index) in recordList" :key="i.id" @click="goBottleDetail(i)">
+					<img class="list-img" :src="i.userInfo.avatar" alt="" />
+					<div class="content-info">
 						回复了您的漂流瓶
 					</div>
 				</div>
@@ -15,37 +15,31 @@
 </template>
 
 <script>
-import { message } from '@/api/messageList.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
-
-const app = getApp();
+import { bottleRecord } from '@/api/currentBottle.js';
 
 export default {
-	computed: {
-		...mapState(['ava'])
-	},
 	data() {
 		return {
-			messageList: []
+			recordList: []
 		};
 	},
 	
 	methods: {
 		//请求列表
-		getMessageList(page, limit) {
-			message({ page, limit})
-							.then(res => {
-								this.messageList = res.result.data||[];
-								this.$refs.paging.complete(res.result.data);
-							})
-							.catch(res => {
-								this.$refs.paging.complete(false);
-							});
+		 getBottleRecord(page, limit) {
+		// 	bottleRecord({ page, limit})
+		// 					.then(res => {
+		// 						this.recordList = res.result.data||[];
+		// 						this.$refs.paging.complete(res.result.data);
+		// 					})
+		// 					.catch(res => {
+		// 						this.$refs.paging.complete(false);
+		// 					});
 		},
 		
 		goBottleDetail(i){
 			uni.navigateTo({
-				url: '../bottleDetail/bottleDetail?id=' + i
+				url: '../bottleDetail/bottleDetail?i=' + i.id
 			});
 		}
 	}
