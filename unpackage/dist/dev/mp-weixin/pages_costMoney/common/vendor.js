@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages_costMoney/common/vendor"],{
 
 /***/ 270:
-/*!****************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/send-list.png ***!
-  \****************************************************************************/
+/*!***************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_costMoney/cm_static/send-list.png ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11,10 +11,21 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADICAYAAABs
 
 /***/ }),
 
+/***/ 271:
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/money.png ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACZUExURUdwTJ+fn7e3t4GBgerq6sfHx+fn55ycnKGhoe7u7ujo6Onp6cbGxp+fn7a2tuHh4aioqNvb27GxsZiYmNfX19/f35GRkbu7u8rKyqqqqr+/v8fHx62trb+/v+3t7czMzNra2tnZ2bq6ur+/v7e3t8HBwb29vbS0tKampsPDw5eXl7CwsM3Nzaurq8fHx4+Pj9LS0vn5+d7e3mXBqrgAAAArdFJOUwDwwP4rhA/+/QUfPZTdpl3OUNzsbnr3dKPwH7W50fPq1Ob///////////7k48dUAAADS0lEQVRIx+2Va5ejKBCG1UHxbrzkYi69M4CAoJjM//9xW2BM956e2T37ZT516fEYw+P7UlCl533FV/yhSJK0Di/f397+6vte933TBHmFol8PTV63AJW3H4+3u9AaTj3LfleGR5R8gtKsytJzZP+Isn3gx9Pj8VPPgjFhMawO7S7PnGASnc8IpTA0QftgF5RhlUVJWpWFkneghGac85WLMVZtUJ3Bf3Y8luVpD+9A+5tclrgJTvtqH7QLBq03PrNhoJwAN0PEeDkExxr874r20H/fZ1536XW8LAr7fdNjhcfH4zGB1oZZTspYHZqg+GZDzfyy9/IGEy7VomxgLH6CRaY5pXylHGedqoOj8GDY7eSdGqzNKGKllgVjaUDMaEEpIZASh2krJ+PFQgumd6Obq1WTfJqsICi6LDLNABIAiXURnEvAFiXpZNj8xAQ308gcKO53AismnkIbhJcFIM2NGbmem9KDhZqFIOM0DRqc4hjyHYMpOUvnDX7bWUPO5mGaDJif+1vuVRd/ZowRaiar7+bosqPWWBZnXvPpfjcDJ4D5kMn6BBhMn3AQnMxAhDNlAxILwrMWfDDT3UnBOCKLvPZQ6EtBbHA6GkuagdqfzD6yzwCBMCPlbpiQRYe8qNrFM1s5Tgc7ysL3LdyLzDg8IcJ0vKsjL8lKX7Lt5XxDLWkvk0NeDJzSzxHs6rQr8OrSYtSBgLoYhmGkdsPwl22Nd5WthiS7KpsUOFY1OOnw4l4QWS3NuESu4NKwwPolZzm6qY3jC7MQczPr1lqH2R0+zG61OY4GDqvGNzWHyTbfKj2qCvVM5qq3yllupZwa7GxCtpm5QKHjGCMf0vn0uIlBEbGRxEWYvvcTFLZKCsZegs+kvM/MUpTqIkQf2xDK24PUgrH35VvDUsw1I2KoBOofLSxB4Q427LyCnG9LsVJQRvBci+BT40vS7toqbDfuu6IzCOOh5gRnxbU+f26y5zoMDgcVv8hn+tYmFDeX4/mXzdlLq/y685WtUjvStR4X/e1SHqE5Jr/r/9nRtsK29X0o69j3fbgrrmVYp1Hyb1+OM6q7MD8F1+B2g8vllIddjdLoP785EcqqLgT0lB/DrqszFP3fr9bXh/sr/nz8DRwxqdzbWsSlAAAAAElFTkSuQmCC"
+
+/***/ }),
+
 /***/ 274:
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/costMoney.js ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/costMoney.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

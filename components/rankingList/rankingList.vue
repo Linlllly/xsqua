@@ -5,54 +5,76 @@
 			<div>
 				<!-- 钱币 -->
 				<div class="list-item">
-					<img class="mouth-img-money" src="../../static/money.png" alt="" />
+					<img
+						class="mouth-img-money"
+						src="../../static/money.png"
+						alt=""
+					/>
 					<div class="mouth-title">——— 富豪榜 ———</div>
-					<div class="mouth-list" v-for="(i, index) in silverRankList" :key="i.uid">
-						<img @click="toOtherUser(i)" class="mouth-portrait" :src="i.avatar" alt="" />
-						<img v-if="index === 0" class="mouth-medal" src="../../static/mouth-one.png" alt="" />
-						<img v-if="index === 1" class="mouth-medal" src="../../static/mouth-two.png" alt="" />
-						<img v-if="index === 2" class="mouth-medal" src="../../static/mouth-three.png" alt="" />
-						<div v-if="index >= 3" class="mouth-no-medel">NO.{{ index + 1 }}</div>
+					<div
+						class="mouth-list"
+						v-for="(i, index) in silverRankList"
+						:key="i.uid"
+					>
+						<img
+							@click="toOtherUser(i)"
+							class="mouth-portrait"
+							:src="i.avatar"
+							alt=""
+						/>
+						<img
+							v-if="index === 0"
+							class="mouth-medal"
+							src="../../static/mouth-one.png"
+							alt=""
+						/>
+						<img
+							v-if="index === 1"
+							class="mouth-medal"
+							src="../../static/mouth-two.png"
+							alt=""
+						/>
+						<img
+							v-if="index === 2"
+							class="mouth-medal"
+							src="../../static/mouth-three.png"
+							alt=""
+						/>
+						<div v-if="index >= 3" class="mouth-no-medel">
+							NO.{{ index + 1 }}
+						</div>
 						<div class="mouth-info">
 							<div class="info-addr">{{ i.username }}</div>
 						</div>
 						<div class="mouth-count">{{ i.silverNum }}两</div>
-						<div class="mouth-btn" @click="addMoneyOrFlower(i, 1)">助力</div>
+						<div class="mouth-btn" @click="addMoneyOrFlower(i, 1)">
+							助力
+						</div>
 					</div>
 				</div>
-				<!-- 鲜花 -->
-				<!-- <div class="list-item2">
-					<img class="mouth-img" src="../../static/flower.png" alt="" />
-					<div class="mouth-title">——— 迷人榜 ———</div>
-					<div class="mouth-list" v-for="(i, index) in flowerRankList" :key="i.uid">
-						<img class="mouth-portrait" @click="toOtherUser(i)" :src="i.avatar" alt="" />
-						<img v-if="index === 0" class="mouth-medal" src="../../static/mouth-one-flower.png" alt="" />
-						<img v-if="index === 1" class="mouth-medal" src="../../static/mouth-two-flower.png" alt="" />
-						<img v-if="index === 2" class="mouth-medal" src="../../static/mouth-three-flower.png" alt="" />
-						<div v-if="index >= 3" class="mouth-no-medel">NO.{{ index + 1 }}</div>
-						<div class="mouth-info">
-							<div class="info-addr">{{ i.username }}</div>
-						</div>
-						<div class="mouth-count">{{ i.flowerNum }}朵</div>
-						<div class="mouth-btn" @click="addMoneyOrFlower(i, 2)">助力</div>
-					</div>
-				</div> -->
 			</div>
-			<!-- 	<div class="next"><u-icon v-if="rankRich" name="arrow-down" color="#b8b8b8" size="22" @click="rankRich = !rankRich"></u-icon></div> -->
 		</div>
-		<!-- 结束语 -->
-		<!-- 	<div class="end">神秘空间 自由奔放</div> -->
 		<!-- 给钱给花  -->
 		<u-overlay
 			:show="showMoneyOrFlower"
 			@click="
-				showMoneyOrFlower = false;
-				sendCount = '';
+				showMoneyOrFlower = false
+				sendCount = ''
 			"
 		>
 			<div class="give-box" @tap.stop>
-				<img class="show-img-money" v-if="type === 1" src="../../static/money.png" alt="" />
-				<img class="show-img" v-if="type === 2" src="../../static/flower.png" alt="" />
+				<img
+					class="show-img-money"
+					v-if="type === 1"
+					src="../../static/money.png"
+					alt=""
+				/>
+				<img
+					class="show-img"
+					v-if="type === 2"
+					src="../../static/flower.png"
+					alt=""
+				/>
 
 				<u--input
 					type="number"
@@ -73,10 +95,10 @@
 </template>
 
 <script>
-import { flowerRank, silverRank, giveSilver, giveFlower } from '@/api/index.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
+import { flowerRank, silverRank, giveSilver, giveFlower } from '@/api/index.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	computed: {
@@ -84,7 +106,6 @@ export default {
 	},
 	data() {
 		return {
-			flowerRankList: [],
 			silverRankList: [],
 			//弹窗给钱给花
 			showMoneyOrFlower: false,
@@ -99,93 +120,98 @@ export default {
 			// 正在送出
 			sending: false,
 			ws: ''
-		};
+		}
 	},
 	mounted() {
-		this.ws = app.globalData.ws;
-		this.getSilverRank();
+		this.ws = app.globalData.ws
+		this.getSilverRank()
 	},
 	methods: {
 		async getSilverRank() {
-			let res = await silverRank();
-			console.log('银两排行榜');
-			console.log(res);
+			let res = await silverRank()
+			console.log('银两排行榜')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '银两排行榜获取失败',icon:'none'
-				});
-				return;
+				uni.$u.toast('排行榜获取失败')
+				return
 			}
-			this.silverRankList = res.result.slice(0, 10);
+			this.silverRankList = res.result.slice(0, 10)
 		},
 		//加钱或者加花弹窗
 		addMoneyOrFlower(i, type) {
-			this.type = type;
-			this.sendDes = i;
+			this.type = type
+			this.sendDes = i
 			if (this.sendDes.uid === this.uid) {
-				return;
+				return
 			}
-			this.showMoneyOrFlower = true;
+			this.showMoneyOrFlower = true
 		},
 		//确认送出
 		async confirmSendCount() {
-			let receiveUid = this.sendDes.uid;
+			let receiveUid = this.sendDes.uid
 			if (this.sending) {
-				return;
+				return
 			}
-			if (!this.sendCount || this.sendCount <= 0) {
-				uni.showToast({
-					title: '助力数量有误',icon:'none'
-				});
-				return;
+			if (!(this.sendCount && this.sendCount > 0)) {
+				uni.$u.toast('助力数量有误')
+				return
 			}
-			this.sending = true;
+			this.sending = true
 			uni.showLoading({
 				title: '赠送中'
-			});
-			
-				let res = await giveSilver({ num: this.sendCount, receiveUid: receiveUid, type: this.type });
+			})
 
-				uni.hideLoading();
-				if (res.code !== 0) {
-					this.sending = false;
-					uni.showToast({
-						title: '赠送银子失败',icon:'none'
-					});
-					return;
+			let res = await giveSilver({
+				num: this.sendCount,
+				receiveUid: receiveUid,
+				type: this.type
+			})
+
+			uni.hideLoading()
+			if (res.code !== 0) {
+				this.sending = false
+				uni.$u.toast('赠送银子失败')
+				return
+			}
+			uni.$u.toast('赠送银子成功')
+			//----------
+			var content = {
+				fromUid: this.uid,
+				toUid: receiveUid,
+				text: `赠送了` + this.sendCount + `两银子给您`,
+				type: 'silver'
+			}
+			this.ws.send({
+				data: JSON.stringify(content),
+				success: () => {
+					console.log('ws赠送银元发送成功')
 				}
-				uni.showToast({
-					title: '赠送银子成功',icon:'none'
-				});
-				//----------
-				var content = { fromUid: this.uid, toUid: receiveUid, text: `赠送了` + this.sendCount + `两银子给您`, type: 'silver' };
-				this.ws.send({
-					data: JSON.stringify(content),
-					success: () => {
-						console.log('ws赠送银元发送成功');
-					}
-				});
-			
-			this.sending = false;
-			this.sendCount = '';
-			this.showMoneyOrFlower = false;
-			this.getSilverRank();
+			})
+
+			this.sending = false
+			this.sendCount = ''
+			this.showMoneyOrFlower = false
+			this.getSilverRank()
 		},
 		toOtherUser(i, n) {
-			console.log(i);
+			console.log(i)
 			if (i.uid === this.uid) {
 				//自己
 				uni.switchTab({
 					url: '../../pages/user/user'
-				});
+				})
 			} else {
 				uni.navigateTo({
-					url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
-				});
+					url:
+						'../../pages_userActivity/otherUser/otherUser?ocateId=' +
+						i.cateId +
+						'&ouid=' +
+						i.uid
+				})
 			}
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -362,10 +388,5 @@ export default {
 }
 image {
 	display: block;
-}
-/deep/.u-input__content {
-	padding: 10rpx 0;
-	background-color: #ccc;
-	border-radius: 20rpx;
 }
 </style>

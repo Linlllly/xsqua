@@ -9477,9 +9477,9 @@ internalMixin(Vue);
 
 /***/ }),
 /* 26 */
-/*!***********************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages.json ***!
-  \***********************************************/
+/*!**********************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages.json ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9490,9 +9490,9 @@ internalMixin(Vue);
 /* 28 */,
 /* 29 */,
 /* 30 */
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/utils/webSocket.js ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/utils/webSocket.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10036,9 +10036,9 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 /* 34 */
-/*!************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/user.js ***!
-  \************************************************/
+/*!***********************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/user.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10122,9 +10122,9 @@ function updatePassword(data) {
 
 /***/ }),
 /* 35 */
-/*!***********************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/api.js ***!
-  \***********************************************/
+/*!**********************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/api.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10286,9 +10286,9 @@ module.exports = {
 
 /***/ }),
 /* 36 */
-/*!***************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/store/index.js ***!
-  \***************************************************/
+/*!**************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/store/index.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11640,9 +11640,9 @@ module.exports = index_cjs;
 
 /***/ }),
 /* 38 */
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/utils/setting.js ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/utils/setting.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11790,9 +11790,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 42 */
-/*!******************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/index.js ***!
-  \******************************************************************/
+/*!*****************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/index.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11879,9 +11879,9 @@ exports.default = _default;
 
 /***/ }),
 /* 43 */
-/*!*****************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/mixin.js ***!
-  \*****************************************************************************/
+/*!****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/mixin/mixin.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12047,9 +12047,9 @@ exports.default = _default;
 
 /***/ }),
 /* 44 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
-  \*******************************************************************************/
+/*!******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12070,9 +12070,9 @@ exports.default = _default;
 
 /***/ }),
 /* 45 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/index.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/index.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12090,9 +12090,9 @@ exports.default = _default;
 
 /***/ }),
 /* 46 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12296,9 +12296,9 @@ exports.default = Request;
 
 /***/ }),
 /* 47 */
-/*!***************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
-  \***************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12318,9 +12318,9 @@ exports.default = _default;
 
 /***/ }),
 /* 48 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
-  \*********************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12399,9 +12399,9 @@ exports.default = _default;
 
 /***/ }),
 /* 49 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
-  \***********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12469,9 +12469,9 @@ function buildURL(url, params) {
 
 /***/ }),
 /* 50 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/utils.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/utils.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12622,9 +12622,9 @@ function isUndefined(val) {
 
 /***/ }),
 /* 51 */
-/*!*************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
-  \*************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12656,9 +12656,9 @@ function buildFullPath(baseURL, requestedURL) {
 
 /***/ }),
 /* 52 */
-/*!****************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
-  \****************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12684,9 +12684,9 @@ function isAbsoluteURL(url) {
 
 /***/ }),
 /* 53 */
-/*!**************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
-  \**************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12710,9 +12710,9 @@ function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 /* 54 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12742,9 +12742,9 @@ function settle(resolve, reject, response) {
 
 /***/ }),
 /* 55 */
-/*!******************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
-  \******************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12806,9 +12806,9 @@ exports.default = _default;
 
 /***/ }),
 /* 56 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
-  \***********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12882,9 +12882,9 @@ exports.default = _default;
 
 /***/ }),
 /* 57 */
-/*!********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
-  \********************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12914,9 +12914,9 @@ exports.default = _default;
 
 /***/ }),
 /* 58 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13162,7 +13162,7 @@ var clone = function () {
 }();
 var _default = clone;
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 59).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 59).Buffer))
 
 /***/ }),
 /* 59 */
@@ -15238,9 +15238,9 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 /* 63 */
-/*!****************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/util/route.js ***!
-  \****************************************************************************/
+/*!***************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/util/route.js ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15426,9 +15426,9 @@ exports.default = _default;
 
 /***/ }),
 /* 64 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/colorGradient.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/colorGradient.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15581,9 +15581,9 @@ exports.default = _default;
 
 /***/ }),
 /* 65 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/test.js ***!
-  \*******************************************************************************/
+/*!******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/test.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15886,9 +15886,9 @@ exports.default = _default;
 
 /***/ }),
 /* 66 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/debounce.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/debounce.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15933,9 +15933,9 @@ exports.default = _default;
 
 /***/ }),
 /* 67 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/throttle.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/throttle.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15982,9 +15982,9 @@ exports.default = _default;
 
 /***/ }),
 /* 68 */
-/*!********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/index.js ***!
-  \********************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/index.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16743,9 +16743,9 @@ exports.default = _default;
 
 /***/ }),
 /* 69 */
-/*!********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/digit.js ***!
-  \********************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/digit.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16962,9 +16962,9 @@ module.exports = _toArray, module.exports.__esModule = true, module.exports["def
 
 /***/ }),
 /* 71 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/config.js ***!
-  \*******************************************************************************/
+/*!******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/config.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17006,9 +17006,9 @@ exports.default = _default;
 
 /***/ }),
 /* 72 */
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props.js ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17118,9 +17118,9 @@ exports.default = _default;
 
 /***/ }),
 /* 73 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17162,9 +17162,9 @@ exports.default = _default;
 
 /***/ }),
 /* 74 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/album.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/album.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17206,9 +17206,9 @@ exports.default = _default;
 
 /***/ }),
 /* 75 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/alert.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/alert.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17245,9 +17245,9 @@ exports.default = _default;
 
 /***/ }),
 /* 76 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/avatar.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/avatar.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17290,9 +17290,9 @@ exports.default = _default;
 
 /***/ }),
 /* 77 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17332,9 +17332,9 @@ exports.default = _default;
 
 /***/ }),
 /* 78 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/backtop.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/backtop.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17378,9 +17378,9 @@ exports.default = _default;
 
 /***/ }),
 /* 79 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/badge.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/badge.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17424,9 +17424,9 @@ exports.default = _default;
 
 /***/ }),
 /* 80 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/button.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/button.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17483,9 +17483,9 @@ exports.default = _default;
 
 /***/ }),
 /* 81 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/calendar.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/calendar.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17546,9 +17546,9 @@ exports.default = _default;
 
 /***/ }),
 /* 82 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17578,9 +17578,9 @@ exports.default = _default;
 
 /***/ }),
 /* 83 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/cell.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/cell.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17630,9 +17630,9 @@ exports.default = _default;
 
 /***/ }),
 /* 84 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17664,9 +17664,9 @@ exports.default = _default;
 
 /***/ }),
 /* 85 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17708,9 +17708,9 @@ exports.default = _default;
 
 /***/ }),
 /* 86 */
-/*!********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
-  \********************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17756,9 +17756,9 @@ exports.default = _default;
 
 /***/ }),
 /* 87 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
-  \*********************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17788,9 +17788,9 @@ exports.default = _default;
 
 /***/ }),
 /* 88 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/code.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/code.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17825,9 +17825,9 @@ exports.default = _default;
 
 /***/ }),
 /* 89 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17871,9 +17871,9 @@ exports.default = _default;
 
 /***/ }),
 /* 90 */
-/*!**********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/col.js ***!
-  \**********************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/col.js ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17907,9 +17907,9 @@ exports.default = _default;
 
 /***/ }),
 /* 91 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/collapse.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/collapse.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17941,9 +17941,9 @@ exports.default = _default;
 
 /***/ }),
 /* 92 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17983,9 +17983,9 @@ exports.default = _default;
 
 /***/ }),
 /* 93 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18024,9 +18024,9 @@ exports.default = _default;
 
 /***/ }),
 /* 94 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/countDown.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/countDown.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18059,9 +18059,9 @@ exports.default = _default;
 
 /***/ }),
 /* 95 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/countTo.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/countTo.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18101,9 +18101,9 @@ exports.default = _default;
 
 /***/ }),
 /* 96 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
-  \*********************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18156,9 +18156,9 @@ exports.default = _default;
 
 /***/ }),
 /* 97 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/divider.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/divider.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18195,9 +18195,9 @@ exports.default = _default;
 
 /***/ }),
 /* 98 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/empty.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/empty.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18237,9 +18237,9 @@ exports.default = _default;
 
 /***/ }),
 /* 99 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/form.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/form.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18282,9 +18282,9 @@ exports.default = _default;
 
 /***/ }),
 /* 100 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/formItem.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/formItem.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18322,9 +18322,9 @@ exports.default = _default;
 
 /***/ }),
 /* 101 */
-/*!**********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/gap.js ***!
-  \**********************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/gap.js ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18358,9 +18358,9 @@ exports.default = _default;
 
 /***/ }),
 /* 102 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/grid.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/grid.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18392,9 +18392,9 @@ exports.default = _default;
 
 /***/ }),
 /* 103 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18425,9 +18425,9 @@ exports.default = _default;
 
 /***/ }),
 /* 104 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/icon.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/icon.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18477,9 +18477,9 @@ exports.default = _default;
 
 /***/ }),
 /* 105 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/image.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/image.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18524,9 +18524,9 @@ exports.default = _default;
 
 /***/ }),
 /* 106 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18560,9 +18560,9 @@ exports.default = _default;
 
 /***/ }),
 /* 107 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/indexList.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/indexList.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18598,9 +18598,9 @@ exports.default = _default;
 
 /***/ }),
 /* 108 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/input.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/input.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18663,9 +18663,9 @@ exports.default = _default;
 
 /***/ }),
 /* 109 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18710,9 +18710,9 @@ exports.default = _default;
 
 /***/ }),
 /* 110 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/line.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/line.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18747,9 +18747,9 @@ exports.default = _default;
 
 /***/ }),
 /* 111 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18783,9 +18783,9 @@ exports.default = _default;
 
 /***/ }),
 /* 112 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/link.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/link.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18825,9 +18825,9 @@ exports.default = _default;
 
 /***/ }),
 /* 113 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/list.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/list.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18870,9 +18870,9 @@ exports.default = _default;
 
 /***/ }),
 /* 114 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/listItem.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/listItem.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18902,9 +18902,9 @@ exports.default = _default;
 
 /***/ }),
 /* 115 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18948,9 +18948,9 @@ exports.default = _default;
 
 /***/ }),
 /* 116 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18988,9 +18988,9 @@ exports.default = _default;
 
 /***/ }),
 /* 117 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19037,9 +19037,9 @@ exports.default = _default;
 
 /***/ }),
 /* 118 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/modal.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/modal.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19084,9 +19084,9 @@ exports.default = _default;
 
 /***/ }),
 /* 119 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/navbar.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/navbar.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19133,9 +19133,9 @@ exports.default = _default;
 
 /***/ }),
 /* 120 */
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/color.js ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/color.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19166,9 +19166,9 @@ exports.default = _default;
 
 /***/ }),
 /* 121 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19200,9 +19200,9 @@ exports.default = _default;
 
 /***/ }),
 /* 122 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19246,9 +19246,9 @@ exports.default = _default;
 
 /***/ }),
 /* 123 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/notify.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/notify.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19285,9 +19285,9 @@ exports.default = _default;
 
 /***/ }),
 /* 124 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19337,9 +19337,9 @@ exports.default = _default;
 
 /***/ }),
 /* 125 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
-  \*********************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19371,9 +19371,9 @@ exports.default = _default;
 
 /***/ }),
 /* 126 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/overlay.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/overlay.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19406,9 +19406,9 @@ exports.default = _default;
 
 /***/ }),
 /* 127 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/parse.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/parse.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19445,9 +19445,9 @@ exports.default = _default;
 
 /***/ }),
 /* 128 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/picker.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/picker.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19495,9 +19495,9 @@ exports.default = _default;
 
 /***/ }),
 /* 129 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/popup.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/popup.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19541,9 +19541,9 @@ exports.default = _default;
 
 /***/ }),
 /* 130 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/radio.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/radio.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19585,9 +19585,9 @@ exports.default = _default;
 
 /***/ }),
 /* 131 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19632,9 +19632,9 @@ exports.default = _default;
 
 /***/ }),
 /* 132 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/rate.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/rate.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19675,9 +19675,9 @@ exports.default = _default;
 
 /***/ }),
 /* 133 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/readMore.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/readMore.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19714,9 +19714,9 @@ exports.default = _default;
 
 /***/ }),
 /* 134 */
-/*!**********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/row.js ***!
-  \**********************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/row.js ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19748,9 +19748,9 @@ exports.default = _default;
 
 /***/ }),
 /* 135 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19786,9 +19786,9 @@ exports.default = _default;
 
 /***/ }),
 /* 136 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19823,9 +19823,9 @@ exports.default = _default;
 
 /***/ }),
 /* 137 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/search.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/search.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19881,9 +19881,9 @@ exports.default = _default;
 
 /***/ }),
 /* 138 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/section.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/section.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19922,9 +19922,9 @@ exports.default = _default;
 
 /***/ }),
 /* 139 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19964,9 +19964,9 @@ exports.default = _default;
 
 /***/ }),
 /* 140 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/slider.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/slider.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20006,9 +20006,9 @@ exports.default = _default;
 
 /***/ }),
 /* 141 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20038,9 +20038,9 @@ exports.default = _default;
 
 /***/ }),
 /* 142 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/steps.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/steps.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20076,9 +20076,9 @@ exports.default = _default;
 
 /***/ }),
 /* 143 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
-  \****************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20111,9 +20111,9 @@ exports.default = _default;
 
 /***/ }),
 /* 144 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/sticky.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/sticky.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20148,9 +20148,9 @@ exports.default = _default;
 
 /***/ }),
 /* 145 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/subsection.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/subsection.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20188,9 +20188,9 @@ exports.default = _default;
 
 /***/ }),
 /* 146 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
-  \******************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20220,9 +20220,9 @@ exports.default = _default;
 
 /***/ }),
 /* 147 */
-/*!**********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
-  \**********************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20258,9 +20258,9 @@ exports.default = _default;
 
 /***/ }),
 /* 148 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/swiper.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/swiper.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20315,9 +20315,9 @@ exports.default = _default;
 
 /***/ }),
 /* 149 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
-  \***********************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20351,9 +20351,9 @@ exports.default = _default;
 
 /***/ }),
 /* 150 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/switch.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/switch.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20392,9 +20392,9 @@ exports.default = _default;
 
 /***/ }),
 /* 151 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20431,9 +20431,9 @@ exports.default = _default;
 
 /***/ }),
 /* 152 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20468,9 +20468,9 @@ exports.default = _default;
 
 /***/ }),
 /* 153 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/tabs.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/tabs.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20525,9 +20525,9 @@ exports.default = _default;
 
 /***/ }),
 /* 154 */
-/*!**********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/tag.js ***!
-  \**********************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/tag.js ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20571,9 +20571,9 @@ exports.default = _default;
 
 /***/ }),
 /* 155 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/text.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/text.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20627,9 +20627,9 @@ exports.default = _default;
 
 /***/ }),
 /* 156 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/textarea.js ***!
-  \***************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/textarea.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20680,9 +20680,9 @@ exports.default = _default;
 
 /***/ }),
 /* 157 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/toast.js ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/toast.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20726,9 +20726,9 @@ exports.default = _default;
 
 /***/ }),
 /* 158 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20763,9 +20763,9 @@ exports.default = _default;
 
 /***/ }),
 /* 159 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20807,9 +20807,9 @@ exports.default = _default;
 
 /***/ }),
 /* 160 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/transition.js ***!
-  \*****************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/transition.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20842,9 +20842,9 @@ exports.default = _default;
 
 /***/ }),
 /* 161 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/props/upload.js ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/props/upload.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20901,9 +20901,9 @@ exports.default = _default;
 
 /***/ }),
 /* 162 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/config/zIndex.js ***!
-  \*******************************************************************************/
+/*!******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/config/zIndex.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20937,9 +20937,9 @@ exports.default = _default;
 
 /***/ }),
 /* 163 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/function/platform.js ***!
-  \***********************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/function/platform.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20973,9 +20973,9 @@ exports.default = _default;
 /* 168 */,
 /* 169 */,
 /* 170 */
-/*!************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/goOn.js ***!
-  \************************************************/
+/*!***********************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/goOn.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21002,9 +21002,9 @@ function list() {
 /* 177 */,
 /* 178 */,
 /* 179 */
-/*!*************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/index.js ***!
-  \*************************************************/
+/*!************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/index.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21058,9 +21058,9 @@ function randomRoom(data) {
 
 /***/ }),
 /* 180 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/articleDes.js ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/articleDes.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21119,9 +21119,9 @@ function deleteComment(data) {
 
 /***/ }),
 /* 181 */
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/loginSelect.js ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/loginSelect.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21150,9 +21150,9 @@ function selectRoom(data) {
 
 /***/ }),
 /* 182 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/areaSelect.js ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/areaSelect.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21181,9 +21181,9 @@ function list() {
 /* 187 */,
 /* 188 */,
 /* 189 */
-/*!********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/changemy.png ***!
-  \********************************************************/
+/*!*******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/changemy.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21191,9 +21191,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABeCAYAAABF
 
 /***/ }),
 /* 190 */
-/*!********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/settings.png ***!
-  \********************************************************/
+/*!*******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/settings.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21201,9 +21201,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABqCAYAAAAf
 
 /***/ }),
 /* 191 */
-/*!********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/has-head.png ***!
-  \********************************************************/
+/*!*******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/has-head.png ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21211,9 +21211,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABsCAYAAAAM
 
 /***/ }),
 /* 192 */
-/*!***********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/no-head-big.png ***!
-  \***********************************************************/
+/*!**********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/no-head-big.png ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21221,9 +21221,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAABsCAYAAACF
 
 /***/ }),
 /* 193 */
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/chat.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/chat.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21231,9 +21231,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 
 /***/ }),
 /* 194 */
-/*!***************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/mim.png ***!
-  \***************************************************/
+/*!**************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/mim.png ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21241,9 +21241,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAABlCAYAAACb
 
 /***/ }),
 /* 195 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/secret.png ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/secret.png ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21251,9 +21251,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAABlCAYAAABN
 
 /***/ }),
 /* 196 */
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/kjjs.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/kjjs.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21261,9 +21261,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 
 /***/ }),
 /* 197 */
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/issue.png ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/issue.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21271,9 +21271,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABjCAYAAACi
 
 /***/ }),
 /* 198 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/search.png ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/search.png ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21281,9 +21281,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAABjCAYAAABN
 
 /***/ }),
 /* 199 */
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/friends.png ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/friends.png ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21291,9 +21291,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAABjCAYAAACb
 
 /***/ }),
 /* 200 */
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/push.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/push.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21301,9 +21301,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABjCAYAAACi
 
 /***/ }),
 /* 201 */
-/*!**********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/placed-top.png ***!
-  \**********************************************************/
+/*!*********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/placed-top.png ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21311,9 +21311,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 /* 202 */
-/*!*************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/I.png ***!
-  \*************************************************/
+/*!************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/I.png ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21321,9 +21321,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 /* 203 */
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/want.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/want.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21331,9 +21331,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 /* 204 */
-/*!**************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/to.png ***!
-  \**************************************************/
+/*!*************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/to.png ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21341,9 +21341,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 /* 205 */
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/more.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/more.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21353,9 +21353,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 /* 206 */,
 /* 207 */,
 /* 208 */
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/updateArmor.js ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/updateArmor.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21391,9 +21391,9 @@ function openMyRoom() {
 
 /***/ }),
 /* 209 */
-/*!**********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/utils/weapp-qrcode.js ***!
-  \**********************************************************/
+/*!*********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/utils/weapp-qrcode.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22246,9 +22246,9 @@ module.exports = QRCode;
 /* 216 */,
 /* 217 */,
 /* 218 */
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/otherUser.js ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/otherUser.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22301,9 +22301,9 @@ function cancelFollow(data) {
 /* 223 */,
 /* 224 */,
 /* 225 */
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/坐标-fill.png ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/坐标-fill.png ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -22313,9 +22313,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABf
 /* 226 */,
 /* 227 */,
 /* 228 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/citySelect.js ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/citySelect.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22334,9 +22334,9 @@ function list(query) {
 
 /***/ }),
 /* 229 */
-/*!**********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/accessPossword.js ***!
-  \**********************************************************/
+/*!*********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/accessPossword.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22366,9 +22366,9 @@ function fchange(query) {
 /* 234 */,
 /* 235 */,
 /* 236 */
-/*!**************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/area-select-bg.png ***!
-  \**************************************************************/
+/*!*************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/area-select-bg.png ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -22402,9 +22402,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAALUAQMAAADK
 /* 261 */,
 /* 262 */,
 /* 263 */
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/currentBottle.js ***!
-  \*********************************************************/
+/*!********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/currentBottle.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22469,16 +22469,7 @@ function commentBottle(data) {
 /* 268 */,
 /* 269 */,
 /* 270 */,
-/* 271 */
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/money.png ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACZUExURUdwTJ+fn7e3t4GBgerq6sfHx+fn55ycnKGhoe7u7ujo6Onp6cbGxp+fn7a2tuHh4aioqNvb27GxsZiYmNfX19/f35GRkbu7u8rKyqqqqr+/v8fHx62trb+/v+3t7czMzNra2tnZ2bq6ur+/v7e3t8HBwb29vbS0tKampsPDw5eXl7CwsM3Nzaurq8fHx4+Pj9LS0vn5+d7e3mXBqrgAAAArdFJOUwDwwP4rhA/+/QUfPZTdpl3OUNzsbnr3dKPwH7W50fPq1Ob///////////7k48dUAAADS0lEQVRIx+2Va5ejKBCG1UHxbrzkYi69M4CAoJjM//9xW2BM956e2T37ZT516fEYw+P7UlCl533FV/yhSJK0Di/f397+6vte933TBHmFol8PTV63AJW3H4+3u9AaTj3LfleGR5R8gtKsytJzZP+Isn3gx9Pj8VPPgjFhMawO7S7PnGASnc8IpTA0QftgF5RhlUVJWpWFkneghGac85WLMVZtUJ3Bf3Y8luVpD+9A+5tclrgJTvtqH7QLBq03PrNhoJwAN0PEeDkExxr874r20H/fZ1536XW8LAr7fdNjhcfH4zGB1oZZTspYHZqg+GZDzfyy9/IGEy7VomxgLH6CRaY5pXylHGedqoOj8GDY7eSdGqzNKGKllgVjaUDMaEEpIZASh2krJ+PFQgumd6Obq1WTfJqsICi6LDLNABIAiXURnEvAFiXpZNj8xAQ308gcKO53AismnkIbhJcFIM2NGbmem9KDhZqFIOM0DRqc4hjyHYMpOUvnDX7bWUPO5mGaDJif+1vuVRd/ZowRaiar7+bosqPWWBZnXvPpfjcDJ4D5kMn6BBhMn3AQnMxAhDNlAxILwrMWfDDT3UnBOCKLvPZQ6EtBbHA6GkuagdqfzD6yzwCBMCPlbpiQRYe8qNrFM1s5Tgc7ysL3LdyLzDg8IcJ0vKsjL8lKX7Lt5XxDLWkvk0NeDJzSzxHs6rQr8OrSYtSBgLoYhmGkdsPwl22Nd5WthiS7KpsUOFY1OOnw4l4QWS3NuESu4NKwwPolZzm6qY3jC7MQczPr1lqH2R0+zG61OY4GDqvGNzWHyTbfKj2qCvVM5qq3yllupZwa7GxCtpm5QKHjGCMf0vn0uIlBEbGRxEWYvvcTFLZKCsZegs+kvM/MUpTqIkQf2xDK24PUgrH35VvDUsw1I2KoBOofLSxB4Q427LyCnG9LsVJQRvBci+BT40vS7toqbDfuu6IzCOOh5gRnxbU+f26y5zoMDgcVv8hn+tYmFDeX4/mXzdlLq/y685WtUjvStR4X/e1SHqE5Jr/r/9nRtsK29X0o69j3fbgrrmVYp1Hyb1+OM6q7MD8F1+B2g8vllIddjdLoP785EcqqLgT0lB/DrqszFP3fr9bXh/sr/nz8DRwxqdzbWsSlAAAAAElFTkSuQmCC"
-
-/***/ }),
+/* 271 */,
 /* 272 */,
 /* 273 */,
 /* 274 */,
@@ -22664,10 +22655,12 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7
 /* 454 */,
 /* 455 */,
 /* 456 */,
-/* 457 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-swiper/props.js ***!
-  \**************************************************************************************/
+/* 457 */,
+/* 458 */,
+/* 459 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-swiper/props.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22807,52 +22800,115 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 458 */,
-/* 459 */,
 /* 460 */,
 /* 461 */,
 /* 462 */,
-/* 463 */
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/mouth-one.png ***!
-  \*********************************************************/
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-modal/props.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "data:image/png;base64,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"
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否展示modal
+    show: {
+      type: Boolean,
+      default: uni.$u.props.modal.show
+    },
+    // 标题
+    title: {
+      type: [String],
+      default: uni.$u.props.modal.title
+    },
+    // 弹窗内容
+    content: {
+      type: String,
+      default: uni.$u.props.modal.content
+    },
+    // 确认文案
+    confirmText: {
+      type: String,
+      default: uni.$u.props.modal.confirmText
+    },
+    // 取消文案
+    cancelText: {
+      type: String,
+      default: uni.$u.props.modal.cancelText
+    },
+    // 是否显示确认按钮
+    showConfirmButton: {
+      type: Boolean,
+      default: uni.$u.props.modal.showConfirmButton
+    },
+    // 是否显示取消按钮
+    showCancelButton: {
+      type: Boolean,
+      default: uni.$u.props.modal.showCancelButton
+    },
+    // 确认按钮颜色
+    confirmColor: {
+      type: String,
+      default: uni.$u.props.modal.confirmColor
+    },
+    // 取消文字颜色
+    cancelColor: {
+      type: String,
+      default: uni.$u.props.modal.cancelColor
+    },
+    // 对调确认和取消的位置
+    buttonReverse: {
+      type: Boolean,
+      default: uni.$u.props.modal.buttonReverse
+    },
+    // 是否开启缩放效果
+    zoom: {
+      type: Boolean,
+      default: uni.$u.props.modal.zoom
+    },
+    // 是否异步关闭，只对确定按钮有效
+    asyncClose: {
+      type: Boolean,
+      default: uni.$u.props.modal.asyncClose
+    },
+    // 是否允许点击遮罩关闭modal
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: uni.$u.props.modal.closeOnClickOverlay
+    },
+    // 给一个负的margin-top，往上偏移，避免和键盘重合的情况
+    negativeTop: {
+      type: [String, Number],
+      default: uni.$u.props.modal.negativeTop
+    },
+    // modal宽度，不支持百分比，可以数值，px，rpx单位
+    width: {
+      type: [String, Number],
+      default: uni.$u.props.modal.width
+    },
+    // 确认按钮的样式，circle-圆形，square-方形，如设置，将不会显示取消按钮
+    confirmButtonShape: {
+      type: String,
+      default: uni.$u.props.modal.confirmButtonShape
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 464 */
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/mouth-two.png ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-/* 465 */
-/*!***********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/mouth-three.png ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-/* 466 */
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/flower.png ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABIUExURUdwTPu0mvq1nPq1nfu1nfu1nPq1nfq1nf2vl/u1nPu1nfq1neuDdPetlvGYhe2Jee+Qf/ShjeyHbey0KuufR+qxKeuRXOuqN3sZrT4AAAALdFJOUwAjyq9CXeD4DZFyvf3cLAAAAMNJREFUGNNdkFkSwyAMQwkQltRmCSS5/01rBNNpqz/eCFm2UlCIzmurfhTMS+R3a8MH2fha8m6faHd4M4N60OXikiqwkwTrJymUKcG7LWMiKJcB7YQs8Lz7SbnKywTAkul8rvbclJPkHsisme6rtasTFYFx/OdMdDeBD9iAhzglsrdLnAg9lDIYns/+jElpdtLiTMBSCp0CnDJfPFQL19UeK9XKTDwXHnuqXXuP7deh1p22zfzfDlwDabuF79sf2ru4yBv4kQ6edqSjmQAAAABJRU5ErkJggg=="
-
-/***/ }),
-/* 467 */,
 /* 468 */,
 /* 469 */,
 /* 470 */,
@@ -22860,11 +22916,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6
 /* 472 */,
 /* 473 */,
 /* 474 */,
-/* 475 */,
-/* 476 */
-/*!****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-textarea/props.js ***!
-  \****************************************************************************************/
+/* 475 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-form/props.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22877,120 +22932,46 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   props: {
-    // 输入框的内容
-    value: {
-      type: [String, Number],
-      default: uni.$u.props.textarea.value
+    // 当前form的需要验证字段的集合
+    model: {
+      type: Object,
+      default: uni.$u.props.form.model
     },
-    // 输入框为空时占位符
-    placeholder: {
-      type: [String, Number],
-      default: uni.$u.props.textarea.placeholder
+    // 验证规则
+    rules: {
+      type: [Object, Function, Array],
+      default: uni.$u.props.form.rules
     },
-    // 指定placeholder的样式类，注意页面或组件的style中写了scoped时，需要在类名前写/deep/
-    placeholderClass: {
+    // 有错误时的提示方式，message-提示信息，toast-进行toast提示
+    // border-bottom-下边框呈现红色，none-无提示
+    errorType: {
       type: String,
-      default: uni.$u.props.input.placeholderClass
+      default: uni.$u.props.form.errorType
     },
-    // 指定placeholder的样式
-    placeholderStyle: {
-      type: [String, Object],
-      default: uni.$u.props.input.placeholderStyle
+    // 是否显示表单域的下划线边框
+    borderBottom: {
+      type: Boolean,
+      default: uni.$u.props.form.borderBottom
     },
-    // 输入框高度
-    height: {
-      type: [String, Number],
-      default: uni.$u.props.textarea.height
-    },
-    // 设置键盘右下角按钮的文字，仅微信小程序，App-vue和H5有效
-    confirmType: {
+    // label的位置，left-左边，top-上边
+    labelPosition: {
       type: String,
-      default: uni.$u.props.textarea.confirmType
+      default: uni.$u.props.form.labelPosition
     },
-    // 是否禁用
-    disabled: {
-      type: Boolean,
-      default: uni.$u.props.textarea.disabled
-    },
-    // 是否显示统计字数
-    count: {
-      type: Boolean,
-      default: uni.$u.props.textarea.count
-    },
-    // 是否自动获取焦点，nvue不支持，H5取决于浏览器的实现
-    focus: {
-      type: Boolean,
-      default: uni.$u.props.textarea.focus
-    },
-    // 是否自动增加高度
-    autoHeight: {
-      type: Boolean,
-      default: uni.$u.props.textarea.autoHeight
-    },
-    // 如果textarea是在一个position:fixed的区域，需要显示指定属性fixed为true
-    fixed: {
-      type: Boolean,
-      default: uni.$u.props.textarea.fixed
-    },
-    // 指定光标与键盘的距离
-    cursorSpacing: {
-      type: Number,
-      default: uni.$u.props.textarea.cursorSpacing
-    },
-    // 指定focus时的光标位置
-    cursor: {
+    // label的宽度，单位px
+    labelWidth: {
       type: [String, Number],
-      default: uni.$u.props.textarea.cursor
+      default: uni.$u.props.form.labelWidth
     },
-    // 是否显示键盘上方带有”完成“按钮那一栏，
-    showConfirmBar: {
-      type: Boolean,
-      default: uni.$u.props.textarea.showConfirmBar
-    },
-    // 光标起始位置，自动聚焦时有效，需与selection-end搭配使用
-    selectionStart: {
-      type: Number,
-      default: uni.$u.props.textarea.selectionStart
-    },
-    // 光标结束位置，自动聚焦时有效，需与selection-start搭配使用
-    selectionEnd: {
-      type: Number,
-      default: uni.$u.props.textarea.selectionEnd
-    },
-    // 键盘弹起时，是否自动上推页面
-    adjustPosition: {
-      type: Boolean,
-      default: uni.$u.props.textarea.adjustPosition
-    },
-    // 是否去掉 iOS 下的默认内边距，只微信小程序有效
-    disableDefaultPadding: {
-      type: Boolean,
-      default: uni.$u.props.textarea.disableDefaultPadding
-    },
-    // focus时，点击页面的时候不收起键盘，只微信小程序有效
-    holdKeyboard: {
-      type: Boolean,
-      default: uni.$u.props.textarea.holdKeyboard
-    },
-    // 最大输入长度，设置为 -1 的时候不限制最大长度
-    maxlength: {
-      type: [String, Number],
-      default: uni.$u.props.textarea.maxlength
-    },
-    // 边框类型，surround-四周边框，bottom-底部边框
-    border: {
+    // lable字体的对齐方式
+    labelAlign: {
       type: String,
-      default: uni.$u.props.textarea.border
+      default: uni.$u.props.form.labelAlign
     },
-    // 用于处理或者过滤输入框内容的方法
-    formatter: {
-      type: [Function, null],
-      default: uni.$u.props.textarea.formatter
-    },
-    // 是否忽略组件内对文本合成系统事件的处理
-    ignoreCompositionEvent: {
-      type: Boolean,
-      default: true
+    // lable的样式，对象形式
+    labelStyle: {
+      type: Object,
+      default: uni.$u.props.form.labelStyle
     }
   }
 };
@@ -22998,15 +22979,15 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
+/* 476 */,
 /* 477 */,
 /* 478 */,
 /* 479 */,
 /* 480 */,
-/* 481 */,
-/* 482 */
-/*!********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
-  \********************************************************************************************/
+/* 481 */
+/*!****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-form-item/props.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23019,60 +23000,49 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   props: {
-    // 是否显示组件
-    show: {
+    // input的label提示语
+    label: {
+      type: String,
+      default: uni.$u.props.formItem.label
+    },
+    // 绑定的值
+    prop: {
+      type: String,
+      default: uni.$u.props.formItem.prop
+    },
+    // 是否显示表单域的下划线边框
+    borderBottom: {
+      type: [String, Boolean],
+      default: uni.$u.props.formItem.borderBottom
+    },
+    // label的位置，left-左边，top-上边
+    labelPosition: {
+      type: String,
+      default: uni.$u.props.formItem.labelPosition
+    },
+    // label的宽度，单位px
+    labelWidth: {
+      type: [String, Number],
+      default: uni.$u.props.formItem.labelWidth
+    },
+    // 右侧图标
+    rightIcon: {
+      type: String,
+      default: uni.$u.props.formItem.rightIcon
+    },
+    // 左侧图标
+    leftIcon: {
+      type: String,
+      default: uni.$u.props.formItem.leftIcon
+    },
+    // 是否显示左边的必填星号，只作显示用，具体校验必填的逻辑，请在rules中配置
+    required: {
       type: Boolean,
-      default: uni.$u.props.loadingIcon.show
+      default: uni.$u.props.formItem.required
     },
-    // 颜色
-    color: {
-      type: String,
-      default: uni.$u.props.loadingIcon.color
-    },
-    // 提示文字颜色
-    textColor: {
-      type: String,
-      default: uni.$u.props.loadingIcon.textColor
-    },
-    // 文字和图标是否垂直排列
-    vertical: {
-      type: Boolean,
-      default: uni.$u.props.loadingIcon.vertical
-    },
-    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
-    mode: {
-      type: String,
-      default: uni.$u.props.loadingIcon.mode
-    },
-    // 图标大小，单位默认px
-    size: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.size
-    },
-    // 文字大小
-    textSize: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.textSize
-    },
-    // 文字内容
-    text: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.text
-    },
-    // 动画模式
-    timingFunction: {
-      type: String,
-      default: uni.$u.props.loadingIcon.timingFunction
-    },
-    // 动画执行周期时间
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.duration
-    },
-    // mode=circle时的暗边颜色
-    inactiveColor: {
-      type: String,
-      default: uni.$u.props.loadingIcon.inactiveColor
+    leftIconStyle: {
+      type: [String, Object],
+      default: uni.$u.props.formItem.leftIconStyle
     }
   }
 };
@@ -23080,17 +23050,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
+/* 482 */,
 /* 483 */,
 /* 484 */,
 /* 485 */,
 /* 486 */,
 /* 487 */,
 /* 488 */,
-/* 489 */,
-/* 490 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-input/props.js ***!
-  \*************************************************************************************/
+/* 489 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-input/props.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23292,15 +23262,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
+/* 490 */,
 /* 491 */,
 /* 492 */,
 /* 493 */,
 /* 494 */,
 /* 495 */,
-/* 496 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-overlay/props.js ***!
-  \***************************************************************************************/
+/* 496 */,
+/* 497 */
+/*!***************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-textarea/props.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23313,25 +23285,120 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   props: {
-    // 是否显示遮罩
-    show: {
+    // 输入框的内容
+    value: {
+      type: [String, Number],
+      default: uni.$u.props.textarea.value
+    },
+    // 输入框为空时占位符
+    placeholder: {
+      type: [String, Number],
+      default: uni.$u.props.textarea.placeholder
+    },
+    // 指定placeholder的样式类，注意页面或组件的style中写了scoped时，需要在类名前写/deep/
+    placeholderClass: {
+      type: String,
+      default: uni.$u.props.input.placeholderClass
+    },
+    // 指定placeholder的样式
+    placeholderStyle: {
+      type: [String, Object],
+      default: uni.$u.props.input.placeholderStyle
+    },
+    // 输入框高度
+    height: {
+      type: [String, Number],
+      default: uni.$u.props.textarea.height
+    },
+    // 设置键盘右下角按钮的文字，仅微信小程序，App-vue和H5有效
+    confirmType: {
+      type: String,
+      default: uni.$u.props.textarea.confirmType
+    },
+    // 是否禁用
+    disabled: {
       type: Boolean,
-      default: uni.$u.props.overlay.show
+      default: uni.$u.props.textarea.disabled
     },
-    // 层级z-index
-    zIndex: {
-      type: [String, Number],
-      default: uni.$u.props.overlay.zIndex
+    // 是否显示统计字数
+    count: {
+      type: Boolean,
+      default: uni.$u.props.textarea.count
     },
-    // 遮罩的过渡时间，单位为ms
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.overlay.duration
+    // 是否自动获取焦点，nvue不支持，H5取决于浏览器的实现
+    focus: {
+      type: Boolean,
+      default: uni.$u.props.textarea.focus
     },
-    // 不透明度值，当做rgba的第四个参数
-    opacity: {
+    // 是否自动增加高度
+    autoHeight: {
+      type: Boolean,
+      default: uni.$u.props.textarea.autoHeight
+    },
+    // 如果textarea是在一个position:fixed的区域，需要显示指定属性fixed为true
+    fixed: {
+      type: Boolean,
+      default: uni.$u.props.textarea.fixed
+    },
+    // 指定光标与键盘的距离
+    cursorSpacing: {
+      type: Number,
+      default: uni.$u.props.textarea.cursorSpacing
+    },
+    // 指定focus时的光标位置
+    cursor: {
       type: [String, Number],
-      default: uni.$u.props.overlay.opacity
+      default: uni.$u.props.textarea.cursor
+    },
+    // 是否显示键盘上方带有”完成“按钮那一栏，
+    showConfirmBar: {
+      type: Boolean,
+      default: uni.$u.props.textarea.showConfirmBar
+    },
+    // 光标起始位置，自动聚焦时有效，需与selection-end搭配使用
+    selectionStart: {
+      type: Number,
+      default: uni.$u.props.textarea.selectionStart
+    },
+    // 光标结束位置，自动聚焦时有效，需与selection-start搭配使用
+    selectionEnd: {
+      type: Number,
+      default: uni.$u.props.textarea.selectionEnd
+    },
+    // 键盘弹起时，是否自动上推页面
+    adjustPosition: {
+      type: Boolean,
+      default: uni.$u.props.textarea.adjustPosition
+    },
+    // 是否去掉 iOS 下的默认内边距，只微信小程序有效
+    disableDefaultPadding: {
+      type: Boolean,
+      default: uni.$u.props.textarea.disableDefaultPadding
+    },
+    // focus时，点击页面的时候不收起键盘，只微信小程序有效
+    holdKeyboard: {
+      type: Boolean,
+      default: uni.$u.props.textarea.holdKeyboard
+    },
+    // 最大输入长度，设置为 -1 的时候不限制最大长度
+    maxlength: {
+      type: [String, Number],
+      default: uni.$u.props.textarea.maxlength
+    },
+    // 边框类型，surround-四周边框，bottom-底部边框
+    border: {
+      type: String,
+      default: uni.$u.props.textarea.border
+    },
+    // 用于处理或者过滤输入框内容的方法
+    formatter: {
+      type: [Function, null],
+      default: uni.$u.props.textarea.formatter
+    },
+    // 是否忽略组件内对文本合成系统事件的处理
+    ignoreCompositionEvent: {
+      type: Boolean,
+      default: true
     }
   }
 };
@@ -23339,17 +23406,15 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 497 */,
 /* 498 */,
 /* 499 */,
 /* 500 */,
 /* 501 */,
 /* 502 */,
-/* 503 */,
-/* 504 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-search/props.js ***!
-  \**************************************************************************************/
+/* 503 */
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-number-box/props.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23362,119 +23427,110 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   props: {
-    // 搜索框形状，round-圆形，square-方形
-    shape: {
-      type: String,
-      default: uni.$u.props.search.shape
+    // 步进器标识符，在change回调返回
+    name: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.name
     },
-    // 搜索框背景色，默认值#f2f2f2
-    bgColor: {
-      type: String,
-      default: uni.$u.props.search.bgColor
+    // 用于双向绑定的值，初始化时设置设为默认min值(最小值)
+    value: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.value
     },
-    // 占位提示文字
-    placeholder: {
-      type: String,
-      default: uni.$u.props.search.placeholder
+    // 最小值
+    min: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.min
     },
-    // 是否启用清除控件
-    clearabled: {
+    // 最大值
+    max: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.max
+    },
+    // 加减的步长，可为小数
+    step: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.step
+    },
+    // 是否只允许输入整数
+    integer: {
       type: Boolean,
-      default: uni.$u.props.search.clearabled
+      default: uni.$u.props.numberBox.integer
     },
-    // 是否自动聚焦
-    focus: {
-      type: Boolean,
-      default: uni.$u.props.search.focus
-    },
-    // 是否在搜索框右侧显示取消按钮
-    showAction: {
-      type: Boolean,
-      default: uni.$u.props.search.showAction
-    },
-    // 右边控件的样式
-    actionStyle: {
-      type: Object,
-      default: uni.$u.props.search.actionStyle
-    },
-    // 取消按钮文字
-    actionText: {
-      type: String,
-      default: uni.$u.props.search.actionText
-    },
-    // 输入框内容对齐方式，可选值为 left|center|right
-    inputAlign: {
-      type: String,
-      default: uni.$u.props.search.inputAlign
-    },
-    // input输入框的样式，可以定义文字颜色，大小等，对象形式
-    inputStyle: {
-      type: Object,
-      default: uni.$u.props.search.inputStyle
-    },
-    // 是否启用输入框
+    // 是否禁用，包括输入框，加减按钮
     disabled: {
       type: Boolean,
-      default: uni.$u.props.search.disabled
+      default: uni.$u.props.numberBox.disabled
     },
-    // 边框颜色
-    borderColor: {
-      type: String,
-      default: uni.$u.props.search.borderColor
+    // 是否禁用输入框
+    disabledInput: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.disabledInput
     },
-    // 搜索图标的颜色，默认同输入框字体颜色
-    searchIconColor: {
-      type: String,
-      default: uni.$u.props.search.searchIconColor
+    // 是否开启异步变更，开启后需要手动控制输入值
+    asyncChange: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.asyncChange
     },
-    // 输入框字体颜色
+    // 输入框宽度，单位为px
+    inputWidth: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.inputWidth
+    },
+    // 是否显示减少按钮
+    showMinus: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.showMinus
+    },
+    // 是否显示增加按钮
+    showPlus: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.showPlus
+    },
+    // 显示的小数位数
+    decimalLength: {
+      type: [String, Number, null],
+      default: uni.$u.props.numberBox.decimalLength
+    },
+    // 是否开启长按加减手势
+    longPress: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.longPress
+    },
+    // 输入框文字和加减按钮图标的颜色
     color: {
       type: String,
-      default: uni.$u.props.search.color
+      default: uni.$u.props.numberBox.color
     },
-    // placeholder的颜色
-    placeholderColor: {
+    // 按钮大小，宽高等于此值，单位px，输入框高度和此值保持一致
+    buttonSize: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.buttonSize
+    },
+    // 输入框和按钮的背景颜色
+    bgColor: {
       type: String,
-      default: uni.$u.props.search.placeholderColor
+      default: uni.$u.props.numberBox.bgColor
     },
-    // 左边输入框的图标，可以为uView图标名称或图片路径
-    searchIcon: {
-      type: String,
-      default: uni.$u.props.search.searchIcon
+    // 指定光标于键盘的距离，避免键盘遮挡输入框，单位px
+    cursorSpacing: {
+      type: [String, Number],
+      default: uni.$u.props.numberBox.cursorSpacing
     },
-    searchIconSize: {
-      type: [Number, String],
-      default: uni.$u.props.search.searchIconSize
-    },
-    // 组件与其他上下左右元素之间的距离，带单位的字符串形式，如"30px"、"30px 20px"等写法
-    margin: {
-      type: String,
-      default: uni.$u.props.search.margin
-    },
-    // 开启showAction时，是否在input获取焦点时才显示
-    animation: {
+    // 是否禁用增加按钮
+    disablePlus: {
       type: Boolean,
-      default: uni.$u.props.search.animation
+      default: uni.$u.props.numberBox.disablePlus
     },
-    // 输入框的初始化内容
-    value: {
-      type: String,
-      default: uni.$u.props.search.value
+    // 是否禁用减少按钮
+    disableMinus: {
+      type: Boolean,
+      default: uni.$u.props.numberBox.disableMinus
     },
-    // 输入框最大能输入的长度，-1为不限制长度(来自uniapp文档)
-    maxlength: {
-      type: [String, Number],
-      default: uni.$u.props.search.maxlength
-    },
-    // 搜索框高度，单位px
-    height: {
-      type: [String, Number],
-      default: uni.$u.props.search.height
-    },
-    // 搜索框左侧文本
-    label: {
-      type: [String, Number, null],
-      default: uni.$u.props.search.label
+    // 加减按钮图标的样式
+    iconStyle: {
+      type: [Object, String],
+      default: uni.$u.props.numberBox.iconStyle
     }
   }
 };
@@ -23482,385 +23538,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
+/* 504 */,
 /* 505 */,
 /* 506 */,
 /* 507 */,
 /* 508 */,
 /* 509 */,
 /* 510 */,
-/* 511 */,
-/* 512 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-popup/props.js ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // 是否展示弹窗
-    show: {
-      type: Boolean,
-      default: uni.$u.props.popup.show
-    },
-    // 是否显示遮罩
-    overlay: {
-      type: Boolean,
-      default: uni.$u.props.popup.overlay
-    },
-    // 弹出的方向，可选值为 top bottom right left center
-    mode: {
-      type: String,
-      default: uni.$u.props.popup.mode
-    },
-    // 动画时长，单位ms
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.popup.duration
-    },
-    // 是否显示关闭图标
-    closeable: {
-      type: Boolean,
-      default: uni.$u.props.popup.closeable
-    },
-    // 自定义遮罩的样式
-    overlayStyle: {
-      type: [Object, String],
-      default: uni.$u.props.popup.overlayStyle
-    },
-    // 点击遮罩是否关闭弹窗
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: uni.$u.props.popup.closeOnClickOverlay
-    },
-    // 层级
-    zIndex: {
-      type: [String, Number],
-      default: uni.$u.props.popup.zIndex
-    },
-    // 是否为iPhoneX留出底部安全距离
-    safeAreaInsetBottom: {
-      type: Boolean,
-      default: uni.$u.props.popup.safeAreaInsetBottom
-    },
-    // 是否留出顶部安全距离（状态栏高度）
-    safeAreaInsetTop: {
-      type: Boolean,
-      default: uni.$u.props.popup.safeAreaInsetTop
-    },
-    // 自定义关闭图标位置，top-left为左上角，top-right为右上角，bottom-left为左下角，bottom-right为右下角
-    closeIconPos: {
-      type: String,
-      default: uni.$u.props.popup.closeIconPos
-    },
-    // 是否显示圆角
-    round: {
-      type: [Boolean, String, Number],
-      default: uni.$u.props.popup.round
-    },
-    // mode=center，也即中部弹出时，是否使用缩放模式
-    zoom: {
-      type: Boolean,
-      default: uni.$u.props.popup.zoom
-    },
-    // 弹窗背景色，设置为transparent可去除白色背景
-    bgColor: {
-      type: String,
-      default: uni.$u.props.popup.bgColor
-    },
-    // 遮罩的透明度，0-1之间
-    overlayOpacity: {
-      type: [Number, String],
-      default: uni.$u.props.popup.overlayOpacity
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-modal/props.js ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // 是否展示modal
-    show: {
-      type: Boolean,
-      default: uni.$u.props.modal.show
-    },
-    // 标题
-    title: {
-      type: [String],
-      default: uni.$u.props.modal.title
-    },
-    // 弹窗内容
-    content: {
-      type: String,
-      default: uni.$u.props.modal.content
-    },
-    // 确认文案
-    confirmText: {
-      type: String,
-      default: uni.$u.props.modal.confirmText
-    },
-    // 取消文案
-    cancelText: {
-      type: String,
-      default: uni.$u.props.modal.cancelText
-    },
-    // 是否显示确认按钮
-    showConfirmButton: {
-      type: Boolean,
-      default: uni.$u.props.modal.showConfirmButton
-    },
-    // 是否显示取消按钮
-    showCancelButton: {
-      type: Boolean,
-      default: uni.$u.props.modal.showCancelButton
-    },
-    // 确认按钮颜色
-    confirmColor: {
-      type: String,
-      default: uni.$u.props.modal.confirmColor
-    },
-    // 取消文字颜色
-    cancelColor: {
-      type: String,
-      default: uni.$u.props.modal.cancelColor
-    },
-    // 对调确认和取消的位置
-    buttonReverse: {
-      type: Boolean,
-      default: uni.$u.props.modal.buttonReverse
-    },
-    // 是否开启缩放效果
-    zoom: {
-      type: Boolean,
-      default: uni.$u.props.modal.zoom
-    },
-    // 是否异步关闭，只对确定按钮有效
-    asyncClose: {
-      type: Boolean,
-      default: uni.$u.props.modal.asyncClose
-    },
-    // 是否允许点击遮罩关闭modal
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: uni.$u.props.modal.closeOnClickOverlay
-    },
-    // 给一个负的margin-top，往上偏移，避免和键盘重合的情况
-    negativeTop: {
-      type: [String, Number],
-      default: uni.$u.props.modal.negativeTop
-    },
-    // modal宽度，不支持百分比，可以数值，px，rpx单位
-    width: {
-      type: [String, Number],
-      default: uni.$u.props.modal.width
-    },
-    // 确认按钮的样式，circle-圆形，square-方形，如设置，将不会显示取消按钮
-    confirmButtonShape: {
-      type: String,
-      default: uni.$u.props.modal.confirmButtonShape
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-form/props.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // 当前form的需要验证字段的集合
-    model: {
-      type: Object,
-      default: uni.$u.props.form.model
-    },
-    // 验证规则
-    rules: {
-      type: [Object, Function, Array],
-      default: uni.$u.props.form.rules
-    },
-    // 有错误时的提示方式，message-提示信息，toast-进行toast提示
-    // border-bottom-下边框呈现红色，none-无提示
-    errorType: {
-      type: String,
-      default: uni.$u.props.form.errorType
-    },
-    // 是否显示表单域的下划线边框
-    borderBottom: {
-      type: Boolean,
-      default: uni.$u.props.form.borderBottom
-    },
-    // label的位置，left-左边，top-上边
-    labelPosition: {
-      type: String,
-      default: uni.$u.props.form.labelPosition
-    },
-    // label的宽度，单位px
-    labelWidth: {
-      type: [String, Number],
-      default: uni.$u.props.form.labelWidth
-    },
-    // lable字体的对齐方式
-    labelAlign: {
-      type: String,
-      default: uni.$u.props.form.labelAlign
-    },
-    // lable的样式，对象形式
-    labelStyle: {
-      type: Object,
-      default: uni.$u.props.form.labelStyle
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 529 */,
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */
-/*!*****************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-form-item/props.js ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // input的label提示语
-    label: {
-      type: String,
-      default: uni.$u.props.formItem.label
-    },
-    // 绑定的值
-    prop: {
-      type: String,
-      default: uni.$u.props.formItem.prop
-    },
-    // 是否显示表单域的下划线边框
-    borderBottom: {
-      type: [String, Boolean],
-      default: uni.$u.props.formItem.borderBottom
-    },
-    // label的位置，left-左边，top-上边
-    labelPosition: {
-      type: String,
-      default: uni.$u.props.formItem.labelPosition
-    },
-    // label的宽度，单位px
-    labelWidth: {
-      type: [String, Number],
-      default: uni.$u.props.formItem.labelWidth
-    },
-    // 右侧图标
-    rightIcon: {
-      type: String,
-      default: uni.$u.props.formItem.rightIcon
-    },
-    // 左侧图标
-    leftIcon: {
-      type: String,
-      default: uni.$u.props.formItem.leftIcon
-    },
-    // 是否显示左边的必填星号，只作显示用，具体校验必填的逻辑，请在rules中配置
-    required: {
-      type: Boolean,
-      default: uni.$u.props.formItem.required
-    },
-    leftIconStyle: {
-      type: [String, Object],
-      default: uni.$u.props.formItem.leftIconStyle
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */,
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */,
-/* 552 */,
-/* 553 */,
-/* 554 */,
-/* 555 */,
-/* 556 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-icon/icons.js ***!
-  \************************************************************************************/
+/* 511 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-icon/icons.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24088,10 +23776,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 557 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-icon/props.js ***!
-  \************************************************************************************/
+/* 512 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-icon/props.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24195,24 +23883,28 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 558 */,
-/* 559 */,
-/* 560 */,
-/* 561 */,
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */,
-/* 569 */,
-/* 570 */,
-/* 571 */,
-/* 572 */
-/*!**************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/components/@lucky-canvas/uni/utils.js ***!
-  \**************************************************************************/
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */
+/*!*************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/components/@lucky-canvas/uni/utils.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24337,10 +24029,10 @@ function getImage(canvasId, canvas) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 573 */
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/components/lucky-canvas/dist/index.esm.js ***!
-  \******************************************************************************/
+/* 532 */
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/components/lucky-canvas/dist/index.esm.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26048,30 +25740,429 @@ exports.LuckyGrid = W;
 exports.LuckyWheel = T;
 
 /***/ }),
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */
+/*!*******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否显示组件
+    show: {
+      type: Boolean,
+      default: uni.$u.props.loadingIcon.show
+    },
+    // 颜色
+    color: {
+      type: String,
+      default: uni.$u.props.loadingIcon.color
+    },
+    // 提示文字颜色
+    textColor: {
+      type: String,
+      default: uni.$u.props.loadingIcon.textColor
+    },
+    // 文字和图标是否垂直排列
+    vertical: {
+      type: Boolean,
+      default: uni.$u.props.loadingIcon.vertical
+    },
+    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
+    mode: {
+      type: String,
+      default: uni.$u.props.loadingIcon.mode
+    },
+    // 图标大小，单位默认px
+    size: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.size
+    },
+    // 文字大小
+    textSize: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.textSize
+    },
+    // 文字内容
+    text: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.text
+    },
+    // 动画模式
+    timingFunction: {
+      type: String,
+      default: uni.$u.props.loadingIcon.timingFunction
+    },
+    // 动画执行周期时间
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.duration
+    },
+    // mode=circle时的暗边颜色
+    inactiveColor: {
+      type: String,
+      default: uni.$u.props.loadingIcon.inactiveColor
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */
+/*!**************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-overlay/props.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否显示遮罩
+    show: {
+      type: Boolean,
+      default: uni.$u.props.overlay.show
+    },
+    // 层级z-index
+    zIndex: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.zIndex
+    },
+    // 遮罩的过渡时间，单位为ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.duration
+    },
+    // 不透明度值，当做rgba的第四个参数
+    opacity: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.opacity
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-search/props.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 搜索框形状，round-圆形，square-方形
+    shape: {
+      type: String,
+      default: uni.$u.props.search.shape
+    },
+    // 搜索框背景色，默认值#f2f2f2
+    bgColor: {
+      type: String,
+      default: uni.$u.props.search.bgColor
+    },
+    // 占位提示文字
+    placeholder: {
+      type: String,
+      default: uni.$u.props.search.placeholder
+    },
+    // 是否启用清除控件
+    clearabled: {
+      type: Boolean,
+      default: uni.$u.props.search.clearabled
+    },
+    // 是否自动聚焦
+    focus: {
+      type: Boolean,
+      default: uni.$u.props.search.focus
+    },
+    // 是否在搜索框右侧显示取消按钮
+    showAction: {
+      type: Boolean,
+      default: uni.$u.props.search.showAction
+    },
+    // 右边控件的样式
+    actionStyle: {
+      type: Object,
+      default: uni.$u.props.search.actionStyle
+    },
+    // 取消按钮文字
+    actionText: {
+      type: String,
+      default: uni.$u.props.search.actionText
+    },
+    // 输入框内容对齐方式，可选值为 left|center|right
+    inputAlign: {
+      type: String,
+      default: uni.$u.props.search.inputAlign
+    },
+    // input输入框的样式，可以定义文字颜色，大小等，对象形式
+    inputStyle: {
+      type: Object,
+      default: uni.$u.props.search.inputStyle
+    },
+    // 是否启用输入框
+    disabled: {
+      type: Boolean,
+      default: uni.$u.props.search.disabled
+    },
+    // 边框颜色
+    borderColor: {
+      type: String,
+      default: uni.$u.props.search.borderColor
+    },
+    // 搜索图标的颜色，默认同输入框字体颜色
+    searchIconColor: {
+      type: String,
+      default: uni.$u.props.search.searchIconColor
+    },
+    // 输入框字体颜色
+    color: {
+      type: String,
+      default: uni.$u.props.search.color
+    },
+    // placeholder的颜色
+    placeholderColor: {
+      type: String,
+      default: uni.$u.props.search.placeholderColor
+    },
+    // 左边输入框的图标，可以为uView图标名称或图片路径
+    searchIcon: {
+      type: String,
+      default: uni.$u.props.search.searchIcon
+    },
+    searchIconSize: {
+      type: [Number, String],
+      default: uni.$u.props.search.searchIconSize
+    },
+    // 组件与其他上下左右元素之间的距离，带单位的字符串形式，如"30px"、"30px 20px"等写法
+    margin: {
+      type: String,
+      default: uni.$u.props.search.margin
+    },
+    // 开启showAction时，是否在input获取焦点时才显示
+    animation: {
+      type: Boolean,
+      default: uni.$u.props.search.animation
+    },
+    // 输入框的初始化内容
+    value: {
+      type: String,
+      default: uni.$u.props.search.value
+    },
+    // 输入框最大能输入的长度，-1为不限制长度(来自uniapp文档)
+    maxlength: {
+      type: [String, Number],
+      default: uni.$u.props.search.maxlength
+    },
+    // 搜索框高度，单位px
+    height: {
+      type: [String, Number],
+      default: uni.$u.props.search.height
+    },
+    // 搜索框左侧文本
+    label: {
+      type: [String, Number, null],
+      default: uni.$u.props.search.label
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-popup/props.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否展示弹窗
+    show: {
+      type: Boolean,
+      default: uni.$u.props.popup.show
+    },
+    // 是否显示遮罩
+    overlay: {
+      type: Boolean,
+      default: uni.$u.props.popup.overlay
+    },
+    // 弹出的方向，可选值为 top bottom right left center
+    mode: {
+      type: String,
+      default: uni.$u.props.popup.mode
+    },
+    // 动画时长，单位ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.popup.duration
+    },
+    // 是否显示关闭图标
+    closeable: {
+      type: Boolean,
+      default: uni.$u.props.popup.closeable
+    },
+    // 自定义遮罩的样式
+    overlayStyle: {
+      type: [Object, String],
+      default: uni.$u.props.popup.overlayStyle
+    },
+    // 点击遮罩是否关闭弹窗
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: uni.$u.props.popup.closeOnClickOverlay
+    },
+    // 层级
+    zIndex: {
+      type: [String, Number],
+      default: uni.$u.props.popup.zIndex
+    },
+    // 是否为iPhoneX留出底部安全距离
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: uni.$u.props.popup.safeAreaInsetBottom
+    },
+    // 是否留出顶部安全距离（状态栏高度）
+    safeAreaInsetTop: {
+      type: Boolean,
+      default: uni.$u.props.popup.safeAreaInsetTop
+    },
+    // 自定义关闭图标位置，top-left为左上角，top-right为右上角，bottom-left为左下角，bottom-right为右下角
+    closeIconPos: {
+      type: String,
+      default: uni.$u.props.popup.closeIconPos
+    },
+    // 是否显示圆角
+    round: {
+      type: [Boolean, String, Number],
+      default: uni.$u.props.popup.round
+    },
+    // mode=center，也即中部弹出时，是否使用缩放模式
+    zoom: {
+      type: Boolean,
+      default: uni.$u.props.popup.zoom
+    },
+    // 弹窗背景色，设置为transparent可去除白色背景
+    bgColor: {
+      type: String,
+      default: uni.$u.props.popup.bgColor
+    },
+    // 遮罩的透明度，0-1之间
+    overlayOpacity: {
+      type: [Number, String],
+      default: uni.$u.props.popup.overlayOpacity
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */,
 /* 574 */,
 /* 575 */,
 /* 576 */,
 /* 577 */,
 /* 578 */,
-/* 579 */
-/*!**************************************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************/
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */
+/*!*************************************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!../../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./z-paging-main.js?vue&type=script&lang=js& */ 580);
-/* harmony import */ var _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Downloads_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!../../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./z-paging-main.js?vue&type=script&lang=js& */ 590);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_13_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_z_paging_main_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
-/* 580 */
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* 590 */
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!/Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-main.js?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26086,37 +26177,37 @@ exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _zPagingStatic = _interopRequireDefault(__webpack_require__(/*! ./z-paging-static */ 581));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 582));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! ./z-paging-utils */ 583));
-var _commonLayout = _interopRequireDefault(__webpack_require__(/*! ./modules/common-layout */ 585));
-var _dataHandle = _interopRequireDefault(__webpack_require__(/*! ./modules/data-handle */ 586));
-var _i18n = _interopRequireDefault(__webpack_require__(/*! ./modules/i18n */ 589));
-var _nvue = _interopRequireDefault(__webpack_require__(/*! ./modules/nvue */ 594));
-var _empty = _interopRequireDefault(__webpack_require__(/*! ./modules/empty */ 595));
-var _refresher = _interopRequireDefault(__webpack_require__(/*! ./modules/refresher */ 596));
-var _loadMore = _interopRequireDefault(__webpack_require__(/*! ./modules/load-more */ 597));
-var _loading = _interopRequireDefault(__webpack_require__(/*! ./modules/loading */ 598));
-var _chatRecordMode = _interopRequireDefault(__webpack_require__(/*! ./modules/chat-record-mode */ 599));
-var _scroller = _interopRequireDefault(__webpack_require__(/*! ./modules/scroller */ 600));
-var _backToTop = _interopRequireDefault(__webpack_require__(/*! ./modules/back-to-top */ 601));
-var _virtualList = _interopRequireDefault(__webpack_require__(/*! ./modules/virtual-list */ 602));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! ./z-paging-enum */ 587));
+var _zPagingStatic = _interopRequireDefault(__webpack_require__(/*! ./z-paging-static */ 591));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 592));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! ./z-paging-utils */ 593));
+var _commonLayout = _interopRequireDefault(__webpack_require__(/*! ./modules/common-layout */ 595));
+var _dataHandle = _interopRequireDefault(__webpack_require__(/*! ./modules/data-handle */ 596));
+var _i18n = _interopRequireDefault(__webpack_require__(/*! ./modules/i18n */ 599));
+var _nvue = _interopRequireDefault(__webpack_require__(/*! ./modules/nvue */ 604));
+var _empty = _interopRequireDefault(__webpack_require__(/*! ./modules/empty */ 605));
+var _refresher = _interopRequireDefault(__webpack_require__(/*! ./modules/refresher */ 606));
+var _loadMore = _interopRequireDefault(__webpack_require__(/*! ./modules/load-more */ 607));
+var _loading = _interopRequireDefault(__webpack_require__(/*! ./modules/loading */ 608));
+var _chatRecordMode = _interopRequireDefault(__webpack_require__(/*! ./modules/chat-record-mode */ 609));
+var _scroller = _interopRequireDefault(__webpack_require__(/*! ./modules/scroller */ 610));
+var _backToTop = _interopRequireDefault(__webpack_require__(/*! ./modules/back-to-top */ 611));
+var _virtualList = _interopRequireDefault(__webpack_require__(/*! ./modules/virtual-list */ 612));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! ./z-paging-enum */ 597));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var zPagingRefresh = function zPagingRefresh() {
   __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging/components/z-paging-refresh */ "uni_modules/z-paging/components/z-paging/components/z-paging-refresh").then((function () {
-    return resolve(__webpack_require__(/*! ../components/z-paging-refresh */ 747));
+    return resolve(__webpack_require__(/*! ../components/z-paging-refresh */ 757));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var zPagingLoadMore = function zPagingLoadMore() {
   __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging/components/z-paging-load-more */ "uni_modules/z-paging/components/z-paging/components/z-paging-load-more").then((function () {
-    return resolve(__webpack_require__(/*! ../components/z-paging-load-more */ 754));
+    return resolve(__webpack_require__(/*! ../components/z-paging-load-more */ 764));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var zPagingEmptyView = function zPagingEmptyView() {
   __webpack_require__.e(/*! require.ensure | uni_modules/z-paging/components/z-paging-empty-view/z-paging-empty-view */ "uni_modules/z-paging/components/z-paging-empty-view/z-paging-empty-view").then((function () {
-    return resolve(__webpack_require__(/*! ../../z-paging-empty-view/z-paging-empty-view */ 740));
+    return resolve(__webpack_require__(/*! ../../z-paging-empty-view/z-paging-empty-view */ 750));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var systemInfo = uni.getSystemInfoSync();
@@ -26551,10 +26642,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 581 */
-/*!***************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-static.js ***!
-  \***************************************************************************************************/
+/* 591 */
+/*!**************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-static.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26580,10 +26671,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 582 */
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-constant.js ***!
-  \*****************************************************************************************************/
+/* 592 */
+/*!****************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-constant.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26614,10 +26705,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 583 */
-/*!**************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-utils.js ***!
-  \**************************************************************************************************/
+/* 593 */
+/*!*************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-utils.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26629,8 +26720,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _index = _interopRequireDefault(__webpack_require__(/*! ../config/index */ 584));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 582));
+var _index = _interopRequireDefault(__webpack_require__(/*! ../config/index */ 594));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! ./z-paging-constant */ 592));
 // [z-paging]工具类
 
 var storageKey = 'Z-PAGING-REFRESHER-TIME-STORAGE-KEY';
@@ -26890,10 +26981,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 584 */
-/*!*********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/config/index.js ***!
-  \*********************************************************************************************/
+/* 594 */
+/*!********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/config/index.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26909,10 +27000,10 @@ var _default = {};
 exports.default = _default;
 
 /***/ }),
-/* 585 */
-/*!*********************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/common-layout.js ***!
-  \*********************************************************************************************************/
+/* 595 */
+/*!********************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/common-layout.js ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27027,10 +27118,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 586 */
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/data-handle.js ***!
-  \*******************************************************************************************************/
+/* 596 */
+/*!******************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/data-handle.js ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27044,10 +27135,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 582));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
-var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 588));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 592));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
+var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 598));
 // [z-paging]数据处理模块
 var _default2 = {
   props: {
@@ -27733,10 +27824,10 @@ exports.default = _default2;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 587 */
-/*!*************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-enum.js ***!
-  \*************************************************************************************************/
+/* 597 */
+/*!************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-enum.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27793,10 +27884,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 588 */
-/*!********************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-interceptor.js ***!
-  \********************************************************************************************************/
+/* 598 */
+/*!*******************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/z-paging-interceptor.js ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27852,10 +27943,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 589 */
-/*!************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/i18n.js ***!
-  \************************************************************************************************/
+/* 599 */
+/*!***********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/i18n.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27868,10 +27959,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 22);
-var _index = _interopRequireDefault(__webpack_require__(/*! ../../i18n/index.js */ 590));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 582));
-var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 588));
+var _index = _interopRequireDefault(__webpack_require__(/*! ../../i18n/index.js */ 600));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 592));
+var _zPagingInterceptor = _interopRequireDefault(__webpack_require__(/*! ../z-paging-interceptor */ 598));
 // [z-paging]i18n模块
 
 var _initVueI18n = (0, _uniI18n.initVueI18n)(_index.default),
@@ -27986,10 +28077,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 590 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/index.js ***!
-  \*******************************************************************************************/
+/* 600 */
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/i18n/index.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28001,9 +28092,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 591));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 592));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 593));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 601));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 602));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 603));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -28012,40 +28103,40 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 591 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/en.json ***!
-  \******************************************************************************************/
+/* 601 */
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/i18n/en.json ***!
+  \*****************************************************************************************************/
 /*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"zp.refresher.default\":\"Pull down to refresh\",\"zp.refresher.pulling\":\"Release to refresh\",\"zp.refresher.refreshing\":\"Refreshing...\",\"zp.refresher.complete\":\"Refresh succeeded\",\"zp.loadingMore.default\":\"Click to load more\",\"zp.loadingMore.loading\":\"Loading...\",\"zp.loadingMore.noMore\":\"No more data\",\"zp.loadingMore.fail\":\"Load failed,click to reload\",\"zp.emptyView.title\":\"No data\",\"zp.emptyView.reload\":\"Reload\",\"zp.emptyView.error\":\"Sorry,load failed\",\"zp.refresherUpdateTime.title\":\"Last update: \",\"zp.refresherUpdateTime.none\":\"None\",\"zp.refresherUpdateTime.today\":\"Today\",\"zp.refresherUpdateTime.yesterday\":\"Yesterday\",\"zp.systemLoading.title\":\"Loading...\"}");
 
 /***/ }),
-/* 592 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hans.json ***!
-  \***********************************************************************************************/
+/* 602 */
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hans.json ***!
+  \**********************************************************************************************************/
 /*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"zp.refresher.default\":\"继续下拉刷新\",\"zp.refresher.pulling\":\"松开立即刷新\",\"zp.refresher.refreshing\":\"正在刷新...\",\"zp.refresher.complete\":\"刷新成功\",\"zp.loadingMore.default\":\"点击加载更多\",\"zp.loadingMore.loading\":\"正在加载...\",\"zp.loadingMore.noMore\":\"没有更多了\",\"zp.loadingMore.fail\":\"加载失败，点击重新加载\",\"zp.emptyView.title\":\"没有数据哦~\",\"zp.emptyView.reload\":\"重新加载\",\"zp.emptyView.error\":\"很抱歉，加载失败\",\"zp.refresherUpdateTime.title\":\"最后更新：\",\"zp.refresherUpdateTime.none\":\"无\",\"zp.refresherUpdateTime.today\":\"今天\",\"zp.refresherUpdateTime.yesterday\":\"昨天\",\"zp.systemLoading.title\":\"加载中...\"}");
 
 /***/ }),
-/* 593 */
-/*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hant.json ***!
-  \***********************************************************************************************/
+/* 603 */
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/i18n/zh-Hant.json ***!
+  \**********************************************************************************************************/
 /*! exports provided: zp.refresher.default, zp.refresher.pulling, zp.refresher.refreshing, zp.refresher.complete, zp.loadingMore.default, zp.loadingMore.loading, zp.loadingMore.noMore, zp.loadingMore.fail, zp.emptyView.title, zp.emptyView.reload, zp.emptyView.error, zp.refresherUpdateTime.title, zp.refresherUpdateTime.none, zp.refresherUpdateTime.today, zp.refresherUpdateTime.yesterday, zp.systemLoading.title, default */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"zp.refresher.default\":\"繼續下拉重繪\",\"zp.refresher.pulling\":\"鬆開立即重繪\",\"zp.refresher.refreshing\":\"正在重繪...\",\"zp.refresher.complete\":\"重繪成功\",\"zp.loadingMore.default\":\"點擊加載更多\",\"zp.loadingMore.loading\":\"正在加載...\",\"zp.loadingMore.noMore\":\"沒有更多了\",\"zp.loadingMore.fail\":\"加載失敗，點擊重新加載\",\"zp.emptyView.title\":\"沒有數據哦~\",\"zp.emptyView.reload\":\"重新加載\",\"zp.emptyView.error\":\"很抱歉，加載失敗\",\"zp.refresherUpdateTime.title\":\"最後更新：\",\"zp.refresherUpdateTime.none\":\"無\",\"zp.refresherUpdateTime.today\":\"今天\",\"zp.refresherUpdateTime.yesterday\":\"昨天\",\"zp.systemLoading.title\":\"加載中...\"}");
 
 /***/ }),
-/* 594 */
-/*!************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/nvue.js ***!
-  \************************************************************************************************/
+/* 604 */
+/*!***********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/nvue.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28057,9 +28148,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 582));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 592));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]nvue独有部分模块
 var _default = {
   props: {},
@@ -28084,10 +28175,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 595 */
-/*!*************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/empty.js ***!
-  \*************************************************************************************************/
+/* 605 */
+/*!************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/empty.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28099,7 +28190,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
 // [z-paging]空数据图view模块
 var _default = {
   props: {
@@ -28246,10 +28337,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 596 */
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/refresher.js ***!
-  \*****************************************************************************************************/
+/* 606 */
+/*!****************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/refresher.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28261,9 +28352,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 582));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 592));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]下拉刷新view模块
 var _default = {
   props: {
@@ -28838,10 +28929,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 597 */
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/load-more.js ***!
-  \*****************************************************************************************************/
+/* 607 */
+/*!****************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/load-more.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28855,8 +28946,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]滚动到底部加载更多模块
 var _default = {
   props: {
@@ -29260,10 +29351,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 598 */
-/*!***************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/loading.js ***!
-  \***************************************************************************************************/
+/* 608 */
+/*!**************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/loading.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29275,8 +29366,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]loading相关模块
 var _default = {
   props: {
@@ -29372,10 +29463,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 599 */
-/*!************************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/chat-record-mode.js ***!
-  \************************************************************************************************************/
+/* 609 */
+/*!***********************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/chat-record-mode.js ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29387,7 +29478,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
 // [z-paging]聊天记录模式模块
 var _default = {
   props: {
@@ -29527,10 +29618,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 600 */
-/*!****************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/scroller.js ***!
-  \****************************************************************************************************/
+/* 610 */
+/*!***************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/scroller.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29544,8 +29635,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]scroll相关模块
 var _default = {
   props: {
@@ -30001,10 +30092,10 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 601 */
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/back-to-top.js ***!
-  \*******************************************************************************************************/
+/* 611 */
+/*!******************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/back-to-top.js ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30016,7 +30107,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
 // [z-paging]点击返回顶部view模块
 var _default = {
   props: {
@@ -30144,10 +30235,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 602 */
-/*!********************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/z-paging/components/z-paging/js/modules/virtual-list.js ***!
-  \********************************************************************************************************/
+/* 612 */
+/*!*******************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/z-paging/components/z-paging/js/modules/virtual-list.js ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30161,9 +30252,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
-var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 583));
-var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 582));
-var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 587));
+var _zPagingUtils = _interopRequireDefault(__webpack_require__(/*! .././z-paging-utils */ 593));
+var _zPagingConstant = _interopRequireDefault(__webpack_require__(/*! .././z-paging-constant */ 592));
+var _zPagingEnum = _interopRequireDefault(__webpack_require__(/*! .././z-paging-enum */ 597));
 // [z-paging]虚拟列表模块
 var _default = {
   props: {
@@ -30696,19 +30787,19 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 603 */,
-/* 604 */,
-/* 605 */,
-/* 606 */,
-/* 607 */,
-/* 608 */,
-/* 609 */,
-/* 610 */,
-/* 611 */,
-/* 612 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-radio-group/props.js ***!
-  \*******************************************************************************************/
+/* 613 */,
+/* 614 */,
+/* 615 */,
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-radio-group/props.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30807,17 +30898,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 613 */,
-/* 614 */,
-/* 615 */,
-/* 616 */,
-/* 617 */,
-/* 618 */,
-/* 619 */,
-/* 620 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-radio/props.js ***!
-  \*************************************************************************************/
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-radio/props.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30896,17 +30987,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 621 */,
-/* 622 */,
-/* 623 */,
-/* 624 */,
-/* 625 */,
-/* 626 */,
-/* 627 */,
-/* 628 */
-/*!********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/openType.js ***!
-  \********************************************************************************/
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */,
+/* 637 */,
+/* 638 */
+/*!*******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/mixin/openType.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30945,10 +31036,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 629 */
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/mixin/button.js ***!
-  \******************************************************************************/
+/* 639 */
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/mixin/button.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30975,10 +31066,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 630 */
-/*!********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
-  \********************************************************************************************/
+/* 640 */
+/*!*******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31047,17 +31138,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 631 */,
-/* 632 */,
-/* 633 */,
-/* 634 */,
-/* 635 */,
-/* 636 */,
-/* 637 */,
-/* 638 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-tabs/props.js ***!
-  \************************************************************************************/
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */,
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-tabs/props.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31136,17 +31227,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 639 */,
-/* 640 */,
-/* 641 */,
-/* 642 */,
-/* 643 */,
-/* 644 */,
-/* 645 */,
-/* 646 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-album/props.js ***!
-  \*************************************************************************************/
+/* 649 */,
+/* 650 */,
+/* 651 */,
+/* 652 */,
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-album/props.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31220,17 +31311,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 647 */,
-/* 648 */,
-/* 649 */,
-/* 650 */,
-/* 651 */,
-/* 652 */,
-/* 653 */,
-/* 654 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-sticky/props.js ***!
-  \**************************************************************************************/
+/* 657 */,
+/* 658 */,
+/* 659 */,
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-sticky/props.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31279,17 +31370,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 655 */,
-/* 656 */,
-/* 657 */,
-/* 658 */,
-/* 659 */,
-/* 660 */,
-/* 661 */,
-/* 662 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-button/props.js ***!
-  \**************************************************************************************/
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-button/props.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31465,17 +31556,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 663 */,
-/* 664 */,
-/* 665 */,
-/* 666 */,
-/* 667 */,
-/* 668 */,
-/* 669 */,
-/* 670 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/utils.js ***!
-  \**************************************************************************************/
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */,
+/* 677 */,
+/* 678 */,
+/* 679 */,
+/* 680 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-upload/utils.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31616,10 +31707,10 @@ function chooseFile(_ref) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 671 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/mixin.js ***!
-  \**************************************************************************************/
+/* 681 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-upload/mixin.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31643,10 +31734,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 672 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-upload/props.js ***!
-  \**************************************************************************************/
+/* 682 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-upload/props.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31785,17 +31876,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 673 */,
-/* 674 */,
-/* 675 */,
-/* 676 */,
-/* 677 */,
-/* 678 */,
-/* 679 */,
-/* 680 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-switch/props.js ***!
-  \**************************************************************************************/
+/* 683 */,
+/* 684 */,
+/* 685 */,
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-switch/props.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31864,17 +31955,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 681 */,
-/* 682 */,
-/* 683 */,
-/* 684 */,
-/* 685 */,
-/* 686 */,
-/* 687 */,
-/* 688 */
-/*!************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-swiper-indicator/props.js ***!
-  \************************************************************************************************/
+/* 691 */,
+/* 692 */,
+/* 693 */,
+/* 694 */,
+/* 695 */,
+/* 696 */,
+/* 697 */,
+/* 698 */
+/*!***********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-swiper-indicator/props.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31918,435 +32009,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 689 */,
-/* 690 */,
-/* 691 */,
-/* 692 */,
-/* 693 */,
-/* 694 */,
-/* 695 */,
-/* 696 */,
-/* 697 */,
-/* 698 */,
 /* 699 */,
 /* 700 */,
 /* 701 */,
 /* 702 */,
-/* 703 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/props.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    // 是否展示组件
-    show: {
-      type: Boolean,
-      default: uni.$u.props.transition.show
-    },
-    // 使用的动画模式
-    mode: {
-      type: String,
-      default: uni.$u.props.transition.mode
-    },
-    // 动画的执行时间，单位ms
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.transition.duration
-    },
-    // 使用的动画过渡函数
-    timingFunction: {
-      type: String,
-      default: uni.$u.props.transition.timingFunction
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 704 */
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */
 /*!***********************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/transition.js ***!
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-line/props.js ***!
   \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 705));
-// 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
-var nextTick = function nextTick() {
-  return new Promise(function (resolve) {
-    return setTimeout(resolve, 1000 / 50);
-  });
-};
-// nvue动画模块实现细节抽离在外部文件
-
-// 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
-var getClassNames = function getClassNames(name) {
-  return {
-    enter: "u-".concat(name, "-enter u-").concat(name, "-enter-active"),
-    'enter-to': "u-".concat(name, "-enter-to u-").concat(name, "-enter-active"),
-    leave: "u-".concat(name, "-leave u-").concat(name, "-leave-active"),
-    'leave-to': "u-".concat(name, "-leave-to u-").concat(name, "-leave-active")
-  };
-};
-var _default = {
-  methods: {
-    // 组件被点击发出事件
-    clickHandler: function clickHandler() {
-      this.$emit('click');
-    },
-    // vue版本的组件进场处理
-    vueEnter: function vueEnter() {
-      var _this = this;
-      // 动画进入时的类名
-      var classNames = getClassNames(this.mode);
-      // 定义状态和发出动画进入前事件
-      this.status = 'enter';
-      this.$emit('beforeEnter');
-      this.inited = true;
-      this.display = true;
-      this.classes = classNames.enter;
-      this.$nextTick( /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                // 标识动画尚未结束
-                _this.$emit('enter');
-                _this.transitionEnded = false;
-                // 组件动画进入后触发的事件
-                _this.$emit('afterEnter');
-                // 赋予组件enter-to类名
-                _this.classes = classNames['enter-to'];
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      })));
-    },
-    // 动画离场处理
-    vueLeave: function vueLeave() {
-      var _this2 = this;
-      // 如果不是展示状态，无需执行逻辑
-      if (!this.display) return;
-      var classNames = getClassNames(this.mode);
-      // 标记离开状态和发出事件
-      this.status = 'leave';
-      this.$emit('beforeLeave');
-      // 获得类名
-      this.classes = classNames.leave;
-      this.$nextTick(function () {
-        // 动画正在离场的状态
-        _this2.transitionEnded = false;
-        _this2.$emit('leave');
-        // 组件执行动画，到了执行的执行时间后，执行一些额外处理
-        setTimeout(_this2.onTransitionEnd, _this2.duration);
-        _this2.classes = classNames['leave-to'];
-      });
-    },
-    // 完成过渡后触发
-    onTransitionEnd: function onTransitionEnd() {
-      // 如果已经是结束的状态，无需再处理
-      if (this.transitionEnded) return;
-      this.transitionEnded = true;
-      // 发出组件动画执行后的事件
-      this.$emit(this.status === 'leave' ? 'afterLeave' : 'afterEnter');
-      if (!this.show && this.display) {
-        this.display = false;
-        this.inited = false;
-      }
-    }
-  }
-};
-exports.default = _default;
-
-/***/ }),
-/* 705 */
-/*!*************************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  fade: {
-    enter: {
-      opacity: 0
-    },
-    'enter-to': {
-      opacity: 1
-    },
-    leave: {
-      opacity: 1
-    },
-    'leave-to': {
-      opacity: 0
-    }
-  },
-  'fade-up': {
-    enter: {
-      opacity: 0,
-      transform: 'translateY(100%)'
-    },
-    'enter-to': {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    leave: {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      opacity: 0,
-      transform: 'translateY(100%)'
-    }
-  },
-  'fade-down': {
-    enter: {
-      opacity: 0,
-      transform: 'translateY(-100%)'
-    },
-    'enter-to': {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    leave: {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      opacity: 0,
-      transform: 'translateY(-100%)'
-    }
-  },
-  'fade-left': {
-    enter: {
-      opacity: 0,
-      transform: 'translateX(-100%)'
-    },
-    'enter-to': {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    leave: {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      opacity: 0,
-      transform: 'translateX(-100%)'
-    }
-  },
-  'fade-right': {
-    enter: {
-      opacity: 0,
-      transform: 'translateX(100%)'
-    },
-    'enter-to': {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    leave: {
-      opacity: 1,
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      opacity: 0,
-      transform: 'translateX(100%)'
-    }
-  },
-  'slide-up': {
-    enter: {
-      transform: 'translateY(100%)'
-    },
-    'enter-to': {
-      transform: 'translateY(0)'
-    },
-    leave: {
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      transform: 'translateY(100%)'
-    }
-  },
-  'slide-down': {
-    enter: {
-      transform: 'translateY(-100%)'
-    },
-    'enter-to': {
-      transform: 'translateY(0)'
-    },
-    leave: {
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      transform: 'translateY(-100%)'
-    }
-  },
-  'slide-left': {
-    enter: {
-      transform: 'translateX(-100%)'
-    },
-    'enter-to': {
-      transform: 'translateY(0)'
-    },
-    leave: {
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      transform: 'translateX(-100%)'
-    }
-  },
-  'slide-right': {
-    enter: {
-      transform: 'translateX(100%)'
-    },
-    'enter-to': {
-      transform: 'translateY(0)'
-    },
-    leave: {
-      transform: 'translateY(0)'
-    },
-    'leave-to': {
-      transform: 'translateX(100%)'
-    }
-  },
-  zoom: {
-    enter: {
-      transform: 'scale(0.95)'
-    },
-    'enter-to': {
-      transform: 'scale(1)'
-    },
-    leave: {
-      transform: 'scale(1)'
-    },
-    'leave-to': {
-      transform: 'scale(0.95)'
-    }
-  },
-  'fade-zoom': {
-    enter: {
-      opacity: 0,
-      transform: 'scale(0.95)'
-    },
-    'enter-to': {
-      opacity: 1,
-      transform: 'scale(1)'
-    },
-    leave: {
-      opacity: 1,
-      transform: 'scale(1)'
-    },
-    'leave-to': {
-      opacity: 0,
-      transform: 'scale(0.95)'
-    }
-  }
-};
-exports.default = _default;
-
-/***/ }),
-/* 706 */,
-/* 707 */,
-/* 708 */,
-/* 709 */,
-/* 710 */,
-/* 711 */,
-/* 712 */,
-/* 713 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-status-bar/props.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {
-    bgColor: {
-      type: String,
-      default: uni.$u.props.statusBar.bgColor
-    }
-  }
-};
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-/* 714 */,
-/* 715 */,
-/* 716 */,
-/* 717 */,
-/* 718 */,
-/* 719 */,
-/* 720 */,
-/* 721 */
-/*!*******************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  props: {}
-};
-exports.default = _default;
-
-/***/ }),
-/* 722 */,
-/* 723 */,
-/* 724 */,
-/* 725 */,
-/* 726 */,
-/* 727 */,
-/* 728 */,
-/* 729 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-line/props.js ***!
-  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32394,17 +32067,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 730 */,
-/* 731 */,
-/* 732 */,
-/* 733 */,
-/* 734 */,
-/* 735 */,
-/* 736 */,
-/* 737 */
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/libs/util/async-validator.js ***!
-  \**************************************************************************************/
+/* 707 */,
+/* 708 */,
+/* 709 */,
+/* 710 */,
+/* 711 */,
+/* 712 */,
+/* 713 */,
+/* 714 */
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/libs/util/async-validator.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33582,10 +33255,10 @@ Schema.warning = warning;
 Schema.messages = messages;
 var _default = Schema; // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../Downloads/HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 738)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 715)))
 
 /***/ }),
-/* 738 */
+/* 715 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -33616,7 +33289,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 739);
+        if (!path) path = __webpack_require__(/*! path */ 716);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -33629,7 +33302,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 739 */
+/* 716 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -33939,7 +33612,396 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 738)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 715)))
+
+/***/ }),
+/* 717 */,
+/* 718 */,
+/* 719 */,
+/* 720 */,
+/* 721 */,
+/* 722 */,
+/* 723 */,
+/* 724 */,
+/* 725 */,
+/* 726 */,
+/* 727 */,
+/* 728 */,
+/* 729 */
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-transition/props.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    // 是否展示组件
+    show: {
+      type: Boolean,
+      default: uni.$u.props.transition.show
+    },
+    // 使用的动画模式
+    mode: {
+      type: String,
+      default: uni.$u.props.transition.mode
+    },
+    // 动画的执行时间，单位ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.transition.duration
+    },
+    // 使用的动画过渡函数
+    timingFunction: {
+      type: String,
+      default: uni.$u.props.transition.timingFunction
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+/* 730 */
+/*!**********************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-transition/transition.js ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 731));
+// 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var nextTick = function nextTick() {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, 1000 / 50);
+  });
+};
+// nvue动画模块实现细节抽离在外部文件
+
+// 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
+var getClassNames = function getClassNames(name) {
+  return {
+    enter: "u-".concat(name, "-enter u-").concat(name, "-enter-active"),
+    'enter-to': "u-".concat(name, "-enter-to u-").concat(name, "-enter-active"),
+    leave: "u-".concat(name, "-leave u-").concat(name, "-leave-active"),
+    'leave-to': "u-".concat(name, "-leave-to u-").concat(name, "-leave-active")
+  };
+};
+var _default = {
+  methods: {
+    // 组件被点击发出事件
+    clickHandler: function clickHandler() {
+      this.$emit('click');
+    },
+    // vue版本的组件进场处理
+    vueEnter: function vueEnter() {
+      var _this = this;
+      // 动画进入时的类名
+      var classNames = getClassNames(this.mode);
+      // 定义状态和发出动画进入前事件
+      this.status = 'enter';
+      this.$emit('beforeEnter');
+      this.inited = true;
+      this.display = true;
+      this.classes = classNames.enter;
+      this.$nextTick( /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                // 标识动画尚未结束
+                _this.$emit('enter');
+                _this.transitionEnded = false;
+                // 组件动画进入后触发的事件
+                _this.$emit('afterEnter');
+                // 赋予组件enter-to类名
+                _this.classes = classNames['enter-to'];
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      })));
+    },
+    // 动画离场处理
+    vueLeave: function vueLeave() {
+      var _this2 = this;
+      // 如果不是展示状态，无需执行逻辑
+      if (!this.display) return;
+      var classNames = getClassNames(this.mode);
+      // 标记离开状态和发出事件
+      this.status = 'leave';
+      this.$emit('beforeLeave');
+      // 获得类名
+      this.classes = classNames.leave;
+      this.$nextTick(function () {
+        // 动画正在离场的状态
+        _this2.transitionEnded = false;
+        _this2.$emit('leave');
+        // 组件执行动画，到了执行的执行时间后，执行一些额外处理
+        setTimeout(_this2.onTransitionEnd, _this2.duration);
+        _this2.classes = classNames['leave-to'];
+      });
+    },
+    // 完成过渡后触发
+    onTransitionEnd: function onTransitionEnd() {
+      // 如果已经是结束的状态，无需再处理
+      if (this.transitionEnded) return;
+      this.transitionEnded = true;
+      // 发出组件动画执行后的事件
+      this.$emit(this.status === 'leave' ? 'afterLeave' : 'afterEnter');
+      if (!this.show && this.display) {
+        this.display = false;
+        this.inited = false;
+      }
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 731 */
+/*!************************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  fade: {
+    enter: {
+      opacity: 0
+    },
+    'enter-to': {
+      opacity: 1
+    },
+    leave: {
+      opacity: 1
+    },
+    'leave-to': {
+      opacity: 0
+    }
+  },
+  'fade-up': {
+    enter: {
+      opacity: 0,
+      transform: 'translateY(100%)'
+    },
+    'enter-to': {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    leave: {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      opacity: 0,
+      transform: 'translateY(100%)'
+    }
+  },
+  'fade-down': {
+    enter: {
+      opacity: 0,
+      transform: 'translateY(-100%)'
+    },
+    'enter-to': {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    leave: {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      opacity: 0,
+      transform: 'translateY(-100%)'
+    }
+  },
+  'fade-left': {
+    enter: {
+      opacity: 0,
+      transform: 'translateX(-100%)'
+    },
+    'enter-to': {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    leave: {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      opacity: 0,
+      transform: 'translateX(-100%)'
+    }
+  },
+  'fade-right': {
+    enter: {
+      opacity: 0,
+      transform: 'translateX(100%)'
+    },
+    'enter-to': {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    leave: {
+      opacity: 1,
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      opacity: 0,
+      transform: 'translateX(100%)'
+    }
+  },
+  'slide-up': {
+    enter: {
+      transform: 'translateY(100%)'
+    },
+    'enter-to': {
+      transform: 'translateY(0)'
+    },
+    leave: {
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      transform: 'translateY(100%)'
+    }
+  },
+  'slide-down': {
+    enter: {
+      transform: 'translateY(-100%)'
+    },
+    'enter-to': {
+      transform: 'translateY(0)'
+    },
+    leave: {
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      transform: 'translateY(-100%)'
+    }
+  },
+  'slide-left': {
+    enter: {
+      transform: 'translateX(-100%)'
+    },
+    'enter-to': {
+      transform: 'translateY(0)'
+    },
+    leave: {
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      transform: 'translateX(-100%)'
+    }
+  },
+  'slide-right': {
+    enter: {
+      transform: 'translateX(100%)'
+    },
+    'enter-to': {
+      transform: 'translateY(0)'
+    },
+    leave: {
+      transform: 'translateY(0)'
+    },
+    'leave-to': {
+      transform: 'translateX(100%)'
+    }
+  },
+  zoom: {
+    enter: {
+      transform: 'scale(0.95)'
+    },
+    'enter-to': {
+      transform: 'scale(1)'
+    },
+    leave: {
+      transform: 'scale(1)'
+    },
+    'leave-to': {
+      transform: 'scale(0.95)'
+    }
+  },
+  'fade-zoom': {
+    enter: {
+      opacity: 0,
+      transform: 'scale(0.95)'
+    },
+    'enter-to': {
+      opacity: 1,
+      transform: 'scale(1)'
+    },
+    leave: {
+      opacity: 1,
+      transform: 'scale(1)'
+    },
+    'leave-to': {
+      opacity: 0,
+      transform: 'scale(0.95)'
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+/* 732 */,
+/* 733 */,
+/* 734 */,
+/* 735 */,
+/* 736 */,
+/* 737 */,
+/* 738 */,
+/* 739 */
+/*!*****************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-status-bar/props.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {
+    bgColor: {
+      type: String,
+      default: uni.$u.props.statusBar.bgColor
+    }
+  }
+};
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 /* 740 */,
@@ -33949,7 +34011,26 @@ var substr = 'ab'.substr(-1) === 'b'
 /* 744 */,
 /* 745 */,
 /* 746 */,
-/* 747 */,
+/* 747 */
+/*!******************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  props: {}
+};
+exports.default = _default;
+
+/***/ }),
 /* 748 */,
 /* 749 */,
 /* 750 */,
@@ -33968,10 +34049,20 @@ var substr = 'ab'.substr(-1) === 'b'
 /* 763 */,
 /* 764 */,
 /* 765 */,
-/* 766 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-gap/props.js ***!
-  \***********************************************************************************/
+/* 766 */,
+/* 767 */,
+/* 768 */,
+/* 769 */,
+/* 770 */,
+/* 771 */,
+/* 772 */,
+/* 773 */,
+/* 774 */,
+/* 775 */,
+/* 776 */
+/*!**********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-gap/props.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34010,17 +34101,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 767 */,
-/* 768 */,
-/* 769 */,
-/* 770 */,
-/* 771 */,
-/* 772 */,
-/* 773 */,
-/* 774 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-badge/props.js ***!
-  \*************************************************************************************/
+/* 777 */,
+/* 778 */,
+/* 779 */,
+/* 780 */,
+/* 781 */,
+/* 782 */,
+/* 783 */,
+/* 784 */
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-badge/props.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34107,17 +34198,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 775 */,
-/* 776 */,
-/* 777 */,
-/* 778 */,
-/* 779 */,
-/* 780 */,
-/* 781 */,
-/* 782 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-text/props.js ***!
-  \************************************************************************************/
+/* 785 */,
+/* 786 */,
+/* 787 */,
+/* 788 */,
+/* 789 */,
+/* 790 */,
+/* 791 */,
+/* 792 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-text/props.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34242,15 +34333,15 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 783 */,
-/* 784 */,
-/* 785 */,
-/* 786 */,
-/* 787 */,
-/* 788 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-text/value.js ***!
-  \************************************************************************************/
+/* 793 */,
+/* 794 */,
+/* 795 */,
+/* 796 */,
+/* 797 */,
+/* 798 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-text/value.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34355,17 +34446,17 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
-/* 789 */,
-/* 790 */,
-/* 791 */,
-/* 792 */,
-/* 793 */,
-/* 794 */,
-/* 795 */,
-/* 796 */
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/uni_modules/uview-ui/components/u-link/props.js ***!
-  \************************************************************************************/
+/* 799 */,
+/* 800 */,
+/* 801 */,
+/* 802 */,
+/* 803 */,
+/* 804 */,
+/* 805 */,
+/* 806 */
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/uni_modules/uview-ui/components/u-link/props.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

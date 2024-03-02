@@ -3,8 +3,18 @@
 		<!-- 粘性定位 -->
 		<u-sticky>
 			<div class="issue-top">
-				<u-icon name="close" color="#333" size="24" @click="backTo"></u-icon>
-				<div class="send" @click="sendArticle"><u-button type="warning" :text="secret ? '存档' : '发布'"></u-button></div>
+				<u-icon
+					name="close"
+					color="#333"
+					size="24"
+					@click="backTo"
+				></u-icon>
+				<div class="send" @click="sendArticle">
+					<u-button
+						type="warning"
+						:text="secret ? '存档' : '发布'"
+					></u-button>
+				</div>
 			</div>
 		</u-sticky>
 		<!-- 选择上传 -->
@@ -14,8 +24,16 @@
 		</u-radio-group>
 		<!-- 选择上传 -->
 		<u-radio-group v-model="value" activeColor="#f9ae3d">
-			<u-radio :name="1" shape="circle" :label="secret ? '图文' : '发布图文'"></u-radio>
-			<u-radio :name="2" shape="circle" :label="secret ? '视频' : '发布视频'"></u-radio>
+			<u-radio
+				:name="1"
+				shape="circle"
+				:label="secret ? '图文' : '发布图文'"
+			></u-radio>
+			<u-radio
+				:name="2"
+				shape="circle"
+				:label="secret ? '视频' : '发布视频'"
+			></u-radio>
 		</u-radio-group>
 
 		<!-- 上传组件 -->
@@ -25,16 +43,20 @@
 				v-if="value === 1"
 				v-model="content"
 				:placeholder="
-					secret ? '字数无限制' : meeting === 2 ? '有感而发，随便写两句，吐槽、赞美都行！' : '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
+					secret
+						? '字数无限制'
+						: meeting === 2
+						? '有感而发，随便写两句，吐槽、赞美都行！'
+						: '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'
 				"
 				:confirmType="null"
-				style="white-space: pre-wrap;"
+				style="white-space: pre-wrap"
 				autoHeight
 				border="none"
 				:show-confirm-bar="false"
 				maxlength="-1"
 			></u--textarea>
-			
+
 			<!-- 上传图片 -->
 			<u-upload
 				v-if="value === 1"
@@ -61,7 +83,12 @@
 			></u--textarea>
 			<!-- 上传视频 -->
 			<div class="v-box" v-if="value === 2">
-				<img v-if="vtype === 1" src="../../static/video-img.jpg" mode="" @click="selectVideo" />
+				<img
+					v-if="vtype === 1"
+					src="../../static/video-img.jpg"
+					mode=""
+					@click="selectVideo"
+				/>
 				<img v-if="vtype === 2" src="../ua_static/up-video.png" />
 				<img v-if="vtype === 3" :src="videoImg" />
 				<img v-if="vtype === 3" src="../ua_static/up-video-ok.png" />
@@ -72,9 +99,9 @@
 </template>
 
 <script>
-import { ip } from '@/api/api.js';
-import { addPost, checkContent, addXFilePost } from '@/api/artcleIssue.js';
-import { lostBottle } from '@/api/currentBottle.js';
+import { ip } from '@/api/api.js'
+import { addPost, checkContent, addXFilePost } from '@/api/artcleIssue.js'
+import { lostBottle } from '@/api/currentBottle.js'
 export default {
 	data() {
 		return {
@@ -99,36 +126,33 @@ export default {
 			mediaVideoList: [],
 			upMediaOrImg: false,
 			timer: null
-		};
+		}
 	},
 	onLoad(option) {
-		this.secret = option.secret ? option.secret : null;
+		this.secret = option.secret ? option.secret : null
 		if (!this.secret) {
-			uni.showToast({
-				title: '请遵守法律法规，文明发言',
-					icon:'none'
-			});
+			uni.$u.toast('请遵守法律法规，文明发言')
 		}
 	},
 	methods: {
 		// 删除图片
 		deletePic(event) {
-			this[`fileList${event.name}`].splice(event.index, 1);
+			this[`fileList${event.name}`].splice(event.index, 1)
 		},
 		// 新增图片
 		async afterRead(event) {
-			let lists = [].concat(event.file);
-			let fileListLen = this[`fileList${event.name}`].length;
-			lists.map(item => {
+			let lists = [].concat(event.file)
+			let fileListLen = this[`fileList${event.name}`].length
+			lists.map((item) => {
 				this[`fileList${event.name}`].push({
 					...item,
 					status: 'uploading',
 					message: '上传中'
-				});
-			});
+				})
+			})
 			for (let i = 0; i < lists.length; i++) {
-				const result = await this.uploadFilePromise(lists[i].url);
-				let item = this[`fileList${event.name}`][fileListLen];
+				const result = await this.uploadFilePromise(lists[i].url)
+				let item = this[`fileList${event.name}`][fileListLen]
 				this[`fileList${event.name}`].splice(
 					fileListLen,
 					1,
@@ -137,33 +161,30 @@ export default {
 						message: '',
 						url: result
 					})
-				);
-				fileListLen++;
+				)
+				fileListLen++
 			}
-			this.upMediaOrImg = false;
+			this.upMediaOrImg = false
 		},
 		//上传图片
 		uploadFilePromise(url) {
-			this.upMediaOrImg = true;
+			this.upMediaOrImg = true
 			return new Promise((resolve, reject) => {
 				let a = uni.uploadFile({
 					url: ip + '/app/common/upload',
 					filePath: url,
 					name: 'file',
-					success: res => {
+					success: (res) => {
 						setTimeout(() => {
-							resolve(JSON.parse(res.data));
-						}, 1000);
+							resolve(JSON.parse(res.data))
+						}, 1000)
 					},
 					fail() {
-						this.upMediaOrImg = false;
-						uni.showToast({
-							title: '图片上传失败',
-					icon:'none'
-						});
+						this.upMediaOrImg = false
+						uni.$u.toast(e)
 					}
-				});
-			});
+				})
+			})
 		},
 		//新增上传视频
 		selectVideo() {
@@ -173,10 +194,10 @@ export default {
 				sourceType: ['album', 'camera'],
 				compressed: true,
 				mediaType: ['video'],
-				success: r => {
-					this.vtype = 2;
-					let linShi2 = r.tempFiles[0].tempFilePath;
-					this.upMediaOrImg = true;
+				success: (r) => {
+					this.vtype = 2
+					let linShi2 = r.tempFiles[0].tempFilePath
+					this.upMediaOrImg = true
 					uni.uploadFile({
 						url: ip + '/app/common/upload',
 						filePath: linShi2,
@@ -184,128 +205,103 @@ export default {
 						header: {
 							token: uni.getStorageSync('token')
 						},
-						success: uploadFileRes => {
-							let paths = JSON.parse(uploadFileRes.data);
-							this.vtype = 3;
-							this.videoImg = r.tempFiles[0].thumbTempFilePath;
-							this.mediaVideoList.push(paths.result[0].url);
-							this.upMediaOrImg = false;
+						success: (uploadFileRes) => {
+							let paths = JSON.parse(uploadFileRes.data)
+							this.vtype = 3
+							this.videoImg = r.tempFiles[0].thumbTempFilePath
+							this.mediaVideoList.push(paths.result[0].url)
+							this.upMediaOrImg = false
 						},
-						fail() {
-							this.upMediaOrImg = false;
-							uni.showToast({
-								title: '视频上传失败',
-					icon:'none'
-							});
+						fail(e) {
+							this.upMediaOrImg = false
+							uni.$u.toast(e)
 						}
-					});
+					})
 				}
-			});
+			})
 		},
 		//删除视频
 		removeVideo() {
-			this.vtype = 1;
-			this.mediaVideoList = [];
-			this.videoImg = '';
+			this.vtype = 1
+			this.mediaVideoList = []
+			this.videoImg = ''
 		},
 		//点击发布 调用接口进行安全验证
 		async sendArticle() {
-			if (this.value === 1) {
-				if (this.fileList1.length === 0 && !this.content) {
-					uni.showToast({
-						title: '发布不可为空~',
-					icon:'none'
-					});
-					return;
-				}
-				if (this.upMediaOrImg) {
-					uni.showToast({
-						title: '请先等待图片上传完成',
-					icon:'none'
-					});
-					return;
-				}
+			let contents =
+				this.value === 1 ? this.content || '' : this.content2 || ''
+			let medias = this.value === 1 ? this.fileList1 : this.mediaVideoList
+			let title =
+				this.value === 1
+					? '请先等待图片上传完成'
+					: '请先等待视频上传完成'
+			if (!contents && !medias?.length) {
+				uni.$u.toast('发布不可为空')
+				return
 			}
-			if (this.value === 2) {
-				if (this.mediaVideoList === 0 && !this.content2) {
-					uni.showToast({
-						title: '发布不可为空~',
-					icon:'none'
-					});
-					return;
-				}
-				if (this.upMediaOrImg) {
-					uni.showToast({
-						title: '请先等待视频上传完成',
-					icon:'none'
-					});
-					return;
-				}
+			if (this.upMediaOrImg) {
+				uni.$u.toast(title)
+				return
 			}
 			uni.showLoading({
 				title: '内容发布中'
-			});
-			if (this.value === 1) {
-				let res = await checkContent({ content: !this.content ? '分享图片' : this.content });
-				if (res.code !== 0 || res.result.errcode !== 0) {
-					uni.hideLoading();
-					uni.showToast({
-						title: '发布的内容包含违规信息，请修改',
-					icon:'none'
-					});
-					return;
-				}
-				this.sendReallyArticle();
-			} else if (this.value === 2) {
-				let res = await checkContent({ content: !this.content2 ? '分享视频' : this.content2 });
-				if (res.code !== 0 || res.result.errcode !== 0) {
-					uni.hideLoading();
-					uni.showToast({
-						title: '发布的内容包含违规信息，请修改',
-						
-					});
-					return;
-				}
-				this.sendReallyArticle();
+			})
+
+			let res = await checkContent({ content: contents })
+			if (res.code !== 0 || res.result.errcode !== 0) {
+				uni.hideLoading()
+				uni.$u.toast('发布的内容包含违规信息，请修改')
+				return
 			}
+			this.sendReallyArticle()
 		},
 		async sendReallyArticle() {
+			this.mediaImgList = this.fileList1.map((item, i, arr) => {
+				return item.url.result[0].url
+			})
+			let res
+			let contents =
+				this.value === 1 ? this.content || '' : this.content2 || ''
+			let medias =
+				this.value === 1 ? this.mediaImgList : this.mediaVideoList
 
-				this.mediaImgList = this.fileList1.map((item, i, arr) => {
-					return item.url.result[0].url;
-				});
-				let res;
-				let contents = this.value === 1 ? (this.content || '') : (this.content2 || '');
-				let medias=this.value === 1 ? this.mediaImgList : this.mediaVideoList;
-				
-				if(this.secret==='1'){
-					res = await addXFilePost({ content: contents , meeting: this.meeting, media: medias });
-				}else if(this.secret==='2'){
-					res = await lostBottle({ content: contents, type: Number(this.value+1), media: medias });
-				}else{
-					res = await addPost({ content: contents, meeting: this.meeting, media: medias });
-				}
-			uni.hideLoading();
-			if (res && res.code !== 0) {
-			  uni.showToast({
-			    title: '发布失败',
-					icon:'none'
-			  });
-			  return;
+			if (this.secret === '1') {
+				res = await addXFilePost({
+					content: contents,
+					meeting: this.meeting,
+					media: medias
+				})
+			} else if (this.secret === '2') {
+				res = await lostBottle({
+					content: contents,
+					type: Number(this.value + 1),
+					media: medias
+				})
+			} else {
+				res = await addPost({
+					content: contents,
+					meeting: this.meeting,
+					media: medias
+				})
 			}
-			
-			let pages = getCurrentPages();
-			let beforePage = pages[pages.length - 2];
-			beforePage.$vm.refresh = true;
+			uni.hideLoading()
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg)
+				return
+			}
+
+			let pages = getCurrentPages()
+			let beforePage = pages[pages.length - 2]
+			beforePage.$vm.refresh = true
 			uni.navigateBack({
-			  success: function() {}
-			});
+				success: function () {}
+			})
 		},
 		backTo() {
-			uni.navigateBack({});
+			uni.navigateBack({})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less">
