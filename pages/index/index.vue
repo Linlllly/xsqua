@@ -164,8 +164,8 @@
 </template>
 
 <script>
-import {  banner, randomRoom } from '@/api/index.js'
-import {  prize, draw,prizeRecord,receive } from '@/api/game.js'
+import { banner, randomRoom } from '@/api/index.js'
+import { prize, draw, prizeRecord, receive } from '@/api/game.js'
 import { list } from '@/api/areaSelect.js'
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import RankingList from '@/components/rankingList/rankingList.vue'
@@ -258,7 +258,7 @@ export default {
 			//地区列表
 			areaList: [],
 			list1: [],
-			recordList:[],
+			recordList: [],
 			//兑换
 			showClaim: false,
 			//实物地址
@@ -266,7 +266,7 @@ export default {
 			materialForm: { name: '', mobile: '', address: '' },
 			//下注
 			showBotting: false,
-			startNum:5,
+			startNum: 5,
 			//中奖
 			showGetGift: false,
 			gtifName: '',
@@ -305,7 +305,7 @@ export default {
 	},
 	methods: {
 		...mapMutations(['updateUid']),
-		getRecordList(){
+		getRecordList() {
 			// prizeRecord({page:1,limit:10000}).then(res=>{
 			// 	this.recordList=res
 			// })
@@ -424,9 +424,9 @@ export default {
 				.validate()
 				.then((res) => {
 					// receive(this.materialForm).then(res=>{
-						// uni.$u.toast('信息已提交，等待后台发货')
-						//this.prizeType=2
-					})
+					// uni.$u.toast('信息已提交，等待后台发货')
+					//this.prizeType=2
+					// })
 				})
 				.catch((errors) => {
 					uni.$u.toast('校验失败')
@@ -447,7 +447,7 @@ export default {
 			// draw({num:this.startNum}).then(res=>{
 			// 	this.$refs.myLucky.stop(res.xxx)
 			// })
-			this.$refs.myLucky.stop([0,0,1])
+			this.$refs.myLucky.stop([0, 0, 1])
 		},
 		endCallBack(prize) {
 			// 奖品详情
