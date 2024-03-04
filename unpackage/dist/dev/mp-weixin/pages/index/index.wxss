@@ -355,4 +355,7 @@ button.data-v-57280228::after {
   background-color: #e5e5e5 !important;
   border-radius: 20rpx !important;
 }
+.gift-img.data-v-57280228 {
+  width: 400rpx;
+}
 

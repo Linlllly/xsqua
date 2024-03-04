@@ -14,8 +14,7 @@
     {
       "root": "pages_costMoney",
       "pages": [
-        "costMoney/costMoney",
-        "game/game"
+        "costMoney/costMoney"
       ]
     },
     {

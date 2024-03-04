@@ -1,16 +1,18 @@
 <template>
 	<view class="pages">
-		<z-paging ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="recordList" @query="getBottleRecord"  :empty-view-img-style='{width:0,height:0}'  >
-				
-				<div  class="content-list" v-for="(i, index) in recordList" :key="i.id" @click="goBottleDetail(i)">
-					<img class="list-img" :src="i.userInfo.avatar" alt="" />
-					<div class="content-info">
-						回复了您的漂流瓶
-					</div>
-				</div>
-			</z-paging>
-		
-		
+		<z-paging
+			ref="paging"
+			:default-page-size="12"
+			loading-more-no-more-text="没有更多数据了"
+			v-model="recordList"
+			@query="getBottleRecord"
+			:empty-view-img-style="{ width: 0, height: 0 }"
+		>
+			<div class="content-list" v-for="(i, index) in recordList" :key="i.id" @click="goBottleDetail(i)">
+				<img class="list-img" :src="i.userInfo.avatar" alt="" />
+				<div class="content-info">回复了您的漂流瓶</div>
+			</div>
+		</z-paging>
 	</view>
 </template>
 
@@ -23,21 +25,21 @@ export default {
 			recordList: []
 		};
 	},
-	
+
 	methods: {
 		//请求列表
-		 getBottleRecord(page, limit) {
-		// 	bottleRecord({ page, limit})
-		// 					.then(res => {
-		// 						this.recordList = res.result.data||[];
-		// 						this.$refs.paging.complete(res.result.data);
-		// 					})
-		// 					.catch(res => {
-		// 						this.$refs.paging.complete(false);
-		// 					});
+		getBottleRecord(page, limit) {
+			bottleRecord({ page, limit, isComment: 1 })
+				.then((res) => {
+					this.recordList = res.result.data || [];
+					this.$refs.paging.complete(res.result.data);
+				})
+				.catch((res) => {
+					this.$refs.paging.complete(false);
+				});
 		},
-		
-		goBottleDetail(i){
+
+		goBottleDetail(i) {
 			uni.navigateTo({
 				url: '../bottleDetail/bottleDetail?i=' + i.id
 			});
@@ -89,8 +91,7 @@ export default {
 	}
 	.content-info {
 		flex: 1;
-			font-size: 36rpx;
-		
+		font-size: 36rpx;
 	}
 }
 .next {

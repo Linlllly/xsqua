@@ -117,7 +117,7 @@ export default {
 		},
 		async wxPay() {
 			//请求后端获取参数
-			let res = await buy({ num: this.num });
+			let res = await buy({ num: this.num,isArmour:'1' });
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,icon:'none'
@@ -135,14 +135,10 @@ export default {
 				paySign: res.paySign, // 签名
 				success: function(res) {
 					// this.loading = false;
-					uni.showToast({
-						title: '充值成功',icon:'none'
-					});
+					uni.$u.toast('充值成功')
 				},
 				fail: function(err) {
-					uni.showToast({
-						title: err,icon:'none'
-					});
+					uni.$u.toast(err)
 				}
 			});
 			this.loading = false;

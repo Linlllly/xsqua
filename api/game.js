@@ -20,3 +20,7 @@ export function prizeRecord(data) {
 export function receive(data) {
 	return post('/app/prizeRecord/receive', data)
 }
+//星星兑换茅台
+export function exchangeMaoTai(data) {
+	return post('/app/exchange/exchangeMaoTai', data)
+}

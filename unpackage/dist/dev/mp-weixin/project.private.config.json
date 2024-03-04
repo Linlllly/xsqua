@@ -9,16 +9,16 @@
     "miniprogram": {
       "list": [
         {
-          "name": "u-具体漂流瓶",
-          "pathName": "pages_userActivity/bottleDetail/bottleDetail",
+          "name": "u-文章详情",
+          "pathName": "pages_userActivity/articleDes/articleDes",
           "query": "i=15373",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "u-文章详情",
-          "pathName": "pages_userActivity/articleDes/articleDes",
-          "query": "i=15373",
+          "name": "u-具体漂流瓶",
+          "pathName": "pages_userActivity/bottleDetail/bottleDetail",
+          "query": "",
           "launchMode": "default",
           "scene": null
         },

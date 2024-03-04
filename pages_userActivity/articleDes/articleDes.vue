@@ -12,12 +12,7 @@
 		<div class="content">
 			<div class="content-c">{{ artObj.content }}</div>
 			<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-			<u-album
-				v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4"
-				:urls="aImgList"
-				singleSize="750rpx"
-				multipleSize="242rpx"
-			></u-album>
+			<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="750rpx" multipleSize="242rpx"></u-album>
 			<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
 				<u-album :urls="aImgList" singleSize="740rpx" multipleSize="356rpx" rowCount="2"></u-album>
 			</div>
@@ -26,10 +21,8 @@
 		<!-- 一排 -->
 		<div class="all" v-if="!secret">
 			<div class="timer">
-				<span style="font-size: 24rpx;color: #767374;">{{ artObj.createTime }}</span>
-				<span v-if="artObj.userInfo.uid === uid" style="font-size: 24rpx;color: #ff1d1d; margin-left: 10rpx;" @click="showRemoveArt = true">
-					删除
-				</span>
+				<span style="font-size: 24rpx; color: #767374">{{ artObj.createTime }}</span>
+				<span v-if="artObj.userInfo.uid === uid" style="font-size: 24rpx; color: #ff1d1d; margin-left: 10rpx" @click="showRemoveArt = true">删除</span>
 			</div>
 			<div class="option">
 				<u-icon
@@ -64,25 +57,14 @@
 					color="#ff0000"
 					@click="changeCollection(2)"
 				></u-icon>
-				<u-icon
-					:label="artObj.commentCount"
-					labelPos="bottom"
-					labelSize="12"
-					labelColor="#767374"
-					name="chat"
-					size="22"
-					color="#333"
-					@click="openInput()"
-				></u-icon>
+				<u-icon :label="artObj.commentCount" labelPos="bottom" labelSize="12" labelColor="#767374" name="chat" size="22" color="#333" @click="openInput()"></u-icon>
 				<button open-type="share">
 					<u-icon label="分享" labelPos="bottom" labelSize="12" labelColor="#767374" name="share" size="22" color="#333"></u-icon>
 				</button>
 			</div>
 		</div>
 		<div class="no-all" v-else>
-			<span v-if="artObj.userInfo.uid === uid" style="font-size: 24rpx;color: #ff1d1d;margin-bottom: 8rpx;" @click="showRemoveArt = true">
-				删除
-			</span>
+			<span v-if="artObj.userInfo.uid === uid" style="font-size: 24rpx; color: #ff1d1d; margin-bottom: 8rpx" @click="showRemoveArt = true">删除</span>
 		</div>
 		<!-- 一级回复 -->
 		<div class="other" v-if="!secret">
@@ -99,7 +81,7 @@
 						<div class="other-timer">
 							<span
 								v-if="i.uid === uid"
-								style="font-size: 24rpx;color: #ff1d1d; margin-right: 10rpx;"
+								style="font-size: 24rpx; color: #ff1d1d; margin-right: 10rpx"
 								@click="
 									showRemoveComment = true;
 									removeId = i.id;
@@ -107,7 +89,7 @@
 							>
 								删除
 							</span>
-							<span style="font-size: 24rpx;color: #767374;">{{ i.createTime }}</span>
+							<span style="font-size: 24rpx; color: #767374">{{ i.createTime }}</span>
 						</div>
 					</div>
 				</div>
@@ -156,7 +138,7 @@
 			<div class="popbox">
 				<div class="re-title">全部回复</div>
 				<!-- 全部回复栏 -->
-				<scroll-view :scroll-y="true" style="width:100%;height:830rpx;" @scrolltolower="lowerMoreRecord">
+				<scroll-view :scroll-y="true" style="width: 100%; height: 830rpx" @scrolltolower="lowerMoreRecord">
 					<!-- 列表 -->
 					<div class="list-tiem" v-for="i in twoRecordList" :key="i.id">
 						<img class="ava" :src="i.fromAvatar" alt="" @click="toOtherUser(i)" />
@@ -166,7 +148,7 @@
 							<div class="count-timer">
 								<span
 									v-if="i.uid === uid"
-									style="font-size: 24rpx;color: #ff1d1d; margin-right: 10rpx;"
+									style="font-size: 24rpx; color: #ff1d1d; margin-right: 10rpx"
 									@click="
 										showRemoveComment = true;
 										removeId = i.id;
@@ -174,7 +156,7 @@
 								>
 									删除
 								</span>
-								<span style="font-size: 24rpx;color: #767374;">{{ i.createTime }}</span>
+								<span style="font-size: 24rpx; color: #767374">{{ i.createTime }}</span>
 							</div>
 						</div>
 					</div>
@@ -194,7 +176,7 @@
 					inputAlign="center"
 					fontSize="18"
 				></u--input>
-				
+
 				<div class="send-ok" @click="sendMoneyOrFlowerOrPoo">确认</div>
 			</div>
 		</u-popup>
@@ -222,17 +204,7 @@
 </template>
 
 <script>
-import {
-	detail,
-	addCollection,
-	cancelCollection,
-	getComment,
-	getChildrenComment,
-	addComment,
-	deletePost,
-	giveEgg,
-	deleteComment
-} from '@/api/articleDes.js';
+import { detail, addCollection, cancelCollection, getComment, getChildrenComment, addComment, deletePost, giveEgg, deleteComment } from '@/api/articleDes.js';
 import { giveSilver, giveFlower } from '@/api/index.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { checkContent } from '@/api/artcleIssue.js';
@@ -336,11 +308,7 @@ export default {
 			console.log('获取详情');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '获取动态详情失败',
-					icon:'none'
-					
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.artObj = res.result;
@@ -363,11 +331,10 @@ export default {
 		//改变点赞状态 没房子不许点
 		async changeCollection(flag) {
 			if (!this.house) {
-				uni.showToast({
-					title: '请先成为空间主人',
-					icon:'none'
-				});
-				return;
+				if (res.code !== 0) {
+					uni.$u.toast('请先成为空间主人');
+					return;
+				}
 			}
 			if (flag === 1) {
 				//点赞
@@ -403,10 +370,10 @@ export default {
 			console.log('请求用户评论');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '获取用户评论失败',
-					icon:'none'
-				});
+				if (res.code !== 0) {
+					uni.$u.toast(res.msg);
+					return;
+				}
 				// ** 关闭节流阀
 				this.isloading = false;
 				return;
@@ -447,17 +414,11 @@ export default {
 		//打开给别人花钱框  没房子不许点
 		openPop() {
 			if (!this.house) {
-				uni.showToast({
-					title: '请先成为空间主人',
-					icon:'none'
-				});
+				uni.$u.toast('请先成为空间主人');
 				return;
 			}
 			if (this.receiveUid === this.uid) {
-				uni.showToast({
-					title: '不可以给自己助力',
-					icon:'none'
-				});
+				uni.$u.toast('不可以给自己助力');
 				return;
 			}
 			this.popMoney = true;
@@ -467,10 +428,7 @@ export default {
 				return;
 			}
 			if (!this.sendMoney || this.sendMoney <= 0) {
-				uni.showToast({
-					title: '助力数量有误',
-					icon:'none'
-				});
+				uni.$u.toast('助力数量有误');
 				return;
 			}
 			this.sending = true;
@@ -481,10 +439,7 @@ export default {
 				let res1 = await giveSilver({ num: this.sendMoney, receiveUid: this.receiveUid, type: 1, receivePostid: this.id });
 				uni.hideLoading();
 				if (res1.code !== 0) {
-					uni.showToast({
-						title: '赠送银元失败',
-						
-					});
+					uni.$u.toast(res.msg);
 					this.sending = false;
 					return;
 				}
@@ -498,7 +453,7 @@ export default {
 					}
 				});
 			}
-			
+
 			this.popMoney = false;
 			this.sending = false;
 			this.sendMoney = '';
@@ -518,10 +473,7 @@ export default {
 			this.loadingMoreRecord = true;
 			let res = await getChildrenComment({ pid: this.twoDadId, page: this.pageMoreRecord, limit: this.limitMoreRecord });
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '请求二级评论失败',
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				this.loadingMoreRecord = false;
 				return;
 			}
@@ -547,17 +499,11 @@ export default {
 		//发送文字 没房子不许点 需要验证发布文字内容
 		async sendText() {
 			if (!this.house) {
-				uni.showToast({
-					title: '请先成为空间主人',
-					icon:'none'
-				});
+				uni.$u.toast('请先成为空间主人');
 				return;
 			}
 			if (!this.textMsg) {
-				uni.showToast({
-					title: '不可以发表空评论哦',
-					icon:'none'
-				});
+				uni.$u.toast('不可以发表空评论哦');
 				return;
 			}
 			uni.showLoading({
@@ -566,10 +512,7 @@ export default {
 			let res = await checkContent({ content: this.textMsg });
 			if (res.code !== 0 || res.result.errcode !== 0) {
 				uni.hideLoading();
-				uni.showToast({
-					title: '发布的内容包含违规信息，请修改',
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.sendReallyText();
@@ -587,18 +530,12 @@ export default {
 			uni.hideLoading();
 			if (res.code !== 0) {
 				this.showInput = false;
-				uni.showToast({
-					title: '评论失败',
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.textMsg = '';
 			this.showInput = false;
-			uni.showToast({
-				title: '评论成功',
-					icon:'none'
-			});
+			uni.$u.toast('评论成功');
 			//-----------
 			this.artObj = {};
 			this.getDetail();
@@ -648,24 +585,15 @@ export default {
 			let res = await deletePost({ id: this.id });
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '删除动态失败',
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
-			uni.showToast({
-				title: '已删除',
-					icon:'none'
-			});
-			//删除成功
-			// uni.navigateBack({ });
-
+			uni.$u.toast('删除成功');
 			let pages = getCurrentPages();
 			let beforePage = pages[pages.length - 2];
 			beforePage.$vm.refresh = true;
 			uni.navigateBack({
-				success: function() {}
+				success: function () {}
 			});
 		},
 		//删除评论
@@ -674,16 +602,10 @@ export default {
 			console.log(res);
 			console.log('删除评论');
 			if (res.code !== 0) {
-				uni.showToast({
-					title: '删除评论失败',
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
-			uni.showToast({
-				title: '已删除',
-					icon:'none'
-			});
+			uni.$u.toast('删除成功');
 			this.artObj = {};
 			this.getDetail();
 			this.showRemoveComment = false;

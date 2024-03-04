@@ -12,26 +12,20 @@
 		<div class="content">
 			<div class="content-c">{{ artObj.content }}</div>
 			<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-			<u-album
-				v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4"
-				:urls="aImgList"
-				singleSize="750rpx"
-				multipleSize="242rpx"
-			></u-album>
+			<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="750rpx" multipleSize="242rpx"></u-album>
 			<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
 				<u-album :urls="aImgList" singleSize="740rpx" multipleSize="356rpx" rowCount="2"></u-album>
 			</div>
 			<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
 		</div>
-		
+
 		<!-- 一级回复 -->
 		<div class="other">
 			<div class="other-item">
 				<img class="other-pri" :src="i.fromAvatar" alt="" />
 				<div class="other-all">
-					<div class="other-name" >名字</div>
+					<div class="other-name">名字</div>
 					<div class="other-say">回复内容</div>
-
 				</div>
 			</div>
 			<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
@@ -64,11 +58,11 @@
 		<!-- 输入栏背景 -->
 		<div v-if="showInput" class="cancel-input" @click="showInput = false"></div>
 
-<div class="action-box">
-	<div class="record-then" @click="showInput=true">回复</div>
-	<div class="pick-again" @click="showPickAgain=true">再捡一次</div>
-	<div class="pick-again" @click="goChatWith">开启私聊</div>
-</div>
+		<div class="action-box">
+			<div class="record-then" @click="showInput = true">回复</div>
+			<div class="pick-again" @click="showPickAgain = true">再捡一次</div>
+			<div class="pick-again" @click="goChatWith">开启私聊</div>
+		</div>
 		<!-- 再捡一次 -->
 		<u-modal
 			:show="showPickAgain"
@@ -79,12 +73,11 @@
 			@cancel="showPickAgain = false"
 			confirmColor="#e89406"
 		></u-modal>
-		
 	</div>
 </template>
 
 <script>
-import { detailPickBottle,commentBottle,pickBottle } from '@/api/currentBottle.js';
+import { detailPickBottle, detailLostBottle, commentBottle, pickBottle } from '@/api/currentBottle.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();
@@ -98,6 +91,7 @@ export default {
 			ws: '',
 			//帖子id
 			id: '',
+			type: '',
 			aImgList: [],
 			avideo: '',
 			//一级------------
@@ -111,22 +105,23 @@ export default {
 			oneRecordList: [],
 			showInput: false,
 			textMsg: '',
-			
+
 			artObj: {},
 
 			showPickAgain: false,
 			//被回复用户ID
 			toUid: '',
 			messBotton: 0,
-			inputYbHeight: 0,
+			inputYbHeight: 0
 		};
 	},
 	onLoad(option) {
 		this.ws = app.globalData.ws;
 		this.id = option.i;
-		this.getDetail();
+		this.type = option.type;
+		this.detailLostOrPickBottle();
 		this.oneRecordList = [];
-		this.getCommentList();
+		// this.getCommentList();
 	},
 	onReachBottom() {
 		if (this.page >= this.lastPage) {
@@ -137,26 +132,22 @@ export default {
 		// 让页码值自增 +1
 		this.page += 1;
 		// 重新获取列表数据
-		this.getCommentList();
+		// this.getCommentList();
 	},
 	methods: {
 		//获取详情
-		async detailPickBottle() {
-			// let res = await detail({ id: this.id });
-			// console.log('获取详情');
-			// console.log(res);
-			// if (res.code !== 0) {
-			// 	uni.showToast({
-			// 		title: '获取动态详情失败',
-			// 		icon:'none'
-					
-			// 	});
-			// 	return;
-			// }
+		async detailLostOrPickBottle() {
+			let res = this.type === '0' ? await detailLostBottle({ id: this.id }) : await detailPickBottle({ id: this.id });
+			console.log('漂流瓶内容详情');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg);
+				return;
+			}
 			// this.artObj = res.result;
 			// //发给谁
 			// this.toUid = res.result.uid;
-			
+
 			// if (this.artObj.media.length === 0) {
 			// 	return;
 			// }
@@ -170,26 +161,26 @@ export default {
 			// }
 		},
 		//获取一级评论列表
-		async getCommentList() {
-			this.isloading = true;
-			let res = await getComment({ postId: this.id, page: this.page, limit: this.limit });
-			console.log('请求用户评论');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: '获取用户评论失败',
-					icon:'none'
-				});
-				// ** 关闭节流阀
-				this.isloading = false;
-				return;
-			}
-			// ** 关闭节流阀
-			this.isloading = false;
-			this.oneRecordList = [...this.oneRecordList, ...res.result.data];
-			this.lastPage = res.result.last_page;
-		},
-		
+		// async getCommentList() {
+		// 	this.isloading = true;
+		// 	let res = await getComment({ postId: this.id, page: this.page, limit: this.limit });
+		// 	console.log('请求用户评论');
+		// 	console.log(res);
+		// 	if (res.code !== 0) {
+		// 		uni.showToast({
+		// 			title: '获取用户评论失败',
+		// 			icon: 'none'
+		// 		});
+		// 		// ** 关闭节流阀
+		// 		this.isloading = false;
+		// 		return;
+		// 	}
+		// 	// ** 关闭节流阀
+		// 	this.isloading = false;
+		// 	this.oneRecordList = [...this.oneRecordList, ...res.result.data];
+		// 	this.lastPage = res.result.last_page;
+		// },
+
 		//下拉加载更多评论
 		lowerMoreRecord() {
 			if (this.pageMoreRecord >= this.lastPageMoreRecord) {
@@ -204,11 +195,10 @@ export default {
 		},
 		//发送文字 没房子不许点 需要验证发布文字内容
 		async sendText() {
-			
 			if (!this.textMsg) {
 				uni.showToast({
 					title: '不可以发表空评论哦',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -220,7 +210,7 @@ export default {
 				uni.hideLoading();
 				uni.showToast({
 					title: '发布的内容包含违规信息，请修改',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -230,17 +220,13 @@ export default {
 		//真发送文字
 		async sendReallyText() {
 			//评论 发送ws 更新页面onerecordList
-			 // let res =await commentBottle({id,comment})
+			// let res =await commentBottle({id,comment})
 		},
-        // 再捡
+		// 再捡
 		async confirmPickAgain() {
-			
-				// pickBottle().then(res=>{
-					
-				// 	//获得瓶子id  更新这个页面
-					
-				// })	
-		
+			// pickBottle().then(res=>{
+			// 	//获得瓶子id  更新这个页面
+			// })
 		},
 		goChatWith() {
 			//i哪里来？
@@ -261,8 +247,7 @@ export default {
 		inputLow(e) {
 			this.messBotton = 0;
 		},
-		inputLine(e) {
-		}
+		inputLine(e) {}
 	}
 };
 </script>

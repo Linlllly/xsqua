@@ -55,11 +55,10 @@
 
 		},
 		{
-			"path" : "pages/currentBottle/currentBottle",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
+			"path": "pages/currentBottle/currentBottle",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
 		}
 	],
@@ -69,14 +68,6 @@
 				"path": "costMoney/costMoney", //充值页面
 				"style": {
 					"enablePullDownRefresh": false
-				}
-			},
-			{
-				"path" : "game/game",
-				"style" : 
-				{
-					"navigationBarTitleText" : "",
-					"enablePullDownRefresh" : false
 				}
 			}]
 		},
@@ -109,32 +100,29 @@
 						"onReachBottomDistance": 150
 					}
 
-				},{
-			"path" : "bottleMessageList/bottleMessageList",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		},
-		
-		{
-			"path" : "bottleHistory/bottleHistory",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		},
-		
-		{
-			"path" : "bottleDetail/bottleDetail",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		}, {
+				}, {
+					"path": "bottleMessageList/bottleMessageList",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+
+				{
+					"path": "bottleHistory/bottleHistory",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+
+				{
+					"path": "bottleDetail/bottleDetail",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
 					"path": "fansAndFouces/fansAndFouces", //粉丝 关注 互关
 					"style": {
 						"onReachBottomDistance": 150,
