@@ -1,22 +1,48 @@
 <template>
 	<view class="pages">
-		<z-paging ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="messageList" @query="getMessageList"  :empty-view-img-style='{width:0,height:0}'  >
-				<template #top>
-					<div class="chat-title">
-						<div class="name-chat">消息</div>
-						<img class="name-title" :src="ava" alt="" />
-					</div>
-				</template>
-				<div  class="content-list" v-for="(i, index) in messageList" :key="i.id">
-					<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
-					<div class="content-info" @click="toArticleDes(i)">
-						<div class="info-name">{{ i.userInfo.username }}</div>
-						<div class="info-des" :style="{ color: index % 3 === 0 ? '#484BD8' : index % 2 === 0 ? '#E35A5A' : '#B726D6' }">{{ i.text }}</div>
+		<z-paging
+			ref="paging"
+			:default-page-size="12"
+			loading-more-no-more-text="没有更多数据了"
+			v-model="messageList"
+			@query="getMessageList"
+			:empty-view-img-style="{ width: 0, height: 0 }"
+		>
+			<template #top>
+				<div class="chat-title">
+					<div class="name-chat">消息</div>
+					<img class="name-title" :src="ava" alt="" />
+				</div>
+			</template>
+			<div
+				class="content-list"
+				v-for="(i, index) in messageList"
+				:key="i.id"
+			>
+				<img
+					class="list-img"
+					:src="i.userInfo.avatar"
+					alt=""
+					@click="toOtherUser(i.userInfo)"
+				/>
+				<div class="content-info" @click="toArticleDes(i)">
+					<div class="info-name">{{ i.userInfo.username }}</div>
+					<div
+						class="info-des"
+						:style="{
+							color:
+								index % 3 === 0
+									? '#484BD8'
+									: index % 2 === 0
+									? '#E35A5A'
+									: '#B726D6'
+						}"
+					>
+						{{ i.text }}
 					</div>
 				</div>
-			</z-paging>
-		
-		
+			</div>
+		</z-paging>
 	</view>
 </template>
 
@@ -35,7 +61,7 @@ export default {
 			messageList: []
 		};
 	},
-	
+
 	methods: {
 		//请求列表
 		getMessageList(page, limit) {
@@ -48,12 +74,12 @@ export default {
 								this.$refs.paging.complete(false);
 							});
 		},
-		
+
 		//去详情页
 		toArticleDes(i) {
 			if (i.postId) {
 				uni.navigateTo({
-					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId
+					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId'&&type=0'
 				});
 			}
 		},

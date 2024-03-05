@@ -7,7 +7,6 @@
     "pages/citySelect/citySelect",
     "pages/areaSelect/areaSelect",
     "pages/index2/index2",
-    "pages/index3/index3",
     "pages/currentBottle/currentBottle"
   ],
   "subPackages": [
@@ -71,8 +70,8 @@
         "selectedIconPath": "static/22.png"
       },
       {
-        "pagePath": "pages/index3/index3",
-        "text": "好玩的手艺",
+        "pagePath": "pages/currentBottle/currentBottle",
+        "text": "漂流瓶",
         "iconPath": "static/1.png",
         "selectedIconPath": "static/2.png"
       }

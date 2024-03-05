@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages_userActivity/common/vendor"],{
 
 /***/ 281:
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/fans.png ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/fans.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -12,9 +12,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAMAAAAo
 /***/ }),
 
 /***/ 282:
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/foucs.png ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/foucs.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -23,9 +23,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAMAAAAo
 /***/ }),
 
 /***/ 283:
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/double.png ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/double.png ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -34,9 +34,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAMAAAAo
 /***/ }),
 
 /***/ 286:
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/chatList.js ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/chatList.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -56,9 +56,9 @@ function chatList(data) {
 /***/ }),
 
 /***/ 295:
-/*!******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/adminLogin.js ***!
-  \******************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/adminLogin.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -78,9 +78,9 @@ function phoneLogin(data) {
 /***/ }),
 
 /***/ 302:
-/*!**********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/orangebeizhu.png ***!
-  \**********************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/orangebeizhu.png ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -89,9 +89,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyCAYAAAAZ
 /***/ }),
 
 /***/ 303:
-/*!********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/greybeizhu.png ***!
-  \********************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/greybeizhu.png ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -100,9 +100,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyCAQAAACz
 /***/ }),
 
 /***/ 304:
-/*!***************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/lahei.png ***!
-  \***************************************************************************/
+/*!**************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/lahei.png ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -111,9 +111,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABACAYAAACu
 /***/ }),
 
 /***/ 307:
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/chatWith.js ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/chatWith.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -143,9 +143,9 @@ function getRemark(data) {
 /***/ }),
 
 /***/ 308:
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/fansAndFouces.js ***!
-  \*********************************************************/
+/*!********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/fansAndFouces.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -180,9 +180,9 @@ function userRemarkEdit(data) {
 /***/ }),
 
 /***/ 309:
-/*!*****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/sheldList.js ***!
-  \*****************************************************/
+/*!****************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/sheldList.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -216,32 +216,10 @@ function delFollow(data) {
 
 /***/ }),
 
-/***/ 318:
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/messageList.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.message = message;
-var _api = __webpack_require__(/*! @/api/api.js */ 35);
-// 消息提醒（关注、评论、点赞）
-function message(data) {
-  return (0, _api.get)('/app/chat/message', data);
-}
-
-/***/ }),
-
 /***/ 349:
-/*!**************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/cancel-attention.png ***!
-  \**************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/cancel-attention.png ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -250,9 +228,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAmCAYAAAC/
 /***/ }),
 
 /***/ 358:
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/no-head.png ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/no-head.png ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -261,9 +239,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABsCAYAAAAM
 /***/ }),
 
 /***/ 359:
-/*!***************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/likes.png ***!
-  \***************************************************************************/
+/*!**************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/likes.png ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -272,9 +250,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 /***/ }),
 
 /***/ 360:
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/no-likes.png ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/no-likes.png ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -283,9 +261,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 /***/ }),
 
 /***/ 361:
-/*!*******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/chat-with.png ***!
-  \*******************************************************************************/
+/*!******************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/chat-with.png ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -294,9 +272,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAABlCAYAAAB0
 /***/ }),
 
 /***/ 362:
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/mimasuo2.png ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/mimasuo2.png ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -305,9 +283,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAEhCAYAAABB
 /***/ }),
 
 /***/ 363:
-/*!****************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/biguan.png ***!
-  \****************************************************************************/
+/*!***************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/biguan.png ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -316,9 +294,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOwAAAD1CAYAAABT
 /***/ }),
 
 /***/ 383:
-/*!*******************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/artcleIssue.js ***!
-  \*******************************************************/
+/*!******************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/artcleIssue.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -348,9 +326,9 @@ function checkContent(data) {
 /***/ }),
 
 /***/ 390:
-/*!*********************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/static/video-img.jpg ***!
-  \*********************************************************/
+/*!********************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/static/video-img.jpg ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -359,9 +337,9 @@ module.exports = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAcHBwc
 /***/ }),
 
 /***/ 391:
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/up-video.png ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/up-video.png ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -370,9 +348,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAF3CAYAAABe
 /***/ }),
 
 /***/ 392:
-/*!*********************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/up-video-ok.png ***!
-  \*********************************************************************************/
+/*!********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/up-video-ok.png ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -381,9 +359,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAF3CAYAAABe
 /***/ }),
 
 /***/ 401:
-/*!************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/first-x-secret.png ***!
-  \************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/first-x-secret.png ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -392,9 +370,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAT+CAYAAACR
 /***/ }),
 
 /***/ 402:
-/*!******************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/x-secret.png ***!
-  \******************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/x-secret.png ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -403,9 +381,9 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAT+CAYAAACR
 /***/ }),
 
 /***/ 405:
-/*!****************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/api/mySecret.js ***!
-  \****************************************************/
+/*!***************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/mySecret.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -431,9 +409,9 @@ function queryXFilePageList(data) {
 /***/ }),
 
 /***/ 412:
-/*!*************************************************************************************!*\
-  !*** C:/Users/admin/Desktop/xsqua/pages_userActivity/ua_static/change-x-secret.png ***!
-  \*************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_userActivity/ua_static/change-x-secret.png ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

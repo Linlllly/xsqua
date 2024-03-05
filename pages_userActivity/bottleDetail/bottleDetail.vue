@@ -2,7 +2,12 @@
 	<div class="pages">
 		<!-- 表头 -->
 		<div class="dynamic">
-			<img class="my" :src="artObj.userInfo.avatar" alt="" @click="toOtherUser(artObj.userInfo, 1)" />
+			<img
+				class="my"
+				:src="artObj.userInfo.avatar"
+				alt=""
+				@click="toOtherUser(artObj.userInfo, 1)"
+			/>
 			<div class="title">
 				<span class="des-name">{{ artObj.userInfo.username }}</span>
 				<div class="des-more">{{ artObj.userInfo.intro }}</div>
@@ -12,11 +17,35 @@
 		<div class="content">
 			<div class="content-c">{{ artObj.content }}</div>
 			<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-			<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="750rpx" multipleSize="242rpx"></u-album>
-			<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
-				<u-album :urls="aImgList" singleSize="740rpx" multipleSize="356rpx" rowCount="2"></u-album>
+			<u-album
+				v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4"
+				:urls="aImgList"
+				singleSize="750rpx"
+				multipleSize="242rpx"
+			></u-album>
+			<div
+				class="ua-box"
+				v-if="
+					aImgList.length !== 0 &&
+					!avideo &&
+					aImgList.length < 5 &&
+					aImgList.length > 1
+				"
+			>
+				<u-album
+					:urls="aImgList"
+					singleSize="740rpx"
+					multipleSize="356rpx"
+					rowCount="2"
+				></u-album>
 			</div>
-			<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
+			<image
+				class="singleImg"
+				v-if="aImgList.length === 1"
+				:src="aImgList"
+				mode="widthFix"
+				@click="previewImg"
+			></image>
 		</div>
 
 		<!-- 一级回复 -->
@@ -28,12 +57,23 @@
 					<div class="other-say">回复内容</div>
 				</div>
 			</div>
-			<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+			<div v-if="!isloading && page >= lastPage" class="next">
+				———— 没有更多数据了 ————
+			</div>
 		</div>
-		<u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon>
+		<u-loading-icon
+			v-if="isloading"
+			color="#767374"
+			size="16"
+		></u-loading-icon>
 
 		<!-- 底部输入栏 -->
-		<view v-show="showInput" class="input-box cu-bar tabbar" @touchmove.stop.prevent="discard" :style="{ bottom: messBotton + 'px' }">
+		<view
+			v-show="showInput"
+			class="input-box cu-bar tabbar"
+			@touchmove.stop.prevent="discard"
+			:style="{ bottom: messBotton + 'px' }"
+		>
 			<view class="textbox">
 				<view class="text-mode" :class="isVoice ? 'hidden' : ''">
 					<view class="box">
@@ -53,10 +93,19 @@
 					</view>
 				</view>
 			</view>
-			<view class="send" :class="isVoice ? 'hidden' : ''" @click="sendText"><view class="btn">发送</view></view>
+			<view
+				class="send"
+				:class="isVoice ? 'hidden' : ''"
+				@click="sendText"
+				><view class="btn">发送</view></view
+			>
 		</view>
 		<!-- 输入栏背景 -->
-		<div v-if="showInput" class="cancel-input" @click="showInput = false"></div>
+		<div
+			v-if="showInput"
+			class="cancel-input"
+			@click="showInput = false"
+		></div>
 
 		<div class="action-box">
 			<div class="record-then" @click="showInput = true">回复</div>
@@ -77,10 +126,15 @@
 </template>
 
 <script>
-import { detailPickBottle, detailLostBottle, commentBottle, pickBottle } from '@/api/currentBottle.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
+import {
+	detailPickBottle,
+	detailLostBottle,
+	commentBottle,
+	pickBottle
+} from '@/api/currentBottle.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	computed: {
@@ -113,36 +167,28 @@ export default {
 			toUid: '',
 			messBotton: 0,
 			inputYbHeight: 0
-		};
+		}
 	},
 	onLoad(option) {
-		this.ws = app.globalData.ws;
-		this.id = option.i;
-		this.type = option.type;
-		this.detailLostOrPickBottle();
-		this.oneRecordList = [];
-		// this.getCommentList();
-	},
-	onReachBottom() {
-		if (this.page >= this.lastPage) {
-			return;
-		}
-		// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-		if (this.isloading) return;
-		// 让页码值自增 +1
-		this.page += 1;
-		// 重新获取列表数据
+		this.ws = app.globalData.ws
+		this.id = option.i
+		this.type = option.type
+		this.detailLostOrPickBottle()
+		this.oneRecordList = []
 		// this.getCommentList();
 	},
 	methods: {
 		//获取详情
 		async detailLostOrPickBottle() {
-			let res = this.type === '0' ? await detailLostBottle({ id: this.id }) : await detailPickBottle({ id: this.id });
-			console.log('漂流瓶内容详情');
-			console.log(res);
+			let res =
+				this.type === '0'
+					? await detailLostBottle({ id: this.id })
+					: await detailPickBottle({ id: this.id })
+			console.log('漂流瓶内容详情')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			// this.artObj = res.result;
 			// //发给谁
@@ -160,61 +206,29 @@ export default {
 			// 	this.avideo = this.artObj.media[0];
 			// }
 		},
-		//获取一级评论列表
-		// async getCommentList() {
-		// 	this.isloading = true;
-		// 	let res = await getComment({ postId: this.id, page: this.page, limit: this.limit });
-		// 	console.log('请求用户评论');
-		// 	console.log(res);
-		// 	if (res.code !== 0) {
-		// 		uni.showToast({
-		// 			title: '获取用户评论失败',
-		// 			icon: 'none'
-		// 		});
-		// 		// ** 关闭节流阀
-		// 		this.isloading = false;
-		// 		return;
-		// 	}
-		// 	// ** 关闭节流阀
-		// 	this.isloading = false;
-		// 	this.oneRecordList = [...this.oneRecordList, ...res.result.data];
-		// 	this.lastPage = res.result.last_page;
-		// },
 
-		//下拉加载更多评论
-		lowerMoreRecord() {
-			if (this.pageMoreRecord >= this.lastPageMoreRecord) {
-				return;
-			}
-			// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-			if (this.loadingMoreRecord) return;
-			// 让页码值自增 +1
-			this.pageMoreRecord += 1;
-			// 重新获取列表数据
-			this.getMoreCommentList();
-		},
 		//发送文字 没房子不许点 需要验证发布文字内容
 		async sendText() {
 			if (!this.textMsg) {
 				uni.showToast({
 					title: '不可以发表空评论哦',
 					icon: 'none'
-				});
-				return;
+				})
+				return
 			}
 			uni.showLoading({
 				title: '评论发表中'
-			});
-			let res = await checkContent({ content: this.textMsg });
+			})
+			let res = await checkContent({ content: this.textMsg })
 			if (res.code !== 0 || res.result.errcode !== 0) {
-				uni.hideLoading();
+				uni.hideLoading()
 				uni.showToast({
 					title: '发布的内容包含违规信息，请修改',
 					icon: 'none'
-				});
-				return;
+				})
+				return
 			}
-			this.sendReallyText();
+			this.sendReallyText()
 		},
 
 		//真发送文字
@@ -231,25 +245,29 @@ export default {
 		goChatWith() {
 			//i哪里来？
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
-			});
+				url:
+					'../chatWith/chatWith?ouid=' +
+					i.uid +
+					'&&ocateId=' +
+					i.cateId
+			})
 		},
 		//单图预览
 		previewImg() {
 			uni.previewImage({
 				current: this.aImgList[0], // 当前显示图片的http链接
 				urls: this.aImgList // 需要预览的图片http链接列表
-			});
+			})
 		},
 		inputHight(e) {
-			this.messBotton = e.detail.height;
+			this.messBotton = e.detail.height
 		},
 		inputLow(e) {
-			this.messBotton = 0;
+			this.messBotton = 0
 		},
 		inputLine(e) {}
 	}
-};
+}
 </script>
 
 <style lang="less">

@@ -46,13 +46,6 @@
 				"enablePullDownRefresh": false
 			}
 
-		}, {
-			"path": "pages/index3/index3",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
 		},
 		{
 			"path": "pages/currentBottle/currentBottle",
@@ -220,8 +213,8 @@
 			"iconPath": "static/11.png",
 			"selectedIconPath": "static/22.png"
 		}, {
-			"pagePath": "pages/index3/index3",
-			"text": "好玩的手艺",
+			"pagePath": "pages/currentBottle/currentBottle",
+			"text": "漂流瓶",
 			"iconPath": "static/1.png",
 			"selectedIconPath": "static/2.png"
 		}]
