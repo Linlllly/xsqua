@@ -19,12 +19,7 @@
 				<div class="box-list">
 					<img class="list-title" src="../../static/money.png" alt="" />
 					<div>
-						<scroll-view
-							v-if="moneyList && moneyList.length !== 0"
-							:scroll-y="true"
-							style="width:100%;height:696rpx;"
-							@scrolltolower="lowerMoney"
-						>
+						<scroll-view v-if="moneyList && moneyList.length !== 0" :scroll-y="true" style="width: 100%; height: 696rpx" @scrolltolower="lowerMoney">
 							<div class="list-tiem" v-for="(i, index) in moneyList" :key="index">
 								<img class="ava" :src="bigLook === 0 ? i.sendUserAvatar : i.receiveUserAvatar" alt="" @click="toOtherUser(i)" />
 								<div class="count">{{ i.num }}</div>
@@ -33,7 +28,6 @@
 					</div>
 					<u-loading-icon v-if="loadingMoney" color="#767374" size="16"></u-loading-icon>
 				</div>
-				
 			</div>
 		</u-popup>
 		<!-- 充值记录遮罩层 -->
@@ -41,7 +35,7 @@
 			<div class="box" @tap.stop>
 				<!-- 列表 -->
 				<div>
-					<scroll-view v-if="recordList.length !== 0" :scroll-y="true" style="width:100%;height:710rpx;" @scrolltolower="lowerRecord">
+					<scroll-view v-if="recordList.length !== 0" :scroll-y="true" style="width: 100%; height: 710rpx" @scrolltolower="lowerRecord">
 						<div class="box-tiem" v-for="(i, index) in recordList" :key="index">
 							<div>{{ i.createTime }}</div>
 							<div>银子{{ i.num }}两</div>
@@ -98,7 +92,7 @@ export default {
 	methods: {
 		//充值
 		payMoney(i) {
-			i === 0 ? (this.num = 2.99) : i === 1 ? (this.num = 9.9) : i === 2 ? (this.num = 49.9) : (this.num = 99.9);
+			i === 0 ? (this.num = 299) : i === 1 ? (this.num = 990) : i === 2 ? (this.num = 4990) : (this.num = 9990);
 			// this.loading = true;
 			if (this.timer) {
 				return;
@@ -117,10 +111,11 @@ export default {
 		},
 		async wxPay() {
 			//请求后端获取参数
-			let res = await buy({ num: this.num,isArmour:'1' });
+			let res = await buy({ num: this.num, isArmour: '1' });
 			if (res.code !== 0) {
 				uni.showToast({
-					title: res.msg,icon:'none'
+					title: res.msg,
+					icon: 'none'
 				});
 				return;
 			}
@@ -133,12 +128,12 @@ export default {
 				package: res.package, //统一下单接口返回的 prepay_id 参数值
 				signType: res.signType, // 签名算法
 				paySign: res.paySign, // 签名
-				success: function(res) {
+				success: function (res) {
 					// this.loading = false;
-					uni.$u.toast('充值成功')
+					uni.$u.toast('充值成功');
 				},
-				fail: function(err) {
-					uni.$u.toast(err)
+				fail: function (err) {
+					uni.$u.toast(err);
 				}
 			});
 			this.loading = false;
@@ -173,8 +168,8 @@ export default {
 			if (res.code !== 0) {
 				this.loadingRecord = false;
 				uni.showToast({
-					title: res.msg,icon:'none'
-					
+					title: res.msg,
+					icon: 'none'
 				});
 				this.loadingRecord = false;
 				return;
@@ -213,8 +208,8 @@ export default {
 			if (res.code !== 0) {
 				this.loadingMoney = false;
 				uni.showToast({
-					title: res.msg,icon:'none'
-					
+					title: res.msg,
+					icon: 'none'
 				});
 				//关闭节流阀
 				this.loadingMoney = false;
@@ -238,7 +233,7 @@ export default {
 			uni.navigateTo({
 				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + ouid
 			});
-		},
+		}
 	}
 };
 </script>

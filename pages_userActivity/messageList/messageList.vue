@@ -14,28 +14,14 @@
 					<img class="name-title" :src="ava" alt="" />
 				</div>
 			</template>
-			<div
-				class="content-list"
-				v-for="(i, index) in messageList"
-				:key="i.id"
-			>
-				<img
-					class="list-img"
-					:src="i.userInfo.avatar"
-					alt=""
-					@click="toOtherUser(i.userInfo)"
-				/>
+			<div class="content-list" v-for="(i, index) in messageList" :key="i.id">
+				<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
 				<div class="content-info" @click="toArticleDes(i)">
 					<div class="info-name">{{ i.userInfo.username }}</div>
 					<div
 						class="info-des"
 						:style="{
-							color:
-								index % 3 === 0
-									? '#484BD8'
-									: index % 2 === 0
-									? '#E35A5A'
-									: '#B726D6'
+							color: index % 3 === 0 ? '#484BD8' : index % 2 === 0 ? '#E35A5A' : '#B726D6'
 						}"
 					>
 						{{ i.text }}
@@ -65,21 +51,21 @@ export default {
 	methods: {
 		//请求列表
 		getMessageList(page, limit) {
-			message({ page, limit})
-							.then(res => {
-								this.messageList = res.result.data||[];
-								this.$refs.paging.complete(res.result.data);
-							})
-							.catch(res => {
-								this.$refs.paging.complete(false);
-							});
+			message({ page, limit })
+				.then((res) => {
+					this.messageList = res.result.data || [];
+					this.$refs.paging.complete(res.result.data);
+				})
+				.catch((res) => {
+					this.$refs.paging.complete(false);
+				});
 		},
 
 		//去详情页
 		toArticleDes(i) {
 			if (i.postId) {
 				uni.navigateTo({
-					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId'&&type=0'
+					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId + '&&type=0'
 				});
 			}
 		},

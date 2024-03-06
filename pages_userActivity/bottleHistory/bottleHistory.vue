@@ -12,9 +12,17 @@
 				<u-tabs :list="list1" @change="tabChange"></u-tabs>
 			</template>
 			<view v-for="i in historyList" class="bottle-list" :key="i.id" @click="goBottleDetail(i)">
-				<u-icon v-if="i.type === 2 && i.media" name="photo" size="28"></u-icon>
-				<u-icon v-if="i.type === 3 && i.media" name="play-circle" size="28"></u-icon>
-				<div class="contents">{{ i.content }}</div>
+				<div v-if="!i.bottleInfo">
+					<u-icon v-if="!i.media.length" name="cut" size="28"></u-icon>
+					<u-icon v-else-if="i.type === 2 && i.media" name="photo" size="28"></u-icon>
+					<u-icon v-else-if="i.type === 3 && i.media" name="play-circle" size="28"></u-icon>
+				</div>
+				<div v-else>
+					<u-icon v-if="!i.bottleInfo.media.length" name="cut" size="28"></u-icon>
+					<u-icon v-else-if="i.bottleInfo.bottleInfo.type === 2 && i.bottleInfo.media" name="photo" size="28"></u-icon>
+					<u-icon v-else-if="i.bottleInfo.type === 3 && i.bottleInfo.media" name="play-circle" size="28"></u-icon>
+				</div>
+				<div class="contents">{{ i.content ? i.content : i.bottleInfo.content }}</div>
 				<div class="time">{{ i.createTime }}</div>
 				<u-icon name="trash" size="28" @tap.stop="delHistory(i)"></u-icon>
 			</view>
@@ -53,18 +61,26 @@ export default {
 	methods: {
 		getHistory(page, limit) {
 			const res = this.type === 0 ? lostHistry({ page, limit }) : pickHistry({ page, limit, isComment: 0 });
-			request
-				.then((res) => {
-					if (res.code !== 0) {
-						uni.$u.toast(res.msg);
-						return;
+			res.then((res) => {
+				console.log('漂流瓶历史');
+				console.log(res);
+				if (res.code !== 0) {
+					uni.$u.toast(res.msg);
+					return;
+				}
+
+				this.historyList = res.result.records;
+				this.historyList.forEach((item) => {
+					if (this.type === 0) {
+						item.media = JSON.parse(item.media);
+					} else {
+						item.bottleInfo.media = JSON.parse(item.bottleInfo.media) || [];
 					}
-					this.historyList = res.result.records;
-					this.$refs.paging.complete(res.result.records);
-				})
-				.catch(() => {
-					this.$refs.paging.complete(false);
 				});
+				this.$refs.paging.complete(res.result.records);
+			}).catch(() => {
+				this.$refs.paging.complete(false);
+			});
 		},
 		tabChange({ index }) {
 			this.type = index;

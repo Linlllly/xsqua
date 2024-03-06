@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages_costMoney/common/vendor"],{
 
-/***/ 270:
-/*!***************************************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/pages_costMoney/cm_static/send-list.png ***!
-  \***************************************************************************************/
+/***/ 262:
+/*!****************************************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/pages_costMoney/cm_static/send-list.png ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11,10 +11,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADICAYAAABs
 
 /***/ }),
 
-/***/ 274:
-/*!****************************************************************!*\
-  !*** /Users/linglinglin/Desktop/uniapp/xsqua/api/costMoney.js ***!
-  \****************************************************************/
+/***/ 266:
+/*!*****************************************************!*\
+  !*** C:/Users/admin/Desktop/xsqua/api/costMoney.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

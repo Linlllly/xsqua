@@ -272,10 +272,6 @@ export default {
 	},
 	onLoad(option) {
 		this.ws = app.globalData.ws;
-		// this.ws.onMessage(res => {
-		// 	console.log('接收消息ing');
-		// 	console.log(res);
-		// });
 		this.id = option.i;
 		this.secret = option.secret ? option.secret : null;
 		this.getDetail();

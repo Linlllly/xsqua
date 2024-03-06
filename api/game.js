@@ -16,6 +16,14 @@ export function draw(data) {
 export function prizeRecord(data) {
 	return get('/app/prizeRecord/page', data)
 }
+//星星数量够不够兑换茅台
+export function exchangeMaoTaiCheck(data) {
+	return get('/app/exchange/exchangeMaoTaiCheck', data)
+}
+//所有用户抽奖记录
+export function allPrizeRecord(data) {
+	return get('/app/prizeRecord/allPage', data)
+}
 //领奖
 export function receive(data) {
 	return post('/app/prizeRecord/receive', data)

@@ -3,46 +3,46 @@ let windowWidth = uni.getSystemInfoSync().windowWidth
 if (windowWidth > 960) windowWidth = 375
 
 export const rpx2px = (value) => {
-  if (typeof value === 'string') value = Number(value.replace(/[a-z]*/g, ''))
-  return windowWidth / 750 * value
+	if (typeof value === 'string') value = Number(value.replace(/[a-z]*/g, ''))
+	return windowWidth / 750 * value
 }
 
 export const changeUnits = (value) => {
-  return Number(value.replace(/^(\-*[0-9.]*)([a-z%]*)$/, (value, num, unit) => {
-    switch (unit) {
-      case 'px':
-        num *= 1
-        break
-      case 'rpx':
-        num = rpx2px(num)
-        break
-      default:
-        num *= 1
-        break
-    }
-    return num
-  }))
+	return Number(value.replace(/^(\-*[0-9.]*)([a-z%]*)$/, (value, num, unit) => {
+		switch (unit) {
+			case 'px':
+				num *= 1
+				break
+			case 'rpx':
+				num = rpx2px(num)
+				break
+			default:
+				num *= 1
+				break
+		}
+		return num
+	}))
 }
 
 export const resolveImage = async (img, canvas, srcName = 'src', resolveName = '$resolve') => {
-  let imgObj
-  // 区分 H5 和小程序
-  if (window) {
-    imgObj = new Image()
-  } else {
-    imgObj = canvas.createImage()
-  }
-  // 成功回调
-  imgObj.onload = () => {
-    img[resolveName](imgObj)
-  }
-  // 失败回调
-  imgObj.onerror = (err) => {
-    console.error(err)
-    // img['$reject']()
-  }
-  // 设置src
-  imgObj.src = img[srcName]
+	let imgObj
+	// 区分 H5 和小程序
+	if (window) {
+		imgObj = new Image()
+	} else {
+		imgObj = canvas.createImage()
+	}
+	// 成功回调
+	imgObj.onload = () => {
+		img[resolveName](imgObj)
+	}
+	// 失败回调
+	imgObj.onerror = (err) => {
+		console.error(err)
+		// img['$reject']()
+	}
+	// 设置src
+	imgObj.src = img[srcName]
 }
 
 // 旧版canvas引入图片的方法
@@ -71,12 +71,15 @@ export const resolveImage = async (img, canvas, srcName = 'src', resolveName = '
 // }
 
 export function getImage(canvasId, canvas) {
-  return new Promise((resolve, reject) => {
-    uni.canvasToTempFilePath({
-      canvas,
-      canvasId,
-      success: res => resolve(res),
-      fail: err => reject(err)
-    }, this)
-  })
+	console.log('2222', canvas.width, canvas.height);
+	return new Promise((resolve, reject) => {
+		uni.canvasToTempFilePath({
+			canvas,
+			canvasId,
+			destWidth: canvas.width * 3,
+			destHeight: canvas.height * 3,
+			success: res => resolve(res),
+			fail: err => reject(err)
+		}, this)
+	})
 }

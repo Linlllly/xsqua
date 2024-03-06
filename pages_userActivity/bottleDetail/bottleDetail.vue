@@ -2,53 +2,25 @@
 	<div class="pages">
 		<!-- 表头 -->
 		<div class="dynamic">
-			<img
-				class="my"
-				:src="artObj.userInfo.avatar"
-				alt=""
-				@click="toOtherUser(artObj.userInfo, 1)"
-			/>
+			<img class="my" :src="bottleUserInfo.avatar" alt="" @click="toOtherUser(artObj.userInfo, 1)" />
 			<div class="title">
-				<span class="des-name">{{ artObj.userInfo.username }}</span>
-				<div class="des-more">{{ artObj.userInfo.intro }}</div>
+				<span class="des-name">{{ bottleUserInfo.username }}</span>
+				<div class="des-more">{{ bottleUserInfo.intro }}</div>
 			</div>
 		</div>
+		<div>{{ createTime }}</div>
 		<!-- 文本内容 -->
 		<div class="content">
 			<div class="content-c">{{ artObj.content }}</div>
 			<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-			<u-album
-				v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4"
-				:urls="aImgList"
-				singleSize="750rpx"
-				multipleSize="242rpx"
-			></u-album>
-			<div
-				class="ua-box"
-				v-if="
-					aImgList.length !== 0 &&
-					!avideo &&
-					aImgList.length < 5 &&
-					aImgList.length > 1
-				"
-			>
-				<u-album
-					:urls="aImgList"
-					singleSize="740rpx"
-					multipleSize="356rpx"
-					rowCount="2"
-				></u-album>
+			<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="750rpx" multipleSize="242rpx"></u-album>
+			<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
+				<u-album :urls="aImgList" singleSize="740rpx" multipleSize="356rpx" rowCount="2"></u-album>
 			</div>
-			<image
-				class="singleImg"
-				v-if="aImgList.length === 1"
-				:src="aImgList"
-				mode="widthFix"
-				@click="previewImg"
-			></image>
+			<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
 		</div>
 
-		<!-- 一级回复 -->
+		<!-- 回复 -->
 		<div class="other">
 			<div class="other-item">
 				<img class="other-pri" :src="i.fromAvatar" alt="" />
@@ -57,23 +29,11 @@
 					<div class="other-say">回复内容</div>
 				</div>
 			</div>
-			<div v-if="!isloading && page >= lastPage" class="next">
-				———— 没有更多数据了 ————
-			</div>
 		</div>
-		<u-loading-icon
-			v-if="isloading"
-			color="#767374"
-			size="16"
-		></u-loading-icon>
+		<u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon>
 
 		<!-- 底部输入栏 -->
-		<view
-			v-show="showInput"
-			class="input-box cu-bar tabbar"
-			@touchmove.stop.prevent="discard"
-			:style="{ bottom: messBotton + 'px' }"
-		>
+		<view v-show="showInput" class="input-box cu-bar tabbar" @touchmove.stop.prevent="discard" :style="{ bottom: messBotton + 'px' }">
 			<view class="textbox">
 				<view class="text-mode" :class="isVoice ? 'hidden' : ''">
 					<view class="box">
@@ -93,24 +53,15 @@
 					</view>
 				</view>
 			</view>
-			<view
-				class="send"
-				:class="isVoice ? 'hidden' : ''"
-				@click="sendText"
-				><view class="btn">发送</view></view
-			>
+			<view class="send" :class="isVoice ? 'hidden' : ''" @click="sendText"><view class="btn">发送</view></view>
 		</view>
 		<!-- 输入栏背景 -->
-		<div
-			v-if="showInput"
-			class="cancel-input"
-			@click="showInput = false"
-		></div>
+		<div v-if="showInput" class="cancel-input" @click="showInput = false"></div>
 
 		<div class="action-box">
-			<div class="record-then" @click="showInput = true">回复</div>
-			<div class="pick-again" @click="showPickAgain = true">再捡一次</div>
-			<div class="pick-again" @click="goChatWith">开启私聊</div>
+			<div v-if="type === 1" class="record-then" @click="showInput = true">回复</div>
+			<div v-if="type === 1" class="pick-again" @click="showPickAgain = true">再捡一次</div>
+			<div v-if="type === 0" class="pick-again" @click="goChatWith">开启私聊</div>
 		</div>
 		<!-- 再捡一次 -->
 		<u-modal
@@ -126,15 +77,10 @@
 </template>
 
 <script>
-import {
-	detailPickBottle,
-	detailLostBottle,
-	commentBottle,
-	pickBottle
-} from '@/api/currentBottle.js'
-import { mapGetters, mapMutations, mapState } from 'vuex'
+import { detailPickBottle, detailLostBottle, commentBottle, pickBottle } from '@/api/currentBottle.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
-const app = getApp()
+const app = getApp();
 
 export default {
 	computed: {
@@ -146,51 +92,47 @@ export default {
 			//帖子id
 			id: '',
 			type: '',
+			bottleUserInfo: {},
+			createTime: '',
+			bottleInfo: {},
+			//-----------
+			artDes: {},
 			aImgList: [],
 			avideo: '',
-			//一级------------
-			//条数
-			limit: 12,
-			//页面
-			page: 1,
-			lastPage: '',
-			//列表
-			isloading: false, // 节流阀 是否正在请求数据
-			oneRecordList: [],
 			showInput: false,
 			textMsg: '',
 
-			artObj: {},
-
+			comment: '',
 			showPickAgain: false,
 			//被回复用户ID
 			toUid: '',
 			messBotton: 0,
 			inputYbHeight: 0
-		}
+		};
 	},
 	onLoad(option) {
-		this.ws = app.globalData.ws
-		this.id = option.i
-		this.type = option.type
-		this.detailLostOrPickBottle()
-		this.oneRecordList = []
+		this.ws = app.globalData.ws;
+		this.id = option.i;
+		this.type = Number(option.type);
+		this.detailLostOrPickBottle();
+		this.oneRecordList = [];
 		// this.getCommentList();
 	},
 	methods: {
 		//获取详情
 		async detailLostOrPickBottle() {
-			let res =
-				this.type === '0'
-					? await detailLostBottle({ id: this.id })
-					: await detailPickBottle({ id: this.id })
-			console.log('漂流瓶内容详情')
-			console.log(res)
+			let res = this.type === 0 ? await detailLostBottle({ id: this.id }) : await detailPickBottle({ id: this.id });
+			console.log('漂流瓶内容详情');
+			console.log(res);
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg)
-				return
+				uni.$u.toast(res.msg);
+				return;
 			}
-			// this.artObj = res.result;
+			this.bottleUserInfo = res.result.bottleUserInfo;
+			this.createTime = res.result.createTime;
+			this.bottleInfo = res.result.bottleInfo;
+			this.isComment = res.result.isComment;
+			this.comment = res.result.comment;
 			// //发给谁
 			// this.toUid = res.result.uid;
 
@@ -213,22 +155,22 @@ export default {
 				uni.showToast({
 					title: '不可以发表空评论哦',
 					icon: 'none'
-				})
-				return
+				});
+				return;
 			}
 			uni.showLoading({
 				title: '评论发表中'
-			})
-			let res = await checkContent({ content: this.textMsg })
+			});
+			let res = await checkContent({ content: this.textMsg });
 			if (res.code !== 0 || res.result.errcode !== 0) {
-				uni.hideLoading()
+				uni.hideLoading();
 				uni.showToast({
 					title: '发布的内容包含违规信息，请修改',
 					icon: 'none'
-				})
-				return
+				});
+				return;
 			}
-			this.sendReallyText()
+			this.sendReallyText();
 		},
 
 		//真发送文字
@@ -245,29 +187,25 @@ export default {
 		goChatWith() {
 			//i哪里来？
 			uni.navigateTo({
-				url:
-					'../chatWith/chatWith?ouid=' +
-					i.uid +
-					'&&ocateId=' +
-					i.cateId
-			})
+				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
+			});
 		},
 		//单图预览
 		previewImg() {
 			uni.previewImage({
 				current: this.aImgList[0], // 当前显示图片的http链接
 				urls: this.aImgList // 需要预览的图片http链接列表
-			})
+			});
 		},
 		inputHight(e) {
-			this.messBotton = e.detail.height
+			this.messBotton = e.detail.height;
 		},
 		inputLow(e) {
-			this.messBotton = 0
+			this.messBotton = 0;
 		},
 		inputLine(e) {}
 	}
-}
+};
 </script>
 
 <style lang="less">
