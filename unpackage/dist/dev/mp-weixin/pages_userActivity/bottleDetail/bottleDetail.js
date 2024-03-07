@@ -302,9 +302,6 @@ try {
     uAlbum: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-album/u-album */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-album/u-album")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-album/u-album.vue */ 638))
     },
-    uLoadingIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-icon/u-loading-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon.vue */ 522))
-    },
     uModal: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 449))
     },
@@ -407,6 +404,7 @@ var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _currentBottle = __webpack_require__(/*! @/api/currentBottle.js */ 255);
+var _artcleIssue = __webpack_require__(/*! @/api/artcleIssue.js */ 375);
 var _vuex = __webpack_require__(/*! vuex */ 37);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -422,13 +420,14 @@ var _default = {
       bottleUserInfo: {},
       createTime: '',
       bottleInfo: {},
-      //-----------
-      artDes: {},
       aImgList: [],
       avideo: '',
-      showInput: false,
-      textMsg: '',
+      userInfo: {},
+      isComment: 0,
       comment: '',
+      //-----------
+      artDes: {},
+      showInput: false,
       showPickAgain: false,
       //被回复用户ID
       toUid: '',
@@ -438,19 +437,17 @@ var _default = {
   },
   onLoad: function onLoad(option) {
     this.ws = app.globalData.ws;
-    this.id = option.i;
+    this.id = Number(option.i);
     this.type = Number(option.type);
     this.detailLostOrPickBottle();
     this.oneRecordList = [];
-    // this.getCommentList();
   },
-
   methods: {
     //获取详情
     detailLostOrPickBottle: function detailLostOrPickBottle() {
       var _this = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var res;
+        var res, medias, zhengze;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -488,23 +485,24 @@ var _default = {
                 _this.bottleUserInfo = res.result.bottleUserInfo;
                 _this.createTime = res.result.createTime;
                 _this.bottleInfo = res.result.bottleInfo;
+                _this.bottleInfo.media = JSON.parse(_this.bottleInfo.media) || [];
+                _this.userInfo = res.result.userInfo;
                 _this.isComment = res.result.isComment;
                 _this.comment = res.result.comment;
-                // //发给谁
-                // this.toUid = res.result.uid;
-
-                // if (this.artObj.media.length === 0) {
-                // 	return;
-                // }
-                // let medias = this.artObj.media[0];
-                // let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
-                // if (zhengze.test(medias)) {
-                // 	//是图片
-                // 	this.aImgList = this.artObj.media;
-                // } else {
-                // 	this.avideo = this.artObj.media[0];
-                // }
-              case 20:
+                if (!(_this.bottleInfo.media.length === 0)) {
+                  _context.next = 24;
+                  break;
+                }
+                return _context.abrupt("return");
+              case 24:
+                medias = _this.bottleInfo.media[0];
+                zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
+                if (zhengze.test(medias)) {
+                  _this.aImgList = _this.bottleInfo.media;
+                } else {
+                  _this.avideo = _this.bottleInfo.media[0];
+                }
+              case 27:
               case "end":
                 return _context.stop();
             }
@@ -521,22 +519,19 @@ var _default = {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (_this2.textMsg) {
+                if (_this2.comment) {
                   _context2.next = 3;
                   break;
                 }
-                uni.showToast({
-                  title: '不可以发表空评论哦',
-                  icon: 'none'
-                });
+                uni.$u.toast('不可以发表空评论哦');
                 return _context2.abrupt("return");
               case 3:
                 uni.showLoading({
                   title: '评论发表中'
                 });
                 _context2.next = 6;
-                return checkContent({
-                  content: _this2.textMsg
+                return (0, _artcleIssue.checkContent)({
+                  content: _this2.comment
                 });
               case 6:
                 res = _context2.sent;
@@ -545,10 +540,7 @@ var _default = {
                   break;
                 }
                 uni.hideLoading();
-                uni.showToast({
-                  title: '发布的内容包含违规信息，请修改',
-                  icon: 'none'
-                });
+                uni.$u.toast('发布的内容包含违规信息，请修改');
                 return _context2.abrupt("return");
               case 11:
                 _this2.sendReallyText();
@@ -562,20 +554,40 @@ var _default = {
     },
     //真发送文字
     sendReallyText: function sendReallyText() {
+      var _this3 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var res;
         return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                _context3.next = 2;
+                return (0, _currentBottle.commentBottle)({
+                  id: _this3.bottleInfo.id,
+                  comment: _this3.comment
+                });
+              case 2:
+                res = _context3.sent;
+                console.log('发送文字');
+                console.log(res);
+                _this3.showInput = false;
+                if (!(res.code !== 0)) {
+                  _context3.next = 9;
+                  break;
+                }
+                uni.$u.toast(res.msg);
+                return _context3.abrupt("return");
+              case 9:
+                uni.$u.toast('回复成功');
+                _this3.isComment = 1;
+              case 11:
               case "end":
                 return _context3.stop();
             }
           }
         }, _callee3);
       }))();
-    } //评论 发送ws 更新页面onerecordList
-    // let res =await commentBottle({id,comment})
-    ,
+    },
     // 再捡
     confirmPickAgain: function confirmPickAgain() {
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
@@ -679,5 +691,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[329,"common/runtime","common/vendor"]]]);
+},[[329,"common/runtime","common/vendor","pages_userActivity/common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages_userActivity/bottleDetail/bottleDetail.js.map

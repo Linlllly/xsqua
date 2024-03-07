@@ -524,13 +524,12 @@ export default {
 				isReply: this.isReply
 			});
 			uni.hideLoading();
+			this.showInput = false;
 			if (res.code !== 0) {
-				this.showInput = false;
 				uni.$u.toast(res.msg);
 				return;
 			}
 			this.textMsg = '';
-			this.showInput = false;
 			uni.$u.toast('评论成功');
 			//-----------
 			this.artObj = {};

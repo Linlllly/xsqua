@@ -960,16 +960,15 @@ var _default = {
               case 2:
                 res = _context7.sent;
                 uni.hideLoading();
+                _this7.showInput = false;
                 if (!(res.code !== 0)) {
                   _context7.next = 8;
                   break;
                 }
-                _this7.showInput = false;
                 uni.$u.toast(res.msg);
                 return _context7.abrupt("return");
               case 8:
                 _this7.textMsg = '';
-                _this7.showInput = false;
                 uni.$u.toast('评论成功');
                 //-----------
                 _this7.artObj = {};
@@ -988,11 +987,11 @@ var _default = {
                 //-----------
                 //自己评论自己不给提示
                 if (!(_this7.uid === _this7.toUid)) {
-                  _context7.next = 16;
+                  _context7.next = 15;
                   break;
                 }
                 return _context7.abrupt("return");
-              case 16:
+              case 15:
                 //一级提示 被回复id是帖主
                 if (_this7.sayOne) {
                   content = {
@@ -1028,7 +1027,7 @@ var _default = {
                 //二级提示
 
                 //-----------
-              case 17:
+              case 16:
               case "end":
                 return _context7.stop();
             }

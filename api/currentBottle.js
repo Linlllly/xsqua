@@ -17,9 +17,17 @@ export function pickBottle(data) {
 export function lostHistry(data) {
 	return get('/app/bottle/page', data)
 }
+//查询我丢的某个瓶子详情
+export function detailLostBottle(data) {
+	return get('/app/bottle/getById', data)
+}
 //查询我捡的瓶子
 export function pickHistry(data) {
 	return get('/app/bottleRecord/page', data)
+}
+//查询我捡的某个瓶子详情/别人捡到我的某个瓶子详情
+export function detailPickBottle(data) {
+	return get('/app/bottleRecord/getById', data)
 }
 //查询我丢的被别人捡的瓶子的记录
 export function otherPickHistry(data) {
@@ -36,14 +44,6 @@ export function delPickBottle(data) {
 //查看他人回复列表
 export function bottleRecord(data) {
 	return get('/app/bottleRecord/myPage', data)
-}
-//捡瓶子详情
-export function detailPickBottle(data) {
-	return get('/app/bottleRecord/getById', data)
-}
-//丢瓶子详情
-export function detailLostBottle(data) {
-	return get('bottle/getById', data)
 }
 //回复瓶子
 export function commentBottle(data) {
