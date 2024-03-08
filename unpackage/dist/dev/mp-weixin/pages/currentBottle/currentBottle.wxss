@@ -288,4 +288,13 @@ page {
   height: 176rpx !important;
   border-radius: 14rpx !important;
 }
+.mes-dot.data-v-b2820474 {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #f56c6c;
+  top: 12rpx;
+  right: 12rpx;
+  border-radius: 50%;
+}
 

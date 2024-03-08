@@ -10,11 +10,6 @@
 			</div>
 		</u-sticky>
 		<!-- 选择上传 -->
-		<u-radio-group v-if="!secret" v-model="meeting" activeColor="#f9ae3d">
-			<u-radio :name="2" shape="square" :label="'随手文字'"></u-radio>
-			<u-radio :name="3" shape="square" :label="'好玩的手艺'"></u-radio>
-		</u-radio-group>
-		<!-- 选择上传 -->
 		<u-radio-group v-model="value" activeColor="#f9ae3d">
 			<u-radio :name="1" shape="circle" :label="secret === '1' ? '图文' : '发布图文'"></u-radio>
 			<u-radio :name="2" shape="circle" :label="secret === '1' ? '视频' : '发布视频'"></u-radio>

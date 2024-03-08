@@ -60,7 +60,7 @@ export default {
 	},
 	methods: {
 		getHistory(page, limit) {
-			const res = this.type === 0 ? lostHistry({ page, limit }) : pickHistry({ page, limit, isComment: 0 });
+			const res = this.type === 0 ? lostHistry({ page, limit }) : pickHistry({ page, limit });
 			res.then((res) => {
 				console.log('漂流瓶历史');
 				console.log(res);

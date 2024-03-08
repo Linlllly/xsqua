@@ -462,8 +462,7 @@ var _default = {
         limit: limit
       }) : (0, _currentBottle.pickHistry)({
         page: page,
-        limit: limit,
-        isComment: 0
+        limit: limit
       });
       res.then(function (res) {
         console.log('漂流瓶历史');

@@ -21,10 +21,18 @@
 		</div>
 
 		<!-- 回复 -->
-		<div v-if="isComment" class="other">
-			<div class="other-item">
-				<img class="other-pri" :src="userInfo.avatar" alt="" />
-				<div class="other-say">{{ comment }}</div>
+
+		<div v-for="i in recordsList" :key="i.id">
+			<div v-if="i.comment" class="other">
+				<div class="other-item">
+					<img class="other-pri" :src="i.avatar" alt="" />
+					<div class="other-say">{{ i.comment }}</div>
+				</div>
+			</div>
+			<div class="action-box">
+				<div v-if="type === 1 && !i.comment" class="record-then" @click="showInput = true">回复</div>
+				<div v-if="type === 1" class="pick-again" @click="showPickAgain = true">再捡一次</div>
+				<div v-if="type !== 1" class="pick-again" @click="goChatWith(i)">开启私聊</div>
 			</div>
 		</div>
 		<!-- 底部输入栏 -->
@@ -52,11 +60,6 @@
 		</view>
 		<!-- 输入栏背景 -->
 		<div v-if="showInput" class="cancel-input" @click="showInput = false"></div>
-		<div class="action-box">
-			<div v-if="type === 1 && !isComment" class="record-then" @click="showInput = true">回复</div>
-			<div v-if="type === 1" class="pick-again" @click="showPickAgain = true">再捡一次</div>
-			<div v-if="type === 0" class="pick-again" @click="goChatWith">开启私聊</div>
-		</div>
 		<!-- 再捡一次 -->
 		<u-modal
 			:show="showPickAgain"
@@ -73,6 +76,7 @@
 <script>
 import { detailPickBottle, detailLostBottle, commentBottle, pickBottle } from '@/api/currentBottle.js';
 import { checkContent } from '@/api/artcleIssue.js';
+import { bottleRecord } from '@/api/currentBottle.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();
@@ -86,23 +90,18 @@ export default {
 			ws: '',
 			//帖子id
 			id: '',
-			type: '',
+			//0 我丢的 1 我捡到的 2别人捡到我的
+			type: null,
 			bottleUserInfo: {},
 			createTime: '',
 			bottleInfo: {},
 			aImgList: [],
 			avideo: '',
 			userInfo: {},
-			isComment: 0,
-			comment: '',
-			//-----------
-			artDes: {},
+			recordsList: [],
 			showInput: false,
 			showPickAgain: false,
-			//被回复用户ID
-			toUid: '',
-			messBotton: 0,
-			inputYbHeight: 0
+			messBotton: 0
 		};
 	},
 	onLoad(option) {
@@ -110,7 +109,9 @@ export default {
 		this.id = Number(option.i);
 		this.type = Number(option.type);
 		this.detailLostOrPickBottle();
-		this.oneRecordList = [];
+		if (this.type === 0) {
+			this.getBottleRecord();
+		}
 	},
 	methods: {
 		//获取详情
@@ -122,13 +123,19 @@ export default {
 				uni.$u.toast(res.msg);
 				return;
 			}
-			this.bottleUserInfo = res.result.bottleUserInfo;
-			this.createTime = res.result.createTime;
-			this.bottleInfo = res.result.bottleInfo;
-			this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
-			this.userInfo = res.result.userInfo;
-			this.isComment = res.result.isComment;
-			this.comment = res.result.comment;
+			if (this.type === 1 || this.type === 2) {
+				//单人回复
+				this.bottleUserInfo = res.result.bottleUserInfo;
+				this.createTime = res.result.createTime;
+				this.bottleInfo = res.result.bottleInfo;
+				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
+				this.recordsList = [{ ...res.result.userInfo, comment: res.result.comment }];
+			} else if (this.type === 0) {
+				//所有回复
+				this.bottleUserInfo = res.result.userInfo;
+				this.bottleInfo = res.result;
+				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
+			}
 
 			if (this.bottleInfo.media.length === 0) {
 				return;
@@ -141,17 +148,22 @@ export default {
 				this.avideo = this.bottleInfo.media[0];
 			}
 		},
-
-		//发送文字 没房子不许点 需要验证发布文字内容
+		getBottleRecord() {
+			bottleRecord({ page: 1, limit: 10000, bottleId: this.id }).then((res) => {
+				console.log('请求我的瓶子的所有回复');
+				console.log(res);
+				this.recordsList = res.result.records;
+			});
+		},
 		async sendText() {
-			if (!this.comment) {
-				uni.$u.toast('不可以发表空评论哦');
+			if (!this.recordsList[0].comment) {
+				uni.$u.toast('不可以回复空文字噢');
 				return;
 			}
 			uni.showLoading({
-				title: '评论发表中'
+				title: '回复发表中'
 			});
-			let res = await checkContent({ content: this.comment });
+			let res = await checkContent({ content: this.recordsList[0].comment });
 			if (res.code !== 0 || res.result.errcode !== 0) {
 				uni.hideLoading();
 				uni.$u.toast('发布的内容包含违规信息，请修改');
@@ -159,11 +171,9 @@ export default {
 			}
 			this.sendReallyText();
 		},
-
 		//真发送文字
 		async sendReallyText() {
-			//评论 发送ws 更新页面onerecordList
-			let res = await commentBottle({ id: this.bottleInfo.id, comment: this.comment });
+			let res = await commentBottle({ id: this.id, comment: this.recordsList[0].comment });
 			console.log('发送文字');
 			console.log(res);
 			this.showInput = false;
@@ -172,16 +182,26 @@ export default {
 				return;
 			}
 			uni.$u.toast('回复成功');
-			this.isComment = 1;
+			// var content = { fromUid: this.recordsList[0].uid, toUid: this.bottleUserInfo.uid, text: this.recordsList[0].comment, type: 'bottle'};
+			// this.ws.send({
+			// 	data: JSON.stringify(content),
+			// 	success: () => {
+			// 		console.log('ws漂流瓶回复消息发送成功');
+			// 	}
+			// });
 		},
 		// 再捡
 		async confirmPickAgain() {
-			// pickBottle().then(res=>{
-			// 	//获得瓶子id  更新这个页面
-			// })
+			pickBottle().then((res) => {
+				if (res.code !== 0) {
+					uni.$u.toast(res.msg);
+					return;
+				}
+				this.id = res.result.id;
+				this.detailLostOrPickBottle();
+			});
 		},
-		goChatWith() {
-			//i哪里来？
+		goChatWith(i) {
 			uni.navigateTo({
 				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
 			});

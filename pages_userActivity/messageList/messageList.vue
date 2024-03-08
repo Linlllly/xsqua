@@ -143,10 +143,4 @@ export default {
 		}
 	}
 }
-.next {
-	margin-top: 26rpx;
-	width: 100%;
-	color: #9a9698;
-	text-align: center;
-}
 </style>

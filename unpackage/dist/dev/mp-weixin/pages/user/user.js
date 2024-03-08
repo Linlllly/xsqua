@@ -472,18 +472,6 @@ var _default = {
           }
           var data = JSON.parse(res.data);
           console.log(data);
-          // if (
-          // 	data.type === 'follow' ||
-          // 	data.type === 'comment' ||
-          // 	data.type === 'collection' ||
-          // 	data.type === 'silver' ||
-          // 	data.type === 'flower' ||
-          // 	data.type === 'shit'
-          // ) {
-          // 	this.getUserStatistics();
-          // 	this.getUserRank();
-          // 	this.messageDot = true;
-          // }
           if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
             _this.chatDot = true;
           }
@@ -731,13 +719,10 @@ var _default = {
                   _context2.next = 8;
                   break;
                 }
-                uni.showToast({
-                  title: res.msg,
-                  icon: 'none'
-                });
+                uni.$u.toast(res.msg);
                 return _context2.abrupt("return");
               case 8:
-                if (res.result === true) {
+                if (res.result) {
                   _this7.chatDot = true;
                 } else {
                   _this7.chatDot = false;

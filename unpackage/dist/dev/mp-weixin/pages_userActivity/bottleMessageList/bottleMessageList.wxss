@@ -320,10 +320,4 @@ page {
   flex: 1;
   font-size: 36rpx;
 }
-.next.data-v-6736ed7a {
-  margin-top: 26rpx;
-  width: 100%;
-  color: #9a9698;
-  text-align: center;
-}
 

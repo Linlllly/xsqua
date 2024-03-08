@@ -178,7 +178,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				this.inviteContent = '';
 			}
@@ -192,20 +192,20 @@ export default {
 				header: {
 					token: uni.getStorageSync('token')
 				},
-				success: uploadFileRes => {
+				success: (uploadFileRes) => {
 					let paths = JSON.parse(uploadFileRes.data);
 					this.imagePath = paths.result[0].url;
 				}
 			});
 		},
 		checkType() {
-			getArmourConfig().then(res => {
+			getArmourConfig().then((res) => {
 				console.log('获取当前盔甲状态');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -250,7 +250,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -264,7 +264,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}

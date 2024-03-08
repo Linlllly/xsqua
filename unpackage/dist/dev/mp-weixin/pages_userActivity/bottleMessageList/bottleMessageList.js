@@ -397,15 +397,15 @@ var _default = {
         limit: limit,
         isComment: 1
       }).then(function (res) {
-        _this.recordList = res.result.data || [];
-        _this.$refs.paging.complete(res.result.data);
+        _this.recordList = res.result.records || [];
+        _this.$refs.paging.complete(res.result.records);
       }).catch(function (res) {
         _this.$refs.paging.complete(false);
       });
     },
     goBottleDetail: function goBottleDetail(i) {
       uni.navigateTo({
-        url: '../bottleDetail/bottleDetail?i=' + i.id
+        url: '../bottleDetail/bottleDetail?i=' + i.id + '&&type=2'
       });
     }
   }

@@ -31,8 +31,8 @@ export default {
 		getBottleRecord(page, limit) {
 			bottleRecord({ page, limit, isComment: 1 })
 				.then((res) => {
-					this.recordList = res.result.data || [];
-					this.$refs.paging.complete(res.result.data);
+					this.recordList = res.result.records || [];
+					this.$refs.paging.complete(res.result.records);
 				})
 				.catch((res) => {
 					this.$refs.paging.complete(false);
@@ -41,7 +41,7 @@ export default {
 
 		goBottleDetail(i) {
 			uni.navigateTo({
-				url: '../bottleDetail/bottleDetail?i=' + i.id
+				url: '../bottleDetail/bottleDetail?i=' + i.id + '&&type=2'
 			});
 		}
 	}
@@ -93,11 +93,5 @@ export default {
 		flex: 1;
 		font-size: 36rpx;
 	}
-}
-.next {
-	margin-top: 26rpx;
-	width: 100%;
-	color: #9a9698;
-	text-align: center;
 }
 </style>

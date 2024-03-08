@@ -5,11 +5,7 @@
 			<div class="box-title">
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
-				<img
-					:src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=3' : coverImage"
-					alt=""
-					class="my-img"
-				/>
+				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=3' : coverImage" alt="" class="my-img" />
 
 				<!-- 覆盖盒子/相对定位 -->
 				<div class="width-bottom"><img src="../../static/changemy.png" alt="" @click="changeBg" /></div>
@@ -81,7 +77,7 @@
 					<div class="dates">
 						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx;">{{ i.meeting === 4 || i.meeting === 0 || i.meeting === 2 ? '随手文字' : '好玩的手艺' }}</text>
+						<text style="margin-left: 20rpx">{{ i.meeting === 4 || i.meeting === 0 || i.meeting === 2 ? '随手文字' : '好玩的手艺' }}</text>
 					</div>
 					<text v-if="!i.postTop" class="get-top" @click.stop="setTop(i)">设为置顶</text>
 					<text v-if="i.postTop" class="get-top" @click.stop="unSetTop(i)">取消置顶</text>
@@ -98,34 +94,14 @@
 					<video v-if="!i.img && i.media.length !== 0" :src="i.media[0]" :controls="true" :show-center-play-btn="true"></video>
 					<!-- 四张以上 -->
 					<div class="five" v-if="i.img && i.media.length !== 0 && i.media.length > 4">
-						<image
-							class="fiveImg"
-							v-for="(j, jndex) in i.media"
-							:key="jndex"
-							:src="j"
-							mode="aspectFill"
-							@click="previewImg(i.media, jndex)"
-						></image>
+						<image class="fiveImg" v-for="(j, jndex) in i.media" :key="jndex" :src="j" mode="aspectFill" @click="previewImg(i.media, jndex)"></image>
 					</div>
 					<!-- 四张 -->
 					<div class="four" v-if="i.img && i.media.length > 1 && i.media.length < 5">
-						<image
-							class="fourImg"
-							v-for="(q, qndex) in i.media"
-							:key="qndex"
-							:src="q"
-							mode="aspectFill"
-							@click="previewImg(i.media, qndex)"
-						></image>
+						<image class="fourImg" v-for="(q, qndex) in i.media" :key="qndex" :src="q" mode="aspectFill" @click="previewImg(i.media, qndex)"></image>
 					</div>
 					<!-- 一张 -->
-					<image
-						class="singleImg"
-						v-if="i.img && i.media.length === 1"
-						:src="i.media[0]"
-						mode="widthFix"
-						@click="previewImg(i.media, 0)"
-					></image>
+					<image class="singleImg" v-if="i.img && i.media.length === 1" :src="i.media[0]" mode="widthFix" @click="previewImg(i.media, 0)"></image>
 				</div>
 
 				<!-- 分享评论转发 -->
@@ -147,10 +123,10 @@
 		<div v-if="type === 2" class="bgs">
 			<img class="mimasuo" src="https://www.zairongyifang.com:8080/filePath/resource/password.png" mode="" />
 			<div class="paipai">
-				<div style="color: #257DE5;font-size:24px;">{{ username.split(' ')[0] }}</div>
+				<div style="color: #257de5; font-size: 24px">{{ username.split(' ')[0] }}</div>
 
 				<div>
-					<span style="color: #333;font-size:34px;">{{ username.split(' ')[1] }}</span>
+					<span style="color: #333; font-size: 34px">{{ username.split(' ')[1] }}</span>
 				</div>
 			</div>
 			<u--input placeholder="请输入密码" border="none" v-model="inputMima" inputAlign="center" fontSize="20" maxlength="6"></u--input>
@@ -178,7 +154,7 @@
 		<u-popup :show="popSearch" @close="popSearch = false" :safeAreaInsetBottom="false">
 			<div>
 				<div class="search-result">搜索结果</div>
-				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width:100%;height:696rpx;">
+				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width: 100%; height: 696rpx">
 					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
 						<img :src="i.userInfo.avatar" alt="" />
 						<div class="des">
@@ -235,12 +211,7 @@
 			</div>
 		</u-overlay>
 		<!-- 订阅弹窗 -->
-		<u-modal
-			:show="showSub"
-			:title="'订阅消息提示'"
-			:content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'"
-			@confirm="doSub"
-		></u-modal>
+		<u-modal :show="showSub" :title="'订阅消息提示'" :content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'" @confirm="doSub"></u-modal>
 		<!-- 修改密码框 -->
 		<u-modal
 			title="修改房间密码"
@@ -259,9 +230,7 @@
 					<u-form-item label="原密码"><u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6"></u-input></u-form-item>
 					<u-form-item label="新密码"><u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6"></u-input></u-form-item>
 				</u--form>
-				<div :style="{ color: '#888888', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">
-					* 新用户设置房间密码，填写新密码即可
-				</div>
+				<div :style="{ color: '#888888', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新用户设置房间密码，填写新密码即可</div>
 				<div :style="{ color: '#888888', textAlign: 'center', fontSize: '26rpx', margin: '10rpx 0 0 0' }">* 新密码不填写即代表不设密码</div>
 			</view>
 		</u-modal>
@@ -390,25 +359,13 @@ export default {
 			handler(news, olds) {
 				console.log('user开启侦听');
 				this.ws = app.globalData.ws;
-				this.ws.onMessage(res => {
+				this.ws.onMessage((res) => {
 					console.log(res);
 					if (res.data === 'active') {
 						return;
 					}
 					let data = JSON.parse(res.data);
 					console.log(data);
-					// if (
-					// 	data.type === 'follow' ||
-					// 	data.type === 'comment' ||
-					// 	data.type === 'collection' ||
-					// 	data.type === 'silver' ||
-					// 	data.type === 'flower' ||
-					// 	data.type === 'shit'
-					// ) {
-					// 	this.getUserStatistics();
-					// 	this.getUserRank();
-					// 	this.messageDot = true;
-					// }
 					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
 						this.chatDot = true;
 					}
@@ -458,13 +415,13 @@ export default {
 			if (!uni.getStorageSync('openId')) {
 				uni.showToast({
 					title: '只有微信用户才可以选择消息推送！',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			wx.requestSubscribeMessage({
 				tmplIds: ['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'],
-				success: function(res) {
+				success: function (res) {
 					// 判断用户是否选择了订阅
 					if (res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] === 'accept') {
 						that.updatePush();
@@ -477,7 +434,7 @@ export default {
 						});
 						// 引导用户手动打开授权设置页面
 						wx.openSetting({
-							success: function(res) {
+							success: function (res) {
 								// 在用户打开设置页面后，可以在这里进行一些处理逻辑
 								// 例如，重新判断用户是否打开了订阅消息权限
 								if (res.authSetting['scope.subscribeMessage'] === true) {
@@ -487,14 +444,14 @@ export default {
 						});
 					}
 				},
-				fail: function(err) {
+				fail: function (err) {
 					// 订阅消息失败的回调处理
 					console.error(err);
 				}
 			});
 		},
 		updatePush() {
-			updatePush({ uid: this.uid, status: 1 }).then(res => {});
+			updatePush({ uid: this.uid, status: 1 }).then((res) => {});
 		},
 		//自动聊天
 		sendChatWith() {
@@ -523,7 +480,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -551,13 +508,13 @@ export default {
 		},
 		//关注/互关/粉丝统计数
 		getUserStatistics() {
-			getUserStatistics().then(res => {
+			getUserStatistics().then((res) => {
 				console.log('请求关注/粉丝数');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 					return;
 				}
@@ -568,13 +525,13 @@ export default {
 		},
 		//获取用户各数量情况
 		getUserRank() {
-			getUserRank().then(res => {
+			getUserRank().then((res) => {
 				console.log('获取用户各数量情况');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 					return;
 				}
@@ -585,13 +542,13 @@ export default {
 		},
 		//盔甲状态
 		getArmourConfig() {
-			getArmourConfig().then(res => {
+			getArmourConfig().then((res) => {
 				console.log('获取当前盔甲状态');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 				} else {
 					this.armour = res.result.armourStatus === 0 ? false : true;
@@ -611,13 +568,10 @@ export default {
 			console.log('请求聊天红点');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon:'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
-			if (res.result === true) {
+			if (res.result) {
 				this.chatDot = true;
 			} else {
 				this.chatDot = false;
@@ -631,7 +585,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -649,7 +603,7 @@ export default {
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -680,14 +634,14 @@ export default {
 			if (res.code === 500) {
 				uni.showToast({
 					title: '请先成为房间主人吧！',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (res.code !== 0 && res.code !== 500) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				// ** 关闭节流阀
 				this.isloading = false;
@@ -708,7 +662,7 @@ export default {
 				query.selectAll('.content-title').boundingClientRect();
 				//所有inner
 				query.selectAll('.inner').boundingClientRect();
-				query.exec(res => {
+				query.exec((res) => {
 					for (var i = 0; i < res[0].length; i++) {
 						let linsHeight = res[0][i].height - res[1][i].height;
 						if (linsHeight >= 0) {
@@ -727,7 +681,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -740,7 +694,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -748,7 +702,7 @@ export default {
 			this.myList = [];
 			this.getMyPageList();
 		},
-		
+
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
 				uni.switchTab({
@@ -818,7 +772,7 @@ export default {
 				header: {
 					token: uni.getStorageSync('token')
 				},
-				success: uploadFileRes => {
+				success: (uploadFileRes) => {
 					let paths = JSON.parse(uploadFileRes.data);
 					//调用修改图片接口 回传服务器图片
 					this.resetAvatar(paths.result[0].url);
@@ -835,7 +789,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 			}
 		},
@@ -857,7 +811,7 @@ export default {
 				header: {
 					token: uni.getStorageSync('token')
 				},
-				success: uploadFileRes => {
+				success: (uploadFileRes) => {
 					let paths = JSON.parse(uploadFileRes.data);
 					//调用修改图片接口 回传服务器图片
 					this.resetCoverImage(paths.result[0].url);
@@ -899,7 +853,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				this.inviteContent = '';
 			}
@@ -913,7 +867,7 @@ export default {
 				header: {
 					token: uni.getStorageSync('token')
 				},
-				success: uploadFileRes => {
+				success: (uploadFileRes) => {
 					let paths = JSON.parse(uploadFileRes.data);
 					this.imagePath = paths.result[0].url;
 				}
@@ -927,7 +881,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 			}
 		},
@@ -937,12 +891,12 @@ export default {
 			if (res.code === 0) {
 				uni.showToast({
 					title: '修改个人签名成功',
-					icon:'none'
+					icon: 'none'
 				});
 			} else {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				this.myDes = '';
 			}
@@ -970,7 +924,7 @@ export default {
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon:'none'
+					icon: 'none'
 				});
 			}
 		},
@@ -984,7 +938,7 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -996,14 +950,14 @@ export default {
 			if (this.oldSecret !== this.password) {
 				uni.showToast({
 					title: '原密码输入错误',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
 				uni.showToast({
 					title: '密码长度必须设置为6位',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -1011,13 +965,13 @@ export default {
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			uni.showToast({
 				title: '修改密码成功',
-				icon:'none'
+				icon: 'none'
 			});
 			this.changeSecret = false;
 			this.password = this.newSecret;
@@ -1025,13 +979,13 @@ export default {
 			this.oldSecret = '';
 		},
 		notify(uid) {
-			notify({ uid: uid }).then(res => {
+			notify({ uid: uid }).then((res) => {
 				console.log('获取弹窗');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 					return;
 				}

@@ -217,47 +217,52 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 31));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 33));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _currentBottle = __webpack_require__(/*! @/api/currentBottle.js */ 255);
 var _index = __webpack_require__(/*! @/api/index.js */ 179);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var _user = __webpack_require__(/*! @/api/user.js */ 34);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+var app = getApp();
 var _default = {
   data: function data() {
     return {
+      ws: '',
+      bottleDot: false,
       list1: [],
       showPickAgain: false,
       first: true
     };
   },
+  computed: _objectSpread({}, mapState(['uid'])),
+  watch: {
+    myWs: {
+      immediate: true,
+      handler: function handler(news, olds) {
+        var _this = this;
+        console.log('bottle开启侦听');
+        this.ws = app.globalData.ws;
+        this.ws.onMessage(function (res) {
+          console.log(res);
+          if (res.data === 'active') {
+            return;
+          }
+          var data = JSON.parse(res.data);
+          console.log(data);
+          if (data.type === 'bottle') {
+            _this.chatDot = true;
+          }
+        });
+      }
+    }
+  },
   onLoad: function onLoad() {
     this.getBanner();
+    this.gettBottleRedDot();
   },
   methods: {
     getBanner: function getBanner() {
-      var _this = this;
+      var _this2 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
         var res;
         return _regenerator.default.wrap(function _callee$(_context) {
@@ -279,7 +284,7 @@ var _default = {
                 uni.$u.toast(res.msg);
                 return _context.abrupt("return");
               case 8:
-                _this.list1 = res.result;
+                _this2.list1 = res.result;
               case 9:
               case "end":
                 return _context.stop();
@@ -305,10 +310,35 @@ var _default = {
           return;
         }
         uni.navigateTo({
-          url: '../bottleDetail/bottleDetail?id=' + res.result.id
+          url: '../../pages_userActivity/bottleDetail/bottleDetail?id=' + res.result.id
         });
       });
     },
+    gettBottleRedDot: function gettBottleRedDot() {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    } // let res = await redDot({ uid: this.uid, type: 3, t: Date.parse(new Date()) });
+    // console.log('请求瓶子红点');
+    // console.log(res);
+    // if (res.code !== 0) {
+    // 	uni.$u.toast(res.msg);
+    // 	return;
+    // }
+    // if (res.result) {
+    // 	this.bottleDot = true;
+    // } else {
+    // 	this.bottleDot = false;
+    // }
+    ,
     toIssue: function toIssue() {
       uni.navigateTo({
         url: '../../pages_userActivity/artcleIssue/artcleIssue?secret=2'

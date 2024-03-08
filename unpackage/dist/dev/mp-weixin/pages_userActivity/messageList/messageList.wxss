@@ -344,10 +344,4 @@ page {
   -webkit-line-clamp: 1 !important;
   /* 显示的行数 */
 }
-.next.data-v-a384d8e2 {
-  margin-top: 26rpx;
-  width: 100%;
-  color: #9a9698;
-  text-align: center;
-}
 

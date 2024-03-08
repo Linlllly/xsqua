@@ -7,6 +7,7 @@
 		<div class="clicks">
 			<div class="history" @click="toBottleHistory">历史</div>
 			<div class="message" @click="toBottleMessageList">消息提示</div>
+			<div v-if="bottleDot" class="mes-dot"></div>
 		</div>
 		<div class="pick" @click="judgeNumber">捡</div>
 		<div class="lost" @click="toIssue">丢</div>
@@ -26,16 +27,45 @@
 <script>
 import { pickBottle } from '@/api/currentBottle.js';
 import { banner } from '@/api/index.js';
+import { redDot } from '@/api/user.js';
+const app = getApp();
+
 export default {
 	data() {
 		return {
+			ws: '',
+			bottleDot: false,
 			list1: [],
 			showPickAgain: false,
 			first: true
 		};
 	},
+	computed: {
+		...mapState(['uid'])
+	},
+	watch: {
+		myWs: {
+			immediate: true,
+			handler(news, olds) {
+				console.log('bottle开启侦听');
+				this.ws = app.globalData.ws;
+				this.ws.onMessage((res) => {
+					console.log(res);
+					if (res.data === 'active') {
+						return;
+					}
+					let data = JSON.parse(res.data);
+					console.log(data);
+					if (data.type === 'bottle') {
+						this.chatDot = true;
+					}
+				});
+			}
+		}
+	},
 	onLoad() {
 		this.getBanner();
+		this.gettBottleRedDot();
 	},
 	methods: {
 		async getBanner() {
@@ -65,9 +95,23 @@ export default {
 					return;
 				}
 				uni.navigateTo({
-					url: '../bottleDetail/bottleDetail?id=' + res.result.id
+					url: '../../pages_userActivity/bottleDetail/bottleDetail?id=' + res.result.id
 				});
 			});
+		},
+		async gettBottleRedDot() {
+			// let res = await redDot({ uid: this.uid, type: 3, t: Date.parse(new Date()) });
+			// console.log('请求瓶子红点');
+			// console.log(res);
+			// if (res.code !== 0) {
+			// 	uni.$u.toast(res.msg);
+			// 	return;
+			// }
+			// if (res.result) {
+			// 	this.bottleDot = true;
+			// } else {
+			// 	this.bottleDot = false;
+			// }
 		},
 		toIssue() {
 			uni.navigateTo({
@@ -101,5 +145,14 @@ export default {
 			border-radius: 14rpx !important;
 		}
 	}
+}
+.mes-dot {
+	position: absolute;
+	width: 20rpx;
+	height: 20rpx;
+	background-color: #f56c6c;
+	top: 12rpx;
+	right: 12rpx;
+	border-radius: 50%;
 }
 </style>
