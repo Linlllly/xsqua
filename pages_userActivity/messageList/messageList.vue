@@ -7,6 +7,7 @@
 			v-model="messageList"
 			@query="getMessageList"
 			:empty-view-img-style="{ width: 0, height: 0 }"
+			:auto="false"
 		>
 			<template #top>
 				<div class="chat-title">
@@ -14,14 +15,28 @@
 					<img class="name-title" :src="ava" alt="" />
 				</div>
 			</template>
-			<div class="content-list" v-for="(i, index) in messageList" :key="i.id">
-				<img class="list-img" :src="i.userInfo.avatar" alt="" @click="toOtherUser(i.userInfo)" />
+			<div
+				class="content-list"
+				v-for="(i, index) in messageList"
+				:key="i.id"
+			>
+				<img
+					class="list-img"
+					:src="i.userInfo.avatar"
+					alt=""
+					@click="toOtherUser(i.userInfo)"
+				/>
 				<div class="content-info" @click="toArticleDes(i)">
 					<div class="info-name">{{ i.userInfo.username }}</div>
 					<div
 						class="info-des"
 						:style="{
-							color: index % 3 === 0 ? '#484BD8' : index % 2 === 0 ? '#E35A5A' : '#B726D6'
+							color:
+								index % 3 === 0
+									? '#484BD8'
+									: index % 2 === 0
+									? '#E35A5A'
+									: '#B726D6'
 						}"
 					>
 						{{ i.text }}
@@ -33,10 +48,10 @@
 </template>
 
 <script>
-import { message } from '@/api/messageList.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
+import { message } from '@/api/messageList.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	computed: {
@@ -45,37 +60,46 @@ export default {
 	data() {
 		return {
 			messageList: []
-		};
+		}
 	},
-
+	onShow() {
+		this.$refs.paging.reload()
+	},
 	methods: {
 		//请求列表
 		getMessageList(page, limit) {
 			message({ page, limit })
 				.then((res) => {
-					this.messageList = res.result.data || [];
-					this.$refs.paging.complete(res.result.data);
+					this.messageList = res.result.data || []
+					this.$refs.paging.complete(res.result.data)
 				})
 				.catch((res) => {
-					this.$refs.paging.complete(false);
-				});
+					this.$refs.paging.complete(false)
+				})
 		},
 
 		//去详情页
 		toArticleDes(i) {
 			if (i.postId) {
 				uni.navigateTo({
-					url: '../../pages_userActivity/articleDes/articleDes?i=' + i.postId + '&&type=0'
-				});
+					url:
+						'../../pages_userActivity/articleDes/articleDes?i=' +
+						i.postId +
+						'&&type=0'
+				})
 			}
 		},
 		toOtherUser(i) {
 			uni.navigateTo({
-				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
-			});
+				url:
+					'../../pages_userActivity/otherUser/otherUser?ocateId=' +
+					i.cateId +
+					'&ouid=' +
+					i.uid
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>

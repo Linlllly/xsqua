@@ -2,7 +2,12 @@
 	<div class="pages">
 		<!-- 表头 -->
 		<div class="dynamic">
-			<img class="my" :src="bottleUserInfo.avatar" alt="" @click="toOtherUser(artObj.userInfo, 1)" />
+			<img
+				class="my"
+				:src="bottleUserInfo.avatar"
+				alt=""
+				@click="toOtherUser(artObj.userInfo, 1)"
+			/>
 			<div class="title">
 				<span class="des-name">{{ bottleUserInfo.username }}</span>
 				<div class="des-more">{{ bottleUserInfo.intro }}</div>
@@ -13,30 +18,77 @@
 		<div class="content">
 			<div class="content-c">{{ bottleInfo.content }}</div>
 			<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-			<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="750rpx" multipleSize="242rpx"></u-album>
-			<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
-				<u-album :urls="aImgList" singleSize="740rpx" multipleSize="356rpx" rowCount="2"></u-album>
+			<u-album
+				v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4"
+				:urls="aImgList"
+				singleSize="750rpx"
+				multipleSize="242rpx"
+			></u-album>
+			<div
+				class="ua-box"
+				v-if="
+					aImgList.length !== 0 &&
+					!avideo &&
+					aImgList.length < 5 &&
+					aImgList.length > 1
+				"
+			>
+				<u-album
+					:urls="aImgList"
+					singleSize="740rpx"
+					multipleSize="356rpx"
+					rowCount="2"
+				></u-album>
 			</div>
-			<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
+			<image
+				class="singleImg"
+				v-if="aImgList.length === 1"
+				:src="aImgList"
+				mode="widthFix"
+				@click="previewImg"
+			></image>
 		</div>
 
 		<!-- 回复 -->
 
-		<div v-for="i in recordsList" :key="i.id">
+		<div v-for="i in recordsList" :key="i.uid">
 			<div v-if="i.comment" class="other">
 				<div class="other-item">
 					<img class="other-pri" :src="i.avatar" alt="" />
 					<div class="other-say">{{ i.comment }}</div>
 				</div>
 			</div>
-			<div class="action-box">
-				<div v-if="type === 1 && !i.comment" class="record-then" @click="showInput = true">回复</div>
-				<div v-if="type === 1" class="pick-again" @click="showPickAgain = true">再捡一次</div>
-				<div v-if="type !== 1" class="pick-again" @click="goChatWith(i)">开启私聊</div>
+			<div v-if="i.comment" class="action-box">
+				<div
+					v-if="type === 1 && !i.comment"
+					class="record-then"
+					@click="showInput = true"
+				>
+					回复
+				</div>
+				<div
+					v-if="type === 1"
+					class="pick-again"
+					@click="showPickAgain = true"
+				>
+					再捡一次
+				</div>
+				<div
+					v-if="type !== 1"
+					class="pick-again"
+					@click="goChatWith(i)"
+				>
+					开启私聊
+				</div>
 			</div>
 		</div>
 		<!-- 底部输入栏 -->
-		<view v-show="showInput" class="input-box cu-bar tabbar" @touchmove.stop.prevent="discard" :style="{ bottom: messBotton + 'px' }">
+		<view
+			v-show="showInput"
+			class="input-box cu-bar tabbar"
+			@touchmove.stop.prevent="discard"
+			:style="{ bottom: messBotton + 'px' }"
+		>
 			<view class="textbox">
 				<view class="text-mode" :class="isVoice ? 'hidden' : ''">
 					<view class="box">
@@ -44,7 +96,7 @@
 							<textarea
 								placeholder="回复这个漂流瓶..."
 								auto-height="true"
-								v-model="comment"
+								v-model="recordsList[0].comment"
 								@focus="inputHight"
 								:adjust-position="false"
 								@blur="inputLow"
@@ -56,10 +108,19 @@
 					</view>
 				</view>
 			</view>
-			<view class="send" :class="isVoice ? 'hidden' : ''" @click="sendText"><view class="btn">发送</view></view>
+			<view
+				class="send"
+				:class="isVoice ? 'hidden' : ''"
+				@click="sendText"
+				><view class="btn">发送</view></view
+			>
 		</view>
 		<!-- 输入栏背景 -->
-		<div v-if="showInput" class="cancel-input" @click="showInput = false"></div>
+		<div
+			v-if="showInput"
+			class="cancel-input"
+			@click="showInput = false"
+		></div>
 		<!-- 再捡一次 -->
 		<u-modal
 			:show="showPickAgain"
@@ -74,12 +135,17 @@
 </template>
 
 <script>
-import { detailPickBottle, detailLostBottle, commentBottle, pickBottle } from '@/api/currentBottle.js';
-import { checkContent } from '@/api/artcleIssue.js';
-import { bottleRecord } from '@/api/currentBottle.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
+import {
+	detailPickBottle,
+	detailLostBottle,
+	commentBottle,
+	pickBottle
+} from '@/api/currentBottle.js'
+import { checkContent } from '@/api/artcleIssue.js'
+import { bottleRecord } from '@/api/currentBottle.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	computed: {
@@ -102,132 +168,155 @@ export default {
 			showInput: false,
 			showPickAgain: false,
 			messBotton: 0
-		};
+		}
 	},
 	onLoad(option) {
-		this.ws = app.globalData.ws;
-		this.id = Number(option.i);
-		this.type = Number(option.type);
-		this.detailLostOrPickBottle();
+		this.ws = app.globalData.ws
+		this.id = Number(option.i)
+		this.type = Number(option.type)
+		this.detailLostOrPickBottle()
 		if (this.type === 0) {
-			this.getBottleRecord();
+			this.getBottleRecord()
 		}
 	},
 	methods: {
 		//获取详情
 		async detailLostOrPickBottle() {
-			let res = this.type === 0 ? await detailLostBottle({ id: this.id }) : await detailPickBottle({ id: this.id });
-			console.log('漂流瓶内容详情');
-			console.log(res);
+			let res =
+				this.type === 0
+					? await detailLostBottle({ id: this.id })
+					: await detailPickBottle({ id: this.id })
+			console.log('漂流瓶内容详情')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			if (this.type === 1 || this.type === 2) {
 				//单人回复
-				this.bottleUserInfo = res.result.bottleUserInfo;
-				this.createTime = res.result.createTime;
-				this.bottleInfo = res.result.bottleInfo;
-				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
-				this.recordsList = [{ ...res.result.userInfo, comment: res.result.comment }];
+				this.bottleUserInfo = res.result.bottleUserInfo
+				this.createTime = res.result.createTime
+				this.bottleInfo = res.result.bottleInfo
+				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || []
+				this.recordsList = [
+					{ ...res.result.userInfo, comment: res.result.comment }
+				]
 			} else if (this.type === 0) {
 				//所有回复
-				this.bottleUserInfo = res.result.userInfo;
-				this.bottleInfo = res.result;
-				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
+				this.bottleUserInfo = res.result.userInfo
+				this.bottleInfo = res.result
+				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || []
 			}
 
 			if (this.bottleInfo.media.length === 0) {
-				return;
+				return
 			}
-			let medias = this.bottleInfo.media[0];
-			let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
+			let medias = this.bottleInfo.media[0]
+			let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/
 			if (zhengze.test(medias)) {
-				this.aImgList = this.bottleInfo.media;
+				this.aImgList = this.bottleInfo.media
 			} else {
-				this.avideo = this.bottleInfo.media[0];
+				this.avideo = this.bottleInfo.media[0]
 			}
 		},
 		getBottleRecord() {
-			bottleRecord({ page: 1, limit: 10000, bottleId: this.id }).then((res) => {
-				console.log('请求我的瓶子的所有回复');
-				console.log(res);
-				this.recordsList = res.result.records;
-			});
+			bottleRecord({ page: 1, limit: 10000, bottleId: this.id }).then(
+				(res) => {
+					console.log('请求我的瓶子的所有回复')
+					console.log(res)
+					this.recordsList = res.result.records
+				}
+			)
 		},
 		async sendText() {
 			if (!this.recordsList[0].comment) {
-				uni.$u.toast('不可以回复空文字噢');
-				return;
+				uni.$u.toast('不可以回复空文字噢')
+				return
 			}
 			uni.showLoading({
 				title: '回复发表中'
-			});
-			let res = await checkContent({ content: this.recordsList[0].comment });
+			})
+			let res = await checkContent({
+				content: this.recordsList[0].comment
+			})
 			if (res.code !== 0 || res.result.errcode !== 0) {
-				uni.hideLoading();
-				uni.$u.toast('发布的内容包含违规信息，请修改');
-				return;
+				uni.hideLoading()
+				uni.$u.toast('发布的内容包含违规信息，请修改')
+				return
 			}
-			this.sendReallyText();
+			this.sendReallyText()
 		},
 		//真发送文字
 		async sendReallyText() {
-			let res = await commentBottle({ id: this.id, comment: this.recordsList[0].comment });
-			console.log('发送文字');
-			console.log(res);
-			this.showInput = false;
+			let res = await commentBottle({
+				id: this.id,
+				comment: this.recordsList[0].comment
+			})
+			console.log('发送文字')
+			console.log(res)
+			this.showInput = false
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			uni.$u.toast('回复成功');
-			// var content = { fromUid: this.recordsList[0].uid, toUid: this.bottleUserInfo.uid, text: this.recordsList[0].comment, type: 'bottle'};
-			// this.ws.send({
-			// 	data: JSON.stringify(content),
-			// 	success: () => {
-			// 		console.log('ws漂流瓶回复消息发送成功');
-			// 	}
-			// });
+			uni.$u.toast('回复成功')
+			var content = {
+				fromUid: this.recordsList[0].uid,
+				toUid: this.bottleUserInfo.uid,
+				text: this.recordsList[0].comment,
+				type: 'bottle'
+			}
+			this.ws.send({
+				data: JSON.stringify(content),
+				success: () => {
+					console.log('ws漂流瓶回复消息发送成功')
+				}
+			})
 		},
 		// 再捡
-		async confirmPickAgain() {
+		confirmPickAgain() {
 			pickBottle().then((res) => {
+				console.log('再捡一次瓶子')
+				console.log(res)
+				this.showPickAgain = false
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.id = res.result.id;
-				this.detailLostOrPickBottle();
-			});
+				this.id = res.result.id
+				this.detailLostOrPickBottle()
+			})
 		},
 		goChatWith(i) {
+			console.log(9999, i)
+			let ocateId = this.type === 2 ? i.cateId : i.userInfo.cateId
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
-			});
+				url:
+					'../chatWith/chatWith?ouid=' +
+					i.uid +
+					'&&ocateId=' +
+					ocateId
+			})
 		},
 		//单图预览
 		previewImg() {
 			uni.previewImage({
 				current: this.aImgList[0], // 当前显示图片的http链接
 				urls: this.aImgList // 需要预览的图片http链接列表
-			});
+			})
 		},
 		inputHight(e) {
-			this.messBotton = e.detail.height;
+			this.messBotton = e.detail.height
 		},
 		inputLow(e) {
-			this.messBotton = 0;
+			this.messBotton = 0
 		},
 		inputLine(e) {}
 	}
-};
+}
 </script>
 
 <style lang="less">
-.pages {
-	position: relative;
-}
 .dynamic {
 	display: flex;
 	width: 100%;

@@ -1,8 +1,9 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "漂流瓶",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
     "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
   }
 }

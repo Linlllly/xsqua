@@ -270,6 +270,7 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;

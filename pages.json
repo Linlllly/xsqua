@@ -50,7 +50,7 @@
 		{
 			"path": "pages/currentBottle/currentBottle",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "漂流瓶",
 				"enablePullDownRefresh": false
 			}
 		}
@@ -104,7 +104,7 @@
 				{
 					"path": "bottleHistory/bottleHistory",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "漂流瓶历史纪录",
 						"enablePullDownRefresh": false
 					}
 				},

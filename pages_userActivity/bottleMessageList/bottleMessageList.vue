@@ -7,45 +7,55 @@
 			v-model="recordList"
 			@query="getBottleRecord"
 			:empty-view-img-style="{ width: 0, height: 0 }"
+			:auto="false"
 		>
-			<div class="content-list" v-for="(i, index) in recordList" :key="i.id" @click="goBottleDetail(i)">
+			<div
+				class="content-list"
+				v-for="(i, index) in recordList"
+				:key="i.id"
+				@click="goBottleDetail(i)"
+			>
 				<img class="list-img" :src="i.userInfo.avatar" alt="" />
-				<div class="content-info">回复了您的漂流瓶</div>
+				<div class="content-info">{{ i.comment }}</div>
 			</div>
 		</z-paging>
 	</view>
 </template>
 
 <script>
-import { bottleRecord } from '@/api/currentBottle.js';
+import { bottleRecord } from '@/api/currentBottle.js'
 
 export default {
 	data() {
 		return {
 			recordList: []
-		};
+		}
 	},
-
+	onShow() {
+		this.$refs.paging.reload()
+	},
 	methods: {
 		//请求列表
 		getBottleRecord(page, limit) {
 			bottleRecord({ page, limit, isComment: 1 })
 				.then((res) => {
-					this.recordList = res.result.records || [];
-					this.$refs.paging.complete(res.result.records);
+					console.log('漂流瓶回复列表')
+					console.log(res)
+					this.recordList = res.result.records || []
+					this.$refs.paging.complete(res.result.records)
 				})
 				.catch((res) => {
-					this.$refs.paging.complete(false);
-				});
+					this.$refs.paging.complete(false)
+				})
 		},
 
 		goBottleDetail(i) {
 			uni.navigateTo({
 				url: '../bottleDetail/bottleDetail?i=' + i.id + '&&type=2'
-			});
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>

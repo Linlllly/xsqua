@@ -69,12 +69,6 @@
 					src="../../static/money.png"
 					alt=""
 				/>
-				<img
-					class="show-img"
-					v-if="type === 2"
-					src="../../static/flower.png"
-					alt=""
-				/>
 
 				<u--input
 					type="number"

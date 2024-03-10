@@ -270,14 +270,12 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;
 }
 
-.pages {
-  position: relative;
-}
 .dynamic {
   display: flex;
   width: 100%;

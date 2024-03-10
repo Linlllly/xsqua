@@ -1,7 +1,7 @@
 {
-  "component": true,
   "usingComponents": {
     "u-overlay": "/uni_modules/uview-ui/components/u-overlay/u-overlay",
     "u--input": "/uni_modules/uview-ui/components/u--input/u--input"
-  }
+  },
+  "component": true
 }

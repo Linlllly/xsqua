@@ -270,12 +270,35 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;
 }
 
-.record.data-v-57280228 {
+.play-intro.data-v-57280228 {
+  padding: 48rpx 20rpx;
+}
+.record-btn.data-v-57280228 {
+  width: 220rpx;
+  height: 58rpx;
+  background: #fe2f25;
+  border-radius: 30rpx 30rpx 30rpx 30rpx;
+  border: 2rpx solid #707070;
+  color: #ffffff;
+  text-align: center;
+  margin: 22rpx auto;
+}
+.record-list.data-v-57280228 {
+  width: 634rpx;
+  height: 154rpx;
+  border-radius: 0rpx 0rpx 0rpx 0rpx;
+  border: 2rpx solid #707070;
+  margin: 22rpx auto;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.record-list .record.data-v-57280228 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -270,6 +270,7 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;
@@ -288,7 +289,23 @@ page {
   height: 176rpx !important;
   border-radius: 14rpx !important;
 }
-.mes-dot.data-v-b2820474 {
+.clicks.data-v-b2820474 {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0rpx 6rpx 12rpx 2rpx rgba(0, 0, 0, 0.16);
+  padding: 20rpx 0;
+  margin-bottom: 22rpx;
+}
+.clicks .vertical-line.data-v-b2820474 {
+  color: #b7b7b7;
+}
+.clicks .clicks-item.data-v-b2820474 {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.clicks .clicks-item .mes-dot.data-v-b2820474 {
   position: absolute;
   width: 20rpx;
   height: 20rpx;
@@ -296,5 +313,11 @@ page {
   top: 12rpx;
   right: 12rpx;
   border-radius: 50%;
+}
+.pick-and-lost.data-v-b2820474 {
+  width: 648rpx;
+  height: 520rpx;
+  background-color: #f56c6c;
+  margin: 0 auto 22rpx;
 }
 

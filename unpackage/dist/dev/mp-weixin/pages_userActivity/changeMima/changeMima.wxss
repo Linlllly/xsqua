@@ -270,13 +270,13 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;
 }
 
 .pages.data-v-140d2a83 {
-  position: relative;
   background-color: #f39462;
 }
 .pages ._img.data-v-140d2a83 {

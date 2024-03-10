@@ -270,13 +270,13 @@ page {
 }
 .pages {
   width: 750rpx;
+  position: relative;
 }
 .box {
   width: 100%;
 }
 
 .pages.data-v-80842834 {
-  position: relative;
   background-color: white;
 }
 .box-title.data-v-80842834 {
