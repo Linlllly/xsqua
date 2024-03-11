@@ -11,76 +11,27 @@
 		>
 			<template #top>
 				<div class="clicks">
-					<div
-						class="clicks-item"
-						:style="{ color: type === 0 ? '#E99300' : '' }"
-						@click="tabChange(0)"
-					>
-						投放漂流瓶历史记录
-					</div>
+					<div class="clicks-item" :style="{ color: type === 0 ? '#E99300' : '' }" @click="tabChange(0)">投放漂流瓶历史记录</div>
 					<div class="vertical-line">|</div>
-					<div
-						class="clicks-item"
-						:style="{ color: type === 1 ? '#E99300' : '' }"
-						@click="tabChange(1)"
-					>
-						投放漂流瓶历史记录
-					</div>
+					<div class="clicks-item" :style="{ color: type === 1 ? '#E99300' : '' }" @click="tabChange(1)">捡到漂流瓶历史记录</div>
 				</div>
 			</template>
-			<view
-				v-for="i in historyList"
-				class="bottle-list"
-				:key="i.id"
-				@click="goBottleDetail(i)"
-			>
+			<view v-for="i in historyList" class="bottle-list" :key="i.id" @click="goBottleDetail(i)">
 				<div v-if="type === 0">
-					<u-icon
-						v-if="!i.media.length"
-						name="cut"
-						size="28"
-					></u-icon>
-					<u-icon
-						v-else-if="i.type === 2 && i.media"
-						name="photo"
-						size="28"
-					></u-icon>
-					<u-icon
-						v-else-if="i.type === 3 && i.media"
-						name="play-circle"
-						size="28"
-					></u-icon>
+					<u-icon v-if="!i.media.length" name="cut" size="28"></u-icon>
+					<u-icon v-else-if="i.type === 2 && i.media" name="photo" size="28"></u-icon>
+					<u-icon v-else-if="i.type === 3 && i.media" name="play-circle" size="28"></u-icon>
 				</div>
 				<div v-else>
-					<u-icon
-						v-if="!i.bottleInfo.media.length"
-						name="cut"
-						size="28"
-					></u-icon>
-					<u-icon
-						v-else-if="
-							i.bottleInfo.type === 2 && i.bottleInfo.media
-						"
-						name="photo"
-						size="28"
-					></u-icon>
-					<u-icon
-						v-else-if="
-							i.bottleInfo.type === 3 && i.bottleInfo.media
-						"
-						name="play-circle"
-						size="28"
-					></u-icon>
+					<u-icon v-if="!i.bottleInfo.media.length" name="cut" size="28"></u-icon>
+					<u-icon v-else-if="i.bottleInfo.type === 2 && i.bottleInfo.media" name="photo" size="28"></u-icon>
+					<u-icon v-else-if="i.bottleInfo.type === 3 && i.bottleInfo.media" name="play-circle" size="28"></u-icon>
 				</div>
 				<div class="contents">
 					{{ i.content ? i.content : i.bottleInfo.content }}
 				</div>
 				<div class="bottle-time">{{ i.createTime | formatDate }}</div>
-				<u-icon
-					name="trash"
-					size="28"
-					@tap.stop="delHistory(i)"
-				></u-icon>
+				<u-icon name="trash" size="28" @tap.stop="delHistory(i)"></u-icon>
 			</view>
 		</z-paging>
 		<u-modal
@@ -96,12 +47,7 @@
 </template>
 
 <script>
-import {
-	lostHistry,
-	pickHistry,
-	delLostBottle,
-	delPickBottle
-} from '@/api/currentBottle.js'
+import { lostHistry, pickHistry, delLostBottle, delPickBottle } from '@/api/currentBottle.js';
 export default {
 	data() {
 		return {
@@ -110,87 +56,73 @@ export default {
 			attention: null,
 			showAttention: false,
 			getList: false
-		}
+		};
 	},
 	onShow() {
-		this.$refs.paging.reload()
+		this.$refs.paging.reload();
 	},
 	filters: {
 		formatDate(timeString) {
-			const [datePart, timePart] = timeString.split(' ')
-			const [year, month, day] = datePart.split('-')
-			return `${year}/${month}/${day}`
+			const [datePart, timePart] = timeString.split(' ');
+			const [year, month, day] = datePart.split('-');
+			return `${year}/${month}/${day}`;
 		}
 	},
 	methods: {
 		getHistory(page, limit) {
-			const res =
-				this.type === 0
-					? lostHistry({ page, limit })
-					: pickHistry({ page, limit })
+			const res = this.type === 0 ? lostHistry({ page, limit }) : pickHistry({ page, limit });
 			res.then((res) => {
-				console.log('漂流瓶历史')
-				console.log(res)
+				console.log('漂流瓶历史');
+				console.log(res);
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg)
-					return
+					uni.$u.toast(res.msg);
+					return;
 				}
 
-				this.historyList = res.result.records
+				this.historyList = res.result.records;
 				this.historyList.forEach((item) => {
 					if (this.type === 0) {
-						item.media = JSON.parse(item.media)
+						item.media = JSON.parse(item.media);
 					} else {
-						item.bottleInfo.media =
-							JSON.parse(item.bottleInfo.media) || []
+						item.bottleInfo.media = JSON.parse(item.bottleInfo.media) || [];
 					}
-				})
-				this.$refs.paging.complete(res.result.records)
+				});
+				this.$refs.paging.complete(res.result.records);
 			}).catch(() => {
-				this.$refs.paging.complete(false)
-			})
+				this.$refs.paging.complete(false);
+			});
 		},
 		tabChange(index) {
-			this.type = index
-			this.$refs.paging.reload()
+			this.type = index;
+			this.$refs.paging.reload();
 		},
 		goBottleDetail(i) {
 			uni.navigateTo({
-				url:
-					'../bottleDetail/bottleDetail?i=' +
-					i.id +
-					'&&type=' +
-					this.type
-			})
+				url: '../bottleDetail/bottleDetail?i=' + i.id + '&&type=' + this.type
+			});
 		},
 		delHistory(i) {
-			this.showAttention = true
-			this.attention = i
+			this.showAttention = true;
+			this.attention = i;
 		},
 		async changeAttentionState() {
-			let id = this.attention.id
-			let res =
-				this.type === 0
-					? await delLostBottle({ id })
-					: await delPickBottle({ id })
-			let title =
-				this.type === 0 ? '成功删除投放的瓶子' : '成功删除捡来的瓶子'
+			let id = this.attention.id;
+			let res = this.type === 0 ? await delLostBottle({ id }) : await delPickBottle({ id });
+			let title = this.type === 0 ? '成功删除投放的瓶子' : '成功删除捡来的瓶子';
 
-			console.log('删除丢/捡瓶子')
-			console.log(res)
+			console.log('删除丢/捡瓶子');
+			console.log(res);
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg)
-				return
+				uni.$u.toast(res.msg);
+				return;
 			}
-			uni.$u.toast(title)
-			const index = this.historyList.findIndex(
-				(item) => item.id === this.attention.id
-			)
-			this.$delete(this.historyList, index)
-			this.showAttention = false
+			uni.$u.toast(title);
+			const index = this.historyList.findIndex((item) => item.id === this.attention.id);
+			this.$delete(this.historyList, index);
+			this.showAttention = false;
 		}
 	}
-}
+};
 </script>
 
 <style lang="less" scoped>
