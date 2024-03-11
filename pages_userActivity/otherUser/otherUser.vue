@@ -117,7 +117,7 @@
 							alt=""
 						/>
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx">
+						<!-- <text style="margin-left: 20rpx">
 							{{
 								i.meeting === 4 || i.meeting === 0
 									? '欢喜的人'
@@ -125,7 +125,7 @@
 									? '随手文字'
 									: '好玩的手艺'
 							}}
-						</text>
+						</text> -->
 					</div>
 				</div>
 				<!-- 图 -->

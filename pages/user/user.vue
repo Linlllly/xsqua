@@ -170,13 +170,13 @@
 							alt=""
 						/>
 						<text>{{ i.createTime }}</text>
-						<text style="margin-left: 20rpx">{{
+						<!-- <text style="margin-left: 20rpx">{{
 							i.meeting === 4 ||
 							i.meeting === 0 ||
 							i.meeting === 2
 								? '随手文字'
 								: '好玩的手艺'
-						}}</text>
+						}}</text> -->
 					</div>
 					<text
 						v-if="!i.postTop"
@@ -1731,9 +1731,9 @@ export default {
 		font-size: 34rpx;
 		color: #383838;
 		line-height: 1.4;
-		overflow-y: auto; /* 显示滚动条 */
-		white-space: pre-wrap; /* 遇到换行符进行换行 */
-		word-wrap: break-word; /* 超出一行也换行 */
+		overflow-y: auto;
+		white-space: pre-wrap;
+		word-wrap: break-word;
 	}
 	.iknow {
 		position: absolute;
