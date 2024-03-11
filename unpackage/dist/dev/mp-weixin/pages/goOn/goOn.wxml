@@ -1,1 +1,0 @@
-<view class="box data-v-51537d66"><image src="{{urls}}" alt data-event-opts="{{[['tap',[['goLoginSelect',['$event']]]]]}}" bindtap="__e" class="_img data-v-51537d66"></image></view>

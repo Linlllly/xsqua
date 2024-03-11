@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
-    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
-  }
-}

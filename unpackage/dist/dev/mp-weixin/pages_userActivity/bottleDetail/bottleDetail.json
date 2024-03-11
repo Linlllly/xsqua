@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-album": "/uni_modules/uview-ui/components/u-album/u-album",
-    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
-  }
-}

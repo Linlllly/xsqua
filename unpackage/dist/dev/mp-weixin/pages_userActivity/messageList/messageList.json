@@ -1,7 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "onReachBottomDistance": 150,
-  "usingComponents": {
-    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging"
-  }
-}

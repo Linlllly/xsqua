@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
-    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
-    "take-looks": "/components/takeLook/takeLook"
-  }
-}
