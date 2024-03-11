@@ -47,11 +47,13 @@
 		<!-- <u-modal title="兑换" :show="showClaim" @confirm="getExchangeMaoTaiCheck" confirmColor="#e89406" showCancelButton @cancel="showClaim = false">
 			<view class="slot-content">确认兑换xxx？</view>
 		</u-modal> -->
-		<u-popup :show="showClaim" :round="10" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
+		<u-popup :show="showClaim" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-claim">
 				<div class="claim-text">送出25万颗星星兑换茅台</div>
-				<div class="pop-oks claim-oks" @click="getExchangeMaoTaiCheck">确定</div>
-				<div class="pop-cencels claim-cencels" @click="showClaim = false">取消</div>
+				<div class="claim-btn-box">
+					<div class="pop-oks claim-oks" @click="getExchangeMaoTaiCheck">确定</div>
+					<div class="pop-cencels claim-cencels" @click="showClaim = false">取消</div>
+				</div>
 			</div>
 		</u-popup>
 		<!-- 填写收货信息弹窗 -->
@@ -84,7 +86,26 @@
 			</view>
 		</u-modal>
 		<!-- 下注弹窗 -->
-		<u-modal
+		<u-popup :show="showBotting" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
+			<div class="pop-borders pop-botting">
+				<img class="botting-img" v-if="type === 1" src="../../static/money.png" alt="" />
+				<u--input
+					type="number"
+					placeholder="5以上的数额"
+					border="null"
+					clearable
+					shape="circle"
+					placeholderStyle="color:#fff"
+					color="#000"
+					inputAlign="center"
+					v-model="startNum"
+					:min="5"
+				></u--input>
+
+				<div class="giving" @click="confirmSendCount">助力</div>
+			</div>
+		</u-popup>
+		<!-- <u-modal
 			title="下注"
 			:show="showBotting"
 			@confirm="
@@ -102,7 +123,7 @@
 				</div>
 				<div>（最低限额5颗星星）</div>
 			</view>
-		</u-modal>
+		</u-modal> -->
 		<!-- 中奖弹窗 -->
 		<u-modal title="恭喜您中奖啦" :show="showGetGift" @confirm="confirmGetGift" confirmColor="#e89406">
 			<view class="slot-content">
@@ -460,10 +481,11 @@ export default {
 }
 .pop-borders {
 	background: #ffffff;
-	border-radius: 40rpx 40rpx 40rpx 40rpx;
+	border-radius: 40rpx;
 	border: 8rpx solid #f4ddc4;
 }
-.pop-oks {
+.pop-oks,
+.pop-cencels {
 	width: 230rpx;
 	height: 70rpx;
 	background: linear-gradient(#ffa200 0%, #ffe65c 100%);
@@ -471,22 +493,24 @@ export default {
 	border-radius: 28rpx;
 	color: #f56600;
 	font-size: 38rpx;
-	lighting-color: 70rpx;
+	line-height: 1.8;
+	text-align: center;
 }
 .pop-cencels {
-	width: 230rpx;
-	height: 70rpx;
 	background: linear-gradient(#ff0000 0%, #ff825c 100%);
 	box-shadow: 0rpx 8rpx 0rpx 2rpx #dc1313;
-	border-radius: 28rpx;
 	color: #fff;
-	font-size: 38rpx;
-	lighting-color: 70rpx;
 }
 .pop-claim {
 	width: 629rpx;
 	height: 327rpx;
 	.claim-text {
+		text-align: center;
+		margin: 88rpx 0;
+	}
+	.claim-btn-box {
+		display: flex;
+		justify-content: space-around;
 	}
 }
 .play-intro {

@@ -284,10 +284,11 @@ page {
 }
 .pop-borders.data-v-57280228 {
   background: #ffffff;
-  border-radius: 40rpx 40rpx 40rpx 40rpx;
+  border-radius: 40rpx;
   border: 8rpx solid #f4ddc4;
 }
-.pop-oks.data-v-57280228 {
+.pop-oks.data-v-57280228,
+.pop-cencels.data-v-57280228 {
   width: 230rpx;
   height: 70rpx;
   background: linear-gradient(#ffa200 0%, #ffe65c 100%);
@@ -295,21 +296,25 @@ page {
   border-radius: 28rpx;
   color: #f56600;
   font-size: 38rpx;
-  lighting-color: 70rpx;
+  line-height: 1.8;
+  text-align: center;
 }
 .pop-cencels.data-v-57280228 {
-  width: 230rpx;
-  height: 70rpx;
   background: linear-gradient(#ff0000 0%, #ff825c 100%);
   box-shadow: 0rpx 8rpx 0rpx 2rpx #dc1313;
-  border-radius: 28rpx;
   color: #fff;
-  font-size: 38rpx;
-  lighting-color: 70rpx;
 }
 .pop-claim.data-v-57280228 {
   width: 629rpx;
   height: 327rpx;
+}
+.pop-claim .claim-text.data-v-57280228 {
+  text-align: center;
+  margin: 88rpx 0;
+}
+.pop-claim .claim-btn-box.data-v-57280228 {
+  display: flex;
+  justify-content: space-around;
 }
 .play-intro.data-v-57280228 {
   padding: 48rpx 20rpx;

@@ -32,7 +32,7 @@
 			<div class="action-box">
 				<div v-if="type === 1 && !i.comment" class="record-then" @click="showInput = true">回复</div>
 				<div v-if="type === 1" class="pick-again" @click="showPickAgain = true">再捡一次</div>
-				<div v-if="type !== 1" class="pick-again" @click="goChatWith(i)">开启私聊</div>
+				<div v-if="type !== 1 && i.comment" class="pick-again" @click="goChatWith(i)">开启私聊</div>
 			</div>
 		</div>
 		<!-- 底部输入栏 -->
