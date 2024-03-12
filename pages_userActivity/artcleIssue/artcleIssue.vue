@@ -5,14 +5,14 @@
 			<div class="issue-top">
 				<u-icon name="close" color="#333" size="24" @click="backTo"></u-icon>
 				<div class="send" @click="sendArticle">
-					<u-button type="warning" :text="secret === '1' ? '存档' : '发布'"></u-button>
+					<u-button type="warning" :text="secret === 1 ? '存档' : '发布'"></u-button>
 				</div>
 			</div>
 		</u-sticky>
 		<!-- 选择上传 -->
 		<u-radio-group v-model="value" activeColor="#f9ae3d">
-			<u-radio :name="1" shape="circle" :label="secret === '1' ? '图文' : '发布图文'"></u-radio>
-			<u-radio :name="2" shape="circle" :label="secret === '1' ? '视频' : '发布视频'"></u-radio>
+			<u-radio :name="1" shape="circle" :label="secret === 1 ? '图文' : '发布图文'"></u-radio>
+			<u-radio :name="2" shape="circle" :label="secret === 1 ? '视频' : '发布视频'"></u-radio>
 		</u-radio-group>
 
 		<!-- 上传组件 -->
@@ -21,7 +21,7 @@
 			<u--textarea
 				v-if="value === 1"
 				v-model="content"
-				:placeholder="secret ? '字数无限制' : meeting === 2 ? '有感而发，随便写两句，吐槽、赞美都行！' : '把你的手艺轻松展示，将兴趣变现，以爱好聚友！'"
+				:placeholder="secret === 1 ? '字数无限制' : secret === 2 ? '随兴抛投，任“心”漂流，瓶中缘分，相约私聊' : '有感而发，随便写两句，吐槽、赞美都行！'"
 				:confirmType="null"
 				style="white-space: pre-wrap"
 				autoHeight
@@ -89,7 +89,7 @@ export default {
 		};
 	},
 	onLoad(option) {
-		this.secret = option.secret ? option.secret : null;
+		this.secret = option.secret ? Number(option.secret) : null;
 		if (!this.secret) {
 			uni.$u.toast('请遵守法律法规，文明发言');
 		}
@@ -199,14 +199,17 @@ export default {
 				uni.$u.toast(title);
 				return;
 			}
+
+			this.content ? this.checkContent() : this.sendReallyArticle();
+		},
+		async checkContent() {
 			uni.showLoading({
 				title: '内容发布中'
 			});
-
 			let res = await checkContent({ content: contents });
 			if (res.code !== 0 || res.result.errcode !== 0) {
 				uni.hideLoading();
-				uni.$u.toast('发布的内容包含违规信息，请修改');
+				uni.$u.toast(res.result.errmsg);
 				return;
 			}
 			this.sendReallyArticle();
@@ -219,13 +222,13 @@ export default {
 			let contents = this.value === 1 ? this.content || '' : this.content2 || '';
 			let medias = this.value === 1 ? this.mediaImgList : this.mediaVideoList;
 
-			if (this.secret === '1') {
+			if (this.secret === 1) {
 				res = await addXFilePost({
 					content: contents,
 					meeting: this.meeting,
 					media: medias
 				});
-			} else if (this.secret === '2') {
+			} else if (this.secret === 2) {
 				res = await lostBottle({
 					content: contents,
 					type: Number(this.value + 1),
