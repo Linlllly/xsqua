@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapState } from 'vuex';
-import { myRoom, selectRoom } from '@/api/loginSelect.js';
-import { ip } from '@/api/api.js';
-import { getUserInfoById } from '@/api/otherUser.js';
-const app = getApp();
+import { mapGetters, mapMutations, mapState } from 'vuex'
+import { myRoom, selectRoom } from '@/api/loginSelect.js'
+import { ip } from '@/api/api.js'
+import { getUserInfoById } from '@/api/otherUser.js'
+const app = getApp()
 export default {
 	data() {
 		return {
@@ -27,7 +27,7 @@ export default {
 			inviteContent: null,
 			opt: null,
 			isNew: null
-		};
+		}
 	},
 	computed: {
 		...mapState(['uid', 'myWs'])
@@ -36,8 +36,8 @@ export default {
 		myWs: {
 			immediate: false,
 			handler(news, olds) {
-				uni.hideLoading();
-				this.goUserOrAreaSelect();
+				uni.hideLoading()
+				this.goUserOrAreaSelect()
 			}
 		}
 	},
@@ -49,11 +49,11 @@ export default {
 		// 	this.inviteContent = decodeURIComponent(option.q).split('inviteContent=')[1];
 		// }
 		if (option.scene) {
-			let scene = decodeURIComponent(option.scene);
-			this.inviteCode = scene;
-			this.getCode();
+			let scene = decodeURIComponent(option.scene)
+			this.inviteCode = scene
+			this.getCode()
 		} else {
-			this.getCode();
+			this.getCode()
 		}
 	},
 	methods: {
@@ -62,16 +62,16 @@ export default {
 			uni.showLoading({
 				title: '数据加载中...',
 				mask: true
-			});
-			const p = new Promise(resolve => {
+			})
+			const p = new Promise((resolve) => {
 				uni.login({
 					provider: 'weixin',
-					success: res => {
-						resolve(res.code);
+					success: (res) => {
+						resolve(res.code)
 					}
-				});
-			});
-			p.then(code => {
+				})
+			})
+			p.then((code) => {
 				//请求后端
 				uni.request({
 					url: ip + '/app/user/miniWxlogin',
@@ -81,62 +81,62 @@ export default {
 						inviteCode: this.inviteCode
 						// inviteContent: this.inviteContent
 					},
-					success: cts => {
-						console.log('获取token');
-						console.log(cts);
-						uni.setStorageSync('openId', cts.data.openId);
+					success: (cts) => {
+						console.log('获取token')
+						console.log(cts)
+						uni.setStorageSync('openId', cts.data.openId)
 						if (cts.statusCode !== 200 || cts.data.code !== 0) {
-							uni.hideLoading();
+							uni.hideLoading()
 							uni.showToast({
 								title: '服务器出错，正在尝试重连...',
-								icon:'none'
-							});
+								icon: 'none'
+							})
 							//显示失败
 							setTimeout(() => {
-								this.getCode();
-							}, 2000);
-							return;
+								this.getCode()
+							}, 2000)
+							return
 						}
-						this.token = cts.data.token;
-						this.isNew = cts.data.isNew;
-						uni.setStorageSync('token', cts.data.token);
-						uni.setStorageSync('isNew', cts.data.isNew);
-						this.updateToken();
+						this.token = cts.data.token
+						this.isNew = cts.data.isNew
+						uni.setStorageSync('token', cts.data.token)
+						uni.setStorageSync('isNew', cts.data.isNew)
+						this.updateToken()
 						if (this.inviteCode) {
-							this.getGetUserInfoById();
+							this.getGetUserInfoById()
 						}
-						app.updateWs();
-						return;
+						app.updateWs()
+						return
 					},
 					fail: () => {
-						uni.hideLoading();
+						uni.hideLoading()
 						uni.showToast({
 							title: '微信登录出错，请尝试重新进入小程序...',
-							icon:'none'
-						});
-						return;
+							icon: 'none'
+						})
+						return
 					}
-				});
-			});
+				})
+			})
 		},
 		//获取话
 		//请求个人信息
 		async getGetUserInfoById() {
-			let res = await getUserInfoById({ uid: this.inviteCode });
-			console.log('获取邀请留言');
-			console.log(res);
-			this.opt = JSON.stringify(res);
+			let res = await getUserInfoById({ uid: this.inviteCode })
+			console.log('获取邀请留言')
+			console.log(res)
+			this.opt = JSON.stringify(res)
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res,
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.inviteContent = res.result.inviteContent;
+			this.inviteContent = res.result.inviteContent
 			// if (this.isNew === 1) {
-			uni.setStorageSync('inviteCode', this.inviteCode);
-			uni.setStorageSync('inviteContent', this.inviteContent);
+			uni.setStorageSync('inviteCode', this.inviteCode)
+			uni.setStorageSync('inviteContent', this.inviteContent)
 			// }
 		},
 
@@ -158,14 +158,14 @@ export default {
 
 			uni.switchTab({
 				url: '../user/user'
-			});
+			})
 
 			// uni.switchTab({
 			// 	url: '../index2/index2'
 			// });
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -282,8 +282,5 @@ button::after {
 	text-align: center;
 	margin: 30rpx 20rpx 10rpx;
 	padding-bottom: 30rpx;
-}
-img {
-	display: block;
 }
 </style>

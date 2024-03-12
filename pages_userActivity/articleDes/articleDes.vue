@@ -913,13 +913,6 @@ export default {
 		line-height: 1.4;
 		white-space: pre-line; //遇到回车换行
 	}
-	.content-i {
-		width: 100%;
-		image {
-			display: block;
-			width: 100% !important;
-		}
-	}
 }
 .no-all {
 	display: flex;
@@ -1157,7 +1150,6 @@ button::after {
 	margin-left: 14rpx;
 }
 .singleImg {
-	display: block;
 	width: 750rpx;
 }
 </style>

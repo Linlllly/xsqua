@@ -1,30 +1,29 @@
 <template>
 	<div class="pages">
-		<div class="get-gift" @click="showClaim = true">
-			积分兑换茅台/图片违规
-		</div>
 		<div class="slot-machine">
+			<img
+				class="slot-bg-img"
+				src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_e92c3f94ed.png"
+				alt=""
+			/>
+			<img
+				class="slot-content-img"
+				src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_9663a70f1e.png"
+				alt=""
+			/>
+			<div style="width: 100%; height: 330rpx"></div>
 			<SlotMachine
 				v-show="lookSlotMachine"
 				ref="myLucky"
-				width="600rpx"
-				height="400rpx"
+				width="510rpx"
+				height="180rpx"
 				:blocks="blocks"
 				:slots="slots"
 				:prizes="prizes"
-				:defaultStyle="defaultStyle"
 				:defaultConfig="defaultConfig"
 				@end="endCallBack"
 			/>
-			<div
-				v-show="!lookSlotMachine"
-				style="width: 600rpx; height: 400rpx"
-			>
-				zhanwei
-			</div>
-			<view>
-				<button @click="botting">开始</button>
-			</view>
+			<view class="slot-btn" @click="botting"></view>
 		</div>
 		<div class="play-intro">
 			<div>玩法说明</div>
@@ -38,18 +37,14 @@
 			</div>
 			<div class="record">....</div>
 		</div>
-		<!-- banner -->
-		<div v-if="list1.length" class="banner-box">
-			<u-swiper
-				:list="list1"
-				keyName="img"
-				height="220rpx"
-				:interval="5000"
-				:duration="400"
-				:circular="true"
-				@click="goOwnPageOrThirdParty()"
-			></u-swiper>
-		</div>
+		<!-- 兑换 -->
+		<img
+			class="get-gift"
+			@click="showClaim = true"
+			src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_d3adf08b71.png"
+			alt=""
+		/>
+
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
 		<div class="who-are-you">
@@ -74,10 +69,19 @@
 				@click="goCitySelect(i.cateId)"
 			></div>
 		</div>
-		<!-- 确认兑换吗 -->
-		<!-- <u-modal title="兑换" :show="showClaim" @confirm="getExchangeMaoTaiCheck" confirmColor="#e89406" showCancelButton @cancel="showClaim = false">
-			<view class="slot-content">确认兑换xxx？</view>
-		</u-modal> -->
+		<!-- banner -->
+		<div v-if="list1.length" class="banner-box">
+			<u-swiper
+				:list="list1"
+				keyName="img"
+				height="220rpx"
+				:interval="5000"
+				:duration="400"
+				:circular="true"
+				@click="goOwnPageOrThirdParty()"
+			></u-swiper>
+		</div>
+		<!-- 确认兑换 -->
 		<u-popup
 			:show="showClaim"
 			:round="20"
@@ -235,18 +239,17 @@ export default {
 		...mapState(['uid', 'house']),
 		lookSlotMachine() {
 			if (!this.firstLookSlotMachine) {
-				return true // 当 firstLookSlotMachine 为 false 时，直接返回 true
+				return true
 			} else {
-				// 当 firstLookSlotMachine 为 true 时，根据其他参数的取值来确定结果
 				if (
 					this.showClaim ||
 					this.showGetMaterial ||
 					this.showBotting ||
 					this.showGetGift
 				) {
-					return false // 如果有任一参数为 true，则返回 false
+					return false
 				} else {
-					return true // 如果前四个参数都为 false，则返回 true
+					return true
 				}
 			}
 		}
@@ -257,25 +260,12 @@ export default {
 	},
 	data() {
 		return {
-			blocks: [
-				{
-					padding: '10px',
-					background: '#869cfa',
-					borderRadius: '10px'
-				},
-				{ padding: '10px', background: '#e9e8fe', borderRadius: '10px' }
-			],
+			blocks: [],
 			slots: [{ direction: 1 }, { direction: -1 }, { direction: 1 }],
-			defaultStyle: {
-				borderRadius: Infinity,
-				background: '#bac5ee',
-				fontSize: '32px',
-				fontColor: '#333'
-			},
 			defaultConfig: {
-				rowSpacing: '25px',
-				colSpacing: '10px'
+				colSpacing: '20px'
 			},
+
 			//地区列表
 			areaList: [],
 			list1: [],
@@ -391,8 +381,6 @@ export default {
 						src: prize.imageUrl
 					}
 					return {
-						background: '#bac5ee',
-						borderRadius: '10px',
 						imgs: [image]
 					}
 				})
@@ -437,9 +425,9 @@ export default {
 			if (
 				typeof this.startNum === 'undefined' ||
 				!Number.isInteger(this.startNum) ||
-				this.startNum <= 5
+				this.startNum < 5
 			) {
-				uni.$u.toast('请输入大于5的正整数')
+				uni.$u.toast('请输入大于等于5的正整数')
 				return
 			}
 			draw({ num: this.startNum }).then((res) => {
@@ -598,37 +586,49 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.slot-machine {
+	width: 750rpx;
+	height: 724rpx;
+	.slot-bg-img {
+		position: absolute;
+		flex-wrap: wrap;
+		width: 750rpx;
+		height: 724rpx;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	.slot-content-img {
+		position: absolute;
+		flex-wrap: wrap;
+
+		width: 626rpx;
+		height: 256rpx;
+		top: 290rpx;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.slot-btn {
+		margin: 60rpx auto 0;
+		width: 600rpx;
+		height: 145rpx;
+	}
+}
+.slot-machine::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 750rpx;
+	height: 724rpx;
+	z-index: -1;
+}
+
 .get-gift {
 	width: 722rpx;
 	height: 186rpx;
 	margin: 22rpx auto;
 	background-color: pink;
-}
-.pop-borders {
-	background: #ffffff;
-	border-radius: 40rpx;
-	border: 8rpx solid #f4ddc4;
-}
-.pop-btn-box {
-	display: flex;
-	justify-content: space-around;
-}
-.pop-oks,
-.pop-cencels {
-	width: 230rpx;
-	height: 70rpx;
-	background: linear-gradient(#ffa200 0%, #ffe65c 100%);
-	box-shadow: 0rpx 8rpx 0rpx 2rpx #ff7f00;
-	border-radius: 28rpx;
-	color: #f56600;
-	font-size: 38rpx;
-	line-height: 1.8;
-	text-align: center;
-}
-.pop-cencels {
-	background: linear-gradient(#ff0000 0%, #ff825c 100%);
-	box-shadow: 0rpx 8rpx 0rpx 2rpx #dc1313;
-	color: #fff;
 }
 .pop-claim {
 	width: 629rpx;
@@ -642,7 +642,6 @@ export default {
 	width: 582rpx;
 	height: 481rpx;
 	.botting-img {
-		display: block;
 		width: 102rpx;
 		height: 102rpx;
 		margin: 30rpx auto;

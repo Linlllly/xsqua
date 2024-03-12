@@ -1518,7 +1518,6 @@ export default {
 			oveflow: auto;
 		}
 		.real-inner {
-			display: block;
 			oveflow: auto;
 		}
 		.real-more-inner {
@@ -1577,7 +1576,6 @@ export default {
 		position: absolute;
 		top: 200rpx;
 		left: 0;
-		display: block;
 		width: 100%;
 		height: 900rpx;
 	}

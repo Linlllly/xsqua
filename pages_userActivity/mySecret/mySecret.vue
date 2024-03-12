@@ -11,16 +11,25 @@
 				</div>
 			</div>
 			<!-- 列表 -->
-			<div v-if="myList.length !== 0" class="list-item" v-for="(i, index) in myList" :key="i.id">
+			<div
+				v-if="myList.length !== 0"
+				class="list-item"
+				v-for="(i, index) in myList"
+				:key="i.id"
+			>
 				<!-- 头 -->
 				<div class="list-title">
 					<div class="dates">
 						<text>{{ i.createTime }}</text>
-						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
+						<img
+							v-if="i.postTop"
+							src="../../static/placed-top.png"
+							alt=""
+						/>
 					</div>
 					<div>
 						<text
-							style="margin-right: 16rpx;"
+							style="margin-right: 16rpx"
 							v-if="!i.img && i.media.length !== 0"
 							class="get-top"
 							@click.stop="getVedioOnPhone(i.media[0])"
@@ -30,8 +39,8 @@
 						<text
 							class="get-top"
 							@click.stop="
-								showRemoveArt = true;
-								shanchu = i.id;
+								showRemoveArt = true
+								shanchu = i.id
 							"
 						>
 							删除
@@ -43,8 +52,18 @@
 					<!-- 标题 -->
 					<div class="content-title">{{ i.content }}</div>
 					<!-- 视频 -->
-					<video v-if="!i.img && i.media.length !== 0" :src="i.media[0]" :controls="true" :show-center-play-btn="true"></video>
-					<div class="five" v-if="i.img && i.media.length !== 0 && i.media.length > 4">
+					<video
+						v-if="!i.img && i.media.length !== 0"
+						:src="i.media[0]"
+						:controls="true"
+						:show-center-play-btn="true"
+					></video>
+					<div
+						class="five"
+						v-if="
+							i.img && i.media.length !== 0 && i.media.length > 4
+						"
+					>
 						<image
 							class="fiveImg"
 							v-for="(j, jndex) in i.media"
@@ -54,7 +73,10 @@
 							@click="previewImg(i.media, jndex)"
 						></image>
 					</div>
-					<div class="four" v-if="i.img && i.media.length > 1 && i.media.length < 5">
+					<div
+						class="four"
+						v-if="i.img && i.media.length > 1 && i.media.length < 5"
+					>
 						<image
 							class="fourImg"
 							v-for="(q, qndex) in i.media"
@@ -74,8 +96,14 @@
 					></image>
 				</div>
 			</div>
-			<u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon>
-			<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+			<u-loading-icon
+				v-if="isloading"
+				color="#767374"
+				size="16"
+			></u-loading-icon>
+			<div v-if="!isloading && page >= lastPage" class="next">
+				———— 没有更多数据了 ————
+			</div>
 			<!-- 留底 -->
 			<div class="bottom"></div>
 			<!-- 发布 -->
@@ -129,12 +157,12 @@
 
 <script>
 // 引入组件
-import { mapGetters, mapMutations, mapState } from 'vuex';
-import { myRoom } from '@/api/loginSelect.js';
-import { updateXPassword, queryXFilePageList } from '@/api/mySecret.js';
-import { postTop, cancelPostTop } from '@/api/user.js';
-import { deletePost } from '@/api/articleDes.js';
-import { ip } from '@/api/api.js';
+import { mapGetters, mapMutations, mapState } from 'vuex'
+import { myRoom } from '@/api/loginSelect.js'
+import { updateXPassword, queryXFilePageList } from '@/api/mySecret.js'
+import { postTop, cancelPostTop } from '@/api/user.js'
+import { deletePost } from '@/api/articleDes.js'
+import { ip } from '@/api/api.js'
 
 export default {
 	data() {
@@ -159,144 +187,150 @@ export default {
 			showRemoveArt: false,
 			shanchu: '',
 			refresh: true
-		};
+		}
 	},
 	onLoad() {
-		this.getMyRoom();
+		this.getMyRoom()
 	},
 	onShow() {
 		if (this.refresh) {
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		}
-		this.refresh = true;
+		this.refresh = true
 	},
 	onReachBottom() {
-		console.log(111);
+		console.log(111)
 		if (this.page >= this.lastPage) {
-			return;
+			return
 		}
 		// 判断是否正在请求其它数据，如果是，则不发起额外的请求
-		if (this.isloading) return;
+		if (this.isloading) return
 		// 让页码值自增 +1
-		this.page += 1;
+		this.page += 1
 		// 重新获取列表数据
-		this.getMyPageList();
+		this.getMyPageList()
 	},
 	methods: {
 		//删除动态
 		async confirmRemoveArt() {
-			let res = await deletePost({ id: this.shanchu });
-			console.log(res);
+			let res = await deletePost({ id: this.shanchu })
+			console.log(res)
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '删除档案失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
 			uni.showToast({
 				title: '已删除',
-				icon:'none'
-			});
-			this.showRemoveArt = false;
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+				icon: 'none'
+			})
+			this.showRemoveArt = false
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		},
 		//请求空间信息
 		async getMyRoom() {
-			let res = await myRoom();
-			console.log('请求空间详细数据');
-			console.log(res);
+			let res = await myRoom()
+			console.log('请求空间详细数据')
+			console.log(res)
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取空间信息失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.password = res.room.xpassword;
+			this.password = res.room.xpassword
 			if (this.password) {
-				this.type = 2;
+				this.type = 2
 			} else {
-				this.type = 1;
+				this.type = 1
 			}
 		},
 		//请求列表
 		async getMyPageList() {
 			// ** 打开节流阀
-			this.isloading = true;
-			let res = await queryXFilePageList({ page: this.page, limit: this.limit });
-			console.log('请求动态列表');
-			console.log(res);
+			this.isloading = true
+			let res = await queryXFilePageList({
+				page: this.page,
+				limit: this.limit
+			})
+			console.log('请求动态列表')
+			console.log(res)
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取动态列表失败',
-					icon:'none'
-				});
+					icon: 'none'
+				})
 				// ** 关闭节流阀
-				this.isloading = false;
-				return;
+				this.isloading = false
+				return
 			}
-			this.myList = [...this.myList, ...res.result.data];
-			this.lastPage = res.result.last_page;
+			this.myList = [...this.myList, ...res.result.data]
+			this.lastPage = res.result.last_page
 			for (var i = 0; i < this.myList.length; i++) {
-				let lins = this.myList[i].media[0];
-				let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
+				let lins = this.myList[i].media[0]
+				let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/
 				//true or false
-				this.$set(this.myList[i], 'img', zhengze.test(lins));
+				this.$set(this.myList[i], 'img', zhengze.test(lins))
 			}
 			// ** 关闭节流阀
-			this.isloading = false;
+			this.isloading = false
 		},
 		async setTop(i) {
-			let res = await postTop({ id: i.id });
+			let res = await postTop({ id: i.id })
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '设置置顶失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		},
 		async unSetTop(i) {
-			let res = await cancelPostTop({ id: i.id });
+			let res = await cancelPostTop({ id: i.id })
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '取消置顶失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		},
 		toArticleDes(i) {
 			uni.navigateTo({
-				url: '../../pages_userActivity/articleDes/articleDes?i=' + i.id + '&secret=true'
-			});
+				url:
+					'../../pages_userActivity/articleDes/articleDes?i=' +
+					i.id +
+					'&secret=true'
+			})
 		},
 		//去发布
 		toIssue() {
 			uni.navigateTo({
 				url: '../artcleIssue/artcleIssue?secret=1'
-			});
+			})
 		},
 		//确认密码
 		confirmMima() {
 			if (this.password === this.inputMima) {
-				this.type = 3;
+				this.type = 3
 			} else {
 				uni.showToast({
 					title: '密码输入不正确',
-					icon:'none'
-				});
+					icon: 'none'
+				})
 			}
 		},
 		//首次密码
@@ -304,79 +338,79 @@ export default {
 			if (this.firstMima.toString().length !== 6) {
 				uni.showToast({
 					title: '设置的密码长度必须为六位数！',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			let res = await updateXPassword({ password: this.firstMima });
-			console.log(res);
+			let res = await updateXPassword({ password: this.firstMima })
+			console.log(res)
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '设置X档案密码失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.type = 3;
+			this.type = 3
 		},
 		changeMima() {
 			uni.navigateTo({
 				url: '../changeMima/changeMima'
-			});
+			})
 		},
 		//单图预览
 		previewImg(i, index) {
-			this.refresh = false;
+			this.refresh = false
 			uni.previewImage({
 				current: i[index], // 当前显示图片的http链接
 				urls: i // 需要预览的图片http链接列表
-			});
+			})
 		},
 		//下载视频
 		getVedioOnPhone(i) {
-			console.log(i);
+			console.log(i)
 			wx.showLoading({
 				title: '请稍后...'
-			});
+			})
 			wx.downloadFile({
 				url: i,
-				success: res => {
+				success: (res) => {
 					// 下载成功, 保存到相册
 					wx.saveVideoToPhotosAlbum({
 						filePath: res.tempFilePath,
-						success: res => {
+						success: (res) => {
 							// console.info(res);
 							// 关闭加载框
-							wx.hideLoading();
+							wx.hideLoading()
 							wx.showToast({
 								title: '保存成功'
-							});
+							})
 						},
 						fail: () => {
 							// 关闭加载框
-							wx.hideLoading();
+							wx.hideLoading()
 							wx.showToast({
-								title: '保存失败',
-								
-							});
+								title: '保存失败'
+							})
 						}
-					});
+					})
 				},
 				fail: () => {
 					// 下载失败(视频地址404不会执行到这里,这里是api调用失败)
 					// 如果视频地址不是小程序"合法域名",也会执行到这里
 					// 关闭加载框
-					wx.hideLoading();
+					wx.hideLoading()
 					wx.showModal({
 						title: '保存失败',
-						content: '您当前环境异常，请重启或删除小程序再次打开尝试。',
+						content:
+							'您当前环境异常，请重启或删除小程序再次打开尝试。',
 						showCancel: false
-					});
+					})
 				}
-			});
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -552,7 +586,6 @@ button::after {
 	}
 	.mimasuo {
 		margin-top: 200rpx;
-		display: block;
 		width: 100%;
 		height: 900rpx;
 	}

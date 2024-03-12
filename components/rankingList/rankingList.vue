@@ -232,14 +232,7 @@ export default {
 	.list-item {
 		width: 686rpx;
 	}
-	.mouth-img {
-		display: block;
-		width: 66rpx;
-		height: 66rpx;
-		margin: 18rpx auto 16rpx;
-	}
 	.mouth-img-money {
-		display: block;
 		width: 86rpx;
 		height: 76rpx;
 		margin: 14rpx auto 10rpx;
@@ -351,13 +344,7 @@ export default {
 	box-sizing: border-box;
 	padding: 20rpx 30rpx 30rpx;
 
-	.show-img {
-		display: block;
-		width: 56rpx;
-		height: 56rpx;
-	}
 	.show-img-money {
-		display: block;
 		width: 66rpx;
 		height: 66rpx;
 	}
@@ -379,8 +366,5 @@ export default {
 		box-shadow: 0px 8rpx 0px 2rpx #ff7f00;
 		border-radius: 28rpx;
 	}
-}
-image {
-	display: block;
 }
 </style>

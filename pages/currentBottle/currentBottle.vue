@@ -2,22 +2,46 @@
 	<view class="pages">
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
-			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
+			<u-swiper
+				:list="list1"
+				keyName="img"
+				height="220rpx"
+				:interval="5000"
+				:duration="400"
+				:circular="true"
+				@click="goOwnPageOrThirdParty()"
+			></u-swiper>
 		</div>
 		<div class="clicks">
 			<div class="clicks-item" @click="toBottleHistory">
-				<u-icon name="cut" size="22"></u-icon>
+				<u-icon
+					name="../../../../static/bottle-history.png"
+					size="20"
+				></u-icon>
 				<div>漂流瓶历史记录</div>
 			</div>
 			<div class="vertical-line">|</div>
 			<div class="clicks-item" @click="toBottleMessageList">
-				<u-icon name="cut" size="22"></u-icon>
+				<u-icon
+					name="../../../../static/bottle-message.png"
+					size="20"
+				></u-icon>
 				<div>消息提示</div>
 				<div v-if="bottleDot" class="mes-dot"></div>
 			</div>
 		</div>
-		<div class="pick-and-lost" @click="judgeNumber">捡</div>
-		<div class="pick-and-lost" @click="toIssue">丢</div>
+		<img
+			class="pick-and-lost"
+			@click="judgeNumber"
+			src="https://www.zairongyifang.com:8080/filePath/app/20241/compressed_c99ab46582.jpg"
+			alt=""
+		/>
+		<img
+			class="pick-and-lost"
+			@click="toIssue"
+			src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_8700e90c3e.png"
+			alt=""
+		/>
 		<!-- 再捡一次 -->
 		<u-modal
 			:show="showPickAgain"
@@ -32,12 +56,12 @@
 </template>
 
 <script>
-import { pickBottle } from '@/api/currentBottle.js';
-import { banner } from '@/api/index.js';
-import { redDot } from '@/api/user.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
+import { pickBottle } from '@/api/currentBottle.js'
+import { banner } from '@/api/index.js'
+import { redDot } from '@/api/user.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	data() {
@@ -47,7 +71,7 @@ export default {
 			list1: [],
 			showPickAgain: false,
 			first: true
-		};
+		}
 	},
 	computed: {
 		...mapState(['uid'])
@@ -56,42 +80,42 @@ export default {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('bottle开启侦听');
-				this.ws = app.globalData.ws;
+				console.log('bottle开启侦听')
+				this.ws = app.globalData.ws
 				this.ws.onMessage((res) => {
-					console.log(res);
+					console.log(res)
 					if (res.data === 'active') {
-						return;
+						return
 					}
-					let data = JSON.parse(res.data);
-					console.log(data);
+					let data = JSON.parse(res.data)
+					console.log(data)
 					if (data.type === 'bottle') {
-						this.chatDot = true;
+						this.chatDot = true
 					}
-				});
+				})
 			}
 		}
 	},
 	onLoad() {
-		this.getBanner();
-		this.gettBottleRedDot();
+		this.getBanner()
+		this.gettBottleRedDot()
 	},
 	methods: {
 		async getBanner() {
-			let res = await banner({ type: 3 });
-			console.log('请求banner图');
-			console.log(res);
+			let res = await banner({ type: 3 })
+			console.log('请求banner图')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.list1 = res.result;
+			this.list1 = res.result
 		},
 		judgeNumber() {
 			if (this.first) {
-				this.pickBottle();
+				this.pickBottle()
 			} else {
-				this.showPickAgain = true;
+				this.showPickAgain = true
 			}
 		},
 		pickBottle() {
@@ -100,50 +124,52 @@ export default {
 				//获得瓶子id
 				//调转到detail去
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				let id = res.result.bottleRecordId;
+				let id = res.result.bottleRecordId
 				uni.navigateTo({
-					url: '../../pages_userActivity/bottleDetail/bottleDetail?id=' + id
-				});
-			});
+					url:
+						'../../pages_userActivity/bottleDetail/bottleDetail?id=' +
+						id
+				})
+			})
 		},
 		async gettBottleRedDot() {
 			let res = await redDot({
 				uid: this.uid,
 				type: 3,
 				t: Date.parse(new Date())
-			});
-			console.log('请求瓶子红点');
-			console.log(res);
+			})
+			console.log('请求瓶子红点')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			if (res.result) {
-				this.bottleDot = true;
+				this.bottleDot = true
 			} else {
-				this.bottleDot = false;
+				this.bottleDot = false
 			}
 		},
 		toIssue() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/artcleIssue/artcleIssue?secret=2'
-			});
+			})
 		},
 		toBottleHistory() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/bottleHistory/bottleHistory'
-			});
+			})
 		},
 		toBottleMessageList() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/bottleMessageList/bottleMessageList'
-			});
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>

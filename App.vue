@@ -117,7 +117,45 @@ page {
 	width: 750rpx;
 	position: relative;
 }
+.pages::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
 .box {
 	width: 100%;
+}
+img {
+	display: block;
+}
+.pop-borders {
+	background: #ffffff;
+	border-radius: 40rpx;
+	border: 8rpx solid #f4ddc4;
+}
+.pop-btn-box {
+	display: flex;
+	justify-content: space-around;
+}
+.pop-oks,
+.pop-cencels {
+	width: 230rpx;
+	height: 70rpx;
+	background: linear-gradient(#ffa200 0%, #ffe65c 100%);
+	box-shadow: 0rpx 8rpx 0rpx 2rpx #ff7f00;
+	border-radius: 28rpx;
+	color: #f56600;
+	font-size: 38rpx;
+	line-height: 1.8;
+	text-align: center;
+}
+.pop-cencels {
+	background: linear-gradient(#ff0000 0%, #ff825c 100%);
+	box-shadow: 0rpx 8rpx 0rpx 2rpx #dc1313;
+	color: #fff;
 }
 </style>
