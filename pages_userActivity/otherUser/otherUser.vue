@@ -44,18 +44,18 @@
 						<div class="info">
 							<div class="name-kj">
 								<div class="name">{{ username }}</div>
-								<img
-									class="armor"
-									v-if="armour"
-									src="../../static/has-head.png"
-									alt=""
-								/>
-								<img
-									class="armor"
-									v-else
-									src="../../static/no-head.png"
-									alt=""
-								/>
+								<div class="armor-box" @click="toCostMoney">
+									<img
+										class="armor-img"
+										:src="
+											armor
+												? '../../static/armor.png'
+												: '../../static/armor-no.png'
+										"
+										alt=""
+									/>
+									<div>安全盔甲</div>
+								</div>
 							</div>
 							<div class="about">
 								<div>
@@ -117,15 +117,6 @@
 							alt=""
 						/>
 						<text>{{ i.createTime }}</text>
-						<!-- <text style="margin-left: 20rpx">
-							{{
-								i.meeting === 4 || i.meeting === 0
-									? '欢喜的人'
-									: i.meeting === 2
-									? '随手文字'
-									: '好玩的手艺'
-							}}
-						</text> -->
 					</div>
 				</div>
 				<!-- 图 -->
@@ -865,7 +856,7 @@ export default {
 		top: 0;
 		left: 0;
 		width: 750rpx;
-		height: 514rpx;
+		height: 480rpx;
 	}
 	.width-bottom {
 		position: relative;
@@ -883,17 +874,24 @@ export default {
 	.my-info {
 		position: relative;
 		width: 670rpx;
-		background: linear-gradient(to bottom left, #dedfdf, #ffffff);
-		border-radius: 20rpx;
+		// background: linear-gradient(to bottom left, #dedfdf, #ffffff);
+		// border-radius: 20rpx;
 		margin: 0 auto;
 		padding: 14rpx 28rpx;
-		box-shadow: 2rpx 6rpx 6rpx rgba(0, 0, 0, 0.2);
-		.armor {
+		// box-shadow: 2rpx 6rpx 6rpx rgba(0, 0, 0, 0.2);
+		.armor-box {
 			position: absolute;
-			top: 50rpx;
-			width: 102rpx;
-			height: 100rpx;
-			left: 94rpx;
+			top: 52rpx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			left: 70rpx;
+			font-size: 24rpx;
+			line-height: 1.8;
+			.armor-img {
+				width: 50rpx;
+				height: 66rpx;
+			}
 		}
 		.infos-1 {
 			display: flex;

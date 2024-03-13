@@ -35,20 +35,18 @@
 						alt=""
 						@click="toSettings"
 					/>
-					<img
-						class="armor"
-						v-if="armour"
-						src="../../static/has-head.png"
-						alt=""
-						@click="toCostMoney"
-					/>
-					<img
-						class="armor-1"
-						v-else
-						src="../../static/no-head-big.png"
-						alt=""
-						@click="toCostMoney"
-					/>
+					<div class="armor-box" @click="toCostMoney">
+						<img
+							class="armor-img"
+							:src="
+								armor
+									? '../../static/armor.png'
+									: '../../static/armor-no.png'
+							"
+							alt=""
+						/>
+						<div>{{ armor ? '安全盔甲' : '激活安全盔甲' }}</div>
+					</div>
 					<div class="infos-1">
 						<Cropping
 							@upload="doUpload"
@@ -56,16 +54,18 @@
 							selWidth="300upx"
 							selHeight="300upx"
 						/>
-						<img
-							class="portrait"
-							:src="avatar"
-							alt=""
-							@click="changeAvatar"
-						/>
+						<div class="portrait-box">
+							<img
+								class="portrait"
+								:src="avatar"
+								alt=""
+								@click="changeAvatar"
+							/>
+							<div class="portrait-change">换头像</div>
+						</div>
 						<div class="info">
 							<div class="name-kj">
 								<div class="name">{{ username }}</div>
-								<!-- 	<div class="armor-time" v-if="armour">{{ armourTime }}天</div> -->
 							</div>
 							<div class="about">
 								<div @click="toFansAndFouces">
@@ -76,12 +76,10 @@
 									<span>粉丝：</span>
 									<span>{{ fans }}</span>
 								</div>
-								<div @click="toCostMoney">
+								<!-- <div @click="toCostMoney">
 									<span>银子：</span>
 									<span>{{ silverNum }}</span>
-								</div>
-								<!-- <div @click="toCostMoney">鲜花：\n{{ flowerNum }}</div>
-								<div @click="toCostMoney">便便：\n{{ eggNum }}</div> -->
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -97,6 +95,10 @@
 							@blur="changeMyDes"
 							:showConfirmBar="false"
 						></u--textarea>
+					</div>
+					<div class="cost-start">
+						<div class="cost-level">vipxxx</div>
+						<div class="cost-step">jindu</div>
 					</div>
 					<div class="infos-3">
 						<div class="contorl-1">
@@ -474,8 +476,6 @@
 			</view>
 		</u-modal>
 		<!-- 普通弹窗 -->
-		<!-- 	<u-modal :show="popContentBox" :content="popContent" @confirm="popContentBox = false"></u-modal> -->
-
 		<u-overlay :show="popContentBox" @click="popContentBox = false">
 			<div class="pop-content-box">
 				<img :src="popContent.img" alt="" />
@@ -1083,7 +1083,7 @@ export default {
 		changeBg() {
 			this.$refs.cropping2.fChooseImg(1, {
 				selWidth: '600upx',
-				selHeight: '412upx',
+				selHeight: '388upx',
 				inner: true
 			})
 		},
@@ -1318,7 +1318,7 @@ export default {
 		top: 0;
 		left: 0;
 		width: 750rpx;
-		height: 514rpx;
+		height: 480rpx;
 	}
 	.width-bottom {
 		position: relative;
@@ -1336,11 +1336,8 @@ export default {
 	.my-info {
 		position: relative;
 		width: 670rpx;
-		background: linear-gradient(to bottom left, #dedfdf, #ffffff);
-		border-radius: 20rpx;
 		margin: 0 auto;
 		padding: 14rpx 28rpx;
-		box-shadow: 2rpx 6rpx 6rpx rgba(0, 0, 0, 0.2);
 		.setting {
 			position: absolute;
 			top: 50rpx;
@@ -1348,29 +1345,45 @@ export default {
 			width: 66rpx;
 			height: 99rpx;
 		}
-		.armor-1 {
+		.armor-box {
 			position: absolute;
-			top: 50rpx;
-			width: 140rpx;
-			height: 100rpx;
-			right: 90rpx;
-		}
-		.armor {
-			position: absolute;
-			top: 50rpx;
-			width: 86rpx;
-			height: 100rpx;
+			top: 52rpx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 			right: 110rpx;
+			font-size: 24rpx;
+			line-height: 1.8;
+			.armor-img {
+				width: 50rpx;
+				height: 66rpx;
+			}
 		}
 		.infos-1 {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			.portrait {
-				width: 140rpx;
-				height: 140rpx;
-				border-radius: 50%;
+			.portrait-box {
+				position: relative;
+				.portrait {
+					width: 140rpx;
+					height: 140rpx;
+					border-radius: 50%;
+				}
+				.portrait-change {
+					position: absolute;
+					width: 120rpx;
+					text-align: center;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					color: #fff;
+					background-color: #448ac6;
+					padding: 3rpx;
+					border-radius: 25rpx;
+				}
 			}
+
 			.info {
 				flex: 1;
 				padding-left: 20rpx;
@@ -1387,7 +1400,7 @@ export default {
 				}
 				.about {
 					display: flex;
-					justify-content: space-between;
+					justify-content: space-around;
 					margin: 20rpx 0;
 					width: 308rpx;
 					div {
