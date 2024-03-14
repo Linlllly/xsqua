@@ -188,6 +188,14 @@
 						"enablePullDownRefresh": false
 					}
 
+				},
+				{
+					"path" : "prizeRecordList/prizeRecordList",
+					"style" : 
+					{
+						"navigationBarTitleText" : "",
+						"enablePullDownRefresh" : false
+					}
 				}
 			]
 		}

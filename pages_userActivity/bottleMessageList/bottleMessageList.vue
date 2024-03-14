@@ -9,6 +9,26 @@
 			:empty-view-img-style="{ width: 0, height: 0 }"
 			:auto="false"
 		>
+			<template #top>
+				<!-- 搜索 -->
+				<!-- <div class="title-search">
+				<u-search
+					v-model="keyword"
+					:showAction="true"
+					actionText="搜索"
+					:animation="false"
+					@search="peopleSearch"
+					@custom="peopleSearch"
+				></u-search>
+				<u-icon
+					customStyle="marginLeft:20rpx"
+					name="reload"
+					color="#666"
+					size="18"
+					@click="reloadAll"
+				></u-icon>
+			</div> -->
+			</template>
 			<div
 				class="content-list"
 				v-for="(i, index) in recordList"
@@ -28,6 +48,7 @@ import { bottleRecord } from '@/api/currentBottle.js'
 export default {
 	data() {
 		return {
+			keyword: '',
 			recordList: []
 		}
 	},
@@ -66,6 +87,10 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: -10;
+}
+.title-search {
+	display: flex;
+	padding: 10rpx 40rpx;
 }
 .chat-title {
 	display: flex;

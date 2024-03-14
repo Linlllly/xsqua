@@ -76,10 +76,6 @@
 									<span>粉丝：</span>
 									<span>{{ fans }}</span>
 								</div>
-								<!-- <div @click="toCostMoney">
-									<span>银子：</span>
-									<span>{{ silverNum }}</span>
-								</div> -->
 							</div>
 						</div>
 					</div>
@@ -97,8 +93,36 @@
 						></u--textarea>
 					</div>
 					<div class="cost-start">
-						<div class="cost-level">vipxxx</div>
-						<div class="cost-step">jindu</div>
+						<div class="cost-level">
+							<img
+								class="level-img"
+								:src="
+									vipLevel === 1
+										? '../../static/vip-1.png'
+										: vipLevel === 2
+										? '../../static/vip-2.png'
+										: '../../static/vip-3.png'
+								"
+								alt=""
+							/>
+							<div class="level-img-says">LV{{ nmberLevel }}</div>
+							<div class="level-intro">
+								<div>{{ silverNum }}</div>
+								<img
+									class="level-start"
+									src="../../static/money.png"
+									alt=""
+								/>
+							</div>
+						</div>
+						<div class="cost-step">
+							<u-line-progress
+								:percentage="100"
+								height="8"
+								inactiveColor="#fff"
+								activeColor="#FEDA7A"
+							></u-line-progress>
+						</div>
 					</div>
 					<div class="infos-3">
 						<div class="contorl-1">
@@ -172,13 +196,6 @@
 							alt=""
 						/>
 						<text>{{ i.createTime }}</text>
-						<!-- <text style="margin-left: 20rpx">{{
-							i.meeting === 4 ||
-							i.meeting === 0 ||
-							i.meeting === 2
-								? '随手文字'
-								: '好玩的手艺'
-						}}</text> -->
 					</div>
 					<text
 						v-if="!i.postTop"
@@ -522,16 +539,6 @@ export default {
 			//背景临时背景
 			coverImage: '',
 			linshiCoverImage: '',
-			//元宝数量
-			silverNum: '',
-			//花数量
-			flowerNum: '',
-			//便便数量
-			eggNum: '',
-			//鲜花名次
-			flowerNo: '',
-			//元宝名次
-			silverNo: '',
 			//个人签名
 			myDes: '',
 			//用户名
@@ -585,7 +592,14 @@ export default {
 			popContent: '',
 			popContentBox: false,
 			armour: false,
-			armourTime: null
+			armourTime: null,
+			//元宝等级
+			vipLevel: 1,
+			nmberLevel: 0,
+			//元宝数量
+			silverNum: '',
+			//元宝名次
+			silverNo: ''
 		}
 	},
 	computed: {
@@ -691,8 +705,6 @@ export default {
 						// 引导用户手动打开授权设置页面
 						wx.openSetting({
 							success: function (res) {
-								// 在用户打开设置页面后，可以在这里进行一些处理逻辑
-								// 例如，重新判断用户是否打开了订阅消息权限
 								if (
 									res.authSetting[
 										'scope.subscribeMessage'
@@ -759,8 +771,6 @@ export default {
 			this.myDes = res.result.intro
 			this.username = res.result.username
 			this.silverNum = res.result.silverNum
-			this.flowerNum = res.result.flowerNum
-			this.eggNum = res.result.eggNum
 			this.fans = res.result.fans
 			this.follow = res.result.follow
 			this.flowerNo = res.result.flowerNo
@@ -801,8 +811,6 @@ export default {
 					return
 				}
 				this.silverNum = res.result.silverNum
-				this.flowerNum = res.result.flowerNum
-				this.eggNum = res.result.eggNum
 			})
 		},
 		//盔甲状态
@@ -1411,10 +1419,53 @@ export default {
 			}
 		}
 		.infos-2 {
-			// margin-top: 15rpx;
 			/deep/.u-textarea {
 				padding: 0 !important;
 				background-color: transparent !important;
+			}
+		}
+		.cost-start {
+			.cost-level {
+				position: relative;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 20rpx 0;
+				.level-img {
+					width: 154rpx;
+					height: 40rpx;
+				}
+				.level-img-says {
+					position: absolute;
+					top: 0;
+					left: 64rpx;
+					font-size: 30rpx;
+					color: white;
+				}
+				.level-intro {
+					display: flex;
+					align-items: center;
+
+					.level-start {
+						width: 34rpx;
+						height: 34rpx;
+						margin-left: 6rpx;
+					}
+				}
+				.level-start {
+				}
+			}
+			.cost-step {
+				/deep/.u-line-progress {
+					border: 2rpx solid #ffbf41;
+				}
+				/deep/.u-line-progress__line {
+					background: linear-gradient(
+						90deg,
+						#ca8b45 0%,
+						#feda7a 100%
+					);
+				}
 			}
 		}
 		.infos-3 {

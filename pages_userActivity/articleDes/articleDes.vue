@@ -984,8 +984,6 @@ export default {
 	height: 100vh;
 	left: 0;
 	top: 0;
-	// background-color: orchid;
-	// opacity: 0.4;
 }
 .input-box {
 	position: fixed;
@@ -1058,10 +1056,8 @@ export default {
 	}
 }
 .popbox {
-	// backdrop-filter: blur(20rpx);
 }
 .re-title {
-	// width: 100%;
 	font-size: 40rpx;
 	color: #e99300;
 	text-align: center;

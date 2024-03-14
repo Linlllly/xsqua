@@ -205,8 +205,8 @@ export default {
 			width: 20rpx;
 			height: 20rpx;
 			background-color: #f56c6c;
-			top: 12rpx;
-			right: 12rpx;
+			top: -6rpx;
+			left: 140rpx;
 			border-radius: 50%;
 		}
 	}

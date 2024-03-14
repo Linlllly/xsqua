@@ -29,6 +29,10 @@
 			<div>玩法说明</div>
 			<div>1.xxxx</div>
 			<div>2xxxx</div>
+			<div class="play-record" @click="toPrizeRecordList">
+				<img src="../../static/send-list.png" alt="" />
+				<div>中奖记录</div>
+			</div>
 		</div>
 		<div class="record-btn">中奖记录/zitixuyhuan</div>
 		<div class="record-list">
@@ -226,16 +230,19 @@
 					{{ prizeInfo ? '恭喜您抽中' : '未中奖' }}
 				</div>
 				<img
-					v-if="prizeInfo.type === 1"
+					v-if="prizeInfo && prizeInfo.type === 1"
 					class="prize-has-img"
 					src="../../static/money.png"
 					alt=""
 				/>
-				<div v-if="prizeInfo.type !== 1" class="prize-text">
+				<div
+					v-if="prizeInfo && prizeInfo.type !== 1"
+					class="prize-text"
+				>
 					{{ startNum * (1 + prizeInfo.starTimes) }}星星
 				</div>
 				<img
-					v-if="!prizeInfo.id"
+					v-if="!prizeInfo || !prizeInfo.id"
 					class="prize-no-img"
 					src="../../static/prize-no-img.png"
 					alt=""
@@ -299,7 +306,11 @@ export default {
 	data() {
 		return {
 			blocks: [],
-			slots: [{ direction: 1 }, { direction: -1 }, { direction: 1 }],
+			slots: [
+				{ order: [0], direction: 1 },
+				{ order: [1], direction: -1 },
+				{ order: [2], direction: 1 }
+			],
 			defaultConfig: {
 				rowSpacing: '25px',
 				colSpacing: '20px'
@@ -354,7 +365,6 @@ export default {
 
 	onLoad() {
 		this.getAllPrizeRecord()
-		this.getMyPrize()
 		this.getPrizeList()
 		this.getBanner()
 		this.getList()
@@ -564,6 +574,11 @@ export default {
 				url: '../../pages_userActivity/rankingList/rankingList'
 			})
 		},
+		toPrizeRecordList() {
+			uni.navigateTo({
+				url: '../../pages_userActivity/prizeRecordList/prizeRecordList'
+			})
+		},
 		toOtherUser() {
 			randomRoom().then((res) => {
 				console.log('获取随机房间')
@@ -636,16 +651,17 @@ export default {
 		top: 0;
 		left: 0;
 		z-index: -1;
+		background-color: greenyellow;
 	}
 	.slot-content-img {
 		position: absolute;
 		flex-wrap: wrap;
-
 		width: 626rpx;
 		height: 256rpx;
 		top: 290rpx;
 		left: 50%;
 		transform: translateX(-50%);
+		background-color: pink;
 	}
 	.slot-btn {
 		margin: 60rpx auto 0;
@@ -754,7 +770,22 @@ export default {
 }
 
 .play-intro {
+	position: relative;
 	padding: 48rpx 20rpx;
+	.play-record {
+		position: absolute;
+		top: 10rpx;
+		right: 10rpx;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		z-index: 100;
+		img {
+			width: 78rpx;
+			height: 78rpx;
+			padding: 6rpx;
+		}
+	}
 }
 .record-btn {
 	width: 220rpx;

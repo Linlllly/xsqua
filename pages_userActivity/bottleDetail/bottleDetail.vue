@@ -30,7 +30,7 @@
 						"
 						:urls="aImgList"
 						singleSize="300rpx"
-						multipleSize="120rpx"
+						multipleSize="140rpx"
 					></u-album>
 					<div
 						class="ua-box"
@@ -44,7 +44,7 @@
 						<u-album
 							:urls="aImgList"
 							singleSize="300rpx"
-							multipleSize="140rpx"
+							multipleSize="180rpx"
 							rowCount="2"
 						></u-album>
 					</div>

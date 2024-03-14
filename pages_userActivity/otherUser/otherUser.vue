@@ -44,7 +44,7 @@
 						<div class="info">
 							<div class="name-kj">
 								<div class="name">{{ username }}</div>
-								<div class="armor-box" @click="toCostMoney">
+								<div class="armor-box">
 									<img
 										class="armor-img"
 										:src="

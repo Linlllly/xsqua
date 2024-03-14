@@ -1,14 +1,10 @@
 <template>
 	<div class="pages">
-		<img
-			class="bg-img"
-			src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_78b9edc34a.png"
-			alt=""
-		/>
+		<img class="bg-img" src="../cm_static/kuijia.png" alt="" />
 		<img
 			class="send-top-img"
 			@click="showSendList = true"
-			src="../cm_static/send-list.png"
+			src="../../static/send-list.png"
 			alt=""
 		/>
 		<div class="cost">
@@ -29,7 +25,7 @@
 			@open="openSendList"
 			bgColor="rgba(255,255,255,0.8)"
 		>
-			<img class="send-img" src="../cm_static/send-list.png" alt="" />
+			<img class="send-img" src="../../static/send-list.png" alt="" />
 			<div class="send-state">
 				<div
 					v-for="(i, index) in 2"
