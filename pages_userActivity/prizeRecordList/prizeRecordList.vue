@@ -8,34 +8,22 @@
 			@query="getMyPrize"
 			:empty-view-img-style="{ width: 0, height: 0 }"
 		>
-			<div
-				class="content-list"
-				v-for="(i, index) in recordList"
-				:key="i.id"
-			>
-				<div class="content-info">
-					恭喜您抽中了{{
-						i.prizeInfo.type === 1
-							? i.prizeInfo.name
-							: i.prizeInfo.starTimes * i.starNum + '星星'
-					}}
+			<div class="content-list" v-for="(i, index) in recordList" :key="i.id">
+				<div v-if="i.prizeInfo && i.prizeInfo.id" class="content-info">
+					恭喜您抽中了{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : (i.prizeInfo.starTimes + 1) * i.starNum + '星星' }}
 				</div>
+				<div v-else class="content-info">什么都没有抽中...</div>
 				<div
-					v-if="i.prizeInfo.type === 1 && i.isReceive === 0"
+					v-if="i.prizeInfo && i.prizeInfo.type === 1 && i.isReceive === 0"
 					class="content-btn2"
 					@click="
-						showGetMaterial = true
-						prizeInfo = i.prizeInfo
+						showGetMaterial = true;
+						prizeInfo = i.prizeInfo;
 					"
 				>
 					未填写
 				</div>
-				<div
-					v-if="i.prizeInfo.type === 1 && i.isReceive === 1"
-					class="content-btn"
-				>
-					已填写
-				</div>
+				<div v-if="i.prizeInfo && i.prizeInfo.type === 1 && i.isReceive === 1" class="content-btn">已填写</div>
 			</div>
 		</z-paging>
 		<!-- 填写收货信息弹窗 -->
@@ -48,29 +36,9 @@
 			confirmColor="#e89406"
 		>
 			<view class="slot-content">
-				<u--form
-					labelPosition="left"
-					:model="materialForm"
-					ref="materialForm"
-					id="materialForm"
-					:rules="rules"
-					labelWidth="120rpx"
-					:labelStyle="{ color: '#515151' }"
-				>
-					<u-form-item label="姓名" prop="name"
-						><u-input
-							border="none"
-							placeholder="姓名"
-							v-model="materialForm.name"
-						></u-input
-					></u-form-item>
-					<u-form-item label="联系电话" prop="mobile"
-						><u-input
-							border="none"
-							placeholder="联系电话"
-							v-model="materialForm.mobile"
-						></u-input
-					></u-form-item>
+				<u--form labelPosition="left" :model="materialForm" ref="materialForm" id="materialForm" :rules="rules" labelWidth="120rpx" :labelStyle="{ color: '#515151' }">
+					<u-form-item label="姓名" prop="name"><u-input border="none" placeholder="姓名" v-model="materialForm.name"></u-input></u-form-item>
+					<u-form-item label="联系电话" prop="mobile"><u-input border="none" placeholder="联系电话" v-model="materialForm.mobile"></u-input></u-form-item>
 					<u-form-item label="收货地址" prop="address">
 						<u--textarea
 							placeholder="收货地址"
@@ -90,7 +58,7 @@
 </template>
 
 <script>
-import { prizeRecord, receive } from '@/api/game.js'
+import { prizeRecord, receive } from '@/api/game.js';
 
 export default {
 	data() {
@@ -100,9 +68,7 @@ export default {
 			showGetMaterial: false,
 			materialForm: { name: '', mobile: '', address: '' },
 			rules: {
-				name: [
-					{ required: true, message: '请输入姓名', trigger: 'blur' }
-				],
+				name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
 				mobile: [
 					{
 						required: true,
@@ -123,24 +89,24 @@ export default {
 					}
 				]
 			}
-		}
+		};
 	},
 	methods: {
 		getMyPrize(page, limit) {
 			prizeRecord({ page, limit })
 				.then((res) => {
-					console.log('我的中奖记录')
-					console.log(res)
+					console.log('我的中奖记录');
+					console.log(res);
 					if (res.code !== 0) {
-						uni.$u.toast(res.msg)
-						return
+						uni.$u.toast(res.msg);
+						return;
 					}
-					this.recordList = res.result.records || []
-					this.$refs.paging.complete(res.result.records)
+					this.recordList = res.result.records || [];
+					this.$refs.paging.complete(res.result.records);
 				})
 				.catch((res) => {
-					this.$refs.paging.complete(false)
-				})
+					this.$refs.paging.complete(false);
+				});
 		},
 		//实物
 		confirmGetMaterial() {
@@ -152,21 +118,21 @@ export default {
 						...this.materialForm
 					}).then((res) => {
 						if (res.code !== 0) {
-							uni.$u.toast(res.msg)
-							return
+							uni.$u.toast(res.msg);
+							return;
 						}
-						uni.$u.toast('信息已提交，等待后台发货')
-						this.showGetMaterial = false
-						this.prizeInfo = null
-						this.$refs.paging.reload()
-					})
+						uni.$u.toast('信息已提交，等待后台发货');
+						this.showGetMaterial = false;
+						this.prizeInfo = null;
+						this.$refs.paging.reload();
+					});
 				})
 				.catch((errors) => {
-					uni.$u.toast('校验失败')
-				})
+					uni.$u.toast('校验失败');
+				});
 		}
 	}
-}
+};
 </script>
 
 <style lang="less" scoped>

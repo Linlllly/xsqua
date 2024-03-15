@@ -49,3 +49,7 @@ export function bottleRecord(data) {
 export function commentBottle(data) {
 	return post('/app/bottleRecord/comment', data)
 }
+//是今天捡的第几次瓶子
+export function todayCount(data) {
+	return get('/app/bottleRecord/todayCount', data)
+}
