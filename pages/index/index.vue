@@ -1,8 +1,16 @@
 <template>
 	<div class="pages">
 		<div class="slot-machine">
-			<img class="slot-bg-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/2.png" alt="" />
-			<img class="slot-content-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/5.png" alt="" />
+			<img
+				class="slot-bg-img"
+				src="https://www.zairongyifang.com:8080/filePath/resource/xkj/2.png"
+				alt=""
+			/>
+			<img
+				class="slot-content-img"
+				src="https://www.zairongyifang.com:8080/filePath/resource/xkj/5.png"
+				alt=""
+			/>
 			<div style="width: 100%; height: 330rpx"></div>
 			<SlotMachine
 				v-show="lookSlotMachine"
@@ -26,35 +34,80 @@
 				<div>中奖记录</div>
 			</div>
 		</div>
-		<div class="record-btn">中奖记录/zitixuyhuan</div>
+		<div class="record-btn">中奖榜单</div>
 		<div class="record-list">
-			<div class="record" v-for="i in allPrizeRecordList" :key="i">有用户抽中了{{ i.prizeInfo.name }}</div>
+			<div class="record" v-for="i in allPrizeRecordList" :key="i">
+				有用户抽中了{{ i.prizeInfo.name }}
+			</div>
 			<div class="record">....</div>
 		</div>
 		<!-- 兑换 -->
-		<img class="get-gift" @click="showClaim = true" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_d3adf08b71.png" alt="" />
+		<img
+			class="get-gift"
+			@click="showClaim = true"
+			src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_d807573bf8.png"
+			alt=""
+		/>
 
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
 		<div class="who-are-you">
-			<image src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_1c235c1dee.png" mode="widthFix" style="width: 100%" @click="toOtherUser()"></image>
+			<image
+				src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_1c235c1dee.png"
+				mode="widthFix"
+				style="width: 100%"
+				@click="toOtherUser()"
+			></image>
 		</div>
 		<div class="area-all">
-			<image src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_25cb83852d.png" mode="widthFix" style="width: 100%"></image>
+			<image
+				src="https://www.zairongyifang.com:8080/filePath/app/202311/compressed_25cb83852d.png"
+				mode="widthFix"
+				style="width: 100%"
+			></image>
 
-			<div class="city-select" v-for="i in areaList" :key="i.cateId" @click="goCitySelect(i.cateId)"></div>
+			<div
+				class="city-select"
+				v-for="i in areaList"
+				:key="i.cateId"
+				@click="goCitySelect(i.cateId)"
+			></div>
 		</div>
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
-			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
+			<u-swiper
+				:list="list1"
+				keyName="img"
+				height="220rpx"
+				:interval="5000"
+				:duration="400"
+				:circular="true"
+				@click="goOwnPageOrThirdParty()"
+			></u-swiper>
 		</div>
 		<!-- 确认兑换 -->
-		<u-popup :show="showClaim" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
+		<u-popup
+			:show="showClaim"
+			:round="20"
+			:closeOnClickOverlay="false"
+			mode="center"
+			:safeAreaInsetBottom="false"
+		>
 			<div class="pop-borders pop-claim">
 				<div class="claim-text">送出25万颗星星兑换茅台</div>
 				<div class="pop-btn-box">
-					<div class="pop-oks claim-oks" @click="getExchangeMaoTaiCheck">确定</div>
-					<div class="pop-cencels claim-cencels" @click="showClaim = false">取消</div>
+					<div
+						class="pop-oks claim-oks"
+						@click="getExchangeMaoTaiCheck"
+					>
+						确定
+					</div>
+					<div
+						class="pop-cencels claim-cencels"
+						@click="showClaim = false"
+					>
+						取消
+					</div>
 				</div>
 			</div>
 		</u-popup>
@@ -68,9 +121,30 @@
 			confirmColor="#e89406"
 		>
 			<view class="slot-content">
-				<u--form labelPosition="left" :model="materialForm" ref="materialForm" id="materialForm" :rules="rules" labelWidth="120rpx" :labelStyle="{ color: '#515151' }">
-					<u-form-item label="姓名" prop="name"><u-input border="none" placeholder="姓名" v-model="materialForm.name"></u-input></u-form-item>
-					<u-form-item label="联系电话" prop="mobile"><u-input border="none" placeholder="联系电话" v-model="materialForm.mobile"></u-input></u-form-item>
+				<u--form
+					labelPosition="left"
+					:model="materialForm"
+					ref="materialForm"
+					id="materialForm"
+					:rules="rules"
+					labelWidth="120rpx"
+					:labelStyle="{ color: '#515151' }"
+				>
+					<u-form-item label="姓名" prop="name"
+						><u-input
+							border="none"
+							placeholder="姓名"
+							v-model="materialForm.name"
+						></u-input
+					></u-form-item>
+					<u-form-item label="联系电话" prop="mobile"
+						><u-input
+							:type="number"
+							border="none"
+							placeholder="联系电话"
+							v-model="materialForm.mobile"
+						></u-input
+					></u-form-item>
 					<u-form-item label="收货地址" prop="address">
 						<u--textarea
 							placeholder="收货地址"
@@ -87,7 +161,13 @@
 			</view>
 		</u-modal>
 		<!-- 下注弹窗 -->
-		<u-popup :show="showBotting" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
+		<u-popup
+			:show="showBotting"
+			:round="20"
+			:closeOnClickOverlay="false"
+			mode="center"
+			:safeAreaInsetBottom="false"
+		>
 			<div class="pop-borders pop-botting">
 				<img class="botting-img" src="../../static/money.png" alt="" />
 				<u--input
@@ -108,55 +188,114 @@
 					<div
 						class="pop-oks claim-oks"
 						@click="
-							showBotting = false;
-							startCallBack();
+							showBotting = false
+							startCallBack()
 						"
 					>
 						下注
 					</div>
-					<div class="pop-cencels claim-cencels" @click="showBotting = false">取消</div>
+					<div
+						class="pop-cencels claim-cencels"
+						@click="showBotting = false"
+					>
+						取消
+					</div>
 				</div>
 			</div>
 		</u-popup>
 		<!-- 中奖弹窗 -->
-		<u-popup :show="showGetGift" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
-			<div class="pop-borders" :class="prizeInfo ? 'pop-prize' : 'pop-prize-no'">
-				<img class="prize-top-img" :src="prizeInfo ? '../../static/prize-has.png' : '../../static/prize-no-has.png'" alt="" />
-				<div class="prize-title" :style="{ color: prizeInfo ? '#F86200' : '#3E3E3E' }">
+		<u-popup
+			:show="showGetGift"
+			:round="20"
+			:closeOnClickOverlay="false"
+			mode="center"
+			:safeAreaInsetBottom="false"
+		>
+			<div
+				class="pop-borders"
+				:class="prizeInfo ? 'pop-prize' : 'pop-prize-no'"
+			>
+				<img
+					class="prize-top-img"
+					:src="
+						prizeInfo
+							? '../../static/prize-has.png'
+							: '../../static/prize-no-has.png'
+					"
+					alt=""
+				/>
+				<div
+					class="prize-title"
+					:style="{ color: prizeInfo ? '#F86200' : '#3E3E3E' }"
+				>
 					{{ prizeInfo ? '恭喜您抽中' : '未中奖' }}
 				</div>
-				<img v-if="prizeInfo && prizeInfo.type === 1" class="prize-has-img" src="../../static/money.png" alt="" />
-				<div v-if="prizeInfo && prizeInfo.type !== 1" class="prize-text">{{ startNum * (1 + prizeInfo.starTimes) }}星星</div>
-				<img v-if="!prizeInfo || !prizeInfo.id" class="prize-no-img" src="../../static/prize-no-img.png" alt="" />
-				<div v-if="!prizeInfo.id" class="prize-no-text">很遗憾大奖与您擦肩而过</div>
+				<img
+					v-if="prizeInfo && prizeInfo.type === 1"
+					class="prize-has-img"
+					src="../../static/money.png"
+					alt=""
+				/>
+				<div
+					v-if="prizeInfo && prizeInfo.type !== 1"
+					class="prize-text"
+				>
+					{{ startNum * (1 + prizeInfo.starTimes) }}星星
+				</div>
+				<img
+					v-if="!prizeInfo || !prizeInfo.id"
+					class="prize-no-img"
+					src="../../static/prize-no-img.png"
+					alt=""
+				/>
+				<div v-if="!prizeInfo.id" class="prize-no-text">
+					很遗憾大奖与您擦肩而过
+				</div>
 				<div class="pop-btn-box">
 					<div class="pop-cencels" @click="confirmGetGift">确定</div>
 				</div>
-				<img class="prize-bottom-img prize-close-img" src="../../static/prize-close.png" alt="" />
+				<img
+					class="prize-bottom-img prize-close-img"
+					src="../../static/prize-close.png"
+					alt=""
+				/>
 			</div>
 		</u-popup>
 	</div>
 </template>
 
 <script>
-import { banner, randomRoom } from '@/api/index.js';
-import { prize, draw, prizeRecord, allPrizeRecord, receive, exchangeMaoTaiCheck, exchangeMaoTai } from '@/api/game.js';
-import { list } from '@/api/areaSelect.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
-import RankingList from '@/components/rankingList/rankingList.vue';
-import SlotMachine from '@/components/@lucky-canvas/uni/slot-machine';
-import cellGroup from '../../uni_modules/uview-ui/libs/config/props/cellGroup';
+import { banner, randomRoom } from '@/api/index.js'
+import {
+	prize,
+	draw,
+	prizeRecord,
+	allPrizeRecord,
+	receive,
+	exchangeMaoTaiCheck,
+	exchangeMaoTai
+} from '@/api/game.js'
+import { list } from '@/api/areaSelect.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
+import RankingList from '@/components/rankingList/rankingList.vue'
+import SlotMachine from '@/components/@lucky-canvas/uni/slot-machine'
+import cellGroup from '../../uni_modules/uview-ui/libs/config/props/cellGroup'
 export default {
 	computed: {
 		...mapState(['uid', 'house']),
 		lookSlotMachine() {
 			if (!this.firstLookSlotMachine) {
-				return true;
+				return true
 			} else {
-				if (this.showClaim || this.showGetMaterial || this.showBotting || this.showGetGift) {
-					return false;
+				if (
+					this.showClaim ||
+					this.showGetMaterial ||
+					this.showBotting ||
+					this.showGetGift
+				) {
+					return false
 				} else {
-					return true;
+					return true
 				}
 			}
 		}
@@ -168,14 +307,11 @@ export default {
 	data() {
 		return {
 			blocks: [],
-			slots: [
-				{ order: [0], direction: 1 },
-				{ order: [1], direction: -1 },
-				{ order: [2], direction: 1 }
-			],
+			slots: null,
+			linshiSlots: null,
 			defaultConfig: {
-				rowSpacing: '25px',
-				colSpacing: '20px'
+				rowSpacing: '22px',
+				colSpacing: '22px'
 			},
 			//地区列表
 			areaList: [],
@@ -199,7 +335,9 @@ export default {
 			firstLookSlotMachine: true,
 			prizeToAddress: false,
 			rules: {
-				name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+				name: [
+					{ required: true, message: '请输入姓名', trigger: 'blur' }
+				],
 				mobile: [
 					{
 						required: true,
@@ -220,72 +358,94 @@ export default {
 					}
 				]
 			}
-		};
+		}
 	},
 
 	onLoad() {
-		this.getAllPrizeRecord();
-		this.getPrizeList();
-		this.getBanner();
-		this.getList();
+		this.getPrizeList()
+		this.getAllPrizeRecord()
+		this.getBanner()
+		this.getList()
 	},
 	methods: {
 		...mapMutations(['updateUid']),
 		getMyPrize() {
 			prizeRecord({ page: 1, limit: 10 }).then((res) => {
-				console.log('我的中奖记录');
-				console.log(res);
+				console.log('我的中奖记录')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-			});
+			})
 		},
 		getExchangeMaoTaiCheck() {
 			exchangeMaoTaiCheck().then((res) => {
-				console.log('判断是否有资格兑换');
-				console.log(res);
+				console.log('判断是否有资格兑换')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.showClaim = false;
-				this.showGetMaterial = true;
-				this.materialForm = { name: '', mobile: '', address: '' };
-			});
+				this.showClaim = false
+				this.showGetMaterial = true
+				this.materialForm = { name: '', mobile: '', address: '' }
+			})
 		},
 		getAllPrizeRecord() {
-			allPrizeRecord({ page: 1, limit: 3 }).then((res) => {
-				console.log('获取所有抽奖的人');
-				console.log(res);
+			allPrizeRecord({ page: 1, limit: 30 }).then((res) => {
+				console.log('获取所有抽奖的人')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.allPrizeRecordList = res.result.records;
-			});
+				this.allPrizeRecordList = res.result.records
+					.filter((record) => record.prizeInfo)
+					.slice(0, 3)
+			})
 		},
 		getPrizeList() {
 			prize().then((res) => {
-				console.log('获取奖品列表');
-				console.log(res);
+				console.log('获取奖品列表')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.prizeList = res.result;
+				this.prizeList = res.result
+				const length = this.prizeList.length
+				this.slots = [
+					{
+						order: Array.from({ length: length }, (_, i) => i),
+						direction: 1
+					},
+					{
+						order: Array.from({ length: length }, (_, i) => i),
+						direction: -1
+					},
+					{
+						order: Array.from({ length: length }, (_, i) => i),
+						direction: 1
+					}
+				]
+				this.slots[1].order.push(this.slots[1].order.shift())
+				this.slots[2].order.push(
+					this.slots[2].order.shift(),
+					this.slots[2].order.shift()
+				)
 				this.prizes = this.prizeList.map((prize, index) => {
 					const image = {
 						width: '80%',
 						height: '80%',
-						top: '15%',
+						top: '8%',
 						src: prize.imageUrl
-					};
+					}
 					return {
 						imgs: [image]
-					};
-				});
-			});
+					}
+				})
+			})
 		},
 		//实物
 		confirmGetMaterial() {
@@ -297,140 +457,168 @@ export default {
 								id: this.prizeInfo.id,
 								...this.materialForm
 						  })
-						: exchangeMaoTai(this.materialForm);
+						: exchangeMaoTai(this.materialForm)
 					request.then((res) => {
 						if (res.code !== 0) {
-							uni.$u.toast(res.msg);
-							return;
+							uni.$u.toast(res.msg)
+							return
 						}
-						uni.$u.toast('信息已提交，等待后台发货');
-						this.showGetMaterial = false;
-						this.prizeToAddress = false;
-						this.prizeInfo = null;
-					});
+						uni.$u.toast('信息已提交，等待后台发货')
+						this.showGetMaterial = false
+						this.prizeToAddress = false
+						this.prizeInfo = null
+					})
 				})
 				.catch((errors) => {
-					uni.$u.toast('校验失败');
-				});
+					uni.$u.toast('校验失败')
+				})
 		},
 		//下注/填写地址
 		botting() {
 			if (this.prizeToAddress) {
-				this.showGetMaterial = true;
-				return;
+				this.showGetMaterial = true
+				return
 			}
-			this.showBotting = true;
+			this.showBotting = true
 		},
 		//抽奖开始和结束
 		startCallBack() {
-			if (typeof this.startNum === 'undefined' || !Number.isInteger(this.startNum) || this.startNum < 5) {
-				uni.$u.toast('请输入大于等于5的正整数');
-				return;
+			if (
+				typeof this.startNum === 'undefined' ||
+				!Number.isInteger(this.startNum) ||
+				this.startNum < 5
+			) {
+				uni.$u.toast('请输入大于等于5的正整数')
+				return
 			}
 			draw({ num: this.startNum }).then((res) => {
-				console.log('点击抽奖');
-				console.log(res);
+				console.log('点击抽奖')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.firstLookSlotMachine = false;
-				this.$refs.myLucky.play();
-				this.prizeInfo = res.result.prizeInfo;
-				this.prizeToAddress = res.result.prizeInfo?.type === 1 ? true : false;
-				let results;
+				this.firstLookSlotMachine = false
+				this.$refs.myLucky.play()
+				this.prizeInfo = res.result.prizeInfo
+				this.prizeToAddress =
+					res.result.prizeInfo?.type === 1 ? true : false
+				let results
 				if (res.result.prizeInfo?.id) {
-					const index = this.prizeList.findIndex((prize) => prize.id === res.result.prizeInfo.id);
-					results = Array.from({ length: this.prizeList.length }, () => index);
+					const index = this.prizeList.findIndex(
+						(prize) => prize.id === res.result.prizeInfo.id
+					)
+					results = Array.from(
+						{ length: this.prizeList.length },
+						() => index
+					)
 				} else {
-					results = this.generatePrize();
+					results = this.generatePrize()
 				}
-				this.$refs.myLucky.stop(results);
-			});
+				console.log('results', results)
+				//将中奖结果赋值给slot
+				this.$refs.myLucky.stop(results)
+			})
 		},
 		generatePrize() {
 			let arr = Array.from({ length: this.prizeList.length }, () => {
-				return Math.floor(Math.random() * this.prizeList.length);
-			});
+				return Math.floor(Math.random() * this.prizeList.length)
+			})
 			if (new Set(arr).size === 1) {
-				arr[arr.length - 1] = arr[arr.length - 1] === arr.length - 1 ? arr[arr.length - 1] - 1 : arr[arr.length - 1] + 1;
+				arr[arr.length - 1] =
+					arr[arr.length - 1] === arr.length - 1
+						? arr[arr.length - 1] - 1
+						: arr[arr.length - 1] + 1
 			}
-			return arr;
+			return arr
 		},
 		endCallBack(prize) {
-			this.getAllPrizeRecord();
-			this.showGetGift = true;
+			this.getAllPrizeRecord()
+			this.showGetGift = true
 		},
 		confirmGetGift() {
-			this.showGetGift = false;
+			this.showGetGift = false
 			if (this.prizeToAddress) {
-				this.showGetMaterial = true;
+				this.showGetMaterial = true
 			}
 		},
 		async getList() {
-			let res = await list();
-			console.log('1.一级居住地');
-			console.log(res);
+			let res = await list()
+			console.log('1.一级居住地')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.areaList = res.page.list;
+			this.areaList = res.page.list
 		},
 		goCitySelect(a) {
 			uni.navigateTo({
-				url: '../citySelect/citySelect' + '?cateId=' + a + '&change=' + false + '&lookHouse=' + true
-			});
+				url:
+					'../citySelect/citySelect' +
+					'?cateId=' +
+					a +
+					'&change=' +
+					false +
+					'&lookHouse=' +
+					true
+			})
 		},
 		async getBanner() {
-			let res = await banner({ type: 4 });
-			console.log('请求banner图');
+			let res = await banner({ type: 4 })
+			console.log('请求banner图')
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			console.log(res);
-			this.list1 = res.result;
+			console.log(res)
+			this.list1 = res.result
 		},
 		toMeetingRoom() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/meetingRoom/meetingRoom'
-			});
+			})
 		},
 		toAreaSelect() {
 			uni.navigateTo({
 				url: '../areaSelect/areaSelect?lookHouse=' + true
-			});
+			})
 		},
 		toRankingList() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/rankingList/rankingList'
-			});
+			})
 		},
 		toPrizeRecordList() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/prizeRecordList/prizeRecordList'
-			});
+			})
 		},
 		toOtherUser() {
 			randomRoom().then((res) => {
-				console.log('获取随机房间');
-				console.log(res);
+				console.log('获取随机房间')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
 				if (res.room.uid === this.uid) {
 					//自己
 					uni.switchTab({
 						url: '../../pages/user/user'
-					});
+					})
 				} else {
 					uni.navigateTo({
-						url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + res.room.cateId + '&ouid=' + res.room.uid + '&index=' + true
-					});
+						url:
+							'../../pages_userActivity/otherUser/otherUser?ocateId=' +
+							res.room.cateId +
+							'&ouid=' +
+							res.room.uid +
+							'&index=' +
+							true
+					})
 				}
-			});
+			})
 		},
 		goOwnPageOrThirdParty(index) {
 			if (this.list1[index].linkType === 1) {
@@ -439,30 +627,31 @@ export default {
 					path: this.list1[index].url,
 					envVersion: 'release',
 					success(res) {
-						console.log('跳转小程序成功！', res);
+						console.log('跳转小程序成功！', res)
 					}
-				});
+				})
 			} else if (this.list1[index].linkType === 0) {
 				if (
 					this.list1[index].url === '../pages/user/user' ||
 					this.list1[index].url === '../pages/index/index' ||
 					this.list1[index].url === '../pages/index2/index2' ||
-					this.list1[index].url === '../pages/currentBottle/currentBottle'
+					this.list1[index].url ===
+						'../pages/currentBottle/currentBottle'
 				) {
 					uni.switchTab({
 						url: this.list1[index].url
-					});
+					})
 				} else {
 					uni.navigateTo({
 						url: this.list1[index].url
-					});
+					})
 				}
 			} else {
-				return;
+				return
 			}
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -614,6 +803,7 @@ export default {
 	}
 }
 .record-btn {
+	font-family: 'MyFont1';
 	width: 220rpx;
 	height: 58rpx;
 	background: #fe2f25;
@@ -621,6 +811,8 @@ export default {
 	border: 2rpx solid #707070;
 	color: #ffffff;
 	text-align: center;
+	font-size: 36rpx;
+	line-height: 1.58;
 	margin: 22rpx auto;
 }
 .record-list {

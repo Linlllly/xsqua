@@ -1,17 +1,26 @@
 <template>
-	<!-- 图片还没更新 -->
 	<div class="Section0" style="margin: 20rpx 26rpx">
 		<p class="MsoNormal" align="center" style="text-align: center">
 			<b>
-				<span style="font-family: 等线; font-weight: bold; font-size: 18pt">
+				<span
+					style="
+						font-family: 等线;
+						font-weight: bold;
+						font-size: 18pt;
+					"
+				>
 					<font face="等线">X自由空间介绍</font>
 				</span>
 			</b>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">“X自由空间”的虚拟身份通讯，满足了微信用户对于安全保障，私密交流的特殊需求。以天下人</font>
-				<font face="宋体" style="font-weight: bold">“更轻松的安全交流”</font>
+				<font face="宋体"
+					>“X自由空间”的虚拟身份通讯，满足了微信用户对于安全保障，私密交流的特殊需求。以天下人</font
+				>
+				<font face="宋体" style="font-weight: bold"
+					>“更轻松的安全交流”</font
+				>
 				<font face="宋体">
 					为目标，让每个微信用户都拥有自己的专属房间为核心，以微信朋友分层管理为基础。微信用户进入空间无需下载，不留存任何个人身份信息，个性化的虚拟房间作为身份，完全以虚拟房间进行交流、展示、表达，提供一键删除双方手机聊天记录、三种情形三种密码设置等功能，可以满足熟人交往和陌生人交流的安全需求。
 				</font>
@@ -19,7 +28,13 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">一、</font>
 					<font face="宋体">“我的房间”板块功能介绍：</font>
 				</span>
@@ -27,15 +42,25 @@
 		</p>
 		<p class="p" style="margin-top: 10rpx; margin-bottom: 10rpx">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20241/compressed_063d9a2187.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_510d83eb5d.png"
 				style="width: 100%"
 				mode="widthFix"
-				@click="previewImg('https://www.zairongyifang.com:8080/filePath/app/20241/compressed_063d9a2187.png')"
+				@click="
+					previewImg(
+						'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_510d83eb5d.png'
+					)
+				"
 			></image>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">1、无痕私聊：</font>
 				</span>
 			</b>
@@ -47,7 +72,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">2、空间密钥：</font>
 				</span>
 			</b>
@@ -59,7 +90,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">3、私密档案：</font>
 				</span>
 			</b>
@@ -71,7 +108,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">4、空间介绍：</font>
 				</span>
 			</b>
@@ -81,27 +124,49 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">5、随心发布：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">根据您的需求可以选择发布图文或者视频在“随手文字”或者“好玩的手艺”，则会推送在相应的板块被更多用户看到，加速用户了解你，认识你，结交你。</font>
+				<font face="宋体"
+					>根据您的需求可以选择发布图文或者视频在“随手文字”或者“好玩的手艺”，则会推送在相应的板块被更多用户看到，加速用户了解你，认识你，结交你。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">6、空间搜索：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font>
+				<font face="宋体"
+					>可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">7、邀请微友：</font>
 				</span>
 			</b>
@@ -113,34 +178,62 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">8、微信通知：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font>
+				<font face="宋体"
+					>如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">9、兑换安全盔甲：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">查看超级安全盔甲拥有的权限，用银子兑换超级盔甲，如果没有银子可以充值1元获得100两银子，再兑换。</font>
+				<font face="宋体"
+					>查看超级安全盔甲拥有的权限，用银子兑换超级盔甲，如果没有银子可以充值1元获得100两银子，再兑换。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">10、设置：</font>
 				</span>
 			</b>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">a、超级安全盔甲：</font>
 				</span>
 			</b>
@@ -166,16 +259,22 @@
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">；</font>
 			</span>
-			<span style="font-family: 宋体; font-size: 14pt">b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</span>
+			<span style="font-family: 宋体; font-size: 14pt"
+				>b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</span
+			>
 		</p>
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">④享有是否开启闭关修炼的权利（所有动态内容仅自己可见）</font>
+				<font face="宋体"
+					>④享有是否开启闭关修炼的权利（所有动态内容仅自己可见）</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑤拥有拉黑用户的权利，则该用户不可以再与你私聊和关注你等操作；</font>
+				<font face="宋体"
+					>⑤拥有拉黑用户的权利，则该用户不可以再与你私聊和关注你等操作；</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
@@ -191,17 +290,31 @@
 		<p class="17" style="margin-left: 62pt; text-indent: 0pt"></p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">b、联系管家：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font>
+				<font face="宋体"
+					>用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">11、关注/粉丝：</font>
 				</span>
 			</b>
@@ -213,7 +326,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">12、星星：</font>
 				</span>
 			</b>
@@ -225,7 +344,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">13、更换背景：</font>
 				</span>
 			</b>
@@ -235,7 +360,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">14、更换头像：</font>
 				</span>
 			</b>
@@ -245,7 +376,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">15、设置个性签名：</font>
 				</span>
 			</b>
@@ -255,7 +392,13 @@
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">16、VIP等级：</font>
 				</span>
 			</b>
@@ -263,30 +406,50 @@
 				<font face="宋体">1等级分为白银、黄金、黑金。</font>
 			</span>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">白银vip：当用户购买安全盔甲的金额累计达到10元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升黄金VIP。</font>
+				<font face="宋体"
+					>白银vip：当用户购买安全盔甲的金额累计达到10元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升黄金VIP。</font
+				>
 			</span>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">黄金vip：当用户购买安全盔甲的金额累计达到100元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升黄金VIP。</font>
+				<font face="宋体"
+					>黄金vip：当用户购买安全盔甲的金额累计达到100元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升黄金VIP。</font
+				>
 			</span>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">黑金VIp：当用户购买安全盔甲的金额累计达到1000元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升终身VIP</font>
+				<font face="宋体"
+					>黑金VIp：当用户购买安全盔甲的金额累计达到1000元时升一级（购买金额倍数对应升级倍数）;当升到12级后，则荣升终身VIP</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">二、“欢喜广场”板块功能介绍：</font>
 				</span>
 			</b>
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1、畅玩水果拼盘，赢取更多星星，换取“飞天茅台500ml”</font>
+				<font face="宋体"
+					>1、畅玩水果拼盘，赢取更多星星，换取“飞天茅台500ml”</font
+				>
 			</span>
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">2、水果拼盘：</font>
 				</span>
 			</b>
@@ -299,27 +462,49 @@
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">3、开启空间巡游：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">访问七个区域，找到对应的房间号，点击头像进入ta的房间，可以关注或私聊建立联系。</font>
+				<font face="宋体"
+					>访问七个区域，找到对应的房间号，点击头像进入ta的房间，可以关注或私聊建立联系。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">4、TA是谁：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">随机分配陌生用户，帮助微信用户拓宽交友渠道，促成更多情感关系。</font>
+				<font face="宋体"
+					>随机分配陌生用户，帮助微信用户拓宽交友渠道，促成更多情感关系。</font
+				>
 			</span>
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">5、富豪榜：</font>
 				</span>
 			</b>
@@ -332,14 +517,22 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">三、“随手文字”板块功能介绍：</font>
 				</span>
 			</b>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">会随机的推送用户发布的动态内容，用户有感而发，随便写两句，吐槽、赞美都行！</font>
+				<font face="宋体"
+					>会随机的推送用户发布的动态内容，用户有感而发，随便写两句，吐槽、赞美都行！</font
+				>
 				<font face="宋体">
 					X空间遵从的是最淳朴的推送模式，不会收集用户的浏览习惯，给用户贴标签，然后给用户推送用户习惯性爱看的内容。每一个在“随手文字”展现出来的内容都代表着一个鲜活的个体，都值得推送给所有人认识。是否与作者取得联系并成为好友的关键是通过文字，交友更纯粹直接！平台将选择优秀的连载内容，帮助作者将其装订成册并出版！
 				</font>
@@ -347,7 +540,13 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">四、</font>
 					<font face="宋体">“漂流瓶”板块功能介绍：</font>
 				</span>
@@ -355,7 +554,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1、每日赠送一次免费捡漂流瓶的机会，后续参与须送出5颗星星。</font>
+				<font face="宋体"
+					>1、每日赠送一次免费捡漂流瓶的机会，后续参与须送出5颗星星。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -367,7 +568,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3、免费投放漂流瓶，可以发布文字、图片、视频、图文、文字+视频。（表达愿望，展示自己，缘分来了挡不住！）、（建议投放视频不超过15秒）</font>
+				<font face="宋体"
+					>3、免费投放漂流瓶，可以发布文字、图片、视频、图文、文字+视频。（表达愿望，展示自己，缘分来了挡不住！）、（建议投放视频不超过15秒）</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -379,13 +582,21 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">5、消息提示：当您投放的瓶子被人捡到，并收到对方的回复，则会有红点提示，方便您快速收到提示，并可以点击查询对方的回复内容，做出回复的动作！</font>
+				<font face="宋体"
+					>5、消息提示：当您投放的瓶子被人捡到，并收到对方的回复，则会有红点提示，方便您快速收到提示，并可以点击查询对方的回复内容，做出回复的动作！</font
+				>
 			</span>
 		</p>
 		<div style="height: 40rpx"></div>
 		<p class="MsoNormal" align="center" style="text-align: center">
 			<b>
-				<span style="font-family: 华文宋体; font-weight: bold; font-size: 15pt">
+				<span
+					style="
+						font-family: 华文宋体;
+						font-weight: bold;
+						font-size: 15pt;
+					"
+				>
 					<font face="华文宋体">X自由空间用户行为规范</font>
 				</span>
 			</b>
@@ -400,12 +611,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">一、涉政有害（政治敏感）</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -417,7 +640,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布、传播含有危害国家及社会安全的信息，包括但不限于：</font>
+				<font face="宋体"
+					>1.1
+					发布、传播含有危害国家及社会安全的信息，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -427,7 +653,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</font>
+				<font face="宋体"
+					>危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -437,42 +665,58 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">煽动民族仇恨、民族歧视，破坏民族团结的；</font>
+				<font face="宋体"
+					>煽动民族仇恨、民族歧视，破坏民族团结的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">破坏国家宗教政策，宣扬邪教和封建迷信的；</font>
+				<font face="宋体"
+					>破坏国家宗教政策，宣扬邪教和封建迷信的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">散布谣言，扰乱社会秩序，破坏社会稳定的；</font>
+				<font face="宋体"
+					>散布谣言，扰乱社会秩序，破坏社会稳定的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</font>
+				<font face="宋体"
+					>散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">宣扬恐怖主义、极端主义或者煽动实施恐怖活动、极端主义活动的；</font>
+				<font face="宋体"
+					>宣扬恐怖主义、极端主义或者煽动实施恐怖活动、极端主义活动的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">煽动非法集会、结社、游行、示威、聚众扰乱社会秩序；</font>
+				<font face="宋体"
+					>煽动非法集会、结社、游行、示威、聚众扰乱社会秩序；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">歪曲、丑化、亵渎、否定英雄烈士及其事迹、精神；</font>
+				<font face="宋体"
+					>歪曲、丑化、亵渎、否定英雄烈士及其事迹、精神；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以贬损、玷污、焚烧、涂划、践踏、篡改等方式，侮辱、恶搞、歪曲、丑化国旗/国歌/国徽/人民币/军旗/军歌/军徽具有特殊含义的象征、标志、音效的；</font>
+				<font face="宋体"
+					>以贬损、玷污、焚烧、涂划、践踏、篡改等方式，侮辱、恶搞、歪曲、丑化国旗/国歌/国徽/人民币/军旗/军歌/军徽具有特殊含义的象征、标志、音效的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -482,63 +726,97 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2 发布、传播含有损害国家形象、扰乱社会秩序的不实信息，包括但不限于：</font>
+				<font face="宋体"
+					>1.2
+					发布、传播含有损害国家形象、扰乱社会秩序的不实信息，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对党和国家领导人以及具有政治意义的公众人物进行有意诬陷和诽谤；</font>
+				<font face="宋体"
+					>对党和国家领导人以及具有政治意义的公众人物进行有意诬陷和诽谤；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以扰乱政治生态、制造社会混乱等为目的，在某些突发事件、灾情等发生后发布、传播、扩散谣言；</font>
+				<font face="宋体"
+					>以扰乱政治生态、制造社会混乱等为目的，在某些突发事件、灾情等发生后发布、传播、扩散谣言；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">含有法律法规禁止的其他涉及时政的不实信息。</font>
+				<font face="宋体"
+					>含有法律法规禁止的其他涉及时政的不实信息。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.3 发布、传播对恐怖主义、极端主义、危险人物与组织进行赞美或表达支持的内容：</font>
+				<font face="宋体"
+					>1.3
+					发布、传播对恐怖主义、极端主义、危险人物与组织进行赞美或表达支持的内容：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">宣扬该等组织/个人或其行为、“事迹”的内容，并表达支持态度；</font>
+				<font face="宋体"
+					>宣扬该等组织/个人或其行为、“事迹”的内容，并表达支持态度；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">为上述任何组织或个人或其所进行的任何活动募集资金、招募人员、寻求支持；</font>
+				<font face="宋体"
+					>为上述任何组织或个人或其所进行的任何活动募集资金、招募人员、寻求支持；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">赞扬、支持或美化已被认定为恐怖袭击、大规模谋杀或连环谋杀、恶性黑社会性质组织犯罪的事件；</font>
+				<font face="宋体"
+					>赞扬、支持或美化已被认定为恐怖袭击、大规模谋杀或连环谋杀、恶性黑社会性质组织犯罪的事件；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">支持、美化、纪念危险人物与组织或相关活动；</font>
+				<font face="宋体"
+					>支持、美化、纪念危险人物与组织或相关活动；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">依据或参考真实事件，二次创作该等组织/个人、活动相关的视频、游戏等。</font>
+				<font face="宋体"
+					>依据或参考真实事件，二次创作该等组织/个人、活动相关的视频、游戏等。</font
+				>
 			</span>
 		</p>
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">二、低俗色情</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -550,49 +828,68 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布含有色情服务交易的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.1 发布含有色情服务交易的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以低俗色情的文字、图片、音视频等形式的内容，引导用户在本平台或至其他第三方平台，进行线上线下的色情服务交易；寻求色情服务交易。</font>
+				<font face="宋体"
+					>以低俗色情的文字、图片、音视频等形式的内容，引导用户在本平台或至其他第三方平台，进行线上线下的色情服务交易；寻求色情服务交易。</font
+				>
 			</span>
 		</p>
 
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2 发布、传播含有淫秽色情的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.2 发布、传播含有淫秽色情的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">传播色情资源，包括色情出版物、色情影视作品、色情语音、色情网站、色情软件、色情动漫</font>
+				<font face="宋体"
+					>传播色情资源，包括色情出版物、色情影视作品、色情语音、色情网站、色情软件、色情动漫</font
+				>
 				<font face="宋体">/漫画、色情游戏等；</font>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">淫亵性地具体描述性行为及其心理感受，包括文字、语音、图片、视频等；</font>
+				<font face="宋体"
+					>淫亵性地具体描述性行为及其心理感受，包括文字、语音、图片、视频等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">具体描述乱伦、强奸或者其他性犯罪手段、过程或者细节；</font>
+				<font face="宋体"
+					>具体描述乱伦、强奸或者其他性犯罪手段、过程或者细节；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">具体描述与性变态有关的暴力、虐待、侮辱行为；</font>
+				<font face="宋体"
+					>具体描述与性变态有关的暴力、虐待、侮辱行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他令普通人不能容忍的对性行为、性器官的淫亵性描述。</font>
+				<font face="宋体"
+					>其他令普通人不能容忍的对性行为、性器官的淫亵性描述。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.3 发布含有刻意展示隐私部位的内容（包括动漫/漫画形象），包括但不限于：</font>
+				<font face="宋体"
+					>1.3
+					发布含有刻意展示隐私部位的内容（包括动漫/漫画形象），包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -603,7 +900,9 @@
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">人体彩绘</font>
-				<font face="宋体">/纹身/摄影/洗澡等过程中，未直接暴露三点的裸体或走光；</font>
+				<font face="宋体"
+					>/纹身/摄影/洗澡等过程中，未直接暴露三点的裸体或走光；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -618,23 +917,32 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.1 发布含有性暗示、性挑逗等易产生性联想的内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.1
+					发布含有性暗示、性挑逗等易产生性联想的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">模仿、隐晦或简单描述性行为</font>
-				<font face="宋体">/性高潮/性器官及感受的文字、语音、图片、视频等；</font>
+				<font face="宋体"
+					>/性高潮/性器官及感受的文字、语音、图片、视频等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以隐晦、低俗的语言表达使人产生性行为和性器官联想的内容；</font>
+				<font face="宋体"
+					>以隐晦、低俗的语言表达使人产生性行为和性器官联想的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">性挑逗动作，如亲吻或抚摸敏感部位（胸部、臀部、下体等）、嘴部特写性感动作（吸吮手指等）、低俗手势等；</font>
+				<font face="宋体"
+					>性挑逗动作，如亲吻或抚摸敏感部位（胸部、臀部、下体等）、嘴部特写性感动作（吸吮手指等）、低俗手势等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -645,7 +953,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示或表演低俗舞蹈，如脱衣舞、男性刻意顶胯、女性揉胸等；</font>
+				<font face="宋体"
+					>展示或表演低俗舞蹈，如脱衣舞、男性刻意顶胯、女性揉胸等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -666,7 +976,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.2 发布含有刻意展示敏感部位及着装过分暴露的内容（包括动漫/漫画形象），包括但不限于：</font>
+				<font face="宋体"
+					>2.2
+					发布含有刻意展示敏感部位及着装过分暴露的内容（包括动漫/漫画形象），包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -682,7 +995,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">刻意突出或用很小的遮盖物掩盖人体隐私部位及衣着过分暴露；</font>
+				<font face="宋体"
+					>刻意突出或用很小的遮盖物掩盖人体隐私部位及衣着过分暴露；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -692,7 +1007,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.3 发布含有成人用品、性癖好/类生殖器物品的内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.3
+					发布含有成人用品、性癖好/类生殖器物品的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -712,7 +1030,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.4 发布含有易引发性联想的场所相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.4
+					发布含有易引发性联想的场所相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -739,7 +1060,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.1 发布含有低俗感的内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.1 发布含有低俗感的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -750,7 +1073,9 @@
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">展示撩衣服</font>
-				<font face="宋体">/扯裤子等露出内衣裤、运动时抖胸等轻微挑逗、诱惑的动作；</font>
+				<font face="宋体"
+					>/扯裤子等露出内衣裤、运动时抖胸等轻微挑逗、诱惑的动作；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -766,17 +1091,24 @@
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">言语</font>
-				<font face="宋体">/行为/表达带有低俗诱惑、易引发低俗联想的低俗行为等。</font>
+				<font face="宋体"
+					>/行为/表达带有低俗诱惑、易引发低俗联想的低俗行为等。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.2 发布含有刻意展示人体部位或着装暴露的内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.2
+					发布含有刻意展示人体部位或着装暴露的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">着重展示颈部、腹部、臀部、裸露的腿部等身体某个部位、易引发性幻想或性联想的内容；</font>
+				<font face="宋体"
+					>着重展示颈部、腹部、臀部、裸露的腿部等身体某个部位、易引发性幻想或性联想的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -787,12 +1119,17 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">穿着暴露且以展示身材为目的，或过度展示身材曲线等。</font>
+				<font face="宋体"
+					>穿着暴露且以展示身材为目的，或过度展示身材曲线等。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.3 发布含有易产生低俗联想的物品的内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.3
+					发布含有易产生低俗联想的物品的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -803,12 +1140,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">三、攻击辱骂</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -825,22 +1174,30 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">发布攻击、贬低暴力事件（如公共暴力事件、性侵害、家庭暴力、校园暴力等）受害者的内容；</font>
+				<font face="宋体"
+					>发布攻击、贬低暴力事件（如公共暴力事件、性侵害、家庭暴力、校园暴力等）受害者的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">组织、煽动、引导他人对特定个人和群体实施诽谤、谩骂、侮辱、歧视、仇恨的内容；</font>
+				<font face="宋体"
+					>组织、煽动、引导他人对特定个人和群体实施诽谤、谩骂、侮辱、歧视、仇恨的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对他人的肖像、姓名等进行严重侮辱、恶意诅咒的内容；</font>
+				<font face="宋体"
+					>对他人的肖像、姓名等进行严重侮辱、恶意诅咒的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以侮辱、谩骂等攻击方式侵犯他人名誉或诋毁、贬损他人名誉的其他内容。</font>
+				<font face="宋体"
+					>以侮辱、谩骂等攻击方式侵犯他人名誉或诋毁、贬损他人名誉的其他内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -850,17 +1207,23 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">发布号召或组织对他人进行人肉搜索、曝光个人信息及隐私的内容；</font>
+				<font face="宋体"
+					>发布号召或组织对他人进行人肉搜索、曝光个人信息及隐私的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">曝光他人账号、可能泄露个人信息的相关内容，包括但不限于身份证号码/居住地址/电子邮箱地址/电话号码/银行对账单、社会保险号码或护照号码等内容；</font>
+				<font face="宋体"
+					>曝光他人账号、可能泄露个人信息的相关内容，包括但不限于身份证号码/居住地址/电子邮箱地址/电话号码/银行对账单、社会保险号码或护照号码等内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">煽动、鼓励、威胁或实际实施勒索、入侵或泄漏他人个人信息的行为。</font>
+				<font face="宋体"
+					>煽动、鼓励、威胁或实际实施勒索、入侵或泄漏他人个人信息的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -870,17 +1233,23 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">故意捏造针对特定个人或群体的虚假事实，并在网络上进行传播或组织、指使、号召、教唆他人进行传播；</font>
+				<font face="宋体"
+					>故意捏造针对特定个人或群体的虚假事实，并在网络上进行传播或组织、指使、号召、教唆他人进行传播；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对未经证实的事件制作、发布主观揣度的负面信息，并进行传播；</font>
+				<font face="宋体"
+					>对未经证实的事件制作、发布主观揣度的负面信息，并进行传播；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他造谣、诽谤，侵犯他人人格权益的行为。</font>
+				<font face="宋体"
+					>其他造谣、诽谤，侵犯他人人格权益的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -890,13 +1259,17 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">恶意煽动不特定人或特定群体的情绪或行为，有计划、有组织地通过评论、私信、</font>
+				<font face="宋体"
+					>恶意煽动不特定人或特定群体的情绪或行为，有计划、有组织地通过评论、私信、</font
+				>
 				<font face="宋体">@他人、群组等方式攻击、诋毁、骚扰他人；</font>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">组织团伙或自主收费甚至接单，针对目标实施恶意攻击、中伤、诬陷、辱骂等，以获得不正当非法利益的行为。</font>
+				<font face="宋体"
+					>组织团伙或自主收费甚至接单，针对目标实施恶意攻击、中伤、诬陷、辱骂等，以获得不正当非法利益的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -906,22 +1279,30 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.1 发布或传播侮辱、谩骂相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.1 发布或传播侮辱、谩骂相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">基于个人的智力、外貌、人格特质、职业身份、社会地位、群体状况、身体特征、健康状况卫生状况等特征攻击、贬低他人的内容；</font>
+				<font face="宋体"
+					>基于个人的智力、外貌、人格特质、职业身份、社会地位、群体状况、身体特征、健康状况卫生状况等特征攻击、贬低他人的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以泄愤或吵架为目的，发布含有诅咒他人死亡、严重疾病或其他严重伤害的内容；</font>
+				<font face="宋体"
+					>以泄愤或吵架为目的，发布含有诅咒他人死亡、严重疾病或其他严重伤害的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">刻意引发地域、性别、贫富对立或歧视的内容。</font>
+				<font face="宋体"
+					>刻意引发地域、性别、贫富对立或歧视的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -931,7 +1312,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">无视他人意愿，频繁发送无意义或重复内容，如评论刷屏、私信刷屏、频繁</font>
+				<font face="宋体"
+					>无视他人意愿，频繁发送无意义或重复内容，如评论刷屏、私信刷屏、频繁</font
+				>
 				<font face="宋体">@他人等，会对他人造成骚扰的行为。</font>
 			</span>
 		</p>
@@ -942,18 +1325,26 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.1 发布、传播侮辱谩骂相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.1 发布、传播侮辱谩骂相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">在特殊场景下，发布阴阳怪气、恶意调侃等内容，对他人造成冒犯与骚扰的内容；</font>
+				<font face="宋体"
+					>在特殊场景下，发布阴阳怪气、恶意调侃等内容，对他人造成冒犯与骚扰的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对他人实施道德绑架，将个人意志强加给他人，戴</font>
-				<font face="宋体">“有色眼镜"对他人进行不客观、不理性的评价；</font>
+				<font face="宋体"
+					>对他人实施道德绑架，将个人意志强加给他人，戴</font
+				>
+				<font face="宋体"
+					>“有色眼镜"对他人进行不客观、不理性的评价；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -964,12 +1355,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">四、涉诈及广告导流</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -981,28 +1384,38 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布含有诈骗或欺诈的内容，包括但不限于:</font>
+				<font face="宋体"
+					>1.1 发布含有诈骗或欺诈的内容，包括但不限于:</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">诱导他人至第三方软件进行诈骗，包括裸聊诈骗、网络刷单诈骗、投资理财诈骗、</font>
+				<font face="宋体"
+					>诱导他人至第三方软件进行诈骗，包括裸聊诈骗、网络刷单诈骗、投资理财诈骗、</font
+				>
 				<font face="宋体">“杀猪盘”诈骗等；</font>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以交友、恋爱等理由，诱导他人线上或线下进行投资、赌博、充值、消费、拼单等；</font>
+				<font face="宋体"
+					>以交友、恋爱等理由，诱导他人线上或线下进行投资、赌博、充值、消费、拼单等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">假冒官方客服、正规网站，以短信、站内私信或链接等形式提示虚假中奖信息；</font>
+				<font face="宋体"
+					>假冒官方客服、正规网站，以短信、站内私信或链接等形式提示虚假中奖信息；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供赌博交易平台信息或赌博性质类服务，如赌博平台链接、币商、中介、游戏币回收等；</font>
+				<font face="宋体"
+					>提供赌博交易平台信息或赌博性质类服务，如赌博平台链接、币商、中介、游戏币回收等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1019,7 +1432,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2 为他人实施电信网络诈骗活动提供支持或者帮助，包括但不限于：</font>
+				<font face="宋体"
+					>1.2
+					为他人实施电信网络诈骗活动提供支持或者帮助，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1034,7 +1450,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他为电信网络诈骗活动提供支持或者帮助的行为。</font>
+				<font face="宋体"
+					>其他为电信网络诈骗活动提供支持或者帮助的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1047,7 +1465,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.4 发布或传播恶意导流的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.4 发布或传播恶意导流的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1057,12 +1477,16 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">骗取用户登录凭据、财务信息等信息的网站或应用的链接；</font>
+				<font face="宋体"
+					>骗取用户登录凭据、财务信息等信息的网站或应用的链接；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">为恐怖组织、极端主义组织等危险人物或组织筹集资金或招募人员的网站或应用的链接；</font>
+				<font face="宋体"
+					>为恐怖组织、极端主义组织等危险人物或组织筹集资金或招募人员的网站或应用的链接；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1072,12 +1496,16 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">销售法律法规禁止交易的物品之网站或应用的链接。</font>
+				<font face="宋体"
+					>销售法律法规禁止交易的物品之网站或应用的链接。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.5 发布含有违法广告的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.5 发布含有违法广告的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1087,13 +1515,17 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">售卖或宣传赌博技巧、赌博器具等赌博内容；</font>
+				<font face="宋体"
+					>售卖或宣传赌博技巧、赌博器具等赌博内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">售卖或宣传毒品</font>
-				<font face="宋体">/涉爆物品/军警制品/违禁药品/海关罚没物品/保护文物/保护动物/无证房屋/医疗器械等违禁物品、枪支弹药/管制刀具等攻击器械；</font>
+				<font face="宋体"
+					>/涉爆物品/军警制品/违禁药品/海关罚没物品/保护文物/保护动物/无证房屋/医疗器械等违禁物品、枪支弹药/管制刀具等攻击器械；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1104,7 +1536,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">售卖减肥、增高、美白、祛痘、仿制的大牌鞋包、烟</font>
+				<font face="宋体"
+					>售卖减肥、增高、美白、祛痘、仿制的大牌鞋包、烟</font
+				>
 				<font face="宋体">/电子烟等产品；</font>
 			</span>
 		</p>
@@ -1119,12 +1553,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">五、血腥暴力及引人不适</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -1136,37 +1582,52 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布、传播真实虐杀过程相关的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.1 发布、传播真实虐杀过程相关的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示真实的杀人、虐杀国家保护动物过程的内容；</font>
+				<font face="宋体"
+					>展示真实的杀人、虐杀国家保护动物过程的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示真实的恐怖、极端犯罪过程及肉体、精神虐待过程的内容。</font>
+				<font face="宋体"
+					>展示真实的恐怖、极端犯罪过程及肉体、精神虐待过程的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2 煽动、诱导或教唆他人自杀、自残的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.2
+					煽动、诱导或教唆他人自杀、自残的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">教唆、帮助、诱导、授意、怂恿、威胁或指导他人实施自杀或自残的内容；</font>
+				<font face="宋体"
+					>教唆、帮助、诱导、授意、怂恿、威胁或指导他人实施自杀或自残的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">分享、传授自杀、自残的信息、策略、方法或说明的内容；</font>
+				<font face="宋体"
+					>分享、传授自杀、自残的信息、策略、方法或说明的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">诱导或者胁迫他人参与具有自杀、自残类性质的挑战、游戏或其他活动；</font>
+				<font face="宋体"
+					>诱导或者胁迫他人参与具有自杀、自残类性质的挑战、游戏或其他活动；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1176,22 +1637,30 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">请求他人帮助自己或他人进行自杀或自残的内容；</font>
+				<font face="宋体"
+					>请求他人帮助自己或他人进行自杀或自残的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">在他人表达自杀意图时，采用激将、起哄等方式怂恿他人立即实施自杀、自残行为；</font>
+				<font face="宋体"
+					>在他人表达自杀意图时，采用激将、起哄等方式怂恿他人立即实施自杀、自残行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供心理暗示，在心理或者精神上鼓励、促使他人自杀、自残的内容；</font>
+				<font face="宋体"
+					>提供心理暗示，在心理或者精神上鼓励、促使他人自杀、自残的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他容易引发他人模仿或强化他人自杀、自残意图的内容或行为。</font>
+				<font face="宋体"
+					>其他容易引发他人模仿或强化他人自杀、自残意图的内容或行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1201,13 +1670,17 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.1发布、传播过于血腥暴力的内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.1发布、传播过于血腥暴力的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">展现血肉模糊的人体</font>
-				<font face="宋体">/动物解剖过程、大面积的血腥、人类/动物尸体现场等内容；</font>
+				<font face="宋体"
+					>/动物解剖过程、大面积的血腥、人类/动物尸体现场等内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1217,7 +1690,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示严重的打架斗殴、群体冲突的过程以及暴力现场；</font>
+				<font face="宋体"
+					>展示严重的打架斗殴、群体冲突的过程以及暴力现场；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1228,17 +1703,23 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">刻意展示各类血腥画面，如严重交通事故现场、血腥游戏、凶案现场、死刑执行过程等；</font>
+				<font face="宋体"
+					>刻意展示各类血腥画面，如严重交通事故现场、血腥游戏、凶案现场、死刑执行过程等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示分舌、眼球纹身等对身体造成伤害的另类造型。</font>
+				<font face="宋体"
+					>展示分舌、眼球纹身等对身体造成伤害的另类造型。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.2发布、传播惊悚恐怖的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.2发布、传播惊悚恐怖的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1269,37 +1750,51 @@
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">展示身体</font>
-				<font face="宋体">/四肢/脸部等部位密集痘痘/痤疮/溃烂等画面；</font>
+				<font face="宋体"
+					>/四肢/脸部等部位密集痘痘/痤疮/溃烂等画面；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示聚集的蛆虫、鼠蚁等大面积昆虫，以及其他可能导致密集恐惧的画面；</font>
+				<font face="宋体"
+					>展示聚集的蛆虫、鼠蚁等大面积昆虫，以及其他可能导致密集恐惧的画面；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他对观看者可能造成强烈感官和精神刺激，从而引发身心惊恐、焦虑、厌恶、恶心等不适感的内容。</font>
+				<font face="宋体"
+					>其他对观看者可能造成强烈感官和精神刺激，从而引发身心惊恐、焦虑、厌恶、恶心等不适感的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.3发布、传播自杀、自残相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.3发布、传播自杀、自残相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示因自杀、自残造成的血迹、伤疤等的内容；</font>
+				<font face="宋体"
+					>展示因自杀、自残造成的血迹、伤疤等的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示自杀准备工作或自杀尝试和自杀抢救片段的内容；</font>
+				<font face="宋体"
+					>展示自杀准备工作或自杀尝试和自杀抢救片段的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">讲述自杀、自残幸存者的自杀、自残过程、经历等；</font>
+				<font face="宋体"
+					>讲述自杀、自残幸存者的自杀、自残过程、经历等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1314,17 +1809,24 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">曝光自杀或自残受害者或幸存者身份，并嘲笑、攻击他们的负面内容。</font>
+				<font face="宋体"
+					>曝光自杀或自残受害者或幸存者身份，并嘲笑、攻击他们的负面内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.4 发布、传播恶心物质等引人不适的内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.4
+					发布、传播恶心物质等引人不适的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示呕吐过程、呕吐物、人或动物的排泄物等；</font>
+				<font face="宋体"
+					>展示呕吐过程、呕吐物、人或动物的排泄物等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1335,12 +1837,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">六、未成年相关</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -1352,199 +1866,279 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布、传播与性侵害未成年人相关的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.1
+					发布、传播与性侵害未成年人相关的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">通过勒索、胁迫、诱骗等手段获取未成年人的裸露图片或与未成年人发生性接触；</font>
+				<font face="宋体"
+					>通过勒索、胁迫、诱骗等手段获取未成年人的裸露图片或与未成年人发生性接触；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">假借</font>
-				<font face="宋体">“招募童星”、“生理检查”、“恋爱交友”等幌子，索取未成年人裸照或与未成年人进行裸聊或线下性接触的行为；</font>
+				<font face="宋体"
+					>“招募童星”、“生理检查”、“恋爱交友”等幌子，索取未成年人裸照或与未成年人进行裸聊或线下性接触的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">向未成年人发送、展示或提供色情图像、音频、视频及信息；</font>
+				<font face="宋体"
+					>向未成年人发送、展示或提供色情图像、音频、视频及信息；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">分享、转发、买卖或指引用户获取或散布儿童性侵害制品的内容；</font>
+				<font face="宋体"
+					>分享、转发、买卖或指引用户获取或散布儿童性侵害制品的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">描述、宣传、正常化或美化恋童癖、性侵未成年人以及性引诱行为的内容；</font>
+				<font face="宋体"
+					>描述、宣传、正常化或美化恋童癖、性侵未成年人以及性引诱行为的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">煽动、教唆对未成年人实施性侵害或为此提供帮助的行为；</font>
+				<font face="宋体"
+					>煽动、教唆对未成年人实施性侵害或为此提供帮助的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">污名化未成年人性侵害受害人、对受害人进行指责、谩骂或曝光受害人隐私的内容；</font>
+				<font face="宋体"
+					>污名化未成年人性侵害受害人、对受害人进行指责、谩骂或曝光受害人隐私的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">透过第三方转载或重现侵害场景或司法审判中的内容，对未成年受害者造成二次伤害的内容；</font>
+				<font face="宋体"
+					>透过第三方转载或重现侵害场景或司法审判中的内容，对未成年受害者造成二次伤害的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他以对未成年人实施性侵害为目的的，通过网络接触儿童的行为。</font>
+				<font face="宋体"
+					>其他以对未成年人实施性侵害为目的的，通过网络接触儿童的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2发布、传播包含未成年人的低俗色情内容，包括但不限于</font>
+				<font face="宋体"
+					>1.2发布、传播包含未成年人的低俗色情内容，包括但不限于</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以明确或隐晦方式描绘未成年人性行为、未成年人进行色情表演以及未成年人性暗示、性挑逗的内容；</font>
+				<font face="宋体"
+					>以明确或隐晦方式描绘未成年人性行为、未成年人进行色情表演以及未成年人性暗示、性挑逗的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">着重突出未成年人性征的，含有性暗示、性挑逗意味的内容；</font>
+				<font face="宋体"
+					>着重突出未成年人性征的，含有性暗示、性挑逗意味的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以未成年人为主体，印着带有性暗示、性挑逗文字的图片、视频等内容；</font>
+				<font face="宋体"
+					>以未成年人为主体，印着带有性暗示、性挑逗文字的图片、视频等内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示、描绘、描述暴露未成年人生殖器等敏感部位的内容；</font>
+				<font face="宋体"
+					>展示、描绘、描述暴露未成年人生殖器等敏感部位的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示、描绘、描述未成年人穿著与身处环境无关的暴露衣著的内容；</font>
+				<font face="宋体"
+					>展示、描绘、描述未成年人穿著与身处环境无关的暴露衣著的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">用于掩饰或暗示未成年人裸露或性行为的性化留言、表情符号、文字或其他图像。</font>
+				<font face="宋体"
+					>用于掩饰或暗示未成年人裸露或性行为的性化留言、表情符号、文字或其他图像。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.3发布、传播不当利用未成年人牟取利益的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.3发布、传播不当利用未成年人牟取利益的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">出于博眼球、积累流量以及商业性目的等，打造儿童网红的内容或行为；</font>
+				<font face="宋体"
+					>出于博眼球、积累流量以及商业性目的等，打造儿童网红的内容或行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">利用儿童摆出不雅姿势、做性暗示动作等吸引流量、牟取利益；</font>
+				<font face="宋体"
+					>利用儿童摆出不雅姿势、做性暗示动作等吸引流量、牟取利益；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">利用未成年人形象进行色情等不当内容等引流、导流；</font>
+				<font face="宋体"
+					>利用未成年人形象进行色情等不当内容等引流、导流；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">利用未成年人制作侵害未成年人健康、不适合未成年人观看的不良节目；</font>
+				<font face="宋体"
+					>利用未成年人制作侵害未成年人健康、不适合未成年人观看的不良节目；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">诱导、胁迫未成年人进行充值、打赏等消费行为，或进行应援消费、投票打榜等活动；</font>
+				<font face="宋体"
+					>诱导、胁迫未成年人进行充值、打赏等消费行为，或进行应援消费、投票打榜等活动；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他侵害或者忽视未成年人权益、利用未成年人进行牟利的行为。</font>
+				<font face="宋体"
+					>其他侵害或者忽视未成年人权益、利用未成年人进行牟利的行为。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.4发布、传播危害或影响未成年人身心健康的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.4发布、传播危害或影响未成年人身心健康的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人吸烟、饮酒、旷课、逃学、沉迷网络、参与赌博</font>
+				<font face="宋体"
+					>未成年人吸烟、饮酒、旷课、逃学、沉迷网络、参与赌博</font
+				>
 				<font face="宋体">/封建迷信及邪教活动等行为；</font>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人与社会上具有不良习性的人交往，组织或者参加实施不良行为的团伙、进入法律法规禁止未成年人进入的场所等行为；</font>
+				<font face="宋体"
+					>未成年人与社会上具有不良习性的人交往，组织或者参加实施不良行为的团伙、进入法律法规禁止未成年人进入的场所等行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人阅览、观看、收听或讨论含有淫秽、色情、暴力、恐怖、极端等内容的读物、音像制品或网络信息等行为；</font>
+				<font face="宋体"
+					>未成年人阅览、观看、收听或讨论含有淫秽、色情、暴力、恐怖、极端等内容的读物、音像制品或网络信息等行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人结伙斗殴、寻衅滋事、赌博、实施伤害他人人身、财产安全等违法犯罪行为；</font>
+				<font face="宋体"
+					>未成年人结伙斗殴、寻衅滋事、赌博、实施伤害他人人身、财产安全等违法犯罪行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人非法携带枪支、弹药或者弩、匕首等管制器具的行为；</font>
+				<font face="宋体"
+					>未成年人非法携带枪支、弹药或者弩、匕首等管制器具的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人参与淫秽活动，传播、持有淫秽物等行为；</font>
+				<font face="宋体"
+					>未成年人参与淫秽活动，传播、持有淫秽物等行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人婚孕等有害未成年人身心健康的违法及不当行为；</font>
+				<font face="宋体"
+					>未成年人婚孕等有害未成年人身心健康的违法及不当行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未成年人参与或实施其他不利于未成年人身心健康或严重危害社会的行为；</font>
+				<font face="宋体"
+					>未成年人参与或实施其他不利于未成年人身心健康或严重危害社会的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">组织、教唆、指导、胁迫、引诱、欺骗或帮助未成年人实施不良行为的内容。</font>
+				<font face="宋体"
+					>组织、教唆、指导、胁迫、引诱、欺骗或帮助未成年人实施不良行为的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.5 发布、传播针对未成年人的其他违法犯罪活动的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.5
+					发布、传播针对未成年人的其他违法犯罪活动的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">殴打、虐待未成年人，对未成年人实施体罚、家庭暴力、校园暴力等暴力行为；</font>
+				<font face="宋体"
+					>殴打、虐待未成年人，对未成年人实施体罚、家庭暴力、校园暴力等暴力行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">绑架、拐卖未成年人等严重侵犯未成年人人身安全；</font>
+				<font face="宋体"
+					>绑架、拐卖未成年人等严重侵犯未成年人人身安全；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对未成年人实施网络暴力或侵犯未成年人的名誉、肖像、隐私等人格权益；</font>
+				<font face="宋体"
+					>对未成年人实施网络暴力或侵犯未成年人的名誉、肖像、隐私等人格权益；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">对未成年人实施诈骗、敲诈勒索、盗窃等侵害未成年人财产权益；</font>
+				<font face="宋体"
+					>对未成年人实施诈骗、敲诈勒索、盗窃等侵害未成年人财产权益；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1560,12 +2154,24 @@
 
 		<p class="MsoNormal" style="text-indent: 28.1pt">
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<font face="宋体">七、违法违规</font>
 				</span>
 			</b>
 			<b>
-				<span style="font-family: 宋体; font-weight: bold; font-size: 14pt">
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
 					<o:p></o:p>
 				</span>
 			</b>
@@ -1577,18 +2183,27 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.1 发布、传播、索要或分享他人隐私信息的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.1
+					发布、传播、索要或分享他人隐私信息的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">曝光他人身份证信息、护照信息、驾照信息、未公开的官方记录或文件中的个人信息等证件信息的内容；</font>
+				<font face="宋体"
+					>曝光他人身份证信息、护照信息、驾照信息、未公开的官方记录或文件中的个人信息等证件信息的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">曝光他人个人信息与隐私内容，包括但不限于：财务信息、住址</font>
-				<font face="宋体">/位置信息、身体/疾病相关信息、联系方式、网络账号及其密码、婚姻关系、私人空间、私人活动、身份或职业相关信息等；</font>
+				<font face="宋体"
+					>曝光他人个人信息与隐私内容，包括但不限于：财务信息、住址</font
+				>
+				<font face="宋体"
+					>/位置信息、身体/疾病相关信息、联系方式、网络账号及其密码、婚姻关系、私人空间、私人活动、身份或职业相关信息等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1598,22 +2213,31 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.2 发布、传播其他侵犯人身权益的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.2
+					发布、传播其他侵犯人身权益的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">滥用、冒用他人肖像、姓名、名称，侵犯他人肖像权、姓名权、名称权的行为；</font>
+				<font face="宋体"
+					>滥用、冒用他人肖像、姓名、名称，侵犯他人肖像权、姓名权、名称权的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他雇佣、组织、教唆或者帮助他人发布、转发侵害他人人身权益的行为；</font>
+				<font face="宋体"
+					>其他雇佣、组织、教唆或者帮助他人发布、转发侵害他人人身权益的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">利用网络技术丑化、污损或伪造他人肖像并在平台上发布、传播；</font>
+				<font face="宋体"
+					>利用网络技术丑化、污损或伪造他人肖像并在平台上发布、传播；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1624,39 +2248,54 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.3 发布、传播违禁物品相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.3 发布、传播违禁物品相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">提供购买、出售、交易渠道或推销使用枪支</font>
-				<font face="宋体">/弹药等武器、毒品/放射性物品/管制药品等有害性物质;</font>
+				<font face="宋体"
+					>/弹药等武器、毒品/放射性物品/管制药品等有害性物质;</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">介绍枪支</font>
-				<font face="宋体">/弹药等武器、毒品/放射性物品/管制药品等有害性物质制造方法的内容；</font>
+				<font face="宋体"
+					>/弹药等武器、毒品/放射性物品/管制药品等有害性物质制造方法的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.4 组织赌博活动、展示赌博行为（含线上及线下、虚拟及实体形式）的内容；</font>
+				<font face="宋体"
+					>1.4
+					组织赌博活动、展示赌博行为（含线上及线下、虚拟及实体形式）的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供、宣传赌博服务，或被视为赌场、体育博彩或任何其他赌博活动广告的内容；</font>
+				<font face="宋体"
+					>提供、宣传赌博服务，或被视为赌场、体育博彩或任何其他赌博活动广告的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供、宣传与赌博相关的软件、网址，或其他赌博服务渠道的内容；</font>
+				<font face="宋体"
+					>提供、宣传与赌博相关的软件、网址，或其他赌博服务渠道的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供、宣传赌博设备、器具，以及赌博技巧的内容；</font>
+				<font face="宋体"
+					>提供、宣传赌博设备、器具，以及赌博技巧的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1666,7 +2305,10 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.5 发布、传播违反人民币管理规定相关的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.5
+					发布、传播违反人民币管理规定相关的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1676,12 +2318,16 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">传播或者售卖伪造、变造人民币的工具、方法的内容；</font>
+				<font face="宋体"
+					>传播或者售卖伪造、变造人民币的工具、方法的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">出售、购买、走私、运输、持有、使用伪造、变造的人民币的内容；</font>
+				<font face="宋体"
+					>出售、购买、走私、运输、持有、使用伪造、变造的人民币的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1691,38 +2337,56 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.6 发布、传播管制器具及其他攻击性器械相关的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.6
+					发布、传播管制器具及其他攻击性器械相关的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">提供购买、出售、交易渠道或推销使用管制器具、刀械或介绍其相关制造方法的内容；</font>
+				<font face="宋体"
+					>提供购买、出售、交易渠道或推销使用管制器具、刀械或介绍其相关制造方法的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">其他违规传播管制器具及攻击性器械的内容。</font>
+				<font face="宋体"
+					>其他违规传播管制器具及攻击性器械的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.7 发布、传播违反野生动植物保护规定的内容，包括但不限于：</font>
+				<font face="宋体"
+					>1.7
+					发布、传播违反野生动植物保护规定的内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示危害国家保护动植物的内容，包括但不限于：捕杀国家保护野生动物、违规饲养野生动物、非法采集</font>
-				<font face="宋体">/毁坏野生植物、妨碍野生动植物生息繁衍活动的行为；</font>
+				<font face="宋体"
+					>展示危害国家保护动植物的内容，包括但不限于：捕杀国家保护野生动物、违规饲养野生动物、非法采集</font
+				>
+				<font face="宋体"
+					>/毁坏野生植物、妨碍野生动植物生息繁衍活动的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">推广、买卖捕猎野生动物的工具、传授捕猎方法的内容；</font>
+				<font face="宋体"
+					>推广、买卖捕猎野生动物的工具、传授捕猎方法的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">出售、购买、食用国家保护野生动植物及其制品的内容；</font>
+				<font face="宋体"
+					>出售、购买、食用国家保护野生动植物及其制品的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1732,7 +2396,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">1.9 发布、传播其它违反法律法规及监管政策的内容。</font>
+				<font face="宋体"
+					>1.9 发布、传播其它违反法律法规及监管政策的内容。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1742,32 +2408,44 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.1发布、传播有悖公德良善的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.1发布、传播有悖公德良善的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以恶搞、调侃等方式描绘重大自然灾害、意外事故、恐怖事件、战争等灾难场面的内容；</font>
+				<font face="宋体"
+					>以恶搞、调侃等方式描绘重大自然灾害、意外事故、恐怖事件、战争等灾难场面的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以肯定、赞许的基调或引入模仿的方式表现打架斗殴、羞辱他人、污言秽语的内容；</font>
+				<font face="宋体"
+					>以肯定、赞许的基调或引入模仿的方式表现打架斗殴、羞辱他人、污言秽语的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">以虚构慈善捐赠事实、编造和渲染他人悲惨身世等方式，传播虚假慈善、伪正能量的内容；</font>
+				<font face="宋体"
+					>以虚构慈善捐赠事实、编造和渲染他人悲惨身世等方式，传播虚假慈善、伪正能量的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">侮辱逝者，或以商业、娱乐等不当方式侮辱、破坏、踩踏陵墓设施或环境的内容；</font>
+				<font face="宋体"
+					>侮辱逝者，或以商业、娱乐等不当方式侮辱、破坏、踩踏陵墓设施或环境的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">未经他人允许，或无视他人意愿，恶意搭讪、恶搞、骚扰他人的行为；</font>
+				<font face="宋体"
+					>未经他人允许，或无视他人意愿，恶意搭讪、恶搞、骚扰他人的行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1777,47 +2455,65 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">2.2 发布、传播的危险行为相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>2.2 发布、传播的危险行为相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">进食有害物质，或以可能严重危害生命或健康的方式进食，如食用、饮用或注射非可食用物品或可能导致疾病或中毒的化学物品；</font>
+				<font face="宋体"
+					>进食有害物质，或以可能严重危害生命或健康的方式进食，如食用、饮用或注射非可食用物品或可能导致疾病或中毒的化学物品；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">可能导致窒息的活动或挑战，如卡住喉咙、溺水或吊颈游戏、吞食不能吃的物品；</font>
+				<font face="宋体"
+					>可能导致窒息的活动或挑战，如卡住喉咙、溺水或吊颈游戏、吞食不能吃的物品；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">焚烧、冷冻和电击等危险活动，如本身具有严重烧伤、爆炸、冻僵、冻伤或触电等风险的活动；</font>
+				<font face="宋体"
+					>焚烧、冷冻和电击等危险活动，如本身具有严重烧伤、爆炸、冻僵、冻伤或触电等风险的活动；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">违背正常健康习惯的摔倒、穿刺、碰撞、钝器创伤或碾压活动或挑战；</font>
+				<font face="宋体"
+					>违背正常健康习惯的摔倒、穿刺、碰撞、钝器创伤或碾压活动或挑战；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">非专业人员实施的极限运动挑战，如非专业人员展示翼装飞行、无防护的高空走钢丝等极限运动；</font>
+				<font face="宋体"
+					>非专业人员实施的极限运动挑战，如非专业人员展示翼装飞行、无防护的高空走钢丝等极限运动；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">通过拳头击打、在食物或饮料中加非可食用物质、电击等恶作剧手段对他人造成身体伤害的内容；</font>
+				<font face="宋体"
+					>通过拳头击打、在食物或饮料中加非可食用物质、电击等恶作剧手段对他人造成身体伤害的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示醉酒、吸毒等不应驾驶机动车状态下的驾驶行为，或违规追逐竞驶、违规超车、超载驾驶等危险驾驶内容；</font>
+				<font face="宋体"
+					>展示醉酒、吸毒等不应驾驶机动车状态下的驾驶行为，或违规追逐竞驶、违规超车、超载驾驶等危险驾驶内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示、描述枪支/弹药等武器、毒品/放射性物品/管制药品等有害性物质的相关内容；</font>
+				<font face="宋体"
+					>展示、描述枪支/弹药等武器、毒品/放射性物品/管制药品等有害性物质的相关内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1832,7 +2528,9 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示具有杀伤力的危险玩具，或存在质量与安全隐患的玩具。</font>
+				<font face="宋体"
+					>展示具有杀伤力的危险玩具，或存在质量与安全隐患的玩具。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1842,79 +2540,109 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.1 发布、传播不文明行为的相关内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.1 发布、传播不文明行为的相关内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">故意从事公共场所明令禁止的行为，如在旅游景点乱涂乱画、随意刻字等；</font>
+				<font face="宋体"
+					>故意从事公共场所明令禁止的行为，如在旅游景点乱涂乱画、随意刻字等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">刻意破坏公共卫生，如随地吐痰、乱扔废弃物等；</font>
+				<font face="宋体"
+					>刻意破坏公共卫生，如随地吐痰、乱扔废弃物等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">刻意扰乱公共场所秩序，如逃票、翻越闸机等。</font>
+				<font face="宋体"
+					>刻意扰乱公共场所秩序，如逃票、翻越闸机等。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">3.2 发布、传播不良价值导向内容，包括但不限于：</font>
+				<font face="宋体"
+					>3.2 发布、传播不良价值导向内容，包括但不限于：</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">宣扬流量至上、奢靡享乐、炫富拜金等不良价值观，展示违背伦理道德的糜烂生活的内容；</font>
+				<font face="宋体"
+					>宣扬流量至上、奢靡享乐、炫富拜金等不良价值观，展示违背伦理道德的糜烂生活的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示超额消费、过度消费，打造富豪人设的不良导向的内容；</font>
+				<font face="宋体"
+					>展示超额消费、过度消费，打造富豪人设的不良导向的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">展现</font>
-				<font face="宋体">“饭圈”乱象和不良粉丝文化，鼓吹炒作流量至上、畸形审美、狂热追星、粉丝非理性发声和应援、明星绯闻丑闻的内容；</font>
+				<font face="宋体"
+					>“饭圈”乱象和不良粉丝文化，鼓吹炒作流量至上、畸形审美、狂热追星、粉丝非理性发声和应援、明星绯闻丑闻的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">过度宣扬违背正确婚恋观和家庭伦理道德的内容；</font>
+				<font face="宋体"
+					>过度宣扬违背正确婚恋观和家庭伦理道德的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">过度宣扬天价彩礼、婚嫁陋习等不良婚恋习俗；</font>
+				<font face="宋体"
+					>过度宣扬天价彩礼、婚嫁陋习等不良婚恋习俗；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">不正当展示自身优越条件、社会地位，存在对非富群体进行歧视、嘲讽或攻击等行为的内容；</font>
+				<font face="宋体"
+					>不正当展示自身优越条件、社会地位，存在对非富群体进行歧视、嘲讽或攻击等行为的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">过度宣扬厌世情绪、丧文化以及消极负面亚文化，渲染悲观生活状态内容的内容；</font>
+				<font face="宋体"
+					>过度宣扬厌世情绪、丧文化以及消极负面亚文化，渲染悲观生活状态内容的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">过度宣扬传播以丑示美、化丑为美的畸形</font>
-				<font face="宋体">“流量崇拜”行为或细致展示恶俗行为、审丑文化的；</font>
+				<font face="宋体"
+					>“流量崇拜”行为或细致展示恶俗行为、审丑文化的；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">恶意制造舆论热点，揭秘炒作不良绯闻、丑闻、劣迹历史等行为的内容；</font>
+				<font face="宋体"
+					>恶意制造舆论热点，揭秘炒作不良绯闻、丑闻、劣迹历史等行为的内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">展示良莠不齐、哗众取宠、价值观紊乱等行为；</font>
+				<font face="宋体"
+					>展示良莠不齐、哗众取宠、价值观紊乱等行为；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
@@ -1924,33 +2652,45 @@
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">采用欺骗等手段营造虚假人设、进行虚假剧情演绎，骗取关注和流量的行为或内容；</font>
+				<font face="宋体"
+					>采用欺骗等手段营造虚假人设、进行虚假剧情演绎，骗取关注和流量的行为或内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">不当推广炒作的内容，包括但不限于以卖惨、出轨、家暴、炫富、引战、恶搞、虐待等违反公序良俗的内容或通过刻意制造夸张、猎奇噱头等方式进行炒作；</font>
+				<font face="宋体"
+					>不当推广炒作的内容，包括但不限于以卖惨、出轨、家暴、炫富、引战、恶搞、虐待等违反公序良俗的内容或通过刻意制造夸张、猎奇噱头等方式进行炒作；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">有伤社会风化、易引起不良联想及模仿的内容，包括但不限于衣着暴露不雅、言行低俗等；</font>
+				<font face="宋体"
+					>有伤社会风化、易引起不良联想及模仿的内容，包括但不限于衣着暴露不雅、言行低俗等；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">宣扬自己军人身份，刻意展示军人身份（武警、消防兵、警察等）及警徽、警棍等警用物品，找军人互动等相关内容；</font>
+				<font face="宋体"
+					>宣扬自己军人身份，刻意展示军人身份（武警、消防兵、警察等）及警徽、警棍等警用物品，找军人互动等相关内容；</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">含有法律、行政法规或相关主管部门禁止的其他内容，或者可能危害社会公德、破坏网络生态的内容的。</font>
+				<font face="宋体"
+					>含有法律、行政法规或相关主管部门禁止的其他内容，或者可能危害社会公德、破坏网络生态的内容的。</font
+				>
 			</span>
 		</p>
 		<p class="MsoNormal" style="margin-bottom: 7.5pt; text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">本规范自公布之日起执行。</font>
-				<font face="宋体">X自由空间将根据法律法规的不断完善和更新，跟随制定对应的空间规范。</font>
+				<font face="宋体"
+					>X自由空间将根据法律法规的不断完善和更新，跟随制定对应的空间规范。</font
+				>
 			</span>
 		</p>
 	</div>
@@ -1963,10 +2703,10 @@ export default {
 			uni.previewImage({
 				current: i, // 当前显示图片的http链接
 				urls: [i] // 需要预览的图片http链接列表
-			});
+			})
 		}
 	}
-};
+}
 </script>
 <style lang="less" scoped>
 .Section0 {
