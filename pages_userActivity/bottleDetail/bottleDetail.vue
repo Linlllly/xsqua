@@ -260,8 +260,6 @@ export default {
 			)
 		},
 		async sendText() {
-			console.log(this.recordsList[0].uid)
-			console.log(this.bottleUserInfo.uid)
 			if (!this.recordsList[0].comment) {
 				uni.$u.toast('不可以回复空文字噢')
 				return

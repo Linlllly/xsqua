@@ -106,7 +106,7 @@ export default {
 					let data = JSON.parse(res.data)
 					console.log(data)
 					if (data.type === 'bottle') {
-						this.chatDot = true
+						this.bottleDot = true
 					}
 				})
 			}
@@ -151,10 +151,12 @@ export default {
 					return
 				}
 				let id = res.result.bottleRecordId
+
 				uni.navigateTo({
 					url:
-						'../../pages_userActivity/bottleDetail/bottleDetail?id=' +
-						id
+						'../../pages_userActivity/bottleDetail/bottleDetail?i=' +
+						id +
+						'&&type=1'
 				})
 			})
 		},
@@ -187,6 +189,7 @@ export default {
 			})
 		},
 		toBottleMessageList() {
+			this.bottleDot = false
 			uni.navigateTo({
 				url: '../../pages_userActivity/bottleMessageList/bottleMessageList'
 			})
