@@ -86,7 +86,7 @@ import { mapGetters, mapMutations, mapState } from 'vuex';
 
 export default {
 	computed: {
-		...mapState(['armor'])
+		...mapState(['armor', 'ava'])
 	},
 	data() {
 		return {
@@ -232,12 +232,13 @@ export default {
 	padding: 0 40rpx;
 	background: url('../../static/area-select-bg.png') !important;
 	.title-left {
+		width: 400rpx;
 		display: flex;
 		flex-direction: column;
 		.title-left-top {
-			width: 750rpx;
 			display: flex;
 			align-items: center;
+			justify-content: space-around;
 		}
 		/deep/.u-input {
 			margin-top: 10rpx;

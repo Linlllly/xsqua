@@ -2,14 +2,14 @@
 	<div class="pages">
 		<img
 			class="bg-img"
-			:src="type === 0 ? 'https://www.zairongyifang.com:8080/filePath/resource/xkj/3.png' : 'https://www.zairongyifang.com:8080/filePath/resource/xkj/6.png'"
+			:src="type === 0 ? 'https://www.zairongyifang.com:8080/filePath/resource/xkj/3.png' : 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_08e7965202.png'"
 			alt=""
 		/>
 		<div class="bg-box">
 			<div class="bottle-box">
 				<div class="dynamic">
 					<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
-					<div class="dy-name">{{ bottleUserInfo.username }}</div>
+					<!-- <div class="dy-name">{{ bottleUserInfo.username }}</div> -->
 				</div>
 				<!-- 文本内容 -->
 				<div class="content">
@@ -154,8 +154,10 @@ export default {
 				this.bottleInfo = res.result;
 				this.bottleInfo.media = JSON.parse(this.bottleInfo.media) || [];
 			}
-
+			//不存在图片视频就清空
 			if (this.bottleInfo.media.length === 0) {
+				this.aImgList = [];
+				this.avideo = '';
 				return;
 			}
 			let medias = this.bottleInfo.media[0];

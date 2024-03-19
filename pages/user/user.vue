@@ -386,7 +386,7 @@ export default {
 	computed: {
 		...mapState(['house', 'token', 'myWs']),
 		percentage() {
-			return (this.silverNum / 15000) * 100 || 2;
+			return (this.silverNum / 150000) * 100 || 2;
 		}
 	},
 	components: { Cropping },
@@ -467,10 +467,7 @@ export default {
 			this.showSub = false;
 			let that = this;
 			if (!uni.getStorageSync('openId')) {
-				uni.showToast({
-					title: '只有微信用户才可以选择消息推送！',
-					icon: 'none'
-				});
+				uni.$u.toast('只有微信用户才可以选择消息推送！');
 				return;
 			}
 			wx.requestSubscribeMessage({
@@ -535,25 +532,19 @@ export default {
 			console.log('请求用户信息');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.uid = res.result.uid;
+			//红点
 			this.getChatRedDot(res.result.uid);
-			// this.getMessRedDot(res.result.uid);
+			// 关注
 			this.getUserStatistics();
-			this.getUserRank();
 
 			this.avatar = res.result.avatar;
 			this.myDes = res.result.intro;
 			this.username = res.result.username;
 			this.silverNum = res.result.silverNum;
-			this.fans = res.result.fans;
-			this.follow = res.result.follow;
-			this.flowerNo = res.result.flowerNo;
 			this.silverNo = res.result.silverNo;
 			this.inviteContent = res.result.inviteContent;
 			this.accrualRecharge = res.result.accrualRecharge;
@@ -568,10 +559,7 @@ export default {
 				console.log('请求关注/粉丝数');
 				console.log(res);
 				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
+					uni.$u.toast(res.msg);
 					return;
 				}
 
@@ -579,41 +567,24 @@ export default {
 				this.follow = res.result.follow;
 			});
 		},
-		//获取用户各数量情况
-		getUserRank() {
-			getUserRank().then((res) => {
-				console.log('获取用户各数量情况');
-				console.log(res);
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-					return;
-				}
-				this.silverNum = res.result.silverNum;
-			});
-		},
+
 		//盔甲状态
 		getArmourConfig() {
 			getArmourConfig().then((res) => {
 				console.log('获取当前盔甲状态');
 				console.log(res);
 				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-				} else {
-					this.armour = res.result.armourStatus === 0 ? false : true;
-					uni.setStorageSync('armor', this.armour);
-					this.updateArmor();
-					let givenDate = new Date(res.result.armourTime);
-					let currentDate = new Date();
-
-					var timeDiff = Math.abs(currentDate.getTime() - givenDate.getTime());
-					this.armourTime = Math.ceil(timeDiff / (1000 * 3600 * 24));
+					uni.$u.toast(res.msg);
+					return;
 				}
+				this.armour = res.result.armourStatus === 0 ? false : true;
+				uni.setStorageSync('armor', this.armour);
+				this.updateArmor();
+				let givenDate = new Date(res.result.armourTime);
+				let currentDate = new Date();
+
+				var timeDiff = Math.abs(currentDate.getTime() - givenDate.getTime());
+				this.armourTime = Math.ceil(timeDiff / (1000 * 3600 * 24));
 			});
 		},
 		//聊天红点
@@ -645,10 +616,7 @@ export default {
 			console.log('请求消息红点');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			if (res.result === true) {
@@ -663,10 +631,7 @@ export default {
 			console.log('请求空间详细数据');
 			console.log(res);
 			if (res.code !== 0 && res.code !== 500) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			if (res.code === 500) {
@@ -697,17 +662,11 @@ export default {
 			console.log('请求动态列表');
 			console.log(res);
 			if (res.code === 500) {
-				uni.showToast({
-					title: '请先成为房间主人吧！',
-					icon: 'none'
-				});
+				uni.$u.toast('请先成为房间主人吧！');
 				return;
 			}
 			if (res.code !== 0 && res.code !== 500) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				// ** 关闭节流阀
 				this.isloading = false;
 				return;
@@ -744,10 +703,7 @@ export default {
 		async setTop(i) {
 			let res = await postTop({ id: i.id });
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.page = 1;
@@ -757,10 +713,7 @@ export default {
 		async unSetTop(i) {
 			let res = await cancelPostTop({ id: i.id });
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.page = 1;
@@ -847,16 +800,13 @@ export default {
 		//上传修改后的头像
 		async resetAvatar(path) {
 			let res = await userInfoEdit({ avatar: path });
-			if (res.code === 0) {
-				this.avatar = this.linshiAvatar;
-				uni.setStorageSync('ava', path);
-				this.updateAva();
-			} else {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg);
+				return;
 			}
+			this.avatar = this.linshiAvatar;
+			uni.setStorageSync('ava', path);
+			this.updateAva();
 		},
 		//修改背景
 		changeBg() {
@@ -925,10 +875,7 @@ export default {
 			});
 			if (res.code === 0) {
 			} else {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				this.inviteContent = '';
 			}
 		},
@@ -950,30 +897,22 @@ export default {
 		//更新背景
 		async resetCoverImage(path) {
 			let res = await updateBackGroupImg({ imgUrl: path });
-			if (res.code === 0) {
-				this.coverImage = this.linshiCoverImage;
-			} else {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg);
+				return;
 			}
+
+			this.coverImage = this.linshiCoverImage;
 		},
 		//修改个签
 		async changeMyDes(e) {
 			let res = await userInfoEdit({ intro: this.myDes });
-			if (res.code === 0) {
-				uni.showToast({
-					title: '修改个人签名成功',
-					icon: 'none'
-				});
-			} else {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg);
 				this.myDes = '';
+				return;
 			}
+			uni.$u.toast('修改个人签名成功');
 		},
 		goSecret() {
 			uni.navigateTo({
@@ -996,10 +935,7 @@ export default {
 			if (this.password === this.inputMima) {
 				this.type = 1;
 			} else {
-				uni.showToast({
-					title: '密码输入不正确',
-					icon: 'none'
-				});
+				uni.$u.toast('密码输入不正确');
 			}
 		},
 		async getSelectRoom() {
@@ -1010,10 +946,7 @@ export default {
 			console.log('搜索用户');
 			console.log(res);
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			this.popSearch = true;
@@ -1022,25 +955,17 @@ export default {
 		//更新密码
 		async confirmChangeSecret() {
 			if (this.oldSecret !== this.password) {
-				uni.showToast({
-					title: '原密码输入错误',
-					icon: 'none'
-				});
+				uni.$u.toast('原密码输入错误');
+
 				return;
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
-				uni.showToast({
-					title: '密码长度必须设置为6位',
-					icon: 'none'
-				});
+				uni.$u.toast('密码长度必须设置为6位');
 				return;
 			}
 			let res = await updatePassword({ password: this.newSecret });
 			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon: 'none'
-				});
+				uni.$u.toast(res.msg);
 				return;
 			}
 			uni.showToast({
@@ -1057,10 +982,7 @@ export default {
 				console.log('获取弹窗');
 				console.log(res);
 				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
+					uni.$u.toast(res.msg);
 					return;
 				}
 				this.popContent = res.content ? JSON.parse(res.content.content) : '';
@@ -1115,7 +1037,7 @@ export default {
 		.setting {
 			position: absolute;
 			top: 50rpx;
-			right: 20rpx;
+			right: 10rpx;
 			width: 66rpx;
 			height: 99rpx;
 		}
@@ -1125,7 +1047,7 @@ export default {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			right: 110rpx;
+			right: 90rpx;
 			font-size: 24rpx;
 			line-height: 1.8;
 			.armor-img {
@@ -1166,6 +1088,7 @@ export default {
 					align-items: center;
 					.name {
 						font-size: 44rpx;
+						line-height: 2;
 					}
 
 					.armor-time {
@@ -1174,8 +1097,9 @@ export default {
 				}
 				.about {
 					display: flex;
-					margin: 20rpx 0;
+					align-items: flex-end;
 					width: 308rpx;
+					height: 55rpx;
 					white-space: nowrap;
 					div {
 						width: 50%;
@@ -1184,6 +1108,7 @@ export default {
 			}
 		}
 		.infos-2 {
+			margin-top: 16rpx;
 			/deep/.u-textarea {
 				padding: 0 !important;
 				background-color: transparent !important;
@@ -1195,7 +1120,7 @@ export default {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				margin: 20rpx 0;
+				margin-bottom: 16rpx;
 				.level-img {
 					width: 154rpx;
 					height: 40rpx;
