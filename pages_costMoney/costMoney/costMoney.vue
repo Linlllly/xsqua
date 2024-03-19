@@ -25,6 +25,7 @@
 						<scroll-view v-if="moneyList && moneyList.length !== 0" :scroll-y="true" style="width: 100%; height: 696rpx" @scrolltolower="lowerMoney">
 							<div class="list-tiem" v-for="(i, index) in moneyList" :key="index">
 								<img class="ava" :src="bigLook === 0 ? i.sendUserAvatar : i.receiveUserAvatar" alt="" @click="toOtherUser(i)" />
+								<div class="count">{{ i.status === 33 ? '参与水果拼盘消耗' : i.status === 34 ? '参与水果拼盘获取' : i.status === 35 ? '捡漂流瓶' : '' }}</div>
 								<div class="count">{{ i.num }}</div>
 							</div>
 						</scroll-view>

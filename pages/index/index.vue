@@ -34,7 +34,7 @@
 		<div class="record-btn">中奖榜单</div>
 		<div class="record-list">
 			<div class="record" v-for="i in allPrizeRecordList" :key="i">
-				xxx抽中了
+				{{ i.userInfo.name }}抽中了
 				{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : (i.prizeInfo.starTimes + 1) * i.starNum + '星星' }}
 			</div>
 			<div class="record">....</div>
