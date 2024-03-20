@@ -1,5 +1,9 @@
 <template>
 	<div class="pages">
+		<!-- banner -->
+		<div v-if="list1.length" class="banner-box">
+			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
+		</div>
 		<div class="slot-machine">
 			<img class="slot-bg-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/2.png" alt="" />
 			<img class="slot-content-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/5.png" alt="" />
@@ -34,7 +38,7 @@
 		<div class="record-btn">中奖榜单</div>
 		<div class="record-list">
 			<div class="record" v-for="i in allPrizeRecordList" :key="i">
-				{{ i.userInfo.name }}抽中了
+				{{ i.userInfo.username }}抽中了
 				{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : (i.prizeInfo.starTimes + 1) * i.starNum + '星星' }}
 			</div>
 			<div class="record">....</div>
@@ -52,10 +56,7 @@
 
 			<div class="city-select" v-for="i in areaList" :key="i.cateId" @click="goCitySelect(i.cateId)"></div>
 		</div>
-		<!-- banner -->
-		<div v-if="list1.length" class="banner-box">
-			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
-		</div>
+
 		<!-- 确认兑换 -->
 		<u-popup :show="showClaim" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-claim">
@@ -492,6 +493,7 @@ export default {
 
 <style lang="less" scoped>
 .slot-machine {
+	position: relative;
 	width: 750rpx;
 	height: 724rpx;
 	.slot-bg-img {
@@ -520,15 +522,15 @@ export default {
 		height: 145rpx;
 	}
 }
-.slot-machine::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 750rpx;
-	height: 724rpx;
-	z-index: -1;
-}
+// .slot-machine::before {
+// 	content: '';
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 750rpx;
+// 	height: 724rpx;
+// 	z-index: -1;
+// }
 
 .get-gift {
 	width: 722rpx;
@@ -724,6 +726,12 @@ export default {
 }
 .banner-box {
 	background-color: #ffffff;
+	/deep/ .u-swiper {
+		height: 200rpx !important;
+	}
+	/deep/ .u-swiper__wrapper {
+		height: 200rpx !important;
+	}
 	/deep/ .u-swiper__wrapper__item__wrapper {
 		padding: 10rpx 20rpx;
 		background-color: #ffffff;

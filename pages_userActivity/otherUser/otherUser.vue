@@ -44,7 +44,9 @@
 							</div>
 						</div>
 						<div class="cost-step">
-							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false"></u-line-progress>
+							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false">
+								<div class="step-progress"></div>
+							</u-line-progress>
 						</div>
 					</div>
 					<div class="infos-3">
@@ -207,7 +209,13 @@ export default {
 	computed: {
 		...mapState(['uid', 'house', 'myWs']),
 		percentage() {
-			return (this.silverNum / 150000) * 100 || 2;
+			if (this.silverNum === 0) {
+				return 6;
+			} else if (0 < (this.silverNum / 150000) * 100 < 8) {
+				return 8;
+			} else {
+				return (this.silverNum / 150000) * 100;
+			}
 		}
 	},
 	watch: {
@@ -753,11 +761,20 @@ export default {
 				}
 			}
 			.cost-step {
+				position: relative;
 				/deep/.u-line-progress {
 					border: 2rpx solid #ffbf41;
 				}
 				/deep/.u-line-progress__line {
 					background: linear-gradient(90deg, #ca8b45 0%, #feda7a 100%);
+				}
+				.step-progress {
+					position: absolute;
+					top: 0;
+					left: 38rpx;
+					width: 2rpx;
+					height: 100%;
+					background: #ab733a;
 				}
 			}
 		}
