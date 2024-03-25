@@ -312,7 +312,8 @@ export default {
 			popupRow: '',
 			changeSendId: false,
 			//漂流瓶
-			bottleId: null
+			bottleId: null,
+			type: null
 		};
 	},
 
@@ -321,7 +322,7 @@ export default {
 		this.ouid = option.ouid;
 		this.ocateId = option.ocateId;
 		this.bottleId = option.bottleId ? option.bottleId : null;
-		console.log(222, this.bottleId);
+		this.type = option.type ? option.type : null;
 		this.getGetUserInfoById();
 		this.scrollTop = 9999999;
 		this.getHistory();
@@ -966,7 +967,7 @@ export default {
 		},
 		goBottleDetail() {
 			uni.navigateTo({
-				url: '../bottleDetail/bottleDetail?i=' + this.bottleId + '&&type=0'
+				url: '../bottleDetail/bottleDetail?i=' + this.bottleId + '&&type=' + this.type
 			});
 		}
 	}

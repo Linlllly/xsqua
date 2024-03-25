@@ -2,7 +2,7 @@
 	<div class="pages">
 		<img
 			class="bg-img"
-			:src="type === 0 ? 'https://www.zairongyifang.com:8080/filePath/resource/xkj/3.png' : 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_08e7965202.png'"
+			:src="type !== 1 ? 'https://www.zairongyifang.com:8080/filePath/resource/xkj/3.png' : 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_08e7965202.png'"
 			alt=""
 		/>
 		<div class="bg-box">
@@ -249,7 +249,7 @@ export default {
 		goChatWith(i) {
 			let ocateId = this.type === 2 ? i.cateId : i.userInfo.cateId;
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId + '&&bottleId=' + this.id
+				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId + '&&bottleId=' + this.id + '&&type=' + this.type
 			});
 		},
 		//单图预览
