@@ -14,4 +14,7 @@ export function exchange(data) {
 export function buy(data) {
 	return get('/app/pay/buy', data)
 }
-//
+//查看充值记录
+export function upList(data) {
+	return get('/app/order/myPage', data)
+}

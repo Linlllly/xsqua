@@ -5,7 +5,7 @@
 			<div class="box-title">
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
-				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=3' : coverImage" alt="" class="my-img" />
+				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_00654a31bb.png' : coverImage" alt="" class="my-img" />
 
 				<!-- 覆盖盒子/相对定位 -->
 				<div class="width-bottom">
@@ -14,8 +14,8 @@
 				<div class="my-info">
 					<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
 					<div class="armor-box" @click="toCostMoney">
-						<img class="armor-img" :src="armor ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
-						<div>{{ armor ? '安全盔甲' : '激活安全盔甲' }}</div>
+						<img class="armor-img" :src="armour ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
+						<div>{{ armour ? '安全盔甲' : '激活安全盔甲' }}</div>
 					</div>
 					<div class="infos-1">
 						<Cropping @upload="doUpload" ref="cropping" selWidth="300upx" selHeight="300upx" />
@@ -54,15 +54,14 @@
 								alt=""
 							/>
 							<div class="level-img-says">LV{{ nmberLevel }}</div>
-							<div class="level-intro">
+							<div class="level-intro" @click="toCostMoney">
 								<div>{{ silverNum }}</div>
 								<img class="level-start" src="../../static/money.png" alt="" />
 							</div>
 						</div>
 						<div class="cost-step">
-							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false">
-								<div class="step-progress"></div>
-							</u-line-progress>
+							<div class="step-progress"></div>
+							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false"></u-line-progress>
 						</div>
 					</div>
 					<div class="infos-3">
@@ -388,13 +387,7 @@ export default {
 	computed: {
 		...mapState(['house', 'token', 'myWs']),
 		percentage() {
-			if (this.silverNum === 0) {
-				return 6;
-			} else if (0 < (this.silverNum / 150000) * 100 < 8) {
-				return 8;
-			} else {
-				return (this.silverNum / 150000) * 100;
-			}
+			return (this.silverNum / 150000) * 100;
 		}
 	},
 	components: { Cropping },
@@ -1156,19 +1149,27 @@ export default {
 			}
 			.cost-step {
 				position: relative;
+				display: flex;
 				/deep/.u-line-progress {
 					border: 2rpx solid #ffbf41;
+					border-left: 0;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
 				}
 				/deep/.u-line-progress__line {
 					background: linear-gradient(90deg, #ca8b45 0%, #feda7a 100%);
 				}
+				/deep/ .u-line-progress__line {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
 				.step-progress {
-					position: absolute;
-					top: 0;
-					left: 38rpx;
-					width: 2rpx;
-					height: 100%;
-					background: #ab733a;
+					width: 18rpx;
+					height: 8px;
+					background: #ca8b45;
+					border: 2rpx solid #ffbf41;
+					border-right: 2rpx solid #916331;
+					border-radius: 30rpx 0 0 30rpx;
 				}
 			}
 		}

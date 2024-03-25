@@ -3,37 +3,40 @@
 	<view class="pages">
 		<!-- 头像 -->
 		<div class="stick">
-			<img class="other-title" :src="oava" alt="" @click="toOtherUser()" />
-			<div
-				class="other-info"
-				@click="
-					changeName = true;
-					fid = ouid;
-				"
-			>
-				<div class="info-name">
-					<div class="box">
-						{{ realRemark ? realRemark : ousername }}
-					</div>
-					<img v-if="realRemark" src="../ua_static/orangebeizhu.png" mode="" />
-					<img v-else src="../ua_static/greybeizhu.png" mode="" />
-				</div>
-				<div class="info-des">{{ ointro ? ointro : ' ' }}</div>
-			</div>
-			<div class="other-relation">
-				<img src="../ua_static/lahei.png" alt="" @click="shieldUser" />
-			</div>
-			<div class="other-relation">
-				<u-icon
-					size="30"
-					name="trash"
-					color="#d61515"
+			<div class="stick-top">
+				<img class="other-title" :src="oava" alt="" @click="toOtherUser()" />
+				<div
+					class="other-info"
 					@click="
-						showRemove = true;
-						cleanAll = true;
+						changeName = true;
+						fid = ouid;
 					"
-				></u-icon>
+				>
+					<div class="info-name">
+						<div class="box">
+							{{ realRemark ? realRemark : ousername }}
+						</div>
+						<img v-if="realRemark" src="../ua_static/orangebeizhu.png" mode="" />
+						<img v-else src="../ua_static/greybeizhu.png" mode="" />
+					</div>
+					<div class="info-des">{{ ointro ? ointro : ' ' }}</div>
+				</div>
+				<div class="other-relation">
+					<img src="../ua_static/lahei.png" alt="" @click="shieldUser" />
+				</div>
+				<div class="other-relation">
+					<u-icon
+						size="30"
+						name="trash"
+						color="#d61515"
+						@click="
+							showRemove = true;
+							cleanAll = true;
+						"
+					></u-icon>
+				</div>
 			</div>
+			<div v-if="bottleId" class="stick-bottom" @click="goBottleDetail">点此跳转我的漂流瓶详情 ></div>
 		</div>
 		<view class="content" @touchstart="hideDrawer" :style="{ height: contentHeight + 'px' }" @click="showPopup = false">
 			<scroll-view
@@ -61,7 +64,7 @@
 					<!-- 用户消息 -->
 					<block v-if="row.type !== 'err_msg'">
 						<!-- 111111自己发出的消息 -->
-						<view v-if="row.fromUid == uid" class="my" @longpress="recordOkBtn(row)">
+						<view v-if="row.fromUid == uid" class="my">
 							<!-- 	<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div> -->
 							<!-- 左-消息 -->
 							<view class="left">
@@ -91,7 +94,7 @@
 							<view class="right"><image :src="ava"></image></view>
 						</view>
 						<!-- 222222别人发出的消息 -->
-						<view v-else class="other" @longpress="recordOkBtn(row)">
+						<view v-else class="other">
 							<!-- 		<div class="ok-btn" v-if="row.showOkBtn"><u-icon name="checkmark-circle-fill" color="#e89406" size="28"></u-icon></div> -->
 							<!-- 左-头像 -->
 							<view class="left"><image :src="oava"></image></view>
@@ -307,7 +310,9 @@ export default {
 			popupTop: 0,
 			popupLeft: 0,
 			popupRow: '',
-			changeSendId: false
+			changeSendId: false,
+			//漂流瓶
+			bottleId: null
 		};
 	},
 
@@ -315,6 +320,8 @@ export default {
 		this.chatWithList = [];
 		this.ouid = option.ouid;
 		this.ocateId = option.ocateId;
+		this.bottleId = option.bottleId ? option.bottleId : null;
+		console.log(222, this.bottleId);
 		this.getGetUserInfoById();
 		this.scrollTop = 9999999;
 		this.getHistory();
@@ -957,9 +964,10 @@ export default {
 				}
 			});
 		},
-		recordOkBtn(row) {
-			// row.showOkBtn = true;
-			// console.log(row);
+		goBottleDetail() {
+			uni.navigateTo({
+				url: '../bottleDetail/bottleDetail?i=' + this.bottleId + '&&type=0'
+			});
 		}
 	}
 };
@@ -980,36 +988,54 @@ export default {
 	overflow: hidden;
 }
 .stick {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	height: 240rpx;
-	z-index: 50;
-	box-sizing: border-box;
-	padding: 20rpx 30rpx;
 	background-color: transparent !important;
 	background: url('../../static/area-select-bg.png') !important;
-	background-size: 100% 240rpx;
-	.other-title {
-		width: 160rpx;
-		height: 160rpx;
-		border-radius: 50%;
-		margin-right: 26rpx;
-	}
-	.other-info {
-		position: relative;
-		flex: 1;
-		margin-right: 26rpx;
+	background-size: 100% auto;
+	.stick-top {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 240rpx;
+		z-index: 50;
+		box-sizing: border-box;
+		padding: 20rpx 30rpx;
 
-		.info-name {
-			display: flex;
-			font-size: 46rpx;
-			font-weight: 500;
-			color: #000000;
-			line-height: 1.5;
-			align-items: center;
+		.other-title {
+			width: 160rpx;
+			height: 160rpx;
+			border-radius: 50%;
+			margin-right: 26rpx;
+		}
+		.other-info {
+			position: relative;
+			flex: 1;
+			margin-right: 26rpx;
 
-			.box {
+			.info-name {
+				display: flex;
+				font-size: 46rpx;
+				font-weight: 500;
+				color: #000000;
+				line-height: 1.5;
+				align-items: center;
+
+				.box {
+					flex: 1;
+					overflow: hidden;
+					text-overflow: ellipsis !important; /* 超出部分省略号 */
+					word-break: break-all !important; /* break-all(允许在单词内换行。) */
+					display: -webkit-box !important; /* 对象作为伸缩盒子模型显示 */
+					-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+					-webkit-line-clamp: 1 !important; /* 显示的行数 */
+				}
+				img {
+					width: 120rpx;
+					height: 30rpx;
+					margin: 0 20rpx;
+				}
+			}
+			.info-des {
+				font-size: 32rpx;
 				flex: 1;
 				overflow: hidden;
 				text-overflow: ellipsis !important; /* 超出部分省略号 */
@@ -1018,34 +1044,23 @@ export default {
 				-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
 				-webkit-line-clamp: 1 !important; /* 显示的行数 */
 			}
-			img {
-				width: 120rpx;
-				height: 30rpx;
-				margin: 0 20rpx;
+		}
+		.other-relation {
+			width: 56rpx;
+			height: 56rpx;
+			padding: 10rpx;
+			border-radius: 16rpx;
+			background-color: #e6e6e6;
+			margin-right: 16rpx;
+			image {
+				width: 100%;
+				height: 100%;
 			}
 		}
-		.info-des {
-			font-size: 32rpx;
-			flex: 1;
-			overflow: hidden;
-			text-overflow: ellipsis !important; /* 超出部分省略号 */
-			word-break: break-all !important; /* break-all(允许在单词内换行。) */
-			display: -webkit-box !important; /* 对象作为伸缩盒子模型显示 */
-			-webkit-box-orient: vertical !important; /* 设置或检索伸缩盒对象的子元素的排列方式 */
-			-webkit-line-clamp: 1 !important; /* 显示的行数 */
-		}
 	}
-	.other-relation {
-		width: 56rpx;
-		height: 56rpx;
-		padding: 10rpx;
-		border-radius: 16rpx;
-		background-color: #e6e6e6;
-		margin-right: 16rpx;
-		image {
-			width: 100%;
-			height: 100%;
-		}
+	.stick-bottom {
+		padding: 0rpx 30rpx 16rpx;
+		color: #828282;
 	}
 }
 .u-popup {

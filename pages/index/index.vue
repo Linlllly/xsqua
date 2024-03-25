@@ -5,9 +5,9 @@
 			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
 		</div>
 		<div class="slot-machine">
-			<img class="slot-bg-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/2.png" alt="" />
-			<img class="slot-content-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/5.png" alt="" />
-			<div style="width: 100%; height: 330rpx"></div>
+			<img class="slot-bg-img" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_9d3c46a876.png" alt="" />
+			<!-- <img class="slot-content-img" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/5.png" alt="" /> -->
+			<div style="width: 100%; height: 310rpx"></div>
 			<SlotMachine
 				v-show="lookSlotMachine"
 				ref="myLucky"
@@ -24,7 +24,7 @@
 		<div class="play-intro">
 			<div>玩法说明</div>
 			<div>1、每次下注不低于5颗星星即可参与水果拼盘；</div>
-			<div>2、每次下注不低于5颗星星即可参与水果拼盘，当3个画面都是苹果时，则抽中“飞天茅台500ml ”1瓶；</div>
+			<div>2、当3个画面都是苹果时，则抽中“飞天茅台500ml ”1瓶；</div>
 			<div>3、当3个画面都是西瓜时，则获得您下注星星数量的10倍；</div>
 			<div>4、当3个画面都是香蕉时，则获得您下注星星数量的5倍；</div>
 			<div>5、当3个画面都是樱桃时，则获得您下注星星数量的2倍；</div>
@@ -32,19 +32,19 @@
 			<div>7、当3个画面不完全一样时，即未中奖。</div>
 			<div class="play-record" @click="toPrizeRecordList">
 				<img src="../../static/send-list.png" alt="" />
-				<div>中奖记录</div>
+				<div>我的奖品</div>
 			</div>
 		</div>
 		<div class="record-btn">中奖榜单</div>
 		<div class="record-list">
 			<div class="record" v-for="i in allPrizeRecordList" :key="i">
 				{{ i.userInfo.username }}抽中了
-				{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : (i.prizeInfo.starTimes + 1) * i.starNum + '星星' }}
+				{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : i.prizeInfo.starTimes * i.starNum + '星星' }}
 			</div>
 			<div class="record">....</div>
 		</div>
 		<!-- 兑换 -->
-		<img class="get-gift" @click="showClaim = true" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_d807573bf8.png" alt="" />
+		<img class="get-gift" @click="showClaim = true" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_504220fbd4.png" alt="" />
 
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
@@ -112,7 +112,7 @@
 					:min="5"
 				></u--input>
 
-				<div class="botting-intro">最低限额5颗星星</div>
+				<div class="botting-intro">5-10000颗星星</div>
 				<div class="pop-btn-box">
 					<div
 						class="pop-oks claim-oks"
@@ -135,12 +135,12 @@
 					{{ prizeInfo ? '恭喜您抽中' : '未中奖' }}
 				</div>
 				<img v-if="prizeInfo && prizeInfo.type === 1" class="prize-has-img" src="../../static/money.png" alt="" />
-				<div v-if="prizeInfo && prizeInfo.type !== 1" class="prize-text">{{ startNum * (1 + prizeInfo.starTimes) }}星星</div>
+				<div v-if="prizeInfo && prizeInfo.type !== 1" class="prize-text">{{ startNum * prizeInfo.starTimes }}星星</div>
 				<img v-if="!prizeInfo || !prizeInfo.id" class="prize-no-img" src="../../static/prize-no-img.png" alt="" />
 				<div class="pop-btn-box">
 					<div class="pop-cencels" @click="confirmGetGift">确定</div>
 				</div>
-				<img class="prize-bottom-img prize-close-img" src="../../static/prize-close.png" alt="" />
+				<img class="prize-bottom-img prize-close-img" src="../../static/prize-close.png" alt="" @click="confirmGetGift" />
 			</div>
 		</u-popup>
 	</div>
@@ -201,6 +201,7 @@ export default {
 			startNum: 5,
 			//中奖
 			showGetGift: false,
+			nowPriceId: null,
 			prizeInfo: null,
 			firstLookSlotMachine: true,
 			prizeToAddress: false,
@@ -317,7 +318,7 @@ export default {
 				.then((res) => {
 					const request = this.prizeInfo.id
 						? receive({
-								id: this.prizeInfo.id,
+								id: this.nowPriceId,
 								...this.materialForm
 						  })
 						: exchangeMaoTai(this.materialForm);
@@ -330,6 +331,7 @@ export default {
 						this.showGetMaterial = false;
 						this.prizeToAddress = false;
 						this.prizeInfo = null;
+						this.nowPriceId = null;
 					});
 				})
 				.catch((errors) => {
@@ -346,8 +348,8 @@ export default {
 		},
 		//抽奖开始和结束
 		startCallBack() {
-			if (!this.startNum || this.startNum < 5) {
-				uni.$u.toast('请输入大于等于5的正整数');
+			if (!this.startNum || this.startNum < 5 || this.startNum > 10000) {
+				uni.$u.toast('请输入5~10000数值的星星');
 				return;
 			}
 			draw({ num: this.startNum }).then((res) => {
@@ -356,11 +358,13 @@ export default {
 				this.bottingAgain = false;
 				if (res.code !== 0) {
 					uni.$u.toast(res.msg);
+					this.bottingAgain = true;
 					return;
 				}
 				this.firstLookSlotMachine = false;
 				this.$refs.myLucky.play();
 				this.prizeInfo = res.result.prizeInfo;
+				this.nowPriceId = res.result.id;
 				this.prizeToAddress = res.result.prizeInfo?.type === 1 ? true : false;
 				let results;
 				if (res.result.prizeInfo?.id) {
@@ -504,7 +508,6 @@ export default {
 		top: 0;
 		left: 0;
 		z-index: -1;
-		background-color: greenyellow;
 	}
 	.slot-content-img {
 		position: absolute;
@@ -514,29 +517,18 @@ export default {
 		top: 290rpx;
 		left: 50%;
 		transform: translateX(-50%);
-		background-color: pink;
 	}
 	.slot-btn {
-		margin: 60rpx auto 0;
+		margin: 44rpx auto 0;
 		width: 600rpx;
 		height: 145rpx;
 	}
 }
-// .slot-machine::before {
-// 	content: '';
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 750rpx;
-// 	height: 724rpx;
-// 	z-index: -1;
-// }
 
 .get-gift {
 	width: 722rpx;
 	height: 186rpx;
 	margin: 22rpx auto;
-	background-color: pink;
 }
 .pop-claim {
 	width: 629rpx;
@@ -622,16 +614,18 @@ export default {
 	line-height: 2;
 	.play-record {
 		position: absolute;
-		top: 10rpx;
-		right: 10rpx;
+		top: 14rpx;
+		right: 14rpx;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		z-index: 100;
+		font-size: 22rpx;
 		img {
-			width: 78rpx;
-			height: 78rpx;
+			width: 56rpx;
+			height: 56rpx;
 			padding: 6rpx;
+			padding-bottom: 0;
 		}
 	}
 }

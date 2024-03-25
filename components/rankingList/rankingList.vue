@@ -16,7 +16,7 @@
 						<div class="mouth-info">
 							<div class="info-addr">{{ i.username }}</div>
 						</div>
-						<div class="mouth-count">{{ i.silverNum }}两</div>
+						<div class="mouth-count">{{ i.silverNum }}颗</div>
 						<div class="mouth-btn" @click="addMoneyOrFlower(i, 1)">助力</div>
 					</div>
 				</div>

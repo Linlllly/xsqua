@@ -41,16 +41,14 @@
 		<u-popup :show="showInput" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-input">
 				<div class="input-text">
-					<textarea
-						placeholder="回复这个漂流瓶..."
+					<u--textarea
 						v-model="recordsList[0].comment"
-						@focus="inputHight"
-						:adjust-position="false"
-						@blur="inputLow"
-						maxlength="300"
+						placeholder="回复这个漂流瓶..."
+						height="130"
+						border="none"
 						:show-confirm-bar="false"
-						@linechange="inputLine"
-					/>
+						maxlength="300"
+					></u--textarea>
 				</div>
 
 				<div class="pop-btn-box">
@@ -105,7 +103,7 @@ export default {
 	data() {
 		return {
 			ws: '',
-			//帖子id
+			//漂流瓶id
 			id: '',
 			//0 我丢的 1 我捡到的 2别人捡到我的
 			type: null,
@@ -117,8 +115,8 @@ export default {
 			userInfo: {},
 			recordsList: [],
 			showInput: false,
-			showPickAgain: false,
-			messBotton: 0
+			showPickAgain: false
+			// messBotton: 0
 		};
 	},
 	onLoad(option) {
@@ -249,10 +247,9 @@ export default {
 			this.detailLostOrPickBottle();
 		},
 		goChatWith(i) {
-			console.log(9999, i);
 			let ocateId = this.type === 2 ? i.cateId : i.userInfo.cateId;
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId
+				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId + '&&bottleId=' + this.id
 			});
 		},
 		//单图预览
@@ -261,14 +258,14 @@ export default {
 				current: this.aImgList[0], // 当前显示图片的http链接
 				urls: this.aImgList // 需要预览的图片http链接列表
 			});
-		},
-		inputHight(e) {
-			this.messBotton = e.detail.height;
-		},
-		inputLow(e) {
-			this.messBotton = 0;
-		},
-		inputLine(e) {}
+		}
+		// inputHight(e) {
+		// 	this.messBotton = e.detail.height;
+		// },
+		// inputLow(e) {
+		// 	this.messBotton = 0;
+		// },
+		// inputLine(e) {}
 	}
 };
 </script>
@@ -376,14 +373,20 @@ export default {
 }
 .pop-input {
 	width: 597rpx;
-	height: 470rpx;
+	height: 450rpx;
 	.input-text {
 		width: 80%;
 		background-color: #f2f2f2;
 		margin: 30rpx auto;
-		padding: 20rpx;
+		// padding: 20rpx;
 		border-radius: 24rpx;
 		box-sizing: border-box;
+		/deep/ .u-textarea {
+			background-color: #f2f2f2;
+			.u-textarea__count {
+				background-color: #f2f2f2 !important;
+			}
+		}
 	}
 }
 /deep/textarea {

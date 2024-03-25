@@ -10,7 +10,7 @@
 		>
 			<div class="content-list" v-for="(i, index) in recordList" :key="i.id">
 				<div v-if="i.prizeInfo && i.prizeInfo.id" class="content-info">
-					恭喜您抽中了{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : (i.prizeInfo.starTimes + 1) * i.starNum + '星星' }}
+					恭喜您抽中了{{ i.prizeInfo.type === 1 ? i.prizeInfo.name : i.prizeInfo.starTimes * i.starNum + '星星' }}
 				</div>
 				<div v-else class="content-info">什么都没有抽中...</div>
 				<div
@@ -19,6 +19,7 @@
 					@click="
 						showGetMaterial = true;
 						prizeInfo = i.prizeInfo;
+						nowPriceId = i.id;
 					"
 				>
 					未填写
@@ -64,6 +65,7 @@ export default {
 	data() {
 		return {
 			recordList: [],
+			nowPriceId: '',
 			prizeInfo: '',
 			showGetMaterial: false,
 			materialForm: { name: '', mobile: '', address: '' },
@@ -114,7 +116,7 @@ export default {
 				.validate()
 				.then((res) => {
 					receive({
-						id: this.prizeInfo.id,
+						id: this.nowPriceId,
 						...this.materialForm
 					}).then((res) => {
 						if (res.code !== 0) {
@@ -124,6 +126,7 @@ export default {
 						uni.$u.toast('信息已提交，等待后台发货');
 						this.showGetMaterial = false;
 						this.prizeInfo = null;
+						this.nowPriceId = null;
 						this.$refs.paging.reload();
 					});
 				})

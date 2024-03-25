@@ -41,8 +41,8 @@
 				<div>
 					<scroll-view v-if="recordList.length !== 0" :scroll-y="true" style="width: 100%; height: 710rpx" @scrolltolower="lowerRecord">
 						<div class="box-tiem" v-for="(i, index) in recordList" :key="index">
-							<div>{{ i.createTime }}</div>
-							<div>{{ i.num }}元</div>
+							<div>{{ i.payTime }}</div>
+							<div>{{ i.price }}元</div>
 						</div>
 					</scroll-view>
 				</div>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { list, exchange, buy } from '@/api/costMoney.js';
+import { list, exchange, buy, upList } from '@/api/costMoney.js';
 
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
@@ -163,22 +163,14 @@ export default {
 		//充值记录
 		async getRecordList() {
 			this.loadingRecord = true;
-			let res = await list({
+			let res = await upList({
 				page: this.pageNumRecord,
-				limit: this.pageSizeRecord,
-				status: 1,
-				type: 1
+				limit: this.pageSizeRecord
 			});
 			console.log('充值记录');
 			console.log(res);
-			if (res.code !== 0) {
-				this.loadingRecord = false;
-				uni.$u.toast(res.msg);
-				this.loadingRecord = false;
-				return;
-			}
-			this.recordList = [...this.recordList, ...res.page.data];
-			this.lastPageNumRecord = res.page.last_page;
+			this.recordList = [...this.recordList, ...res.records];
+			this.lastPageNumRecord = res.total === 0 ? 0 : res.total / this.pageSizeRecord;
 			this.loadingRecord = false;
 		},
 		//-------------------------

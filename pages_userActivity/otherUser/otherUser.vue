@@ -8,7 +8,7 @@
 			<div class="box-title">
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
-				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/resource/default_room_bg.png?v=3' : coverImage" alt="" class="my-img" />
+				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_00654a31bb.png' : coverImage" alt="" class="my-img" />
 
 				<!-- 覆盖盒子/相对定位 -->
 				<div class="width-bottom"></div>
@@ -19,7 +19,7 @@
 							<div class="name-kj">
 								<div class="name">{{ username }}</div>
 								<div class="armor-box">
-									<img class="armor-img" :src="armor ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
+									<img class="armor-img" :src="armour ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
 									<div>安全盔甲</div>
 								</div>
 							</div>
@@ -44,9 +44,8 @@
 							</div>
 						</div>
 						<div class="cost-step">
-							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false">
-								<div class="step-progress"></div>
-							</u-line-progress>
+							<div class="step-progress"></div>
+							<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false"></u-line-progress>
 						</div>
 					</div>
 					<div class="infos-3">
@@ -116,9 +115,6 @@
 			<div v-if="type === 3" class="bg">
 				<img class="biguan" src="../ua_static/biguan.png" mode="" />
 			</div>
-			<!-- 消息 发布和客服 -->
-			<!-- 	<button class="issue" @click="toIssue"></button>
-			<button class="message" @click="toMessage"><div v-if="messageDot" class="mes-dot"></div></button> -->
 			<!-- 花钱窗-->
 			<u-popup :show="popMoney" @close="popMoney = false" bgColor="rgba(255,255,255,0.9)">
 				<div class="send-box">
@@ -209,13 +205,7 @@ export default {
 	computed: {
 		...mapState(['uid', 'house', 'myWs']),
 		percentage() {
-			if (this.silverNum === 0) {
-				return 6;
-			} else if (0 < (this.silverNum / 150000) * 100 < 8) {
-				return 8;
-			} else {
-				return (this.silverNum / 150000) * 100;
-			}
+			return (this.silverNum / 150000) * 100;
 		}
 	},
 	watch: {
@@ -762,19 +752,27 @@ export default {
 			}
 			.cost-step {
 				position: relative;
+				display: flex;
 				/deep/.u-line-progress {
 					border: 2rpx solid #ffbf41;
+					border-left: 0;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
 				}
 				/deep/.u-line-progress__line {
 					background: linear-gradient(90deg, #ca8b45 0%, #feda7a 100%);
 				}
+				/deep/ .u-line-progress__line {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
 				.step-progress {
-					position: absolute;
-					top: 0;
-					left: 38rpx;
-					width: 2rpx;
-					height: 100%;
-					background: #ab733a;
+					width: 18rpx;
+					height: 8px;
+					background: #ca8b45;
+					border: 2rpx solid #ffbf41;
+					border-right: 2rpx solid #916331;
+					border-radius: 30rpx 0 0 30rpx;
 				}
 			}
 		}
