@@ -225,6 +225,7 @@ import { history, deleteHistory, getRemark } from '@/api/chatWith.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { getUserInfoById } from '@/api/otherUser.js';
 import { userRemarkEdit } from '@/api/fansAndFouces.js';
+import { getChatBottle } from '@/api/currentBottle.js';
 import { add } from '@/api/sheldList.js';
 import { ip } from '@/api/api.js';
 const app = getApp();
@@ -321,11 +322,10 @@ export default {
 		this.chatWithList = [];
 		this.ouid = option.ouid;
 		this.ocateId = option.ocateId;
-		this.bottleId = option.bottleId ? option.bottleId : null;
-		this.type = option.type ? option.type : null;
 		this.getGetUserInfoById();
 		this.scrollTop = 9999999;
 		this.getHistory();
+		this.queryGetChatBottle();
 		console.log('---------');
 		console.log(this.ouid);
 		console.log(this.uid);
@@ -418,6 +418,24 @@ export default {
 		this.close = true;
 	},
 	methods: {
+		//是否漂流瓶
+		queryGetChatBottle() {
+			getChatBottle({
+				chatUid: this.ouid
+			}).then((res) => {
+				console.log('记录聊天瓶子');
+				console.log(res);
+				// 返回：bottleId=瓶子ID，type=（1=丢，2=捡）
+				// this.type = res.result.type === 1 ? 2 : res.type === 2 ? 1 : null;
+				this.bottleId = res.result.bottleId;
+				if (res.result.type === 1) {
+					//我丢的 类型
+					this.type = Number(res.result.lost);
+				} else {
+					this.type = 1;
+				}
+			});
+		},
 		shieldUser(i) {
 			if (this.armor) {
 				this.showshield = true;
@@ -854,7 +872,7 @@ export default {
 		showDownloadVideo(row) {
 			console.log(row);
 			if (!this.isFull) {
-				// //非全屏状态才展示下载按钮
+				//非全屏状态才展示下载按钮
 				this.isFullLongPress = true;
 				this.popupRow = row;
 				this.downloadUrl = row.text;

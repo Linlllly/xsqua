@@ -53,3 +53,11 @@ export function commentBottle(data) {
 export function todayCount(data) {
 	return get('/app/bottleRecord/todayCount', data)
 }
+//记录聊天瓶子
+export function setChatBottle(data) {
+	return post('/app/bottleRecord/setChatBottle', data)
+}
+//获取目前的聊天瓶子
+export function getChatBottle(data) {
+	return post('/app/bottleRecord/getChatBottle', data)
+}

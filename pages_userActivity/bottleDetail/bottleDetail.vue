@@ -5,36 +5,44 @@
 			:src="type !== 1 ? 'https://www.zairongyifang.com:8080/filePath/resource/xkj/3.png' : 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_08e7965202.png'"
 			alt=""
 		/>
+
 		<div class="bg-box">
 			<div class="bottle-box">
-				<div class="dynamic">
-					<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
-					<!-- <div class="dy-name">{{ bottleUserInfo.username }}</div> -->
-				</div>
-				<!-- 文本内容 -->
-				<div class="content">
-					<div class="content-c">{{ bottleInfo.content }}</div>
-					<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-					<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="300rpx" multipleSize="140rpx"></u-album>
-					<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
-						<u-album :urls="aImgList" singleSize="300rpx" multipleSize="180rpx" rowCount="2"></u-album>
+				<div style="padding: 50rpx 40rpx 0">
+					<div class="dynamic">
+						<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
 					</div>
-					<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
-				</div>
-				<!-- 回复 -->
-				<div v-for="i in recordsList" :key="i.uid" class="record-box">
-					<div v-if="i.comment" class="dynamic record-userinfo">
-						<img class="dy-img" :src="type !== 0 ? i.avatar : i.userInfo.avatar" alt="" />
-						<div class="dy-name record-comment">
-							{{ i.comment }}
+					<!-- 文本内容 -->
+					<div class="content">
+						<div class="content-c">{{ bottleInfo.content }}</div>
+						<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
+						<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="300rpx" multipleSize="140rpx"></u-album>
+						<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
+							<u-album :urls="aImgList" singleSize="300rpx" multipleSize="180rpx" rowCount="2"></u-album>
+						</div>
+						<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
+					</div>
+					<!-- 回复 -->
+					<div
+						v-for="i in recordsList"
+						:key="i.uid"
+						class="record-box"
+						:style="{ border: type === 0 ? '2rpx solid #556eef' : 'none', padding: type === 0 ? '20rpx' : 0 }"
+					>
+						<div v-if="i.comment" class="dynamic record-userinfo">
+							<img class="dy-img" :src="type !== 0 ? i.avatar : i.userInfo.avatar" alt="" />
+							<div class="dy-name record-comment">
+								{{ i.comment }}
+							</div>
+						</div>
+						<div class="action-box">
+							<div v-if="type === 1 && !i.comment" class="action-btns record-then" @click="showInput = true">回复</div>
+							<div v-if="type === 1" class="action-btns pick-again" @click="pickBottle()">再捡一次</div>
+							<div v-if="type !== 1 && i.comment" class="action-btns open-chat" @click="goChatWith(i)">开启私聊</div>
 						</div>
 					</div>
-					<div class="action-box">
-						<div v-if="type === 1 && !i.comment" class="action-btns record-then" @click="showInput = true">回复</div>
-						<div v-if="type === 1" class="action-btns pick-again" @click="pickBottle()">再捡一次</div>
-						<div v-if="type !== 1 && i.comment" class="action-btns open-chat" @click="goChatWith(i)">开启私聊</div>
-					</div>
 				</div>
+				<img class="box-img" src="../ua_static/bottle-letter.png" alt="" />
 			</div>
 		</div>
 		<!-- 回复弹窗 -->
@@ -91,7 +99,7 @@
 <script>
 import { detailPickBottle, detailLostBottle, commentBottle, pickBottle, todayCount } from '@/api/currentBottle.js';
 import { checkContent } from '@/api/artcleIssue.js';
-import { bottleRecord } from '@/api/currentBottle.js';
+import { bottleRecord, setChatBottle } from '@/api/currentBottle.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();
@@ -170,7 +178,7 @@ export default {
 			bottleRecord({ page: 1, limit: 10000, bottleId: this.id }).then((res) => {
 				console.log('请求我的瓶子的所有回复');
 				console.log(res);
-				this.recordsList = res.result.records;
+				this.recordsList = res.result.records.filter((record) => record.isComment === 1);
 			});
 		},
 		async sendText() {
@@ -246,10 +254,23 @@ export default {
 			this.getTodayCount();
 			this.detailLostOrPickBottle();
 		},
+		//记录好瓶子再跳转
+		querySetChatBottle(buid) {
+			setChatBottle({
+				auid: this.uid,
+				bottleId: this.id,
+				buid: buid,
+				lost: this.type
+			}).then((res) => {
+				console.log('记录聊天瓶子');
+				console.log(res);
+			});
+		},
 		goChatWith(i) {
 			let ocateId = this.type === 2 ? i.cateId : i.userInfo.cateId;
+			this.querySetChatBottle(i.uid);
 			uni.navigateTo({
-				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId + '&&bottleId=' + this.id + '&&type=' + this.type
+				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + ocateId + '&&type=' + this.type
 			});
 		},
 		//单图预览
@@ -259,13 +280,6 @@ export default {
 				urls: this.aImgList // 需要预览的图片http链接列表
 			});
 		}
-		// inputHight(e) {
-		// 	this.messBotton = e.detail.height;
-		// },
-		// inputLow(e) {
-		// 	this.messBotton = 0;
-		// },
-		// inputLine(e) {}
 	}
 };
 </script>
@@ -293,16 +307,24 @@ export default {
 .bottle-box {
 	position: relative;
 	width: 692rpx;
-	max-height: 1000rpx;
+	height: 1000rpx;
 	background: #ffffff;
 	border-radius: 48rpx;
 	border: 4rpx solid #556eef;
 	margin: auto;
-	padding: 50rpx;
 	box-sizing: border-box;
 	overflow-y: auto;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+
+	.box-img {
+		position: sticky;
+		width: 684rpx;
+		height: 330rpx;
+		left: 0rpx;
+		bottom: 0rpx;
+		border-radius: 0 0 48rpx 48rpx;
+	}
 }
 .dynamic {
 	display: flex;
@@ -312,10 +334,6 @@ export default {
 		width: 90rpx;
 		height: 90rpx;
 		border-radius: 50%;
-	}
-	.dy-name {
-		font-size: 32rpx;
-		margin: 0 20rpx;
 	}
 }
 .content {
@@ -333,17 +351,18 @@ export default {
 	}
 }
 .record-box {
-	margin-top: 20rpx;
+	margin-top: 40rpx;
+	border-radius: 20rpx;
 }
 .record-userinfo {
 	flex-direction: row-reverse;
 	align-items: flex-start;
 	.record-comment {
-		width: 430rpx;
+		width: 400rpx;
 		padding: 10rpx;
 		background: #e6e6e6;
 		border-radius: 16rpx;
-		margin-top: 16rpx;
+		margin: 16rpx 20rpx 0 0;
 	}
 }
 .action-box {
@@ -378,7 +397,6 @@ export default {
 		width: 80%;
 		background-color: #f2f2f2;
 		margin: 30rpx auto;
-		// padding: 20rpx;
 		border-radius: 24rpx;
 		box-sizing: border-box;
 		/deep/ .u-textarea {
