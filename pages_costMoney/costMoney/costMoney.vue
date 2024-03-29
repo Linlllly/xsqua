@@ -96,7 +96,7 @@ export default {
 	methods: {
 		//充值
 		payMoney(i) {
-			i === 0 ? (this.num = 299) : i === 1 ? (this.num = 990) : i === 2 ? (this.num = 4990) : (this.num = 9990);
+			i === 0 ? (this.num = 290) : i === 1 ? (this.num = 990) : i === 2 ? (this.num = 4990) : (this.num = 9990);
 			// this.loading = true;
 			if (this.timer) {
 				return;

@@ -8,7 +8,7 @@
 
 		<div class="bg-box">
 			<div class="bottle-box">
-				<div style="padding: 50rpx 40rpx 0">
+				<div class="box-matter">
 					<div class="dynamic">
 						<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
 					</div>
@@ -179,6 +179,7 @@ export default {
 				console.log('请求我的瓶子的所有回复');
 				console.log(res);
 				this.recordsList = res.result.records.filter((record) => record.isComment === 1);
+				this.recordsList = [{ comment: '1111' }, { comment: '1111' }, { comment: '1111' }, { comment: '1111' }];
 			});
 		},
 		async sendText() {
@@ -284,7 +285,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .pages {
 	height: 100vh;
 }
@@ -313,9 +314,14 @@ export default {
 	border: 4rpx solid #556eef;
 	margin: auto;
 	box-sizing: border-box;
-	overflow-y: auto;
-	white-space: pre-wrap;
-	word-wrap: break-word;
+
+	.box-matter {
+		padding: 50rpx 40rpx 14rpx;
+		height: 600rpx;
+		overflow-y: auto;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
 
 	.box-img {
 		position: sticky;
@@ -431,5 +437,12 @@ button::after {
 }
 .singleImg {
 	width: 300rpx;
+}
+::-webkit-scrollbar {
+	display: block !important;
+	width: 10rpx !important;
+	height: 10rpx !important;
+	-webkit-appearance: block !important;
+	color: #049dfc;
 }
 </style>

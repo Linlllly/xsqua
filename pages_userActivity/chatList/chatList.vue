@@ -20,29 +20,11 @@
 				</div>
 				<!-- 搜索 -->
 				<div class="title-search">
-					<u-search
-						v-model="keyword"
-						:showAction="true"
-						actionText="搜索"
-						:animation="false"
-						@search="peopleSearch"
-						@custom="peopleSearch"
-					></u-search>
-					<u-icon
-						customStyle="marginLeft:20rpx"
-						name="reload"
-						color="#666"
-						size="18"
-						@click="reloadAll"
-					></u-icon>
+					<u-search v-model="keyword" :showAction="true" actionText="搜索" :animation="false" @search="peopleSearch" @custom="peopleSearch"></u-search>
+					<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
 				</div>
 			</template>
-			<view
-				class="content-list"
-				v-for="(i, index) in chatList"
-				:key="i.uid"
-				@click="goChatWith(i)"
-			>
+			<view class="content-list" v-for="(i, index) in chatList" :key="i.uid" @click="goChatWith(i)">
 				<!-- 头像 -->
 				<img class="list-img" :src="i.avatar" alt="" />
 				<div v-if="i.unReadCount > 0" class="mes-dot"></div>
@@ -60,24 +42,9 @@
 				<!-- 小红点和关系 -->
 				<!-- <div class="red-dot">133</div> -->
 				<div v-if="i.relations !== 0">
-					<img
-						v-if="i.relations === 1"
-						class="list-relative-img"
-						src="../../static/fans.png"
-						alt=""
-					/>
-					<img
-						v-if="i.relations === 2"
-						class="list-relative-img"
-						src="../../static/foucs.png"
-						alt=""
-					/>
-					<img
-						v-if="i.relations === 3"
-						class="list-relative-img"
-						src="../../static/double.png"
-						alt=""
-					/>
+					<img v-if="i.relations === 1" class="list-relative-img" src="../../static/fans.png" alt="" />
+					<img v-if="i.relations === 2" class="list-relative-img" src="../../static/foucs.png" alt="" />
+					<img v-if="i.relations === 3" class="list-relative-img" src="../../static/double.png" alt="" />
 				</div>
 			</view>
 		</z-paging>
@@ -85,10 +52,10 @@
 </template>
 
 <script>
-import { chatList } from '@/api/chatList.js'
-import { mapGetters, mapMutations, mapState } from 'vuex'
+import { chatList } from '@/api/chatList.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
 
-const app = getApp()
+const app = getApp();
 export default {
 	computed: {
 		...mapState(['ava', 'myWs', 'uid'])
@@ -102,45 +69,38 @@ export default {
 			keyword: '',
 			//关闭ws的侦听
 			close: false
-		}
+		};
 	},
 	watch: {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('chatList开启侦听')
-				this.close = false
-				this.ws = app.globalData.ws
+				console.log('chatList开启侦听');
+				this.close = false;
+				this.ws = app.globalData.ws;
 				this.ws.onMessage((res) => {
 					if (!this.close) {
-						console.log(res)
+						console.log(res);
 						if (res.data === 'active') {
-							return
+							return;
 						}
-						let data = JSON.parse(res.data)
-						console.log(data)
-						if (
-							data.type === 'chat' ||
-							data.type === 'chat_image' ||
-							data.type === 'chat_video' ||
-							data.toUid !== this.uid
-						) {
-							this.page = 1
-							this.chatList = []
-							this.$refs.paging.reload()
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video' || data.toUid !== this.uid) {
+							this.$refs.paging.reload();
 						}
 					}
-				})
+				});
 			}
 		}
 	},
 	onHide() {},
 	onUnload() {
-		this.close = true
+		this.close = true;
 	},
 	onShow() {
-		this.keyword = ''
-		this.$refs.paging.reload()
+		this.keyword = '';
+		this.$refs.paging.reload();
 	},
 
 	methods: {
@@ -148,31 +108,33 @@ export default {
 		getChatList(page, limit) {
 			chatList({ page, limit, keyword: this.keyword })
 				.then((res) => {
-					this.chatList = res.result.data || []
-					this.$refs.paging.complete(res.result.data)
+					console.log('请求聊天列表');
+					console.log(res);
+					this.chatList = res.result.data || [];
+					this.$refs.paging.complete(res.result.data);
 				})
 				.catch((res) => {
-					this.$refs.paging.complete(false)
-				})
+					this.$refs.paging.complete(false);
+				});
 		},
 		goChatWith(i) {
+			if (!i.uid) {
+				uni.$u.toast('该用户已注销');
+				return;
+			}
 			uni.navigateTo({
-				url:
-					'../chatWith/chatWith?ouid=' +
-					i.uid +
-					'&&ocateId=' +
-					i.cateId
-			})
+				url: '../chatWith/chatWith?ouid=' + i.uid + '&&ocateId=' + i.cateId
+			});
 		},
 		peopleSearch() {
-			this.$refs.paging.reload()
+			this.$refs.paging.reload();
 		},
 		reloadAll() {
-			this.keyword = ''
-			this.$refs.paging.reload()
+			this.keyword = '';
+			this.$refs.paging.reload();
 		}
 	}
-}
+};
 </script>
 
 <style lang="less" scoped>

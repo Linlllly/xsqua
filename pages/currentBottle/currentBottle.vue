@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<img class="pick-and-lost" @click="pickBottle()" src="https://www.zairongyifang.com:8080/filePath/app/20241/compressed_c99ab46582.jpg" alt="" />
-		<img class="pick-and-lost" @click="toIssue" src="https://www.zairongyifang.com:8080/filePath/resource/xkj/1.png" alt="" />
+		<img class="pick-and-lost" @click="toIssue" src="https://www.zairongyifang.com:8080/filePath/app/20244/compressed_b58b2e26b4.png" alt="" />
 		<!-- 再捡一次 -->
 		<u-popup :show="showPickAgain" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-pick">
