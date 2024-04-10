@@ -24,29 +24,31 @@
 					<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
 				</div>
 			</template>
-			<view class="content-list" v-for="(i, index) in chatList" :key="i.uid" @click="goChatWith(i)">
-				<!-- 头像 -->
-				<img class="list-img" :src="i.avatar" alt="" />
-				<div v-if="i.unReadCount > 0" class="mes-dot"></div>
-				<!-- 姓名和信息 -->
-				<div class="content-info">
-					<div class="info-name">
-						<div class="u-name">
-							{{ i.remark ? i.remark : i.username }}
+			<div v-for="(i, index) in chatList" :key="i.uid" @click="goChatWith(i)">
+				<view v-if="i.uid" class="content-list">
+					<!-- 头像 -->
+					<img class="list-img" :src="i.avatar" alt="" />
+					<div v-if="i.unReadCount > 0" class="mes-dot"></div>
+					<!-- 姓名和信息 -->
+					<div class="content-info">
+						<div class="info-name">
+							<div class="u-name">
+								{{ i.remark ? i.remark : i.username }}
+							</div>
+						</div>
+						<div class="info-des">
+							{{ i.lastMsg ? i.lastMsg : ' ' }}
 						</div>
 					</div>
-					<div class="info-des">
-						{{ i.lastMsg ? i.lastMsg : ' ' }}
+					<!-- 小红点和关系 -->
+					<!-- <div class="red-dot">133</div> -->
+					<div v-if="i.relations !== 0">
+						<img v-if="i.relations === 1" class="list-relative-img" src="../../static/fans.png" alt="" />
+						<img v-if="i.relations === 2" class="list-relative-img" src="../../static/foucs.png" alt="" />
+						<img v-if="i.relations === 3" class="list-relative-img" src="../../static/double.png" alt="" />
 					</div>
-				</div>
-				<!-- 小红点和关系 -->
-				<!-- <div class="red-dot">133</div> -->
-				<div v-if="i.relations !== 0">
-					<img v-if="i.relations === 1" class="list-relative-img" src="../../static/fans.png" alt="" />
-					<img v-if="i.relations === 2" class="list-relative-img" src="../../static/foucs.png" alt="" />
-					<img v-if="i.relations === 3" class="list-relative-img" src="../../static/double.png" alt="" />
-				</div>
-			</view>
+				</view>
+			</div>
 		</z-paging>
 	</view>
 </template>

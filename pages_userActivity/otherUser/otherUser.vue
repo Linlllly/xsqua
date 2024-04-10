@@ -8,7 +8,7 @@
 			<div class="box-title">
 				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
 				<!-- 小背景 -->
-				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_00654a31bb.png' : coverImage" alt="" class="my-img" />
+				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20244/compressed_65b8352b33.png' : coverImage" alt="" class="my-img" />
 
 				<!-- 覆盖盒子/相对定位 -->
 				<div class="width-bottom"></div>

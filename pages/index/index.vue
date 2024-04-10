@@ -198,7 +198,7 @@ export default {
 			//下注
 			showBotting: false,
 			bottingAgain: true,
-			startNum: 5,
+			startNum: 20,
 			//中奖
 			showGetGift: false,
 			nowPriceId: null,

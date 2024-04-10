@@ -21,7 +21,7 @@
 		<!-- 再捡一次 -->
 		<u-popup :show="showPickAgain" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-pick">
-				<div class="pick-text">每次捡漂流瓶都须送出五颗星星</div>
+				<div class="pick-text">每次捡漂流瓶都须送出10颗星星</div>
 				<div class="pop-btn-box">
 					<div
 						class="pop-oks"
@@ -157,6 +157,35 @@ export default {
 			uni.navigateTo({
 				url: '../../pages_userActivity/bottleMessageList/bottleMessageList'
 			});
+		},
+		goOwnPageOrThirdParty(index) {
+			if (this.list1[index].linkType === 1) {
+				wx.navigateToMiniProgram({
+					appId: this.list1[index].appId,
+					path: this.list1[index].url,
+					envVersion: 'release',
+					success(res) {
+						console.log('跳转小程序成功！', res);
+					}
+				});
+			} else if (this.list1[index].linkType === 0) {
+				if (
+					this.list1[index].url === '../pages/user/user' ||
+					this.list1[index].url === '../pages/index/index' ||
+					this.list1[index].url === '../pages/index2/index2' ||
+					this.list1[index].url === '../pages/currentBottle/currentBottle'
+				) {
+					uni.switchTab({
+						url: this.list1[index].url
+					});
+				} else {
+					uni.navigateTo({
+						url: this.list1[index].url
+					});
+				}
+			} else {
+				return;
+			}
 		}
 	}
 };

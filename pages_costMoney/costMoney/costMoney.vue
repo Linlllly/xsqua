@@ -6,7 +6,7 @@
 			<div>礼单</div>
 		</div>
 		<div class="cost">
-			<div class="cost-item" v-for="(i, index) in 4" :key="index" @click="payMoney(i)">花钱</div>
+			<div class="cost-item" v-for="(i, index) in 3" :key="index" @click="payMoney(i)">花钱</div>
 		</div>
 		<div class="cost-record" @click="openRecord">充值记录</div>
 		<!-- 礼单列表 -->
@@ -96,7 +96,7 @@ export default {
 	methods: {
 		//充值
 		payMoney(i) {
-			i === 0 ? (this.num = 290) : i === 1 ? (this.num = 990) : i === 2 ? (this.num = 4990) : (this.num = 9990);
+			i === 0 ? (this.num = 990) : i === 1 ? (this.num = 4990) : (this.num = 9990);
 			// this.loading = true;
 			if (this.timer) {
 				return;

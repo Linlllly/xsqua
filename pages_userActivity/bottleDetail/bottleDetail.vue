@@ -8,41 +8,33 @@
 
 		<div class="bg-box">
 			<div class="bottle-box">
-				<div class="box-matter">
-					<div class="dynamic">
-						<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
+				<div class="dynamic">
+					<img class="dy-img" :src="bottleUserInfo.avatar" alt="" />
+				</div>
+				<!-- 文本内容 -->
+				<div class="content">
+					<div class="content-c">{{ bottleInfo.content }}</div>
+					<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
+					<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="300rpx" multipleSize="140rpx"></u-album>
+					<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
+						<u-album :urls="aImgList" singleSize="300rpx" multipleSize="180rpx" rowCount="2"></u-album>
 					</div>
-					<!-- 文本内容 -->
-					<div class="content">
-						<div class="content-c">{{ bottleInfo.content }}</div>
-						<video v-if="aImgList.length === 0 && avideo" :src="avideo"></video>
-						<u-album v-if="aImgList.length !== 0 && !avideo && aImgList.length > 4" :urls="aImgList" singleSize="300rpx" multipleSize="140rpx"></u-album>
-						<div class="ua-box" v-if="aImgList.length !== 0 && !avideo && aImgList.length < 5 && aImgList.length > 1">
-							<u-album :urls="aImgList" singleSize="300rpx" multipleSize="180rpx" rowCount="2"></u-album>
+					<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
+				</div>
+				<!-- 回复 -->
+				<div v-for="i in recordsList" :key="i.uid" class="record-box" :style="{ border: type === 0 ? '2rpx solid #556eef' : 'none', padding: type === 0 ? '20rpx' : 0 }">
+					<div v-if="i.comment" class="dynamic record-userinfo">
+						<img class="dy-img" :src="type !== 0 ? i.avatar : i.userInfo.avatar" alt="" />
+						<div class="dy-name record-comment">
+							{{ i.comment }}
 						</div>
-						<image class="singleImg" v-if="aImgList.length === 1" :src="aImgList" mode="widthFix" @click="previewImg"></image>
 					</div>
-					<!-- 回复 -->
-					<div
-						v-for="i in recordsList"
-						:key="i.uid"
-						class="record-box"
-						:style="{ border: type === 0 ? '2rpx solid #556eef' : 'none', padding: type === 0 ? '20rpx' : 0 }"
-					>
-						<div v-if="i.comment" class="dynamic record-userinfo">
-							<img class="dy-img" :src="type !== 0 ? i.avatar : i.userInfo.avatar" alt="" />
-							<div class="dy-name record-comment">
-								{{ i.comment }}
-							</div>
-						</div>
-						<div class="action-box">
-							<div v-if="type === 1 && !i.comment" class="action-btns record-then" @click="showInput = true">回复</div>
-							<div v-if="type === 1" class="action-btns pick-again" @click="pickBottle()">再捡一次</div>
-							<div v-if="type !== 1 && i.comment" class="action-btns open-chat" @click="goChatWith(i)">开启私聊</div>
-						</div>
+					<div class="action-box">
+						<div v-if="type === 1 && !i.comment" class="action-btns record-then" @click="showInput = true">回复</div>
+						<div v-if="type === 1" class="action-btns pick-again" @click="pickBottle()">再捡一次</div>
+						<div v-if="type !== 1 && i.comment" class="action-btns open-chat" @click="goChatWith(i)">开启私聊</div>
 					</div>
 				</div>
-				<img class="box-img" src="../ua_static/bottle-letter.png" alt="" />
 			</div>
 		</div>
 		<!-- 回复弹窗 -->
@@ -77,7 +69,7 @@
 		<!-- 再捡一次 -->
 		<u-popup :show="showPickAgain" :round="20" :closeOnClickOverlay="false" mode="center" :safeAreaInsetBottom="false">
 			<div class="pop-borders pop-pick">
-				<div class="pick-text">每次捡漂流瓶都须送出五颗星星</div>
+				<div class="pick-text">每次捡漂流瓶都须送出10颗星星</div>
 				<div class="pop-btn-box">
 					<div
 						class="pop-oks"
@@ -179,7 +171,7 @@ export default {
 				console.log('请求我的瓶子的所有回复');
 				console.log(res);
 				this.recordsList = res.result.records.filter((record) => record.isComment === 1);
-				this.recordsList = [{ comment: '1111' }, { comment: '1111' }, { comment: '1111' }, { comment: '1111' }];
+				// this.recordsList = [{ comment: '1111' }, { comment: '1111' }, { comment: '1111' }, { comment: '1111' }];
 			});
 		},
 		async sendText() {
@@ -314,24 +306,17 @@ export default {
 	border: 4rpx solid #556eef;
 	margin: auto;
 	box-sizing: border-box;
-
-	.box-matter {
-		padding: 50rpx 40rpx 14rpx;
-		height: 600rpx;
-		overflow-y: auto;
-		white-space: pre-wrap;
-		word-wrap: break-word;
-	}
-
-	.box-img {
-		position: sticky;
-		width: 684rpx;
-		height: 330rpx;
-		left: 0rpx;
-		bottom: 0rpx;
-		border-radius: 0 0 48rpx 48rpx;
-	}
+	background-color: #ffffff;
+	background-image: url('@/pages_userActivity/ua_static/bottle-letters.png');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	padding: 50rpx 40rpx;
+	overflow-y: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
+
 .dynamic {
 	display: flex;
 	align-items: center;
@@ -437,12 +422,5 @@ button::after {
 }
 .singleImg {
 	width: 300rpx;
-}
-::-webkit-scrollbar {
-	display: block !important;
-	width: 10rpx !important;
-	height: 10rpx !important;
-	-webkit-appearance: block !important;
-	color: #049dfc;
 }
 </style>
