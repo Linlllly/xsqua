@@ -5,8 +5,9 @@
 			<img @click="showSendList = true" src="../../static/send-list.png" alt="" />
 			<div>礼单</div>
 		</div>
-		<div class="cost">
-			<div class="cost-item" v-for="(i, index) in 3" :key="index" @click="payMoney(i)">花钱</div>
+		<div class="cost-kj" @click="payMoney(990, '1')">盔甲钱</div>
+		<div class="cost-xx">
+			<div class="cost-item" v-for="(i, index) in 3" :key="index" @click="payMoney(i, '0')">星星钱</div>
 		</div>
 		<div class="cost-record" @click="openRecord">充值记录</div>
 		<!-- 礼单列表 -->
@@ -42,7 +43,7 @@
 					<scroll-view v-if="recordList.length !== 0" :scroll-y="true" style="width: 100%; height: 710rpx" @scrolltolower="lowerRecord">
 						<div class="box-tiem" v-for="(i, index) in recordList" :key="index">
 							<div>{{ i.payTime }}</div>
-							<div>{{ i.price }}元</div>
+							<div>{{ i.actualPrice }}元</div>
 						</div>
 					</scroll-view>
 				</div>
@@ -95,27 +96,29 @@ export default {
 	},
 	methods: {
 		//充值
-		payMoney(i) {
-			i === 0 ? (this.num = 990) : i === 1 ? (this.num = 4990) : (this.num = 9990);
-			// this.loading = true;
+		payMoney(i, n) {
+			let data;
+			if (n === '1') {
+				data = { num: i, isArmour: n };
+			} else {
+				const num = i === 0 ? 1 : i === 1 ? 2 : 5;
+				data = { num: num, isArmour: n };
+			}
 			if (this.timer) {
 				return;
 			}
-			//1
 			uni.showLoading({
 				title: '请求支付中'
 			});
 			this.timer = setTimeout(() => {
-				//2
 				uni.hideLoading();
-				this.wxPay();
-				//3.
+				this.wxPay(data);
 				this.timer = null;
 			}, 1500);
 		},
-		async wxPay() {
+		async wxPay(data) {
 			//请求后端获取参数
-			let res = await buy({ num: this.num, isArmour: '1' });
+			let res = await buy(data);
 			if (res.code !== 0) {
 				uni.$u.toast(res.msg);
 				return;
@@ -260,24 +263,26 @@ export default {
 		height: 70rpx;
 	}
 }
-.cost {
+.cost-kj {
+	width: 90%;
+	height: 180rpx;
+	margin: 180rpx auto 0;
+}
+.cost-xx {
 	display: flex;
 	flex-wrap: wrap;
-	padding-left: 20rpx;
-	margin-top: 180rpx;
+	justify-content: space-around;
 	z-index: 20;
 	box-sizing: border-box;
+	margin-top: 44rpx;
 	.cost-item {
-		width: 48%;
-		height: 180rpx;
-		margin: 0 14rpx 38rpx 0;
+		width: 30%;
+		height: 150rpx;
 	}
 }
 .cost-record {
-	position: absolute;
-	bottom: 62rpx;
-	left: 50%;
-	transform: translateX(-50%);
+	margin: 48rpx auto 0;
+	text-align: center;
 }
 .send-list {
 	width: 94rpx;

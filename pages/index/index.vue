@@ -44,7 +44,7 @@
 			<div class="record">....</div>
 		</div>
 		<!-- 兑换 -->
-		<img class="get-gift" @click="showClaim = true" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_504220fbd4.png" alt="" />
+		<!-- <img class="get-gift" @click="showClaim = true" src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_504220fbd4.png" alt="" /> -->
 
 		<!-- 排行榜 -->
 		<RankingList ref="rankingListComponent"></RankingList>
@@ -198,7 +198,7 @@ export default {
 			//下注
 			showBotting: false,
 			bottingAgain: true,
-			startNum: 20,
+			startNum: 10,
 			//中奖
 			showGetGift: false,
 			nowPriceId: null,

@@ -218,7 +218,7 @@ export default {
 			let res = await checkContent({ content: contents });
 			if (res.code !== 0 || res.result.errcode !== 0) {
 				uni.hideLoading();
-				uni.$u.toast(res.result.errmsg);
+				uni.$u.toast('内容中包含敏感词汇，请修改！');
 				return;
 			}
 			this.sendReallyArticle();

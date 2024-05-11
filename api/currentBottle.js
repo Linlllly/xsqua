@@ -3,7 +3,10 @@ import {
 	get
 } from '@/api/api.js'
 
-
+//是否展示该模块
+export function showBotleMode(data) {
+	return get('/app/user/isShow', data)
+}
 
 // 丢瓶子
 export function lostBottle(data) {

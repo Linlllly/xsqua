@@ -222,7 +222,7 @@
 			"selectedIconPath": "static/22.png"
 		}, {
 			"pagePath": "pages/currentBottle/currentBottle",
-			"text": "漂流瓶",
+			"text": "漂流",
 			"iconPath": "static/1.png",
 			"selectedIconPath": "static/2.png"
 		}]
