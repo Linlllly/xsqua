@@ -142,27 +142,9 @@ export default {
 
 		//跳转去哪里
 		async goUserOrAreaSelect() {
-			// // 跳转之前看看有没有房子 并保存状态 然后根据状态去不同的地方
-			// let res = await myRoom();
-			// console.log('请求有没有房间');
-			// console.log(res);
-			// if (res.code === 500) {
-			// 	//没房子
-			// 	uni.navigateTo({
-			// 		url: '../areaSelect/areaSelect'
-			// 	});
-			// } else if (res.code === 0) {
-			// 	//有房子 保存状态
-			// 	uni.setStorageSync('house', true);
-			// 	this.updateHouse();
-
-			uni.switchTab({
+			uni.redirectTo({
 				url: '../user/user'
 			})
-
-			// uni.switchTab({
-			// 	url: '../index2/index2'
-			// });
 		}
 	}
 }

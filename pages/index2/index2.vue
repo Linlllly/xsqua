@@ -12,32 +12,41 @@
 				@click="goOwnPageOrThirdParty()"
 			></u-swiper>
 		</div>
-		<takeLooks ref="takeLookComponent" filler="filler2" :type="2"></takeLooks>
+		<takeLooks
+			ref="takeLookComponent"
+			filler="filler2"
+			:type="2"
+		></takeLooks>
 		<button class="issue" @click="toTop"></button>
 		<div class="reload">
-			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="reloadTake"></u-icon>
+			<u-icon
+				name="../../../../static/reload.png"
+				color="#000"
+				size="34"
+				label="换一换"
+				labelPos="bottom"
+				@click="reloadTake"
+			></u-icon>
 		</div>
 		<div class="message">
-			<div class="icon-dot" v-if="messageDot"></div>
 			<u-icon
 				name="../../../../static/message.png"
 				color="#000"
-				size="34"
-				label-size="12"
-				label="私人消息"
+				size="38"
+				label="发布"
 				labelPos="bottom"
-				@click="toMessage"
+				@click="toIssue"
 			></u-icon>
 		</div>
 	</div>
 </template>
 
 <script>
-import { banner } from '@/api/index.js';
-import { mapGetters, mapMutations, mapState } from 'vuex';
-import takeLooks from '@/components/takeLook/takeLook.vue';
-import { redDot } from '@/api/user.js';
-const app = getApp();
+import { banner } from '@/api/index.js'
+import { mapGetters, mapMutations, mapState } from 'vuex'
+import takeLooks from '@/components/takeLook/takeLook.vue'
+import { redDot } from '@/api/user.js'
+const app = getApp()
 export default {
 	computed: {
 		...mapState(['uid', 'house'])
@@ -49,88 +58,93 @@ export default {
 		return {
 			list1: [], //消息红点
 			messageDot: false
-		};
-	},
-	watch: {
-		myWs: {
-			immediate: true,
-			handler(news, olds) {
-				console.log('index2开启侦听');
-				this.ws = app.globalData.ws;
-				this.ws.onMessage(res => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (
-						data.type === 'follow' ||
-						data.type === 'comment' ||
-						data.type === 'collection' ||
-						data.type === 'silver' ||
-						data.type === 'flower' ||
-						data.type === 'shit'
-					) {
-						this.messageDot = true;
-					}
-				});
-			}
 		}
 	},
+	watch: {
+		// myWs: {
+		// 	immediate: true,
+		// 	handler(news, olds) {
+		// 		console.log('index2开启侦听');
+		// 		this.ws = app.globalData.ws;
+		// 		this.ws.onMessage(res => {
+		// 			console.log(res);
+		// 			if (res.data === 'active') {
+		// 				return;
+		// 			}
+		// 			let data = JSON.parse(res.data);
+		// 			console.log(data);
+		// if (
+		// data.type === 'follow' ||
+		// 				data.type === 'comment' ||
+		// 				data.type === 'collection' ||
+		// 				data.type === 'silver' ||
+		// 				data.type === 'flower' ||
+		// 				data.type === 'shit'
+		// 			) {
+		// 				this.messageDot = true;
+		// 			}
+		// 		});
+		// 	}
+		// }
+	},
 	onLoad() {
-		this.getBanner();
-		this.getMessRedDot(this.uid);
+		this.getBanner()
+		// this.getMessRedDot(this.uid)
 	},
 	onReachBottom() {
-		this.$refs.takeLookComponent.getTakeLook();
+		this.$refs.takeLookComponent.getTakeLook()
 	},
 	methods: {
 		toMessage() {
-			this.messageDot = false;
+			this.messageDot = false
 			uni.navigateTo({
 				url: '../../pages_userActivity/messageList/messageList'
-			});
+			})
+		},
+		toIssue() {
+			uni.navigateTo({
+				url: '../../pages_userActivity/artcleIssue/artcleIssue'
+			})
 		},
 		//消息红点
-		async getMessRedDot(uid) {
-			let res = await redDot({ uid: uid, type: 2, t: Date.parse(new Date()) });
-			console.log('请求消息红点');
-			console.log(res);
-			if (res.code !== 0) {
-				uni.showToast({
-					title: res.msg,
-					icon:'none'
-				});
-				return;
-			}
-			if (res.result === true) {
-				this.messageDot = true;
-			} else {
-				this.messageDot = false;
-			}
-		},
+		// async getMessRedDot(uid) {
+		// 	let res = await redDot({ uid: uid, type: 2, t: Date.parse(new Date()) });
+		// 	console.log('请求消息红点');
+		// 	console.log(res);
+		// 	if (res.code !== 0) {
+		// 		uni.showToast({
+		// 			title: res.msg,
+		// 			icon:'none'
+		// 		});
+		// 		return;
+		// 	}
+		// 	if (res.result === true) {
+		// 		this.messageDot = true;
+		// 	} else {
+		// 		this.messageDot = false;
+		// 	}
+		// },
 		...mapMutations(['updateUid']),
 		async getBanner() {
-			let res = await banner({ type: 2 });
-			console.log('请求banner图');
+			let res = await banner({ type: 2 })
+			console.log('请求banner图')
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.list1 = res.result;
+			this.list1 = res.result
 		},
 
 		toTop() {
 			wx.pageScrollTo({
 				scrollTop: 0
-			});
+			})
 		},
 		reloadTake() {
-			this.$refs.takeLookComponent.getTakeLook(1);
+			this.$refs.takeLookComponent.getTakeLook(1)
 		},
 		goOwnPageOrThirdParty(index) {
 			if (this.list1[index].linkType === 1) {
@@ -139,9 +153,9 @@ export default {
 					path: this.list1[index].url,
 					envVersion: 'release',
 					success(res) {
-						console.log('跳转小程序成功！', res);
+						console.log('跳转小程序成功！', res)
 					}
-				});
+				})
 			} else if (this.list1[index].linkType === 0) {
 				if (
 					this.list1[index].url === '../pages/user/user' ||
@@ -151,18 +165,18 @@ export default {
 				) {
 					uni.switchTab({
 						url: 'this.list1[index].url'
-					});
+					})
 				} else {
 					uni.navigateTo({
 						url: this.list1[index].url
-					});
+					})
 				}
 			} else {
-				return;
+				return
 			}
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -227,13 +241,9 @@ button::after {
 }
 .reload {
 	position: fixed;
-	// width: 88rpx;
-	// height: 88rpx;
 	bottom: 250rpx;
 	right: 26rpx;
 	z-index: 50;
-	// background: url(../../static/gotop.png) no-repeat;
-	// background-size: 88rpx 88rpx;
 }
 .message {
 	position: fixed;

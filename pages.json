@@ -190,43 +190,64 @@
 
 				},
 				{
-					"path" : "prizeRecordList/prizeRecordList",
-					"style" : 
-					{
-						"navigationBarTitleText" : "",
-						"enablePullDownRefresh" : false
+					"path": "prizeRecordList/prizeRecordList",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "spaceRun/spaceRun",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "fruit/fruit",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path": "safeRoad/safeRoad",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
 					}
 				}
 			]
 		}
 	],
-	"tabBar": {
-		"color": "#f09b37",
-		"selectedColor": "#f09b37",
-		"backgroundColor": "#ffffff",
-		"list": [{
-			"pagePath": "pages/user/user",
-			"text": "我的房间",
-			"iconPath": "static/user_f.png",
-			"selectedIconPath": "static/user_t.png"
-		}, {
-			"pagePath": "pages/index/index",
-			"text": "欢喜广场",
+	// "tabBar": {
+	// 	"color": "#f09b37",
+	// 	"selectedColor": "#f09b37",
+	// 	"backgroundColor": "#ffffff",
+	// 	"list": [{
+	// 		"pagePath": "pages/user/user",
+	// 		"text": "我的房间",
+	// 		"iconPath": "static/user_f.png",
+	// 		"selectedIconPath": "static/user_t.png"
+	// 	}, {
+	// 		"pagePath": "pages/index/index",
+	// 		"text": "欢喜广场",
 
-			"iconPath": "static/欢喜的人（里）.png",
-			"selectedIconPath": "static/欢喜的人（表）.png"
-		}, {
-			"pagePath": "pages/index2/index2",
-			"text": "随手文字",
-			"iconPath": "static/11.png",
-			"selectedIconPath": "static/22.png"
-		}, {
-			"pagePath": "pages/currentBottle/currentBottle",
-			"text": "漂流",
-			"iconPath": "static/1.png",
-			"selectedIconPath": "static/2.png"
-		}]
-	},
+	// 		"iconPath": "static/欢喜的人（里）.png",
+	// 		"selectedIconPath": "static/欢喜的人（表）.png"
+	// 	}, {
+	// 		"pagePath": "pages/index2/index2",
+	// 		"text": "随手文字",
+	// 		"iconPath": "static/11.png",
+	// 		"selectedIconPath": "static/22.png"
+	// 	}, {
+	// 		"pagePath": "pages/currentBottle/currentBottle",
+	// 		"text": "漂流",
+	// 		"iconPath": "static/1.png",
+	// 		"selectedIconPath": "static/2.png"
+	// 	},
+	// 	]
+	// },
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "x自由空间",

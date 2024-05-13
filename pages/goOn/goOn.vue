@@ -7,42 +7,40 @@
 </template>
 
 <script>
-import { list } from '@/api/goOn.js';
+import { list } from '@/api/goOn.js'
 export default {
 	data() {
 		return {
 			urls: ''
-		};
+		}
 	},
 	onLoad() {
-		this.getList();
+		this.getList()
 		setTimeout(() => {
 			uni.reLaunch({
-				//去选进入吗
 				url: '../loginSelect/loginSelect'
-			});
-		}, 1500);
+			})
+		}, 1500)
 	},
 	methods: {
 		async getList() {
-			let res = await list();
+			let res = await list()
 			if (res.code !== 0) {
 				uni.showToast({
 					title: '获取开屏失败',
-					icon:'none'
-				});
-				return;
+					icon: 'none'
+				})
+				return
 			}
-			this.urls = res.result.url;
+			this.urls = res.result.url
 		},
 		goLoginSelect() {
 			uni.reLaunch({
-				//去选进入吗
 				url: '../loginSelect/loginSelect'
-			});
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
