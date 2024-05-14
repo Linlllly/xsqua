@@ -65,7 +65,7 @@
 						</div>
 					</div>
 					<div class="do-some">
-						<div class="plp" @click="goCurrentBottle">
+						<div v-if="showBottle" class="plp" @click="goCurrentBottle">
 							<img src="../../static/plp.png" alt="" />
 							<div class="dots">
 								<u-badge :isDot="bottleDot"></u-badge>
@@ -323,6 +323,7 @@ import {
 	getUserRank,
 	updatePassword
 } from '@/api/user.js';
+import { showBotleMode } from '@/api/currentBottle.js';
 import { myRoom, selectRoom } from '@/api/loginSelect.js';
 import { randomRoom } from '@/api/index.js';
 import { ip } from '@/api/api.js';
@@ -403,7 +404,8 @@ export default {
 			//元宝数量
 			silverNum: 0,
 			//元宝名次
-			silverNo: ''
+			silverNo: '',
+			showBottle: true
 		};
 	},
 	computed: {
@@ -472,6 +474,7 @@ export default {
 				url: '../loginSelect/loginSelect'
 			});
 		}
+		this.getShowBotleMode();
 		this.getMyRoom();
 		this.isNew = uni.getStorageSync('isNew') === 1 ? true : false;
 		this.getInviteCode = uni.getStorageSync('inviteCode') ? uni.getStorageSync('inviteCode') : null;
@@ -504,6 +507,12 @@ export default {
 	},
 	methods: {
 		...mapMutations(['updateUid', 'updateAva', 'updateHouse', 'updateArmor']),
+		async getShowBotleMode() {
+			let res = await showBotleMode();
+			console.log('展示');
+			console.log(res);
+			this.showBottle = res;
+		},
 		//去漂流瓶
 		goCurrentBottle() {
 			uni.navigateTo({
