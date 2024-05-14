@@ -35,7 +35,7 @@ export default {
 		},
 		goCitySelect(a) {
 			uni.navigateTo({
-				url: '../citySelect/citySelect' + '?cateId=' + a + '&change=' + false + '&lookHouse=' + true
+				url: '../../pages/citySelect/citySelect' + '?cateId=' + a + '&change=' + false + '&lookHouse=' + true
 			});
 		}
 	}

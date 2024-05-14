@@ -328,7 +328,8 @@ export default {
 			list1: [],
 			showPickAgain: false,
 			second: false,
-			type: false
+			type: false,
+			ws: ''
 		};
 	},
 	computed: {
@@ -417,11 +418,8 @@ export default {
 				uni.$u.toast(res.msg);
 				return;
 			}
-			if (res.result) {
-				this.bottleDot = true;
-			} else {
-				this.bottleDot = false;
-			}
+
+			this.bottleDot = res.result;
 		},
 		toIssue() {
 			uni.navigateTo({

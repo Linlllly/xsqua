@@ -42,12 +42,12 @@
 		</p>
 		<p class="p" style="margin-top: 10rpx; margin-bottom: 10rpx">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_19c1b66f91.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3fe035591e.png"
 				style="width: 100%"
 				mode="widthFix"
 				@click="
 					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_19c1b66f91.png'
+						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3fe035591e.png'
 					)
 				"
 			></image>
@@ -65,12 +65,12 @@
 				</span>
 			</b>
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_5b775fa370.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3c359151be.png"
 				style="width: 100%"
 				mode="widthFix"
 				@click="
 					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_5b775fa370.png'
+						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3c359151be.png'
 					)
 				"
 			></image>

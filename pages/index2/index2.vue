@@ -9,8 +9,14 @@
 		<div class="reload">
 			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="reloadTake"></u-icon>
 		</div>
-		<div class="message">
+		<div class="send">
 			<u-icon name="../../../../static/send.png" color="#000" size="38" label="发布" labelPos="bottom" @click="toIssue"></u-icon>
+		</div>
+		<div class="message">
+			<u-icon name="../../../../static/message.png" color="#000" size="38" label="消息" labelPos="bottom" @click="toMessage"></u-icon>
+			<div class="dots">
+				<u-badge :isDot="messageDot"></u-badge>
+			</div>
 		</div>
 	</div>
 </template>
@@ -35,35 +41,35 @@ export default {
 		};
 	},
 	watch: {
-		// myWs: {
-		// 	immediate: true,
-		// 	handler(news, olds) {
-		// 		console.log('index2开启侦听');
-		// 		this.ws = app.globalData.ws;
-		// 		this.ws.onMessage(res => {
-		// 			console.log(res);
-		// 			if (res.data === 'active') {
-		// 				return;
-		// 			}
-		// 			let data = JSON.parse(res.data);
-		// 			console.log(data);
-		// if (
-		// data.type === 'follow' ||
-		// 				data.type === 'comment' ||
-		// 				data.type === 'collection' ||
-		// 				data.type === 'silver' ||
-		// 				data.type === 'flower' ||
-		// 				data.type === 'shit'
-		// 			) {
-		// 				this.messageDot = true;
-		// 			}
-		// 		});
-		// 	}
-		// }
+		myWs: {
+			immediate: true,
+			handler(news, olds) {
+				console.log('index2开启侦听');
+				this.ws = app.globalData.ws;
+				this.ws.onMessage((res) => {
+					console.log(res);
+					if (res.data === 'active') {
+						return;
+					}
+					let data = JSON.parse(res.data);
+					console.log(data);
+					if (
+						data.type === 'follow' ||
+						data.type === 'comment' ||
+						data.type === 'collection' ||
+						data.type === 'silver' ||
+						data.type === 'flower' ||
+						data.type === 'shit'
+					) {
+						this.messageDot = true;
+					}
+				});
+			}
+		}
 	},
 	onLoad() {
 		this.getBanner();
-		// this.getMessRedDot(this.uid)
+		this.getMessRedDot(this.uid);
 	},
 	onReachBottom() {
 		this.$refs.takeLookComponent.getTakeLook();
@@ -80,24 +86,20 @@ export default {
 				url: '../../pages_userActivity/artcleIssue/artcleIssue'
 			});
 		},
-		//消息红点
-		// async getMessRedDot(uid) {
-		// 	let res = await redDot({ uid: uid, type: 2, t: Date.parse(new Date()) });
-		// 	console.log('请求消息红点');
-		// 	console.log(res);
-		// 	if (res.code !== 0) {
-		// 		uni.showToast({
-		// 			title: res.msg,
-		// 			icon:'none'
-		// 		});
-		// 		return;
-		// 	}
-		// 	if (res.result === true) {
-		// 		this.messageDot = true;
-		// 	} else {
-		// 		this.messageDot = false;
-		// 	}
-		// },
+		// 消息红点
+		async getMessRedDot(uid) {
+			let res = await redDot({ uid: uid, type: 2, t: Date.parse(new Date()) });
+			console.log('请求消息红点');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.showToast({
+					title: res.msg,
+					icon: 'none'
+				});
+				return;
+			}
+			this.messageDot = res.result;
+		},
 		...mapMutations(['updateUid']),
 		async getBanner() {
 			let res = await banner({ type: 2 });
@@ -219,20 +221,21 @@ button::after {
 	right: 26rpx;
 	z-index: 50;
 }
-.message {
+.send {
 	position: fixed;
 	bottom: 400rpx;
-	right: 26rpx;
+	right: 30rpx;
 	z-index: 50;
-	.icon-dot {
+}
+.message {
+	position: fixed;
+	bottom: 550rpx;
+	right: 30rpx;
+	z-index: 50;
+	.dots {
 		position: absolute;
-		width: 20rpx;
-		height: 20rpx;
-		background-color: #f56c6c;
-		top: 8rpx;
-		right: 8rpx;
-		border-radius: 50%;
-		z-index: 999;
+		top: 6rpx;
+		right: 6rpx;
 	}
 }
 </style>

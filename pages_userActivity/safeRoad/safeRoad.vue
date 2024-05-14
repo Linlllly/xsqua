@@ -6,6 +6,9 @@
 			<u-icon name="../../../../static/m1.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">私密聊天列表</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
+			<div class="dots">
+				<u-badge :isDot="chatDot"></u-badge>
+			</div>
 		</div>
 		<div class="content-list" @click="changeSecret = true">
 			<u-icon name="../../../../static/m2.png" color="#e89406" size="20"></u-icon>
@@ -158,9 +161,9 @@
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
-// import { getArmourConfig } from '@/api/updateArmor.js'
 import { selectRoom } from '@/api/loginSelect.js';
-import { userInfo, userInfoEdit, getQRCode, updatePassword } from '@/api/user.js';
+import { userInfo, userInfoEdit, getQRCode, updatePassword, redDot } from '@/api/user.js';
+
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
 import QRCode from '../../utils/weapp-qrcode.js';
@@ -168,6 +171,7 @@ const App = getApp();
 export default {
 	data() {
 		return {
+			ws: '',
 			showSearch: false,
 			searchText: '',
 			popSearch: false,
@@ -192,11 +196,33 @@ export default {
 			linshiImagePath: null,
 			canva: true,
 			showSub: false,
-			armour: false
+			armour: false,
+			chatDot: false
 		};
+	},
+	watch: {
+		myWs: {
+			immediate: true,
+			handler(news, olds) {
+				console.log('chat开启侦听');
+				this.ws = app.globalData.ws;
+				this.ws.onMessage((res) => {
+					console.log(res);
+					if (res.data === 'active') {
+						return;
+					}
+					let data = JSON.parse(res.data);
+					console.log(data);
+					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
+						this.chatDot = true;
+					}
+				});
+			}
+		}
 	},
 	onLoad(query) {
 		this.getuserInfo();
+		this.getChatRedDot();
 		this.getMyRoom();
 		this.showNowScrect = this.nowScrect;
 	},
@@ -207,6 +233,20 @@ export default {
 		};
 	},
 	methods: {
+		async getChatRedDot() {
+			let res = await redDot({
+				uid: this.uid,
+				type: 1,
+				t: Date.parse(new Date())
+			});
+			console.log('请求聊天红点');
+			console.log(res);
+			if (res.code !== 0) {
+				uni.$u.toast(res.msg);
+				return;
+			}
+			this.chatDot = res.result;
+		},
 		async getSelectRoom() {
 			if (this.searchText === '') {
 				return;
@@ -292,6 +332,7 @@ export default {
 			this.oldSecret = '';
 		},
 		toChatList() {
+			this.chatDot = false;
 			uni.navigateTo({
 				url: '../../pages_userActivity/chatList/chatList'
 			});
@@ -595,7 +636,7 @@ export default {
 			border: 2rpx solid #979797 !important;
 		}
 		/deep/.u-search__action {
-			color: #626262;
+			color: #000;
 			font-size: 36rpx;
 		}
 	}
@@ -650,5 +691,10 @@ export default {
 	height: 668rpx;
 	color: #767374;
 	text-align: center;
+}
+.dots {
+	position: absolute;
+	top: 66rpx;
+	right: 250rpx;
 }
 </style>

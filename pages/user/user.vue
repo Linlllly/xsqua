@@ -488,6 +488,9 @@ export default {
 			this.getuserInfo();
 			this.getMyPageList();
 			this.getArmourConfig();
+			this.getRedDot(this.uid, 1);
+			this.getRedDot(this.uid, 2);
+			this.getRedDot(this.uid, 3);
 		}
 		this.refresh = true;
 	},
