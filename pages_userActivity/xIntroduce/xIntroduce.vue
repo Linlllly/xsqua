@@ -42,12 +42,12 @@
 		</p>
 		<p class="p" style="margin-top: 10rpx; margin-bottom: 10rpx">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20243/compressed_510d83eb5d.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_19c1b66f91.png"
 				style="width: 100%"
 				mode="widthFix"
 				@click="
 					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20243/compressed_510d83eb5d.png'
+						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_19c1b66f91.png'
 					)
 				"
 			></image>
@@ -61,12 +61,99 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">1、无痕私聊：</font>
+					<font face="宋体">1、安全聊天通道：</font>
+				</span>
+			</b>
+			<image
+				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_5b775fa370.png"
+				style="width: 100%"
+				mode="widthFix"
+				@click="
+					previewImg(
+						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_5b775fa370.png'
+					)
+				"
+			></image>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">①私密聊天列表：进入私聊列表，通过搜索框输入好友房间号（如：中央金座0000）的关键词或者备注名可以快速找到好友。左拉好友聊天，可以删除聊天框和记录。进入聊天详情页点击房间号可以给好友备注称号；点击右上角删除图标可以删除全部的聊天聊天记录和聊天框，长按聊天记录可以复制或者删除单条聊天记录。如果你兑换了“超级安全盔甲”，那么就可以选择删除双方手机上的聊天记录。切记删除后聊天记录无法恢复，如果删除对话框，请先关注好友，方便删除后快速找到好友！</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">②安全空间密钥：新用户设置房间密码，原密码不用填写，新密码处输入，并确认即可；如果已设置密码，想取消密码，在原密码处输入，新密码不用填写。切记当设置了密码后，需要输入正确的房间密码，才能进入“我的房间”进行私聊、发布等操作！</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">③空间好友搜索：可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">④邀请微信好友：当邀请微信好友进入“X自由空间”时（切记对方之前没进入过空间），输入邀请语生成二维码发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入X自由空间，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！ </font>
+			</span>
+		</p><p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑤安全档案：打开“安全档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。</font>
+			</span>
+		</p><p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑥微信消息通知：如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font>
+			</span>
+		</p><p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑦空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
+			</span>
+		</p>
+		</p>
+		<p class="17" style="text-indent: 28.1pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">2、更换背景：</font>
+				</span>
+			</b>
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">根据自己的喜好，随意更换背景图案。</font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 28.1pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">3、更换头像：</font>
+				</span>
+			</b>
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">根据自己的喜好，随意更换头像图案。</font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 28.1pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">4、关注/粉丝：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">
-					点击“私聊“进入私聊列表，通过搜索框输入好友房间号（如：中央金座0000）的关键词或者备注名可以快速找到好友。左拉好友聊天，可以删除聊天框和记录。进入聊天详情页点击房间号可以给好友备注称号；点击右上角删除图标可以删除全部的聊天聊天记录和聊天框，长按聊天记录可以复制或者删除单条聊天记录。如果你兑换了“超级安全盔甲”，那么就可以选择删除双方手机上的聊天记录。切记删除后聊天记录无法恢复，如果删除对话框，请先关注好友，方便删除后快速找到好友！
+					是可以在列表中给到你关注的好友或关注你的朋友进行备注，当在私聊中一键双删的时候，可以快速的根据备注找到ta，并建立新的联系！如果你开通“超级安全盔甲”，那么可以关闭对你的粉丝对你的关注。
 				</font>
 			</span>
 		</p>
@@ -79,64 +166,12 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">2、空间密钥：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					新用户设置房间密码，原密码不用填写，新密码处输入，并确认即可；如果已设置密码，想取消密码，在原密码处输入，新密码不用填写。切记当设置了密码后，需要输入正确的房间密码，才能进入“我的房间”进行私聊、发布等操作！
-				</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">3、私密档案：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					打开“X档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。
-				</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">4、空间介绍：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">帮助您快速熟悉“X自由空间”的功能及玩法。</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">5、随心发布：</font>
+					<font face="宋体">5、激活安全盔甲：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体"
-					>根据您的需求可以选择发布图文或者视频在“随手文字”或者“好玩的手艺”，则会推送在相应的板块被更多用户看到，加速用户了解你，认识你，结交你。</font
+					>查看超级安全盔甲拥有的权限，购买超级安全盔甲，或者充值获得星星畅玩水果拼盘和漂流瓶。</font
 				>
 			</span>
 		</p>
@@ -149,79 +184,7 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">6、空间搜索：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font
-				>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">7、邀请微友：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					当邀请微信好友进入“X自由空间”时（切记对方之前没进入过空间），输入邀请语生成二维码发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入X自由空间，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！
-				</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">8、微信通知：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font
-				>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">9、兑换安全盔甲：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>查看超级安全盔甲拥有的权限，用银子兑换超级盔甲，如果没有银子可以充值1元获得100两银子，再兑换。</font
-				>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">10、设置：</font>
+					<font face="宋体">6、设置：</font>
 				</span>
 			</b>
 		</p>
@@ -244,9 +207,6 @@
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">享有</font>
-			</span>
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">②是否允许其他用户关注自己的权利</font>
 			</span>
@@ -315,75 +275,7 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">11、关注/粉丝：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					是可以在列表中给到你关注的好友或关注你的朋友进行备注，当在私聊中一键双删的时候，可以快速的根据备注找到ta，并建立新的联系！如果你开通“超级安全盔甲”，那么可以关闭对你的粉丝对你的关注。
-				</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">12、星星：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					通过购买“超级安全盔甲”获赠得到，获赠的星星可以畅玩“漂流瓶”、“水果拼盘”。可以查看赠送、获赠的记录。星星进度条会随着您的星星数量的增减而变化。
-				</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">13、更换背景：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">根据自己的喜好，随意更换背景图案。</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">14、更换头像：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">根据自己的喜好，随意更换头像图案。</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">15、设置个性签名：</font>
+					<font face="宋体">7、设置个性签名：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
@@ -399,7 +291,7 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">16、VIP等级：</font>
+					<font face="宋体">8、VIP等级：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
@@ -421,7 +313,7 @@
 				>
 			</span>
 		</p>
-		<p class="MsoNormal" style="text-indent: 28.1pt">
+		<p class="17" style="text-indent: 28.1pt">
 			<b>
 				<span
 					style="
@@ -430,35 +322,49 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">二、“欢喜广场”板块功能介绍：</font>
-				</span>
-			</b>
-		</p>
-		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>1、畅玩水果拼盘，赢取更多星星，换取“飞天茅台500ml”</font
-				>
-			</span>
-		</p>
-		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">2、水果拼盘：</font>
+					<font face="宋体">9、星星：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体">
-					每次下注不低于5颗星星即可参与水果拼盘，当3个画面都是苹果时，则抽中“飞天茅台500ml
-					”1瓶；当3个画面都是西瓜时，则获得您下注星星数量的10倍；当3个画面都是香蕉时，则获得您下注星星数量的5倍；当3个画面都是樱桃时，则获得您下注星星数量的2倍；当3个画面都是葡萄时，则获得您下注星星数量的1倍；当3个画面不一样时，即未中奖。
+					通过购买“超级安全盔甲”获赠得到，获赠的星星可以畅玩“漂流瓶”、“水果拼盘”。可以查看赠送、获赠的记录。星星进度条会随着您的星星数量的增减而变化。
 				</font>
 			</span>
+		</p>
+		<p class="17" style="text-indent: 28.1pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">10、漂流瓶：</font>
+				</span>
+			</b>
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">
+					每日赠送一次免费捡漂流瓶的机会，后续参与须送出5颗星星。
+				</font>
+			</span>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">①捡到的漂流瓶内容可根据喜好是否回复内容，切记一个瓶子只能回复一次；回复的内容会通知“投放瓶子者”，对方若是对您回复的内容有兴趣，则对方会私聊您，您可以在“私密聊天中”收到消息，从而你们就建立了聊天关系。</font>
+				</span>
+			</p><p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">②免费投放漂流瓶，可以发布文字、图片、视频、图文、文字+视频。（表达愿望，展示自己，缘分来了挡不住！）、（建议投放视频不超过15秒）</font>
+				</span>
+			</p><p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">③“漂流瓶历史记录”包含“投放漂流瓶”和“捡到漂流瓶”的历史记录。点开投放的记录详情，可以查看别人的回复，并选择是否私聊ta；确保您不会错过有趣的回复！也可以选择删除该瓶子，则其他人再也捡不到该瓶子。点开捡到的记录详情，选择是否回复该瓶子内容，确保您不会错过有趣的瓶子内容！也可以选择删除该瓶子内容！</font>
+				</span>
+			</p><p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">④消息提示：当您投放的瓶子被人捡到，并收到对方的回复，则会有红点提示，方便您快速收到提示，并可以点击查询对方的回复内容，做出回复的动作！</font>
+				</span>
+			</p>
 		</p>
 		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
@@ -469,12 +375,12 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">3、开启空间巡游：</font>
+					<font face="宋体">11、水果拼盘：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体"
-					>访问七个区域，找到对应的房间号，点击头像进入ta的房间，可以关注或私聊建立联系。</font
+					>畅玩水果拼盘，赢取更多星星。每次下注在5 – 10000范围内的星星数量即可参与水果拼盘，当3个画面都是苹果时，则抽中“飞天茅台500ml ”1瓶；当3个画面都是西瓜时，则获得您下注星星数量的10倍；当3个画面都是香蕉时，则获得您下注星星数量的5倍；当3个画面都是樱桃时，则获得您下注星星数量的2倍；当3个画面都是葡萄时，则获得您下注星星数量的1倍；当3个画面不一样时，即未中奖。</font
 				>
 			</span>
 		</p>
@@ -487,7 +393,7 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">4、TA是谁：</font>
+					<font face="宋体">12、TA是谁：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
@@ -505,17 +411,16 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">5、富豪榜：</font>
+					<font face="宋体">13、随心写：</font>
 				</span>
 			</b>
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					实时更新TOP10的用户，可以助力他们排名更上一层，也可以点击头像与他们建立联系。每周日中午12点榜单截至，下周一公布中奖名单；中奖率30%（10个中3个）；奖品价值300-1000元不等！
-				</font>
+				<font face="宋体"
+					>会随机的推送用户发布的动态内容，用户有感而发，随便写两句，吐槽、赞美都行！ X空间遵从的是最淳朴的推送模式，不会收集用户的浏览习惯，给用户贴标签，然后给用户推送用户习惯性爱看的内容。每一个在“随手文字”展现出来的内容都代表着一个鲜活的个体，都值得推送给所有人认识。是否与作者取得联系并成为好友的关键是通过文字，交友更纯粹直接！平台将选择优秀的连载内容，帮助作者将其装订成册并出版！</font
+				>
 			</span>
 		</p>
-
-		<p class="MsoNormal" style="text-indent: 28.1pt">
+		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
 				<span
 					style="
@@ -524,21 +429,15 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">三、“随手文字”板块功能介绍：</font>
+					<font face="宋体">14、开启空间巡游：</font>
 				</span>
 			</b>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体"
-					>会随机的推送用户发布的动态内容，用户有感而发，随便写两句，吐槽、赞美都行！</font
+					>访问七个区域，找到对应的房间号，点击头像进入ta的房间，可以关注或私聊建立联系。</font
 				>
-				<font face="宋体">
-					X空间遵从的是最淳朴的推送模式，不会收集用户的浏览习惯，给用户贴标签，然后给用户推送用户习惯性爱看的内容。每一个在“随手文字”展现出来的内容都代表着一个鲜活的个体，都值得推送给所有人认识。是否与作者取得联系并成为好友的关键是通过文字，交友更纯粹直接！平台将选择优秀的连载内容，帮助作者将其装订成册并出版！
-				</font>
 			</span>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28.1pt">
+		</p><p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
 			<b>
 				<span
 					style="
@@ -547,46 +446,16 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">四、</font>
-					<font face="宋体">“漂流瓶”板块功能介绍：</font>
+					<font face="宋体">15、发布随心写：</font>
 				</span>
 			</b>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体"
-					>1、每日赠送一次免费捡漂流瓶的机会，后续参与须送出5颗星星。</font
+					>有感而发，随便写两句，吐槽、赞美都行!</font
 				>
 			</span>
 		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					2、捡到的漂流瓶内容可根据喜好是否回复内容；回复的内容会通知“投放瓶子者”，对方若是对您回复的内容有兴趣，则对方会私聊您，您可以在“私密聊天中”收到消息，从而你们就建立了聊天关系。
-				</font>
-			</span>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>3、免费投放漂流瓶，可以发布文字、图片、视频、图文、文字+视频。（表达愿望，展示自己，缘分来了挡不住！）、（建议投放视频不超过15秒）</font
-				>
-			</span>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">
-					4、“漂流瓶历史记录”包含“投放漂流瓶”和“捡到漂流瓶”的历史记录。点开投放的记录详情，可以查看别人的回复，并选择是否私聊ta；确保您不会错过有趣的回复！也可以选择删除该瓶子，则其他人再也捡不到该瓶子。点开捡到的记录详情，选择是否回复该瓶子内容，确保您不会错过有趣的瓶子内容！也可以选择删除该瓶子内容！
-				</font>
-			</span>
-		</p>
-		<p class="MsoNormal" style="text-indent: 28pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>5、消息提示：当您投放的瓶子被人捡到，并收到对方的回复，则会有红点提示，方便您快速收到提示，并可以点击查询对方的回复内容，做出回复的动作！</font
-				>
-			</span>
-		</p>
+		
 		<div style="height: 40rpx"></div>
 		<p class="MsoNormal" align="center" style="text-align: center">
 			<b>

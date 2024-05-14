@@ -6,12 +6,9 @@
 		<!-- 渲染其他用户 -->
 		<div>
 			<div class="box-title">
-				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
-				<!-- 小背景 -->
-				<img :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20244/compressed_65b8352b33.png' : coverImage" alt="" class="my-img" />
-
-				<!-- 覆盖盒子/相对定位 -->
-				<div class="width-bottom"></div>
+				<div class="my-img-box">
+					<img class="my-img" :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3cb0cd9dbf.png' : coverImage" alt="" />
+				</div>
 				<div class="my-info">
 					<div class="infos-1">
 						<img class="portrait" :src="avatar" alt="" @click="previewImg([avatar])" />
@@ -480,19 +477,6 @@ export default {
 			this.popMoney = true;
 			//
 		},
-		//去发布  没房子不能点
-		toIssue() {
-			if (!this.house) {
-				uni.showToast({
-					title: '请先成为空间主人',
-					icon: 'none'
-				});
-				return;
-			}
-			uni.navigateTo({
-				url: '../artcleIssue/artcleIssue'
-			});
-		},
 		//确认密码
 		confirmMima() {
 			if (this.password === this.inputMima) {
@@ -633,26 +617,18 @@ export default {
 	position: relative;
 	width: 750rpx;
 	margin-bottom: 12rpx;
-	.my-img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 750rpx;
-		height: 480rpx;
-	}
-	.width-bottom {
+	.my-img-box {
 		position: relative;
 		width: 750rpx;
-		height: 480rpx;
-		display: flex;
-		justify-content: flex-end;
-		align-items: flex-end;
-		img {
-			width: 95rpx;
-			height: 94rpx;
-			margin: 20rpx;
+		height: 350rpx;
+		.my-img {
+			margin: 10rpx;
+			width: 730rpx;
+			height: 330rpx;
+			border-radius: 20rpx;
 		}
 	}
+
 	.my-info {
 		position: relative;
 		width: 670rpx;
@@ -923,34 +899,6 @@ button::after {
 	border: none;
 }
 
-.issue {
-	position: fixed;
-	width: 128rpx;
-	height: 128rpx;
-	top: 966rpx;
-	right: 18rpx;
-	z-index: 50;
-	background: url(../../static/issue.png) no-repeat;
-	background-size: 128rpx 128rpx;
-}
-.message {
-	position: fixed;
-	width: 128rpx;
-	height: 128rpx;
-	top: 810rpx;
-	right: 18rpx;
-	z-index: 50;
-	background: url(../../static/message.png) no-repeat;
-	background-size: 128rpx 128rpx;
-	.mes-dot {
-		width: 20rpx;
-		height: 20rpx;
-		background-color: #f56c6c;
-		margin-top: 12rpx;
-		margin-left: -18rpx;
-		border-radius: 50%;
-	}
-}
 .bottom {
 	height: 40rpx;
 }

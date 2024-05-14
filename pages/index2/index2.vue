@@ -2,51 +2,25 @@
 	<div class="pages">
 		<!-- banner -->
 		<div v-if="list1.length" class="banner-box">
-			<u-swiper
-				:list="list1"
-				keyName="img"
-				height="220rpx"
-				:interval="5000"
-				:duration="400"
-				:circular="true"
-				@click="goOwnPageOrThirdParty()"
-			></u-swiper>
+			<u-swiper :list="list1" keyName="img" height="220rpx" :interval="5000" :duration="400" :circular="true" @click="goOwnPageOrThirdParty()"></u-swiper>
 		</div>
-		<takeLooks
-			ref="takeLookComponent"
-			filler="filler2"
-			:type="2"
-		></takeLooks>
+		<takeLooks ref="takeLookComponent" filler="filler2" :type="2"></takeLooks>
 		<button class="issue" @click="toTop"></button>
 		<div class="reload">
-			<u-icon
-				name="../../../../static/reload.png"
-				color="#000"
-				size="34"
-				label="换一换"
-				labelPos="bottom"
-				@click="reloadTake"
-			></u-icon>
+			<u-icon name="../../../../static/reload.png" color="#000" size="34" label="换一换" labelPos="bottom" @click="reloadTake"></u-icon>
 		</div>
 		<div class="message">
-			<u-icon
-				name="../../../../static/message.png"
-				color="#000"
-				size="38"
-				label="发布"
-				labelPos="bottom"
-				@click="toIssue"
-			></u-icon>
+			<u-icon name="../../../../static/send.png" color="#000" size="38" label="发布" labelPos="bottom" @click="toIssue"></u-icon>
 		</div>
 	</div>
 </template>
 
 <script>
-import { banner } from '@/api/index.js'
-import { mapGetters, mapMutations, mapState } from 'vuex'
-import takeLooks from '@/components/takeLook/takeLook.vue'
-import { redDot } from '@/api/user.js'
-const app = getApp()
+import { banner } from '@/api/index.js';
+import { mapGetters, mapMutations, mapState } from 'vuex';
+import takeLooks from '@/components/takeLook/takeLook.vue';
+import { redDot } from '@/api/user.js';
+const app = getApp();
 export default {
 	computed: {
 		...mapState(['uid', 'house'])
@@ -58,7 +32,7 @@ export default {
 		return {
 			list1: [], //消息红点
 			messageDot: false
-		}
+		};
 	},
 	watch: {
 		// myWs: {
@@ -88,23 +62,23 @@ export default {
 		// }
 	},
 	onLoad() {
-		this.getBanner()
+		this.getBanner();
 		// this.getMessRedDot(this.uid)
 	},
 	onReachBottom() {
-		this.$refs.takeLookComponent.getTakeLook()
+		this.$refs.takeLookComponent.getTakeLook();
 	},
 	methods: {
 		toMessage() {
-			this.messageDot = false
+			this.messageDot = false;
 			uni.navigateTo({
 				url: '../../pages_userActivity/messageList/messageList'
-			})
+			});
 		},
 		toIssue() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/artcleIssue/artcleIssue'
-			})
+			});
 		},
 		//消息红点
 		// async getMessRedDot(uid) {
@@ -126,25 +100,25 @@ export default {
 		// },
 		...mapMutations(['updateUid']),
 		async getBanner() {
-			let res = await banner({ type: 2 })
-			console.log('请求banner图')
+			let res = await banner({ type: 2 });
+			console.log('请求banner图');
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
 					icon: 'none'
-				})
-				return
+				});
+				return;
 			}
-			this.list1 = res.result
+			this.list1 = res.result;
 		},
 
 		toTop() {
 			wx.pageScrollTo({
 				scrollTop: 0
-			})
+			});
 		},
 		reloadTake() {
-			this.$refs.takeLookComponent.getTakeLook(1)
+			this.$refs.takeLookComponent.getTakeLook(1);
 		},
 		goOwnPageOrThirdParty(index) {
 			if (this.list1[index].linkType === 1) {
@@ -153,9 +127,9 @@ export default {
 					path: this.list1[index].url,
 					envVersion: 'release',
 					success(res) {
-						console.log('跳转小程序成功！', res)
+						console.log('跳转小程序成功！', res);
 					}
-				})
+				});
 			} else if (this.list1[index].linkType === 0) {
 				if (
 					this.list1[index].url === '../pages/user/user' ||
@@ -165,18 +139,18 @@ export default {
 				) {
 					uni.switchTab({
 						url: 'this.list1[index].url'
-					})
+					});
 				} else {
 					uni.navigateTo({
 						url: this.list1[index].url
-					})
+					});
 				}
 			} else {
-				return
+				return;
 			}
 		}
 	}
-}
+};
 </script>
 
 <style lang="less" scoped>

@@ -3,63 +3,55 @@
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
 
 		<div class="content-list" @click="toChatList">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/m1.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">私密聊天列表</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="content-list" @click="changeSecret = true">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/m2.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">安全聊天密钥</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="content-list" @click="showSearch = true">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="search" color="#e89406" size="20"></u-icon>
 			<div class="info-name">空间好友搜索</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="content-list" @click="showFriend = true">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/m4.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">邀请微信好友</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 
 		<div class="content-list" @click="goSecret">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/m5.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">安全档案</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 
 		<div class="content-list" @click="showSub = true">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
+			<u-icon name="bell-fill" color="#e89406" size="20"></u-icon>
 			<div class="info-name">微信消息通知</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<!-- 空间介绍 -->
 		<div class="content-list" @click="goIntroduce">
-			<u-icon name="pushpin" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/m7.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">空间介绍</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<!-- 订阅弹窗 -->
-		<u-modal
-			:show="showSub"
-			:title="'订阅消息提示'"
-			:content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'"
-			@confirm="doSub"
-		></u-modal>
+		<u-modal :show="showSub" :title="'订阅消息提示'" :content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'" @confirm="doSub"></u-modal>
 		<!-- 留言 -->
 		<u-overlay
 			:show="showFriend"
 			@click="
-				showFriend = false
-				shengcheng = true
+				showFriend = false;
+				shengcheng = true;
 			"
 		>
 			<div v-if="shengcheng" class="req-friend" @tap.stop>
-				<img
-					src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png"
-					alt=""
-				/>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png" alt="" />
 				<div v-if="showFriend && shengcheng">
 					<u--textarea
 						class="say-box"
@@ -78,10 +70,7 @@
 			</div>
 			<div v-else class="my-friend" @tap.stop>
 				<image class="code_view" :src="imagePath"></image>
-				<img
-					src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png"
-					alt=""
-				/>
+				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png" alt="" />
 				<div class="invite-content">{{ inviteContent }}</div>
 				<button open-type="share" class="share-box">分享</button>
 				<div class="back-to" @click="shengcheng = true">上一步</div>
@@ -94,33 +83,16 @@
 			@confirm="confirmChangeSecret"
 			showCancelButton
 			@cancel="
-				changeSecret = false
-				newSecret = ''
-				oldSecret = ''
+				changeSecret = false;
+				newSecret = '';
+				oldSecret = '';
 			"
 			confirmColor="#e89406"
 		>
 			<view class="slot-content">
-				<u--form
-					labelPosition="left"
-					ref="form1"
-					labelWidth="100rpx"
-					:labelStyle="{ color: '#515151' }"
-				>
-					<u-form-item label="原密码"
-						><u-input
-							placeholder="请输入原密码"
-							v-model="oldSecret"
-							maxlength="6"
-						></u-input
-					></u-form-item>
-					<u-form-item label="新密码"
-						><u-input
-							placeholder="请输入新密码"
-							v-model="newSecret"
-							maxlength="6"
-						></u-input
-					></u-form-item>
+				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#515151' }">
+					<u-form-item label="原密码"><u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6"></u-input></u-form-item>
+					<u-form-item label="新密码"><u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6"></u-input></u-form-item>
 				</u--form>
 				<div
 					:style="{
@@ -162,24 +134,11 @@
 			</div>
 		</u-overlay>
 		<!-- 搜索结果 -->
-		<u-popup
-			:show="popSearch"
-			@close="popSearch = false"
-			:safeAreaInsetBottom="false"
-		>
+		<u-popup :show="popSearch" @close="popSearch = false" :safeAreaInsetBottom="false">
 			<div>
 				<div class="search-result">搜索结果</div>
-				<scroll-view
-					v-if="peopleList.length !== 0"
-					:scroll-y="true"
-					style="width: 100%; height: 696rpx"
-				>
-					<div
-						class="people-item"
-						v-for="(i, index) in peopleList"
-						:key="index"
-						@click="toOtherUser(i)"
-					>
+				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width: 100%; height: 696rpx">
+					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
 						<img :src="i.userInfo.avatar" alt="" />
 						<div class="des">
 							<div class="des-room">
@@ -198,19 +157,14 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations, mapState } from 'vuex';
 // import { getArmourConfig } from '@/api/updateArmor.js'
-import { selectRoom } from '@/api/loginSelect.js'
-import {
-	userInfo,
-	userInfoEdit,
-	getQRCode,
-	updatePassword
-} from '@/api/user.js'
-import { myRoom } from '@/api/loginSelect.js'
-import { ip } from '@/api/api.js'
-import QRCode from '../../utils/weapp-qrcode.js'
-const App = getApp()
+import { selectRoom } from '@/api/loginSelect.js';
+import { userInfo, userInfoEdit, getQRCode, updatePassword } from '@/api/user.js';
+import { myRoom } from '@/api/loginSelect.js';
+import { ip } from '@/api/api.js';
+import QRCode from '../../utils/weapp-qrcode.js';
+const App = getApp();
 export default {
 	data() {
 		return {
@@ -239,136 +193,120 @@ export default {
 			canva: true,
 			showSub: false,
 			armour: false
-		}
+		};
 	},
 	onLoad(query) {
-		this.getuserInfo()
-		this.getMyRoom()
-		this.showNowScrect = this.nowScrect
+		this.getuserInfo();
+		this.getMyRoom();
+		this.showNowScrect = this.nowScrect;
 	},
 	onShareAppMessage() {
 		return {
 			title: this.inviteContent,
-			path:
-				'/pages_userActivity/erWeiMa/erWeiMa?imagePath=' +
-				this.imagePath +
-				'&&inviteContent=' +
-				this.inviteContent
-		}
+			path: '/pages_userActivity/erWeiMa/erWeiMa?imagePath=' + this.imagePath + '&&inviteContent=' + this.inviteContent
+		};
 	},
 	methods: {
 		async getSelectRoom() {
 			if (this.searchText === '') {
-				return
+				return;
 			}
-			let res = await selectRoom({ key: this.searchText })
-			console.log('搜索用户')
-			console.log(res)
+			let res = await selectRoom({ key: this.searchText });
+			console.log('搜索用户');
+			console.log(res);
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg)
-				return
+				uni.$u.toast(res.msg);
+				return;
 			}
-			this.popSearch = true
-			this.peopleList = res.room
+			this.popSearch = true;
+			this.peopleList = res.room;
 		},
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
-				uni.navigateBack()
+				uni.navigateBack();
 			}
 			uni.navigateTo({
-				url:
-					'../../pages_userActivity/otherUser/otherUser?ocateId=' +
-					i.cateId +
-					'&ouid=' +
-					i.uid
-			})
+				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
+			});
 		},
 		//获取用户订阅消息与否
 		doSub() {
-			this.showSub = false
-			let that = this
+			this.showSub = false;
+			let that = this;
 			if (!uni.getStorageSync('openId')) {
-				uni.$u.toast('只有微信用户才可以选择消息推送！')
-				return
+				uni.$u.toast('只有微信用户才可以选择消息推送！');
+				return;
 			}
 			wx.requestSubscribeMessage({
 				tmplIds: ['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'],
 				success: function (res) {
 					// 判断用户是否选择了订阅
-					if (
-						res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] ===
-						'accept'
-					) {
-						that.updatePush()
+					if (res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] === 'accept') {
+						that.updatePush();
 					} else {
 						uni.showModal({
 							title: '提示',
-							content:
-								'您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收',
+							content: '您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收',
 							showCancel: false, // 不显示取消按钮
 							confirmText: '确认' // 确认按钮的文本
-						})
+						});
 						// 引导用户手动打开授权设置页面
 						wx.openSetting({
 							success: function (res) {
-								if (
-									res.authSetting[
-										'scope.subscribeMessage'
-									] === true
-								) {
-									that.pushMyMessage()
+								if (res.authSetting['scope.subscribeMessage'] === true) {
+									that.pushMyMessage();
 								}
 							}
-						})
+						});
 					}
 				},
 				fail: function (err) {
 					// 订阅消息失败的回调处理
-					console.error(err)
+					console.error(err);
 				}
-			})
+			});
 		},
 		//更新密码
 		async confirmChangeSecret() {
 			if (this.oldSecret !== this.password) {
-				uni.$u.toast('原密码输入错误')
+				uni.$u.toast('原密码输入错误');
 
-				return
+				return;
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
-				uni.$u.toast('密码长度必须设置为6位')
-				return
+				uni.$u.toast('密码长度必须设置为6位');
+				return;
 			}
-			let res = await updatePassword({ password: this.newSecret })
+			let res = await updatePassword({ password: this.newSecret });
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg)
-				return
+				uni.$u.toast(res.msg);
+				return;
 			}
 			uni.showToast({
 				title: '修改密码成功',
 				icon: 'none'
-			})
-			this.changeSecret = false
-			this.password = this.newSecret
-			this.newSecret = ''
-			this.oldSecret = ''
+			});
+			this.changeSecret = false;
+			this.password = this.newSecret;
+			this.newSecret = '';
+			this.oldSecret = '';
 		},
 		toChatList() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/chatList/chatList'
-			})
+			});
 		},
 		//生成二维码
 		async createQRCode() {
 			if (!this.inviteContent) {
-				this.inviteContent = '让我们一起在安全空间里聊天！'
+				this.inviteContent = '让我们一起在安全空间里聊天！';
 			}
-			this.changeMyInviteContent()
+			this.changeMyInviteContent();
 			uni.showLoading({
 				title: '二维码生成中'
-			})
+			});
 
-			this.shengcheng = false
+			this.shengcheng = false;
 			let res = await getQRCode(
 				{
 					page: 'pages/loginSelect/loginSelect',
@@ -376,42 +314,39 @@ export default {
 					width: 430
 				},
 				'arraybuffer'
-			)
+			);
 
-			const fsm = wx.getFileSystemManager()
-			const FILE_BASE_NAME = 'qrcode_base64src'
-			const filePath =
-				wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg'
-			const _that = this
+			const fsm = wx.getFileSystemManager();
+			const FILE_BASE_NAME = 'qrcode_base64src';
+			const filePath = wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg';
+			const _that = this;
 			fsm.writeFile({
 				filePath,
 				data: res,
 				encoding: 'binary',
 				success() {
-					_that.canva = false
-					wx.hideLoading()
-					_that.doUpload3(filePath)
+					_that.canva = false;
+					wx.hideLoading();
+					_that.doUpload3(filePath);
 				},
 				fail() {}
-			})
+			});
 		},
 		async changeMyInviteContent() {
 			let res = await userInfoEdit({
-				inviteContent: this.inviteContent
-					? this.inviteContent
-					: '让我们一起在安全空间里聊天！'
-			})
+				inviteContent: this.inviteContent ? this.inviteContent : '让我们一起在安全空间里聊天！'
+			});
 			if (res.code === 0) {
 			} else {
 				uni.showToast({
 					title: res.msg,
 					icon: 'none'
-				})
-				this.inviteContent = ''
+				});
+				this.inviteContent = '';
 			}
 		},
 		doUpload3(rsp) {
-			this.linshiImagePath = rsp
+			this.linshiImagePath = rsp;
 			uni.uploadFile({
 				url: ip + '/app/common/upload',
 				filePath: rsp,
@@ -420,92 +355,92 @@ export default {
 					token: uni.getStorageSync('token')
 				},
 				success: (uploadFileRes) => {
-					let paths = JSON.parse(uploadFileRes.data)
-					this.imagePath = paths.result[0].url
+					let paths = JSON.parse(uploadFileRes.data);
+					this.imagePath = paths.result[0].url;
 				}
-			})
+			});
 		},
 		checkType() {
 			getArmourConfig().then((res) => {
-				console.log('获取当前盔甲状态')
-				console.log(res)
+				console.log('获取当前盔甲状态');
+				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
 						icon: 'none'
-					})
+					});
 				} else {
-					this.armour = res.result.armourStatus === 0 ? false : true
+					this.armour = res.result.armourStatus === 0 ? false : true;
 					if (!this.armour) {
 						uni.navigateTo({
 							url: '../../pages_costMoney/costMoney/costMoney'
-						})
+						});
 					} else {
 						uni.navigateTo({
 							url: '../updateArmor/updateArmor'
-						})
+						});
 					}
 				}
-			})
+			});
 		},
 		goIntroduce() {
 			uni.navigateTo({
 				url: '../xIntroduce/xIntroduce'
-			})
+			});
 		},
 		goShieldList() {
 			uni.navigateTo({
 				url: '../shieldList/shieldList'
-			})
+			});
 		},
 		confirmByeBye() {
 			uni.reLaunch({
 				url: '../../pages/loginSelect/loginSelect'
-			})
+			});
 		},
 		//去x文件
 		goSecret() {
 			uni.navigateTo({
 				url: '../mySecret/mySecret'
-			})
+			});
 		},
 		//请求个人信息
 		async getuserInfo() {
-			let res = await userInfo()
-			console.log('请求用户信息')
-			console.log(res)
+			let res = await userInfo();
+			console.log('请求用户信息');
+			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
 					icon: 'none'
-				})
-				return
+				});
+				return;
 			}
-			this.uid = res.result.uid
-			this.inviteContent = res.result.inviteContent
+			this.uid = res.result.uid;
+			this.inviteContent = res.result.inviteContent;
 		},
 		async getMyRoom() {
-			let res = await myRoom()
-			console.log('请求空间详细数据')
-			console.log(res)
+			let res = await myRoom();
+			console.log('请求空间详细数据');
+			console.log(res);
 			if (res.code !== 0) {
 				uni.showToast({
 					title: res.msg,
 					icon: 'none'
-				})
-				return
+				});
+				return;
 			}
-			this.unlookMyRoom = res.room.isClose === 1 ? true : false
-			this.password = res.room.password
+			this.unlookMyRoom = res.room.isClose === 1 ? true : false;
+			this.password = res.room.password;
 		},
 		//管理员登录
 		goAdminLogin() {
 			uni.navigateTo({
 				url: '../adminLogin/adminLogin'
-			})
+			});
 		}
 	}
-}
+};
 </script>
 
 <style lang="less">
