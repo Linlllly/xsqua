@@ -329,7 +329,9 @@ export default {
 			showPickAgain: false,
 			second: false,
 			type: false,
-			ws: ''
+			ws: '',
+			//关闭ws的侦听
+			close: false
 		};
 	},
 	computed: {
@@ -340,16 +342,19 @@ export default {
 			immediate: true,
 			handler(news, olds) {
 				console.log('bottle开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				this.ws.onMessage((res) => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (data.type === 'bottle') {
-						this.bottleDot = true;
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
+						}
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (data.type === 'bottle') {
+							this.bottleDot = true;
+						}
 					}
 				});
 			}
@@ -359,6 +364,9 @@ export default {
 		this.getShowBotleMode();
 		this.getBanner();
 		this.gettBottleRedDot();
+	},
+	onUnload() {
+		this.close = true;
 	},
 	onShow() {
 		this.getTodayCount();
@@ -448,20 +456,15 @@ export default {
 					}
 				});
 			} else if (this.list1[index].linkType === 0) {
-				if (
-					this.list1[index].url === '../pages/user/user' ||
-					this.list1[index].url === '../pages/index/index' ||
-					this.list1[index].url === '../pages/index2/index2' ||
-					this.list1[index].url === '../pages/currentBottle/currentBottle'
-				) {
-					uni.switchTab({
-						url: this.list1[index].url
-					});
-				} else {
-					uni.navigateTo({
-						url: this.list1[index].url
-					});
-				}
+				// if (this.list1[index].url === '../pages/user/user') {
+				// 	uni.switchTab({
+				// 		url: this.list1[index].url
+				// 	});
+				// } else {
+				uni.navigateTo({
+					url: this.list1[index].url
+				});
+				// }
 			} else {
 				return;
 			}

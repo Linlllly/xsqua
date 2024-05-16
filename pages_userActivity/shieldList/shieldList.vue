@@ -1,29 +1,37 @@
 <template>
 	<view class="pages">
-		
-				<z-paging  ref="paging" :default-page-size="12" loading-more-no-more-text="没有更多数据了" v-model="blackList" @query="getblackList"  :empty-view-img-style='{width:0,height:0}'  >
-						<template #top>
-							<!-- 顶部 -->
-							<div class="chat-title">
-								<!-- 左 -->
-								<div class="title-left"><div class="name-chat">黑名单</div></div>
-								<!-- 头像 -->
-								<img class="name-title" :src="ava" alt="" />
-							</div>
-						</template>
-						<view class="content-list" v-for="(i, index) in blackList" :key="i.blackUserInfo.uid">
-							<!-- 头像 -->
-							<img class="list-img" :src="i.blackUserInfo.avatar" alt="" />
-							<!-- 姓名和信息 -->
-							<div class="content-info">
-								<div class="info-name">
-									<div class="u-name">{{ i.blackUserInfo.username }}</div>
-								</div>
-								<div class="info-des">{{ i.blackUserInfo.intro ? i.blackUserInfo.intro : ' ' }}</div>
-							</div>
-							<div style="color:#e89406;font-size: 30rpx;" @click="cancelBlack(i)">移 除</div>
-						</view>
-					</z-paging>
+		<z-paging
+			v-if="armor"
+			ref="paging"
+			:default-page-size="12"
+			loading-more-no-more-text="没有更多数据了"
+			v-model="blackList"
+			@query="getblackList"
+			:empty-view-img-style="{ width: 0, height: 0 }"
+		>
+			<template #top>
+				<!-- 顶部 -->
+				<div class="chat-title">
+					<!-- 左 -->
+					<div class="title-left"><div class="name-chat">黑名单</div></div>
+					<!-- 头像 -->
+					<img class="name-title" :src="ava" alt="" />
+				</div>
+			</template>
+			<view class="content-list" v-for="(i, index) in blackList" :key="i.blackUserInfo.uid">
+				<!-- 头像 -->
+				<img class="list-img" :src="i.blackUserInfo.avatar" alt="" />
+				<!-- 姓名和信息 -->
+				<div class="content-info">
+					<div class="info-name">
+						<div class="u-name">{{ i.blackUserInfo.username }}</div>
+					</div>
+					<div class="info-des">{{ i.blackUserInfo.intro ? i.blackUserInfo.intro : ' ' }}</div>
+				</div>
+				<div style="color: #e89406; font-size: 30rpx" @click="cancelBlack(i)">移 除</div>
+			</view>
+		</z-paging>
+		<div class="need-armor"><div>该功能须获得安全盔甲</div></div>
 		<u-modal
 			:show="showAttention"
 			title="确定将该用户移除黑名单吗"
@@ -56,18 +64,16 @@ export default {
 			showAttention: false
 		};
 	},
-
 	methods: {
-		
-		 getblackList(page, limit) {
-			blackList({ page, limit , keyword: this.keyword})
-							.then(res => {
-								this.blackList = res.result.records||[];
-								this.$refs.paging.complete(res.result.records);
-							})
-							.catch(res => {
-								this.$refs.paging.complete(false);
-							});
+		getblackList(page, limit) {
+			blackList({ page, limit, keyword: this.keyword })
+				.then((res) => {
+					this.blackList = res.result.records || [];
+					this.$refs.paging.complete(res.result.records);
+				})
+				.catch((res) => {
+					this.$refs.paging.complete(false);
+				});
 		},
 		cancelBlack(i) {
 			if (this.armor) {
@@ -76,26 +82,26 @@ export default {
 			} else {
 				uni.showToast({
 					title: '未激活，需兑换超级安全盔甲',
-					icon:'none'
+					icon: 'none'
 				});
 			}
 		},
 		changeAttentionState() {
-			del({ uid: this.attention.blackUserInfo.uid }).then(res => {
+			del({ uid: this.attention.blackUserInfo.uid }).then((res) => {
 				console.log('请求移除黑名单');
 				console.log(res);
 				if (res.code !== 0) {
 					uni.showToast({
 						title: res.msg,
-						icon:'none'
+						icon: 'none'
 					});
 					return;
 				}
 				uni.showToast({
 					title: '移除黑名单成功',
-					icon:'none'
+					icon: 'none'
 				});
-				const index = this.blackList.findIndex(item => item.blackUserInfo.uid === this.attention.blackUserInfo.uid);
+				const index = this.blackList.findIndex((item) => item.blackUserInfo.uid === this.attention.blackUserInfo.uid);
 				this.$delete(this.blackList, index);
 				this.showAttention = false;
 			});
@@ -223,5 +229,13 @@ export default {
 	width: 100%;
 	color: #9a9698;
 	text-align: center;
+}
+.need-armor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-size: 40rpx;
+	color: #333;
 }
 </style>

@@ -197,7 +197,9 @@ export default {
 			canva: true,
 			showSub: false,
 			armour: false,
-			chatDot: false
+			chatDot: false,
+			//关闭ws的侦听
+			close: false
 		};
 	},
 	watch: {
@@ -205,16 +207,19 @@ export default {
 			immediate: true,
 			handler(news, olds) {
 				console.log('chat开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				this.ws.onMessage((res) => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
-						this.chatDot = true;
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
+						}
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
+							this.chatDot = true;
+						}
 					}
 				});
 			}
@@ -225,6 +230,9 @@ export default {
 		this.getChatRedDot();
 		this.getMyRoom();
 		this.showNowScrect = this.nowScrect;
+	},
+	onUnload() {
+		this.close = true;
 	},
 	onShareAppMessage() {
 		return {

@@ -473,20 +473,15 @@ export default {
 					}
 				});
 			} else if (this.list1[index].linkType === 0) {
-				if (
-					this.list1[index].url === '../pages/user/user' ||
-					this.list1[index].url === '../pages/index/index' ||
-					this.list1[index].url === '../pages/index2/index2' ||
-					this.list1[index].url === '../pages/currentBottle/currentBottle'
-				) {
-					uni.switchTab({
-						url: this.list1[index].url
-					});
-				} else {
-					uni.navigateTo({
-						url: this.list1[index].url
-					});
-				}
+				// if (this.list1[index].url === '../pages/user/user') {
+				// 	uni.switchTab({
+				// 		url: this.list1[index].url
+				// 	});
+				// } else {
+				uni.navigateTo({
+					url: this.list1[index].url
+				});
+				// }
 			} else {
 				return;
 			}

@@ -9,6 +9,7 @@
 					<img class="my-img" :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3cb0cd9dbf.png' : coverImage" alt="" />
 					<img class="change-img" src="../../static/changemy.png" alt="" @click="changeBg" />
 				</div>
+
 				<div class="people-and-do-some">
 					<div class="my-info">
 						<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
@@ -52,7 +53,7 @@
 									:src="vipLevel === 1 ? '../../static/vip-1.png' : vipLevel === 2 ? '../../static/vip-2.png' : vipLevel === 3 ? '../../static/vip-3.png' : ''"
 									alt=""
 								/>
-								<div class="level-img-says">LV{{ nmberLevel }}</div>
+								<div v-if="[1, 2, 3].includes(vipLevel)" class="level-img-says">LV{{ nmberLevel }}</div>
 								<div class="level-intro" @click="toCostMoney">
 									<div>{{ silverNum }}</div>
 									<img class="level-start" src="../../static/money.png" alt="" />

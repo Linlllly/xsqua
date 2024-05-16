@@ -7,7 +7,7 @@
 		<div>
 			<div class="box-title">
 				<div class="my-img-box">
-					<img class="my-img" :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3cb0cd9dbf.png' : coverImage" alt="" />
+					<img class="my-img" :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_fecb1874d8.jpg' : coverImage" alt="" />
 				</div>
 				<div class="my-info">
 					<div class="infos-1">

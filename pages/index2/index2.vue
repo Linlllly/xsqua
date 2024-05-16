@@ -37,7 +37,9 @@ export default {
 	data() {
 		return {
 			list1: [], //消息红点
-			messageDot: false
+			messageDot: false,
+			//关闭ws的侦听
+			close: false
 		};
 	},
 	watch: {
@@ -45,23 +47,26 @@ export default {
 			immediate: true,
 			handler(news, olds) {
 				console.log('index2开启侦听');
+				this.close = false;
 				this.ws = app.globalData.ws;
 				this.ws.onMessage((res) => {
-					console.log(res);
-					if (res.data === 'active') {
-						return;
-					}
-					let data = JSON.parse(res.data);
-					console.log(data);
-					if (
-						data.type === 'follow' ||
-						data.type === 'comment' ||
-						data.type === 'collection' ||
-						data.type === 'silver' ||
-						data.type === 'flower' ||
-						data.type === 'shit'
-					) {
-						this.messageDot = true;
+					if (!this.close) {
+						console.log(res);
+						if (res.data === 'active') {
+							return;
+						}
+						let data = JSON.parse(res.data);
+						console.log(data);
+						if (
+							data.type === 'follow' ||
+							data.type === 'comment' ||
+							data.type === 'collection' ||
+							data.type === 'silver' ||
+							data.type === 'flower' ||
+							data.type === 'shit'
+						) {
+							this.messageDot = true;
+						}
 					}
 				});
 			}
@@ -70,6 +75,9 @@ export default {
 	onLoad() {
 		this.getBanner();
 		this.getMessRedDot(this.uid);
+	},
+	onUnload() {
+		this.close = true;
 	},
 	onReachBottom() {
 		this.$refs.takeLookComponent.getTakeLook();
@@ -133,20 +141,15 @@ export default {
 					}
 				});
 			} else if (this.list1[index].linkType === 0) {
-				if (
-					this.list1[index].url === '../pages/user/user' ||
-					this.list1[index].url === '../pages/index/index' ||
-					this.list1[index].url === '../pages/index2/index2' ||
-					this.list1[index].url === '../pages/index3/index3'
-				) {
-					uni.switchTab({
-						url: 'this.list1[index].url'
-					});
-				} else {
-					uni.navigateTo({
-						url: this.list1[index].url
-					});
-				}
+				// if (this.list1[index].url === '../pages/user/user') {
+				// 	uni.switchTab({
+				// 		url: this.list1[index].url
+				// 	});
+				// } else {
+				uni.navigateTo({
+					url: this.list1[index].url
+				});
+				// }
 			} else {
 				return;
 			}
