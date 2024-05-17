@@ -65,12 +65,12 @@
 				</span>
 			</b>
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3c359151be.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_ca6996420c.png"
 				style="width: 100%"
 				mode="widthFix"
 				@click="
 					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3c359151be.png'
+						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_ca6996420c.png'
 					)
 				"
 			></image>
@@ -85,25 +85,55 @@
 				</span>
 			</p>
 			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">③安全盔甲：</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有删除对方手机上聊天记录的权利</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有是否允许其他用户关注自己的权利</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有是否允许其他用户私聊的权利：a、允许；b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有取消用户对你的关注的权利。</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有在空间七大领域随意更换房间的权利</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">③空间好友搜索：可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font>
+				<font face="宋体">④空间好友搜索：可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">④邀请微信好友：当邀请微信好友进入“X自由空间”时（切记对方之前没进入过空间），输入邀请语生成二维码发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入X自由空间，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！ </font>
+				<font face="宋体">⑤邀请微信好友：当邀请微信好友进入“X自由空间”时（切记对方之前没进入过空间），输入邀请语生成二维码发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入X自由空间，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！ </font>
 			</span>
 		</p><p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑤安全档案：打开“安全档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。</font>
+				<font face="宋体">⑥安全档案：打开“安全档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。</font>
 			</span>
 		</p><p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑥微信消息通知：如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font>
+				<font face="宋体">⑦微信消息通知：如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font>
 			</span>
 		</p><p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑦空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
+				<font face="宋体">⑧空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
 			</span>
 		</p>
 		</p>
@@ -188,84 +218,18 @@
 				</span>
 			</b>
 		</p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">a、超级安全盔甲：</font>
-				</span>
-			</b>
-		</p>
+		
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">①拥有删除对方手机上聊天记录的权利</font>
+				<font face="宋体">①空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">②是否允许其他用户关注自己的权利</font>
+				<font face="宋体">②联系管家：用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font>
 			</span>
 		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">③拥有是否允许其他用户私聊的权利：</font>
-				a、允许
-			</span>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">；</font>
-			</span>
-			<span style="font-family: 宋体; font-size: 14pt"
-				>b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</span
-			>
-		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>④享有是否开启闭关修炼的权利（所有动态内容仅自己可见）</font
-				>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>⑤拥有拉黑用户的权利，则该用户不可以再与你私聊和关注你等操作；</font
-				>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑥享有取消用户对你的关注的权利。</font>
-			</span>
-		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑦拥有在空间七大领域随意更换房间的权利</font>
-			</span>
-		</p>
-		<p class="17" style="margin-left: 62pt; text-indent: 0pt"></p>
-		<p class="17" style="text-indent: 28.1pt">
-			<b>
-				<span
-					style="
-						font-family: 宋体;
-						font-weight: bold;
-						font-size: 14pt;
-					"
-				>
-					<font face="宋体">b、联系管家：</font>
-				</span>
-			</b>
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体"
-					>用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font
-				>
-			</span>
-		</p>
+		
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
 				<span

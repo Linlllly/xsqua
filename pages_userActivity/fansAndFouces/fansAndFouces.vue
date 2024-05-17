@@ -154,7 +154,7 @@ export default {
 				this.attention = i;
 			} else {
 				uni.showToast({
-					title: '未激活，需兑换超级安全盔甲',
+					title: '未激活，需购买超级安全盔甲',
 					icon: 'none'
 				});
 			}

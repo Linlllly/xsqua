@@ -12,7 +12,13 @@
 		</div>
 		<div class="content-list" @click="changeSecret = true">
 			<u-icon name="../../../../static/m2.png" color="#e89406" size="20"></u-icon>
-			<div class="info-name">安全聊天密钥</div>
+			<div class="info-name">安全空间密钥</div>
+			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
+		</div>
+		<!-- 超级盔甲 -->
+		<div class="content-list" @click="checkType">
+			<u-icon name="../../../../static/m8.png" color="#e89406" size="20"></u-icon>
+			<div class="info-name">超级安全盔甲</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<div class="content-list" @click="showSearch = true">
@@ -37,10 +43,10 @@
 			<div class="info-name">微信消息通知</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-		<!-- 空间介绍 -->
-		<div class="content-list" @click="goIntroduce">
-			<u-icon name="../../../../static/m7.png" color="#e89406" size="20"></u-icon>
-			<div class="info-name">空间介绍</div>
+		<!-- 查看拉黑用户 -->
+		<div class="content-list" @click="goShieldList">
+			<u-icon name="eye-fill" color="#e89406" size="20"></u-icon>
+			<div class="info-name">查看拉黑用户</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
 		<!-- 订阅弹窗 -->
@@ -163,7 +169,7 @@
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { selectRoom } from '@/api/loginSelect.js';
 import { userInfo, userInfoEdit, getQRCode, updatePassword, redDot } from '@/api/user.js';
-
+import { getArmourConfig } from '@/api/updateArmor.js';
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
 import QRCode from '../../utils/weapp-qrcode.js';
@@ -241,6 +247,11 @@ export default {
 		};
 	},
 	methods: {
+		goShieldList() {
+			uni.navigateTo({
+				url: '../shieldList/shieldList'
+			});
+		},
 		async getChatRedDot() {
 			let res = await redDot({
 				uid: this.uid,

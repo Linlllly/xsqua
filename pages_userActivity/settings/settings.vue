@@ -1,12 +1,13 @@
 <template>
 	<view class="pages">
 		<img class="bg-img" src="../../static/area-select-bg.png" alt="" />
-		<!-- 超级盔甲 -->
-		<div class="content-list" @click="checkType">
-			<u-icon name="level" color="#e89406" size="20"></u-icon>
-			<div class="info-name">超级安全盔甲</div>
+		<!-- 空间介绍 -->
+		<div class="content-list" @click="goIntroduce()">
+			<u-icon name="../../../../static/m7.png" color="#e89406" size="20"></u-icon>
+			<div class="info-name">空间介绍</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
+
 		<!-- 档案 -->
 		<!-- <div class="content-list" @click="goSecret">
 			<u-icon name="coupon" color="#e89406" size="20"></u-icon>
@@ -19,33 +20,23 @@
 			<div class="info-name">邀请微信好友</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div> -->
-		<!-- 查看拉黑用户 -->
-		<div class="content-list" @click="goShieldList">
-			<u-icon name="minus-people-fill" color="#e89406" size="20"></u-icon>
-			<div class="info-name">查看拉黑用户</div>
-			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div>
+
 		<!-- 查看或修改房间密码 -->
 		<!-- <div class="content-list" @click="changeSecret = true">
 			<u-icon name="edit-pen" color="#e89406" size="20"></u-icon>
 			<div class="info-name">设置房间密码</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div> -->
-		<!-- 空间介绍 -->
-		<!-- <div class="content-list" @click="goIntroduce()">
-			<u-icon name="pushpin" color="#e89406" size="20"></u-icon>
-			<div class="info-name">空间介绍</div>
-			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
-		</div> -->
+
 		<!-- 客服 -->
 		<button class="content-list" type="primary" open-type="contact">
-			<u-icon name="server-man" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/gj.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">联系管家</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</button>
 		<!-- 退出 -->
 		<div class="content-list" @click="showByeBye = true">
-			<u-icon name="setting" color="#e89406" size="20"></u-icon>
+			<u-icon name="../../../../static/goout.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">退出登录</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
@@ -98,7 +89,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getArmourConfig } from '@/api/updateArmor.js';
+
 import { userInfo, userInfoEdit, getQRCode } from '@/api/user.js';
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
@@ -198,39 +189,13 @@ export default {
 				}
 			});
 		},
-		checkType() {
-			getArmourConfig().then((res) => {
-				console.log('获取当前盔甲状态');
-				console.log(res);
-				if (res.code !== 0) {
-					uni.showToast({
-						title: res.msg,
-						icon: 'none'
-					});
-				} else {
-					this.armour = res.result.armourStatus === 0 ? false : true;
-					if (!this.armour) {
-						uni.navigateTo({
-							url: '../../pages_costMoney/costMoney/costMoney'
-						});
-					} else {
-						uni.navigateTo({
-							url: '../updateArmor/updateArmor'
-						});
-					}
-				}
-			});
-		},
+
 		goIntroduce() {
 			uni.navigateTo({
 				url: '../xIntroduce/xIntroduce'
 			});
 		},
-		goShieldList() {
-			uni.navigateTo({
-				url: '../shieldList/shieldList'
-			});
-		},
+
 		confirmByeBye() {
 			uni.reLaunch({
 				url: '../../pages/loginSelect/loginSelect'

@@ -441,7 +441,7 @@ export default {
 				this.showshield = true;
 			} else {
 				uni.showToast({
-					title: '只有盔甲用户可以拉黑用户',
+					title: '未激活，需购买超级安全盔甲',
 					icon: 'none'
 				});
 			}

@@ -31,7 +31,7 @@
 				<div style="color: #e89406; font-size: 30rpx" @click="cancelBlack(i)">移 除</div>
 			</view>
 		</z-paging>
-		<div class="need-armor"><div>该功能须获得安全盔甲</div></div>
+		<div v-else class="need-armor"><div>未激活，需购买超级安全盔甲</div></div>
 		<u-modal
 			:show="showAttention"
 			title="确定将该用户移除黑名单吗"
@@ -66,6 +66,7 @@ export default {
 	},
 	methods: {
 		getblackList(page, limit) {
+			console.log(111);
 			blackList({ page, limit, keyword: this.keyword })
 				.then((res) => {
 					this.blackList = res.result.records || [];
