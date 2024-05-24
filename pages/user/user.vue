@@ -814,7 +814,7 @@ export default {
 
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
-				uni.switchTab({
+				uni.reLaunch({
 					url: '../user/user'
 				});
 			}

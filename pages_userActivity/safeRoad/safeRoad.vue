@@ -173,7 +173,7 @@ import { getArmourConfig } from '@/api/updateArmor.js';
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
 import QRCode from '../../utils/weapp-qrcode.js';
-const App = getApp();
+const app = getApp();
 export default {
 	data() {
 		return {

@@ -27,12 +27,7 @@
 					<div class="text">
 						<span class="street-title" :style="{ transform: i.transform ? 'rotate(-45deg)' : '' }">{{ i.addr.cateName }}</span>
 					</div>
-					<img
-						class="local"
-						src="../../static/坐标-fill.png"
-						alt=""
-						:style="{ top: i.top, left: i.left, transform: i.transform ? 'rotate(-45deg)' : '' }"
-					/>
+					<img class="local" src="../../static/坐标-fill.png" alt="" :style="{ top: i.top, left: i.left, transform: i.transform ? 'rotate(-45deg)' : '' }" />
 				</div>
 			</div>
 			<!-- ---- -->
@@ -483,7 +478,8 @@ export default {
 			} else if (i === 2) {
 				if (this.pageNum >= this.totalPageNum) {
 					uni.showToast({
-						title: '已经在最后一页了~',icon:'none'
+						title: '已经在最后一页了~',
+						icon: 'none'
 					});
 					return;
 				}
@@ -523,7 +519,7 @@ export default {
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
 				//自己
-				uni.switchTab({
+				uni.reLaunch({
 					url: '../user/user'
 				});
 			}
