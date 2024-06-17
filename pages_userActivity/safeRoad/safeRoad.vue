@@ -168,12 +168,12 @@
 <script>
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import { selectRoom } from '@/api/loginSelect.js';
-import { userInfo, userInfoEdit, getQRCode, updatePassword, redDot } from '@/api/user.js';
+import { userInfo, userInfoEdit, getQRCode, updatePassword, updatePush, redDot } from '@/api/user.js';
 import { getArmourConfig } from '@/api/updateArmor.js';
 import { myRoom } from '@/api/loginSelect.js';
 import { ip } from '@/api/api.js';
 import QRCode from '../../utils/weapp-qrcode.js';
-const App = getApp();
+const app = getApp();
 export default {
 	data() {
 		return {
@@ -324,6 +324,9 @@ export default {
 					console.error(err);
 				}
 			});
+		},
+		updatePush() {
+			updatePush({ uid: this.uid, status: 1 }).then((res) => {});
 		},
 		//更新密码
 		async confirmChangeSecret() {

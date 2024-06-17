@@ -87,7 +87,7 @@ export default {
 				uni.hideLoading();
 				uni.showToast({
 					title: '密码错误',
-					icon:'none'
+					icon: 'none'
 				});
 			}
 		},
@@ -107,7 +107,7 @@ export default {
 				//有房子 保存状态
 				uni.setStorageSync('house', true);
 				this.updateHouse();
-				uni.switchTab({
+				uni.reLaunch({
 					url: '../../pages/user/user'
 				});
 			}
