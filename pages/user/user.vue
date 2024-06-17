@@ -13,7 +13,7 @@
 				<div class="people-and-do-some">
 					<div class="my-info">
 						<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
-						<div class="armor-box" @click="toCostMoney">
+						<div class="armor-box" @click="toCostMoney" v-if="showBottle">
 							<img class="armor-img" :src="armour ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
 							<div>{{ armour ? '安全盔甲' : '激活安全盔甲' }}</div>
 						</div>
