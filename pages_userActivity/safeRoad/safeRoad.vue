@@ -31,7 +31,7 @@
 			<div class="info-name">邀请微信好友</div>
 			<u-icon name="arrow-right" color="#ccc" size="20"></u-icon>
 		</div>
-
+		<!-- 安全档案  -->
 		<div class="content-list" @click="goSecret">
 			<u-icon name="../../../../static/m5.png" color="#e89406" size="20"></u-icon>
 			<div class="info-name">安全档案</div>
@@ -494,7 +494,7 @@ export default {
 				return;
 			}
 			this.unlookMyRoom = res.room.isClose === 1 ? true : false;
-			this.password = res.room.password;
+			this.password = res.room.password ? res.room.password : '';
 		},
 		//管理员登录
 		goAdminLogin() {
@@ -608,7 +608,7 @@ export default {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		top: 520rpx;
+		top: 494rpx;
 		color: #694e31;
 		font-size: 34rpx;
 		width: 416rpx;

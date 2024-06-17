@@ -42,12 +42,12 @@
 		</p>
 		<p class="p" style="margin-top: 10rpx; margin-bottom: 10rpx">
 			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3fe035591e.png"
+				src="https://www.zairongyifang.com:8080/filePath/app/20246/compressed_c5d7093907.png"
 				style="width: 100%"
 				mode="widthFix"
 				@click="
 					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3fe035591e.png'
+						'https://www.zairongyifang.com:8080/filePath/app/20246/compressed_c5d7093907.png'
 					)
 				"
 			></image>
@@ -64,78 +64,10 @@
 					<font face="宋体">1、安全聊天通道：</font>
 				</span>
 			</b>
-			<image
-				src="https://www.zairongyifang.com:8080/filePath/app/20245/compressed_ca6996420c.png"
-				style="width: 100%"
-				mode="widthFix"
-				@click="
-					previewImg(
-						'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_ca6996420c.png'
-					)
-				"
-			></image>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">①私密聊天列表：进入私聊列表，通过搜索框输入好友房间号（如：中央金座0000）的关键词或者备注名可以快速找到好友。左拉好友聊天，可以删除聊天框和记录。进入聊天详情页点击房间号可以给好友备注称号；点击右上角删除图标可以删除全部的聊天聊天记录和聊天框，长按聊天记录可以复制或者删除单条聊天记录。如果你兑换了“超级安全盔甲”，那么就可以选择删除双方手机上的聊天记录。切记删除后聊天记录无法恢复，如果删除对话框，请先关注好友，方便删除后快速找到好友！</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">②安全空间密钥：新用户设置房间密码，原密码不用填写，新密码处输入，并确认即可；如果已设置密码，想取消密码，在原密码处输入，新密码不用填写。切记当设置了密码后，需要输入正确的房间密码，才能进入“我的房间”进行私聊、发布等操作！</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">③安全盔甲：</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">拥有删除对方手机上聊天记录的权利</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">拥有是否允许其他用户关注自己的权利</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">拥有是否允许其他用户私聊的权利：a、允许；b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">拥有取消用户对你的关注的权利。</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
-				<span style="font-family: 宋体; font-size: 14pt">
-					<font face="宋体">拥有在空间七大领域随意更换房间的权利</font>
-				</span>
-			</p>
-			<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">④空间好友搜索：可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font>
+				<font face="宋体">私密聊天列表：进入私聊列表，通过搜索框输入好友房间号（如：中央金座0000）的关键词或者备注名可以快速找到好友。左拉好友聊天，可以删除聊天框和记录。进入聊天详情页点击房间号可以给好友备注称号；点击右上角删除图标可以删除全部的聊天聊天记录和聊天框，长按聊天记录可以复制或者删除单条聊天记录。如果你兑换了“超级安全盔甲”，那么就可以选择删除双方手机上的聊天记录。切记删除后聊天记录无法恢复，如果删除对话框，请先关注好友，方便删除后快速找到好友！</font>
 			</span>
-		</p>
-		<p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑤邀请微信好友：当邀请微信好友进入“X自由空间”时（切记对方之前没进入过空间），输入邀请语生成二维码发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入X自由空间，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！ </font>
-			</span>
-		</p><p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑥安全档案：打开“安全档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。</font>
-			</span>
-		</p><p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑦微信消息通知：如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font>
-			</span>
-		</p><p class="17" style="text-indent: 26pt">
-			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">⑧空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
-			</span>
-		</p>
+			
 		</p>
 		<p class="17" style="text-indent: 28.1pt">
 			<b>
@@ -214,19 +146,80 @@
 						font-size: 14pt;
 					"
 				>
-					<font face="宋体">6、设置：</font>
+					<font face="宋体">6、安全工具：</font>
 				</span>
 			</b>
 		</p>
+		<image
+			src="https://www.zairongyifang.com:8080/filePath/app/20246/compressed_834bd8b0a3.png"
+			style="width: 100%"
+			mode="widthFix"
+			@click="
+				previewImg(
+					'https://www.zairongyifang.com:8080/filePath/app/20246/compressed_834bd8b0a3.png'
+				)
+			"
+		></image>
+		
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">①安全盔甲：</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有删除对方手机上聊天记录的权利</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有是否允许其他用户关注自己的权利</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有是否允许其他用户私聊的权利：a、允许；b、允许其他用户发一条消息，等自己回复后才能开启后续聊天；c、不允许任何人私聊你</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有取消用户对你的关注的权利。</font>
+				</span>
+			</p>
+			<p class="17" style="text-indent: 26pt">
+				<span style="font-family: 宋体; font-size: 14pt">
+					<font face="宋体">拥有在空间七大领域随意更换房间的权利</font>
+				</span>
+			</p>
+		
 		
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">①空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
+				<font face="宋体">②安全空间密钥：新用户设置房间密码，原密码不用填写，新密码处输入，并确认即可；如果已设置密码，想取消密码，在原密码处输入，新密码不用填写。切记当设置了密码后，需要输入正确的房间密码，才能进入“我的房间”进行私聊、发布等操作！</font>
+			</span>
+		</p><p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">③安全档案：打开“安全档案”，初始密码888888，您可以在“X档案”里保存私密的照片、视频、资料、备忘录、个人私密信息等等。切记“X档案”只能在自己手机上输入正确密码才能进入查看，一定要记住密码，一旦密码丢失就找不回来了！保存的照片和视频可以下载到本地。</font>
 			</span>
 		</p>
 		<p class="17" style="text-indent: 26pt">
 			<span style="font-family: 宋体; font-size: 14pt">
-				<font face="宋体">②联系管家：用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font>
+				<font face="宋体">④查看拉黑用户：查看被拉黑的用户名单，可以从名单中移除该用户，并能够收到他给你发的私聊消息。</font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑤邀请微信好友：当邀请微信好友进入“x自由空间”时，输入邀请语生成二维码可以直接让好友用微信扫码或者转发给微信好友，微信好友打开分享链接，打开放大二维码，并扫码进入x自由空问，在私聊处就会收到你的邀请语，你的私聊也会有提示，是你发给好友房间的邀请语！ </font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑥空间介绍：帮助您快速熟悉“X自由空间”的功能及玩法。</font>
+			</span>
+		</p>
+		<p class="17" style="text-indent: 26pt">
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体">⑦联系管家：用户遇到不懂得问题，可以联系管家，管家会第一时间给你答疑解惑。</font>
 			</span>
 		</p>
 		
@@ -416,6 +409,42 @@
 			<span style="font-family: 宋体; font-size: 14pt">
 				<font face="宋体"
 					>有感而发，随便写两句，吐槽、赞美都行!</font
+				>
+			</span>
+		</p>
+		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">16、空间好友搜索：</font>
+				</span>
+			</b>
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体"
+					>可以通过搜索已入住的用户的房间号、个性签名的“连续关键词”，快速找到对方，并于对方建立联系。</font
+				>
+			</span>
+		</p>
+		<p class="17" style="margin-left: 0pt; text-indent: 22.7pt">
+			<b>
+				<span
+					style="
+						font-family: 宋体;
+						font-weight: bold;
+						font-size: 14pt;
+					"
+				>
+					<font face="宋体">17、微信消息通知：</font>
+				</span>
+			</b>
+			<span style="font-family: 宋体; font-size: 14pt">
+				<font face="宋体"
+					>如果您想要在退出小程序后，在微信页面端可以收到小程序未读消息的提示，那您可以在每次退出小程序时，点击“开启微信通知”。</font
 				>
 			</span>
 		</p>
