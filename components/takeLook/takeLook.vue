@@ -82,7 +82,7 @@
 			</div>
 			<!-- 分享评论转发 -->
 			<div class="funcs">
-				<span style="font-size: 28rpx; color: #767374">{{
+				<span style="font-size: 28rpx; color: #767374; opacity: 0">{{
 					i.createTime
 				}}</span>
 				<!-- 按钮 -->
