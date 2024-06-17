@@ -3,24 +3,71 @@
 		<!-- 再渲染 如果登录有房间了再加载以下内容 -->
 		<div v-if="type === 1 || type === 3">
 			<div class="box-title">
-				<Cropping @upload="doUpload2" ref="cropping2" selWidth="300upx" selHeight="300upx" />
+				<Cropping
+					@upload="doUpload2"
+					ref="cropping2"
+					selWidth="300upx"
+					selHeight="300upx"
+				/>
 				<!-- 小背景 -->
 				<div class="my-img-box">
-					<img class="my-img" :src="coverImage === '' ? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3cb0cd9dbf.png' : coverImage" alt="" />
-					<img class="change-img" src="../../static/changemy.png" alt="" @click="changeBg" />
+					<img
+						class="my-img"
+						:src="
+							coverImage === ''
+								? 'https://www.zairongyifang.com:8080/filePath/app/20245/compressed_3cb0cd9dbf.png'
+								: coverImage
+						"
+						alt=""
+					/>
+					<img
+						class="change-img"
+						src="../../static/changemy.png"
+						alt=""
+						@click="changeBg"
+					/>
 				</div>
 
 				<div class="people-and-do-some">
 					<div class="my-info">
-						<img class="setting" src="../../static/settings.png" alt="" @click="toSettings" />
+						<div class="setting-box">
+							<img
+								class="setting"
+								src="../../static/settings.png"
+								alt=""
+								@click="toSettings"
+							/>
+							<div>安全工具</div>
+						</div>
+
 						<div class="armor-box" @click="toCostMoney">
-							<img class="armor-img" :src="armour ? '../../static/armor.png' : '../../static/armor-no.png'" alt="" />
-							<div>{{ armour ? '安全盔甲' : '激活安全盔甲' }}</div>
+							<img
+								class="armor-img"
+								:src="
+									armour
+										? '../../static/armor.png'
+										: '../../static/armor-no.png'
+								"
+								alt=""
+							/>
+							<div>
+								{{ armour ? '安全盔甲' : '激活安全盔甲' }}
+							</div>
 						</div>
 						<div class="infos-1">
-							<Cropping @upload="doUpload" ref="cropping" selWidth="300upx" selHeight="300upx" />
+							<Cropping
+								@upload="doUpload"
+								ref="cropping"
+								selWidth="300upx"
+								selHeight="300upx"
+							/>
 							<div class="portrait-box">
-								<img class="portrait" :src="avatar" alt="" @click="changeAvatar" />
+								<img
+									class="portrait"
+									:src="avatar"
+									alt=""
+									@click="changeAvatar"
+								/>
 								<div class="portrait-change">换头像</div>
 							</div>
 							<div class="info">
@@ -28,8 +75,12 @@
 									<div class="name">{{ username }}</div>
 								</div>
 								<div class="about">
-									<div @click="toFansAndFouces">关注：{{ follow }}</div>
-									<div @click="toFansAndFouces">粉丝：{{ fans }}</div>
+									<div @click="toFansAndFouces">
+										关注：{{ follow }}
+									</div>
+									<div @click="toFansAndFouces">
+										粉丝：{{ fans }}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -50,23 +101,50 @@
 							<div class="cost-level">
 								<img
 									class="level-img"
-									:src="vipLevel === 1 ? '../../static/vip-1.png' : vipLevel === 2 ? '../../static/vip-2.png' : vipLevel === 3 ? '../../static/vip-3.png' : ''"
+									:src="
+										vipLevel === 1
+											? '../../static/vip-1.png'
+											: vipLevel === 2
+											? '../../static/vip-2.png'
+											: vipLevel === 3
+											? '../../static/vip-3.png'
+											: ''
+									"
 									alt=""
 								/>
-								<div v-if="[1, 2, 3].includes(vipLevel)" class="level-img-says">LV{{ nmberLevel }}</div>
+								<div
+									v-if="[1, 2, 3].includes(vipLevel)"
+									class="level-img-says"
+								>
+									LV{{ nmberLevel }}
+								</div>
 								<div class="level-intro" @click="toCostMoney">
 									<div>{{ silverNum }}</div>
-									<img class="level-start" src="../../static/money.png" alt="" />
+									<img
+										class="level-start"
+										src="../../static/money.png"
+										alt=""
+									/>
 								</div>
 							</div>
 							<div class="cost-step">
 								<div class="step-progress"></div>
-								<u-line-progress :percentage="percentage" height="8" inactiveColor="#fff" activeColor="#FEDA7A" :showText="false"></u-line-progress>
+								<u-line-progress
+									:percentage="percentage"
+									height="8"
+									inactiveColor="#fff"
+									activeColor="#FEDA7A"
+									:showText="false"
+								></u-line-progress>
 							</div>
 						</div>
 					</div>
 					<div class="do-some">
-						<div v-if="showBottle" class="plp" @click="goCurrentBottle">
+						<div
+							v-if="showBottle"
+							class="plp"
+							@click="goCurrentBottle"
+						>
 							<img src="../../static/plp.png" alt="" />
 							<div class="dots">
 								<u-badge :isDot="bottleDot"></u-badge>
@@ -96,22 +174,66 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- 发布2 -->
-			<div class="fb2">
-				<img class="contorl-5" src="../../static/发布@3x.png" alt="" @click="toIssue" />
-				<div>发布随心写</div>
+			<!-- 底部按钮-->
+			<div class="btn-operations">
+				<div class="fb2">
+					<img
+						class="contorl-5"
+						src="../../static/search-1.png"
+						alt=""
+						@click="showSearch = true"
+					/>
+					<div>空间好友搜索</div>
+				</div>
+				<div class="fb2">
+					<img
+						class="contorl-5"
+						src="../../static/发布@3x.png"
+						alt=""
+						@click="toIssue"
+					/>
+					<div>发布随心写</div>
+				</div>
+				<div class="fb2">
+					<img
+						class="contorl-5"
+						src="../../static/vx-push.png"
+						alt=""
+						@click="showSub = true"
+					/>
+					<div>微信消息通知</div>
+				</div>
 			</div>
+
 			<!-- 列表 -->
-			<div v-if="myList.length !== 0" class="list-item" v-for="(i, index) in myList" :key="i.id">
+			<div
+				v-if="myList.length !== 0"
+				class="list-item"
+				v-for="(i, index) in myList"
+				:key="i.id"
+			>
 				<!-- 头 -->
 				<div class="list-title">
 					<div class="dates">
-						<img v-if="i.postTop" src="../../static/placed-top.png" alt="" />
+						<img
+							v-if="i.postTop"
+							src="../../static/placed-top.png"
+							alt=""
+						/>
 						<text>{{ i.createTime }}</text>
 					</div>
-					<text v-if="!i.postTop" class="get-top" @click.stop="setTop(i)">设为置顶</text>
-					<text v-if="i.postTop" class="get-top" @click.stop="unSetTop(i)">取消置顶</text>
+					<text
+						v-if="!i.postTop"
+						class="get-top"
+						@click.stop="setTop(i)"
+						>设为置顶</text
+					>
+					<text
+						v-if="i.postTop"
+						class="get-top"
+						@click.stop="unSetTop(i)"
+						>取消置顶</text
+					>
 				</div>
 				<!-- 图 -->
 				<div class="looks">
@@ -125,18 +247,57 @@
 						</div>
 						<div v-else class="inner">{{ i.content }}</div>
 					</div>
-					<div v-if="i.more === '1'" class="content-des" @click="toArticleDes(i)">查看详情 ></div>
-					<video v-if="!i.img && i.media.length !== 0" :src="i.media[0]" :controls="true" :show-center-play-btn="true"></video>
+					<div
+						v-if="i.more === '1'"
+						class="content-des"
+						@click="toArticleDes(i)"
+					>
+						查看详情 >
+					</div>
+					<video
+						v-if="!i.img && i.media.length !== 0"
+						:src="i.media[0]"
+						:controls="true"
+						:show-center-play-btn="true"
+					></video>
 					<!-- 四张以上 -->
-					<div class="five" v-if="i.img && i.media.length !== 0 && i.media.length > 4">
-						<image class="fiveImg" v-for="(j, jndex) in i.media" :key="jndex" :src="j" mode="aspectFill" @click="previewImg(i.media, jndex)"></image>
+					<div
+						class="five"
+						v-if="
+							i.img && i.media.length !== 0 && i.media.length > 4
+						"
+					>
+						<image
+							class="fiveImg"
+							v-for="(j, jndex) in i.media"
+							:key="jndex"
+							:src="j"
+							mode="aspectFill"
+							@click="previewImg(i.media, jndex)"
+						></image>
 					</div>
 					<!-- 四张 -->
-					<div class="four" v-if="i.img && i.media.length > 1 && i.media.length < 5">
-						<image class="fourImg" v-for="(q, qndex) in i.media" :key="qndex" :src="q" mode="aspectFill" @click="previewImg(i.media, qndex)"></image>
+					<div
+						class="four"
+						v-if="i.img && i.media.length > 1 && i.media.length < 5"
+					>
+						<image
+							class="fourImg"
+							v-for="(q, qndex) in i.media"
+							:key="qndex"
+							:src="q"
+							mode="aspectFill"
+							@click="previewImg(i.media, qndex)"
+						></image>
 					</div>
 					<!-- 一张 -->
-					<image class="singleImg" v-if="i.img && i.media.length === 1" :src="i.media[0]" mode="widthFix" @click="previewImg(i.media, 0)"></image>
+					<image
+						class="singleImg"
+						v-if="i.img && i.media.length === 1"
+						:src="i.media[0]"
+						mode="widthFix"
+						@click="previewImg(i.media, 0)"
+					></image>
 				</div>
 
 				<!-- 分享评论转发 -->
@@ -148,25 +309,44 @@
 					<img src="../../static/more.png" alt="" />
 				</div>
 			</div>
-			<u-loading-icon v-if="isloading" color="#767374" size="16"></u-loading-icon>
-			<div v-if="!isloading && page >= lastPage" class="next">———— 没有更多数据了 ————</div>
+			<u-loading-icon
+				v-if="isloading"
+				color="#767374"
+				size="16"
+			></u-loading-icon>
+			<div v-if="!isloading && page >= lastPage" class="next">
+				———— 没有更多数据了 ————
+			</div>
 			<!-- 留底 -->
 			<div class="bottom"></div>
 		</div>
 		<div></div>
 		<!--  密码 -->
 		<div v-if="type === 2" class="bgs">
-			<img class="mimasuo" src="https://www.zairongyifang.com:8080/filePath/resource/password.png" mode="" />
+			<img
+				class="mimasuo"
+				src="https://www.zairongyifang.com:8080/filePath/resource/password.png"
+				mode=""
+			/>
 			<div class="paipai">
 				<div style="color: #257de5; font-size: 24px">
 					{{ username.split(' ')[0] }}
 				</div>
 
 				<div>
-					<span style="color: #333; font-size: 34px">{{ username.split(' ')[1] }}</span>
+					<span style="color: #333; font-size: 34px">{{
+						username.split(' ')[1]
+					}}</span>
 				</div>
 			</div>
-			<u--input placeholder="请输入密码" border="none" v-model="inputMima" inputAlign="center" fontSize="20" maxlength="6"></u--input>
+			<u--input
+				placeholder="请输入密码"
+				border="none"
+				v-model="inputMima"
+				inputAlign="center"
+				fontSize="20"
+				maxlength="6"
+			></u--input>
 			<div class="mima-button" @click="confirmMima"></div>
 		</div>
 
@@ -188,11 +368,24 @@
 			</div>
 		</u-overlay>
 		<!-- 搜索结果 -->
-		<u-popup :show="popSearch" @close="popSearch = false" :safeAreaInsetBottom="false">
+		<u-popup
+			:show="popSearch"
+			@close="popSearch = false"
+			:safeAreaInsetBottom="false"
+		>
 			<div>
 				<div class="search-result">搜索结果</div>
-				<scroll-view v-if="peopleList.length !== 0" :scroll-y="true" style="width: 100%; height: 696rpx">
-					<div class="people-item" v-for="(i, index) in peopleList" :key="index" @click="toOtherUser(i)">
+				<scroll-view
+					v-if="peopleList.length !== 0"
+					:scroll-y="true"
+					style="width: 100%; height: 696rpx"
+				>
+					<div
+						class="people-item"
+						v-for="(i, index) in peopleList"
+						:key="index"
+						@click="toOtherUser(i)"
+					>
 						<img :src="i.userInfo.avatar" alt="" />
 						<div class="des">
 							<div class="des-room">
@@ -211,12 +404,15 @@
 		<u-overlay
 			:show="showFriend"
 			@click="
-				showFriend = false;
-				shengcheng = true;
+				showFriend = false
+				shengcheng = true
 			"
 		>
 			<div v-if="shengcheng" class="req-friend" @tap.stop>
-				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png" alt="" />
+				<img
+					src="https://www.zairongyifang.com:8080/filePath/app/20236/dce268614f.png"
+					alt=""
+				/>
 				<div v-if="showFriend && shengcheng">
 					<u--textarea
 						class="say-box"
@@ -235,7 +431,10 @@
 			</div>
 			<div v-else class="my-friend" @tap.stop>
 				<image class="code_view" :src="imagePath"></image>
-				<img src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png" alt="" />
+				<img
+					src="https://www.zairongyifang.com:8080/filePath/app/20236/b928ccf85c.png"
+					alt=""
+				/>
 				<div class="invite-content">{{ inviteContent }}</div>
 				<button open-type="share" class="share-box">分享</button>
 				<div class="back-to" @click="shengcheng = true">上一步</div>
@@ -245,14 +444,22 @@
 		<u-overlay :show="isNew" @click="isNew = false">
 			<div class="pagebox"></div>
 			<div class="newPage">
-				<img src="https://www.zairongyifang.com:8080/filePath/app/202312/compressed_4a2f71e49b.png" alt="" />
+				<img
+					src="https://www.zairongyifang.com:8080/filePath/app/202312/compressed_4a2f71e49b.png"
+					alt=""
+				/>
 				<div class="show-my-name">
 					<div>{{ username }}号</div>
 				</div>
 			</div>
 		</u-overlay>
 		<!-- 订阅弹窗 -->
-		<u-modal :show="showSub" :title="'订阅消息提示'" :content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'" @confirm="doSub"></u-modal>
+		<u-modal
+			:show="showSub"
+			:title="'订阅消息提示'"
+			:content="'每次离开空间时，点击:“允许订阅”即可在微信页面收到空间新消息提醒'"
+			@confirm="doSub"
+		></u-modal>
 		<!-- 修改密码框 -->
 		<u-modal
 			title="修改房间密码"
@@ -260,16 +467,33 @@
 			@confirm="confirmChangeSecret"
 			showCancelButton
 			@cancel="
-				changeSecret = false;
-				newSecret = '';
-				oldSecret = '';
+				changeSecret = false
+				newSecret = ''
+				oldSecret = ''
 			"
 			confirmColor="#e89406"
 		>
 			<view class="slot-content">
-				<u--form labelPosition="left" ref="form1" labelWidth="100rpx" :labelStyle="{ color: '#515151' }">
-					<u-form-item label="原密码"><u-input placeholder="请输入原密码" v-model="oldSecret" maxlength="6"></u-input></u-form-item>
-					<u-form-item label="新密码"><u-input placeholder="请输入新密码" v-model="newSecret" maxlength="6"></u-input></u-form-item>
+				<u--form
+					labelPosition="left"
+					ref="form1"
+					labelWidth="100rpx"
+					:labelStyle="{ color: '#515151' }"
+				>
+					<u-form-item label="原密码"
+						><u-input
+							placeholder="请输入原密码"
+							v-model="oldSecret"
+							maxlength="6"
+						></u-input
+					></u-form-item>
+					<u-form-item label="新密码"
+						><u-input
+							placeholder="请输入新密码"
+							v-model="newSecret"
+							maxlength="6"
+						></u-input
+					></u-form-item>
 				</u--form>
 				<div
 					:style="{
@@ -306,9 +530,9 @@
 
 <script>
 // 引入组件
-import Cropping from '@/components/cropping/cropping.vue';
-import { mapGetters, mapMutations, mapState } from 'vuex';
-import { getArmourConfig } from '@/api/updateArmor.js';
+import Cropping from '@/components/cropping/cropping.vue'
+import { mapGetters, mapMutations, mapState } from 'vuex'
+import { getArmourConfig } from '@/api/updateArmor.js'
 import {
 	userInfo,
 	userInfoEdit,
@@ -323,14 +547,14 @@ import {
 	notify,
 	getUserRank,
 	updatePassword
-} from '@/api/user.js';
-import { showBotleMode } from '@/api/currentBottle.js';
-import { myRoom, selectRoom } from '@/api/loginSelect.js';
-import { randomRoom } from '@/api/index.js';
-import { ip } from '@/api/api.js';
-import QRCode from '../../utils/weapp-qrcode.js';
+} from '@/api/user.js'
+import { showBotleMode } from '@/api/currentBottle.js'
+import { myRoom, selectRoom } from '@/api/loginSelect.js'
+import { randomRoom } from '@/api/index.js'
+import { ip } from '@/api/api.js'
+import QRCode from '../../utils/weapp-qrcode.js'
 
-const app = getApp();
+const app = getApp()
 
 export default {
 	data() {
@@ -407,12 +631,12 @@ export default {
 			//元宝名次
 			silverNo: '',
 			showBottle: true
-		};
+		}
 	},
 	computed: {
 		...mapState(['house', 'token', 'myWs']),
 		percentage() {
-			return (this.silverNum / 150000) * 100;
+			return (this.silverNum / 150000) * 100
 		}
 	},
 	components: { Cropping },
@@ -420,18 +644,22 @@ export default {
 		myWs: {
 			immediate: true,
 			handler(news, olds) {
-				console.log('user开启侦听');
-				this.ws = app.globalData.ws;
+				console.log('user开启侦听')
+				this.ws = app.globalData.ws
 				this.ws.onMessage((res) => {
-					console.log(res);
+					console.log(res)
 					if (res.data === 'active') {
-						return;
+						return
 					}
-					let data = JSON.parse(res.data);
-					console.log(data);
+					let data = JSON.parse(res.data)
+					console.log(data)
 					// 聊天消息
-					if (data.type === 'chat' || data.type === 'chat_image' || data.type === 'chat_video') {
-						this.chatDot = true;
+					if (
+						data.type === 'chat' ||
+						data.type === 'chat_image' ||
+						data.type === 'chat_video'
+					) {
+						this.chatDot = true
 					}
 					// 普通消息
 					if (
@@ -442,29 +670,29 @@ export default {
 						data.type === 'flower' ||
 						data.type === 'shit'
 					) {
-						this.messageDot = true;
+						this.messageDot = true
 					}
 					//漂流瓶消息
 					if (data.type === 'bottle') {
-						this.bottleDot = true;
+						this.bottleDot = true
 					}
-				});
+				})
 			}
 		},
 		accrualRecharge: {
 			handler(news, olds) {
 				if (news < 10) {
-					this.vipLevel = 0;
-					this.nmberLevel = 0;
+					this.vipLevel = 0
+					this.nmberLevel = 0
 				} else if (10 <= news < 10 + 11 * 10 + 100) {
-					this.vipLevel = 1;
-					this.nmberLevel = Math.floor(news / 10);
+					this.vipLevel = 1
+					this.nmberLevel = Math.floor(news / 10)
 				} else if (120 + 100 <= news < 130 + 11 * 100 + 1000) {
-					this.vipLevel = 2;
-					this.nmberLevel = Math.floor(news - (10 + 11 * 10) / 100);
+					this.vipLevel = 2
+					this.nmberLevel = Math.floor(news - (10 + 11 * 10) / 100)
 				} else {
-					this.vipLevel = 3;
-					this.nmberLevel = Math.floor(news - (130 + 11 * 100) / 1000);
+					this.vipLevel = 3
+					this.nmberLevel = Math.floor(news - (130 + 11 * 100) / 1000)
 				}
 			}
 		}
@@ -473,382 +701,418 @@ export default {
 		if (!this.token) {
 			uni.reLaunch({
 				url: '../loginSelect/loginSelect'
-			});
+			})
 		}
-		this.getShowBotleMode();
-		this.getMyRoom();
-		this.isNew = uni.getStorageSync('isNew') === 1 ? true : false;
-		this.getInviteCode = uni.getStorageSync('inviteCode') ? uni.getStorageSync('inviteCode') : null;
-		this.getInviteContent = uni.getStorageSync('inviteContent') ? uni.getStorageSync('inviteContent') : null;
+		this.getShowBotleMode()
+		this.getMyRoom()
+		this.isNew = uni.getStorageSync('isNew') === 1 ? true : false
+		this.getInviteCode = uni.getStorageSync('inviteCode')
+			? uni.getStorageSync('inviteCode')
+			: null
+		this.getInviteContent = uni.getStorageSync('inviteContent')
+			? uni.getStorageSync('inviteContent')
+			: null
 
 		if (this.getInviteCode && this.getInviteContent) {
-			this.sendChatWith();
+			this.sendChatWith()
 		}
 	},
 	onShow() {
 		if (this.refresh) {
-			this.page = 1;
-			this.myList = [];
-			this.getuserInfo();
-			this.getMyPageList();
-			this.getArmourConfig();
-			this.getRedDot(this.uid, 1);
-			this.getRedDot(this.uid, 2);
-			this.getRedDot(this.uid, 3);
+			this.page = 1
+			this.myList = []
+			this.getuserInfo()
+			this.getMyPageList()
+			this.getArmourConfig()
+			this.getRedDot(this.uid, 1)
+			this.getRedDot(this.uid, 2)
+			this.getRedDot(this.uid, 3)
 		}
-		this.refresh = true;
+		this.refresh = true
 	},
 	onReachBottom() {
 		if (this.page >= this.lastPage) {
-			return;
+			return
 		}
-		if (this.isloading) return;
-		this.page += 1;
-		this.getMyPageList();
+		if (this.isloading) return
+		this.page += 1
+		this.getMyPageList()
 	},
 	methods: {
-		...mapMutations(['updateUid', 'updateAva', 'updateHouse', 'updateArmor']),
+		...mapMutations([
+			'updateUid',
+			'updateAva',
+			'updateHouse',
+			'updateArmor'
+		]),
 		async getShowBotleMode() {
-			let res = await showBotleMode();
-			console.log('展示');
-			console.log(res);
-			this.showBottle = res;
+			let res = await showBotleMode()
+			console.log('展示')
+			console.log(res)
+			this.showBottle = res
 		},
 		//去漂流瓶
 		goCurrentBottle() {
 			uni.navigateTo({
 				url: '../currentBottle/currentBottle'
-			});
+			})
 		},
 		//去水果拼盘
 		goFruit() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/fruit/fruit'
-			});
+			})
 		},
 		//去TA是谁
 		toOtherUser2() {
 			randomRoom().then((res) => {
-				console.log('获取随机房间');
-				console.log(res);
+				console.log('获取随机房间')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
 				if (res.room.uid === this.uid) {
-					uni.$u.toast('随机到自己啦，再来一次吧');
+					uni.$u.toast('随机到自己啦，再来一次吧')
 				} else {
 					uni.navigateTo({
-						url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + res.room.cateId + '&ouid=' + res.room.uid + '&index=' + true
-					});
+						url:
+							'../../pages_userActivity/otherUser/otherUser?ocateId=' +
+							res.room.cateId +
+							'&ouid=' +
+							res.room.uid +
+							'&index=' +
+							true
+					})
 				}
-			});
+			})
 		},
 		//去安全聊天通道
 		goSafeRoad() {
 			uni.navigateTo({
-				url: '../../pages_userActivity/safeRoad/safeRoad'
-			});
+				url: '../../pages_userActivity/chatList/chatList'
+				// url: '../../pages_userActivity/safeRoad/safeRoad'
+			})
 		},
 		//去空间巡游
 		goSpaceRun() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/spaceRun/spaceRun'
-			});
+			})
 		},
 		//去随心写
 		goIndex2() {
 			uni.navigateTo({
 				url: '../index2/index2'
-			});
+			})
 		},
 
 		//获取用户订阅消息与否
 		doSub() {
-			this.showSub = false;
-			let that = this;
+			this.showSub = false
+			let that = this
 			if (!uni.getStorageSync('openId')) {
-				uni.$u.toast('只有微信用户才可以选择消息推送！');
-				return;
+				uni.$u.toast('只有微信用户才可以选择消息推送！')
+				return
 			}
 			wx.requestSubscribeMessage({
 				tmplIds: ['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'],
 				success: function (res) {
 					// 判断用户是否选择了订阅
-					if (res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] === 'accept') {
-						that.updatePush();
+					if (
+						res['CQQcQ9HEHzAyrhtIu3hbFciZ6IZylcB0j1e-9mRYrOA'] ===
+						'accept'
+					) {
+						that.updatePush()
 					} else {
 						uni.showModal({
 							title: '提示',
-							content: '您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收',
+							content:
+								'您已取消微信订阅，如需开启，请打开右上角“···”-设置-订阅消息-未读消息提醒-接收',
 							showCancel: false, // 不显示取消按钮
 							confirmText: '确认' // 确认按钮的文本
-						});
+						})
 						// 引导用户手动打开授权设置页面
 						wx.openSetting({
 							success: function (res) {
-								if (res.authSetting['scope.subscribeMessage'] === true) {
-									that.pushMyMessage();
+								if (
+									res.authSetting[
+										'scope.subscribeMessage'
+									] === true
+								) {
+									that.pushMyMessage()
 								}
 							}
-						});
+						})
 					}
 				},
 				fail: function (err) {
 					// 订阅消息失败的回调处理
-					console.error(err);
+					console.error(err)
 				}
-			});
+			})
 		},
 		updatePush() {
-			updatePush({ uid: this.uid, status: 1 }).then((res) => {});
+			updatePush({ uid: this.uid, status: 1 }).then((res) => {})
 		},
 		//自动聊天
 		sendChatWith() {
 			if (!this.uid) {
 				setTimeout(() => {
-					this.sendChatWith();
-				}, 1000);
-				return;
+					this.sendChatWith()
+				}, 1000)
+				return
 			}
 			var content = {
 				fromUid: this.getInviteCode,
 				toUid: this.uid,
 				text: this.getInviteContent,
 				type: 'chat'
-			};
-			console.log(content);
+			}
+			console.log(content)
 			this.ws.send({
 				data: JSON.stringify(content),
 				success: () => {
-					console.log('首次ws自动成功');
-					uni.removeStorageSync('inviteCode');
-					uni.removeStorageSync('inviteContent');
+					console.log('首次ws自动成功')
+					uni.removeStorageSync('inviteCode')
+					uni.removeStorageSync('inviteContent')
 				}
-			});
+			})
 		},
 		//请求个人信息
 		async getuserInfo() {
-			let res = await userInfo();
-			console.log('请求用户信息');
-			console.log(res);
+			let res = await userInfo()
+			console.log('请求用户信息')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.uid = res.result.uid;
+			this.uid = res.result.uid
 			//红点
-			this.getRedDot(res.result.uid, 1);
-			this.getRedDot(res.result.uid, 2);
-			this.getRedDot(res.result.uid, 3);
+			this.getRedDot(res.result.uid, 1)
+			this.getRedDot(res.result.uid, 2)
+			this.getRedDot(res.result.uid, 3)
 			// 关注
-			this.getUserStatistics();
+			this.getUserStatistics()
 
-			this.avatar = res.result.avatar;
-			this.myDes = res.result.intro;
-			this.username = res.result.username;
-			this.silverNum = res.result.silverNum;
-			this.silverNo = res.result.silverNo;
-			this.inviteContent = res.result.inviteContent;
-			this.accrualRecharge = res.result.accrualRecharge;
-			uni.setStorageSync('uid', res.result.uid);
-			this.updateUid();
-			uni.setStorageSync('ava', res.result.avatar);
-			this.updateAva();
+			this.avatar = res.result.avatar
+			this.myDes = res.result.intro
+			this.username = res.result.username
+			this.silverNum = res.result.silverNum
+			this.silverNo = res.result.silverNo
+			this.inviteContent = res.result.inviteContent
+			this.accrualRecharge = res.result.accrualRecharge
+			uni.setStorageSync('uid', res.result.uid)
+			this.updateUid()
+			uni.setStorageSync('ava', res.result.avatar)
+			this.updateAva()
 		},
 		//关注/互关/粉丝统计数
 		getUserStatistics() {
 			getUserStatistics().then((res) => {
-				console.log('请求关注/粉丝数');
-				console.log(res);
+				console.log('请求关注/粉丝数')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
 
-				this.fans = res.result.fans;
-				this.follow = res.result.follow;
-			});
+				this.fans = res.result.fans
+				this.follow = res.result.follow
+			})
 		},
 
 		//盔甲状态
 		getArmourConfig() {
 			getArmourConfig().then((res) => {
-				console.log('获取当前盔甲状态');
-				console.log(res);
+				console.log('获取当前盔甲状态')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.armour = res.result.armourStatus === 0 ? false : true;
-				uni.setStorageSync('armor', this.armour);
-				this.updateArmor();
-				let givenDate = new Date(res.result.armourTime);
-				let currentDate = new Date();
+				this.armour = res.result.armourStatus === 0 ? false : true
+				uni.setStorageSync('armor', this.armour)
+				this.updateArmor()
+				let givenDate = new Date(res.result.armourTime)
+				let currentDate = new Date()
 
-				var timeDiff = Math.abs(currentDate.getTime() - givenDate.getTime());
-				this.armourTime = Math.ceil(timeDiff / (1000 * 3600 * 24));
-			});
+				var timeDiff = Math.abs(
+					currentDate.getTime() - givenDate.getTime()
+				)
+				this.armourTime = Math.ceil(timeDiff / (1000 * 3600 * 24))
+			})
 		},
 		async getRedDot(uid, type) {
 			const res = await redDot({
 				uid: uid,
 				type: type,
 				t: Date.parse(new Date())
-			});
-			console.log(`请求${type === 1 ? '聊天' : type === 2 ? '消息' : '瓶子'}红点`);
-			console.log(res);
+			})
+			console.log(
+				`请求${type === 1 ? '聊天' : type === 2 ? '消息' : '瓶子'}红点`
+			)
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			switch (type) {
 				case 1:
-					this.chatDot = res.result;
-					break;
+					this.chatDot = res.result
+					break
 				case 2:
-					this.messageDot = res.result;
-					break;
+					this.messageDot = res.result
+					break
 				case 3:
-					this.bottleDot = res.result;
-					break;
+					this.bottleDot = res.result
+					break
 				default:
-					break;
+					break
 			}
 		},
 		//请求空间信息
 		async getMyRoom() {
-			let res = await myRoom();
-			console.log('请求空间详细数据');
-			console.log(res);
+			let res = await myRoom()
+			console.log('请求空间详细数据')
+			console.log(res)
 			if (res.code !== 0 && res.code !== 500) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			if (res.code === 500) {
 				uni.reLaunch({
 					url: '../loginSelect/loginSelect'
-				});
+				})
 			}
-			this.notify(res.room.uid);
+			this.notify(res.room.uid)
 			//保存房子状态
-			uni.setStorageSync('house', true);
-			this.updateHouse();
-			this.coverImage = res.room.coverImage;
-			this.password = res.room.password ? res.room.password : '';
+			uni.setStorageSync('house', true)
+			this.updateHouse()
+			this.coverImage = res.room.coverImage
+			this.password = res.room.password ? res.room.password : ''
 			if (this.password) {
-				this.type = 2;
+				this.type = 2
 			} else {
-				this.type = 1;
+				this.type = 1
 			}
 		},
 		//请求列表
 		async getMyPageList() {
 			// ** 打开节流阀
-			this.isloading = true;
+			this.isloading = true
 			let res = await queryMyPageList({
 				page: this.page,
 				limit: this.limit
-			});
-			console.log('请求动态列表');
-			console.log(res);
+			})
+			console.log('请求动态列表')
+			console.log(res)
 			if (res.code === 500) {
-				uni.$u.toast('请先成为房间主人吧！');
-				return;
+				uni.$u.toast('请先成为房间主人吧！')
+				return
 			}
 			if (res.code !== 0 && res.code !== 500) {
-				uni.$u.toast(res.msg);
+				uni.$u.toast(res.msg)
 				// ** 关闭节流阀
-				this.isloading = false;
-				return;
+				this.isloading = false
+				return
 			}
 
-			this.myList = [...this.myList, ...res.result.data];
-			this.lastPage = res.result.last_page;
+			this.myList = [...this.myList, ...res.result.data]
+			this.lastPage = res.result.last_page
 			for (var i = 0; i < this.myList.length; i++) {
-				let lins = this.myList[i].media[0];
-				let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/;
-				this.$set(this.myList[i], 'img', zhengze.test(lins));
-				this.$set(this.myList[i], 'more', '');
+				let lins = this.myList[i].media[0]
+				let zhengze = /(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/
+				this.$set(this.myList[i], 'img', zhengze.test(lins))
+				this.$set(this.myList[i], 'more', '')
 			}
 			this.$nextTick(() => {
-				let query = uni.createSelectorQuery().in(this);
+				let query = uni.createSelectorQuery().in(this)
 				//所有title
-				query.selectAll('.content-title').boundingClientRect();
+				query.selectAll('.content-title').boundingClientRect()
 				//所有inner
-				query.selectAll('.inner').boundingClientRect();
+				query.selectAll('.inner').boundingClientRect()
 				query.exec((res) => {
 					for (var i = 0; i < res[0].length; i++) {
-						let linsHeight = res[0][i].height - res[1][i].height;
+						let linsHeight = res[0][i].height - res[1][i].height
 						if (linsHeight >= 0) {
-							this.$set(this.myList[i], 'more', '2');
+							this.$set(this.myList[i], 'more', '2')
 						} else {
-							this.$set(this.myList[i], 'more', '1');
+							this.$set(this.myList[i], 'more', '1')
 						}
 					}
-				});
+				})
 				// ** 关闭节流阀
-				this.isloading = false;
-			});
+				this.isloading = false
+			})
 		},
 		async setTop(i) {
-			let res = await postTop({ id: i.id });
+			let res = await postTop({ id: i.id })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		},
 		async unSetTop(i) {
-			let res = await cancelPostTop({ id: i.id });
+			let res = await cancelPostTop({ id: i.id })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.page = 1;
-			this.myList = [];
-			this.getMyPageList();
+			this.page = 1
+			this.myList = []
+			this.getMyPageList()
 		},
 
 		toOtherUser(i) {
 			if (i.uid === this.uid) {
 				uni.reLaunch({
 					url: '../user/user'
-				});
+				})
 			}
 			uni.navigateTo({
-				url: '../../pages_userActivity/otherUser/otherUser?ocateId=' + i.cateId + '&ouid=' + i.uid
-			});
+				url:
+					'../../pages_userActivity/otherUser/otherUser?ocateId=' +
+					i.cateId +
+					'&ouid=' +
+					i.uid
+			})
 		},
 		toSettings() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/settings/settings'
-			});
+			})
 		},
 		toFansAndFouces() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/fansAndFouces/fansAndFouces'
-			});
+			})
 		},
 		toArticleDes(i) {
 			//跳转前定死
-			this.refresh = false;
+			this.refresh = false
 			uni.navigateTo({
 				url: '../../pages_userActivity/articleDes/articleDes?i=' + i.id
-			});
+			})
 		},
 		onShareAppMessage() {
 			return {
 				title: this.inviteContent,
-				path: '/pages_userActivity/erWeiMa/erWeiMa?imagePath=' + this.imagePath + '&&inviteContent=' + this.inviteContent
-			};
+				path:
+					'/pages_userActivity/erWeiMa/erWeiMa?imagePath=' +
+					this.imagePath +
+					'&&inviteContent=' +
+					this.inviteContent
+			}
 		},
 		toCostMoney() {
 			uni.navigateTo({
 				url: '../../pages_costMoney/costMoney/costMoney'
-			});
+			})
 		},
 		//修改头像
 		changeAvatar() {
@@ -856,11 +1120,11 @@ export default {
 				selWidth: '600upx',
 				selHeight: '600upx',
 				inner: true
-			});
+			})
 		},
 		/**点击上传照片*/
 		doUpload(rsp) {
-			this.linshiAvatar = rsp.path;
+			this.linshiAvatar = rsp.path
 			// 常见的图片返回格式(如base64,blob对象),可提供给后端接口
 			uni.uploadFile({
 				url: ip + '/app/common/upload',
@@ -870,22 +1134,22 @@ export default {
 					token: uni.getStorageSync('token')
 				},
 				success: (uploadFileRes) => {
-					let paths = JSON.parse(uploadFileRes.data);
+					let paths = JSON.parse(uploadFileRes.data)
 					//调用修改图片接口 回传服务器图片
-					this.resetAvatar(paths.result[0].url);
+					this.resetAvatar(paths.result[0].url)
 				}
-			});
+			})
 		},
 		//上传修改后的头像
 		async resetAvatar(path) {
-			let res = await userInfoEdit({ avatar: path });
+			let res = await userInfoEdit({ avatar: path })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.avatar = this.linshiAvatar;
-			uni.setStorageSync('ava', path);
-			this.updateAva();
+			this.avatar = this.linshiAvatar
+			uni.setStorageSync('ava', path)
+			this.updateAva()
 		},
 		//修改背景
 		changeBg() {
@@ -893,11 +1157,11 @@ export default {
 				selWidth: '730upx',
 				selHeight: '330upx',
 				inner: true
-			});
+			})
 		},
 		/**点击上传背景*/
 		doUpload2(rsp) {
-			this.linshiCoverImage = rsp.path;
+			this.linshiCoverImage = rsp.path
 			uni.uploadFile({
 				url: ip + '/app/common/upload',
 				filePath: rsp.path,
@@ -906,23 +1170,23 @@ export default {
 					token: uni.getStorageSync('token')
 				},
 				success: (uploadFileRes) => {
-					let paths = JSON.parse(uploadFileRes.data);
+					let paths = JSON.parse(uploadFileRes.data)
 					//调用修改图片接口 回传服务器图片
-					this.resetCoverImage(paths.result[0].url);
+					this.resetCoverImage(paths.result[0].url)
 				}
-			});
+			})
 		},
 		//生成二维码
 		async createQRCode() {
 			if (!this.inviteContent) {
-				this.inviteContent = '点开二维码，长按二维码大图即可！';
+				this.inviteContent = '点开二维码，长按二维码大图即可！'
 			}
-			this.changeMyInviteContent();
+			this.changeMyInviteContent()
 			uni.showLoading({
 				title: '二维码生成中'
-			});
+			})
 
-			this.shengcheng = false;
+			this.shengcheng = false
 			let res = await getQRCode(
 				{
 					page: 'pages/loginSelect/loginSelect',
@@ -930,36 +1194,39 @@ export default {
 					width: 430
 				},
 				'arraybuffer'
-			);
+			)
 
-			const fsm = wx.getFileSystemManager();
-			const FILE_BASE_NAME = 'qrcode_base64src';
-			const filePath = wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg';
-			const _that = this;
+			const fsm = wx.getFileSystemManager()
+			const FILE_BASE_NAME = 'qrcode_base64src'
+			const filePath =
+				wx.env.USER_DATA_PATH + '/' + FILE_BASE_NAME + '.jpg'
+			const _that = this
 			fsm.writeFile({
 				filePath,
 				data: res,
 				encoding: 'binary',
 				success() {
-					_that.canva = false;
-					wx.hideLoading();
-					_that.doUpload3(filePath);
+					_that.canva = false
+					wx.hideLoading()
+					_that.doUpload3(filePath)
 				},
 				fail() {}
-			});
+			})
 		},
 		async changeMyInviteContent() {
 			let res = await userInfoEdit({
-				inviteContent: this.inviteContent ? this.inviteContent : '点开二维码，长按二维码大图即可'
-			});
+				inviteContent: this.inviteContent
+					? this.inviteContent
+					: '点开二维码，长按二维码大图即可'
+			})
 			if (res.code === 0) {
 			} else {
-				uni.$u.toast(res.msg);
-				this.inviteContent = '';
+				uni.$u.toast(res.msg)
+				this.inviteContent = ''
 			}
 		},
 		doUpload3(rsp) {
-			this.linshiImagePath = rsp;
+			this.linshiImagePath = rsp
 			uni.uploadFile({
 				url: ip + '/app/common/upload',
 				filePath: rsp,
@@ -968,116 +1235,118 @@ export default {
 					token: uni.getStorageSync('token')
 				},
 				success: (uploadFileRes) => {
-					let paths = JSON.parse(uploadFileRes.data);
-					this.imagePath = paths.result[0].url;
+					let paths = JSON.parse(uploadFileRes.data)
+					this.imagePath = paths.result[0].url
 				}
-			});
+			})
 		},
 		//更新背景
 		async resetCoverImage(path) {
-			let res = await updateBackGroupImg({ imgUrl: path });
+			let res = await updateBackGroupImg({ imgUrl: path })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 
-			this.coverImage = this.linshiCoverImage;
+			this.coverImage = this.linshiCoverImage
 		},
 		//修改个签
 		async changeMyDes(e) {
-			let res = await userInfoEdit({ intro: this.myDes });
+			let res = await userInfoEdit({ intro: this.myDes })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				this.myDes = '';
-				return;
+				uni.$u.toast(res.msg)
+				this.myDes = ''
+				return
 			}
-			uni.$u.toast('修改个人签名成功');
+			uni.$u.toast('修改个人签名成功')
 		},
 		goSecret() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/mySecret/mySecret'
-			});
+			})
 		},
 		goIntroduce() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/xIntroduce/xIntroduce'
-			});
+			})
 		},
 		//去发布
 		toIssue() {
 			uni.navigateTo({
 				url: '../../pages_userActivity/artcleIssue/artcleIssue'
-			});
+			})
 		},
 		//确认密码
 		confirmMima() {
 			if (this.password === this.inputMima) {
-				this.type = 1;
+				this.type = 1
 			} else {
-				uni.$u.toast('密码输入不正确');
+				uni.$u.toast('密码输入不正确')
 			}
 		},
 		async getSelectRoom() {
 			if (this.searchText === '') {
-				return;
+				return
 			}
-			let res = await selectRoom({ key: this.searchText });
-			console.log('搜索用户');
-			console.log(res);
+			let res = await selectRoom({ key: this.searchText })
+			console.log('搜索用户')
+			console.log(res)
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
-			this.popSearch = true;
-			this.peopleList = res.room;
+			this.popSearch = true
+			this.peopleList = res.room
 		},
 		//更新密码
 		async confirmChangeSecret() {
 			if (this.oldSecret !== this.password) {
-				uni.$u.toast('原密码输入错误');
+				uni.$u.toast('原密码输入错误')
 
-				return;
+				return
 			}
 			if (this.newSecret !== '' && this.newSecret.length !== 6) {
-				uni.$u.toast('密码长度必须设置为6位');
-				return;
+				uni.$u.toast('密码长度必须设置为6位')
+				return
 			}
-			let res = await updatePassword({ password: this.newSecret });
+			let res = await updatePassword({ password: this.newSecret })
 			if (res.code !== 0) {
-				uni.$u.toast(res.msg);
-				return;
+				uni.$u.toast(res.msg)
+				return
 			}
 			uni.showToast({
 				title: '修改密码成功',
 				icon: 'none'
-			});
-			this.changeSecret = false;
-			this.password = this.newSecret;
-			this.newSecret = '';
-			this.oldSecret = '';
+			})
+			this.changeSecret = false
+			this.password = this.newSecret
+			this.newSecret = ''
+			this.oldSecret = ''
 		},
 		notify(uid) {
 			notify({ uid: uid }).then((res) => {
-				console.log('获取弹窗');
-				console.log(res);
+				console.log('获取弹窗')
+				console.log(res)
 				if (res.code !== 0) {
-					uni.$u.toast(res.msg);
-					return;
+					uni.$u.toast(res.msg)
+					return
 				}
-				this.popContent = res.content ? JSON.parse(res.content.content) : '';
+				this.popContent = res.content
+					? JSON.parse(res.content.content)
+					: ''
 				if (this.popContent) {
-					this.popContentBox = true;
+					this.popContentBox = true
 				}
-			});
+			})
 		},
 		previewImg(i) {
 			uni.previewImage({
 				current: i[0],
 				urls: i
-			});
+			})
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -1107,7 +1376,8 @@ export default {
 		}
 	}
 	.people-and-do-some {
-		background: url('https://www.zairongyifang.com:8080/filePath/app/20245/compressed_37f8cc8b7d.png') no-repeat;
+		background: url('https://www.zairongyifang.com:8080/filePath/app/20245/compressed_37f8cc8b7d.png')
+			no-repeat;
 		background-size: cover;
 		color: #fff;
 		.do-some {
@@ -1168,15 +1438,24 @@ export default {
 	}
 	.my-info {
 		position: relative;
-		width: 670rpx;
+		width: 700rpx;
 		margin: 0 auto;
-		padding: 14rpx 28rpx;
-		.setting {
+
+		padding: 14rpx 25rpx;
+		.setting-box {
 			position: absolute;
-			top: 50rpx;
-			right: 10rpx;
-			width: 66rpx;
-			height: 99rpx;
+			top: 48rpx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			right: 6rpx;
+			font-size: 24rpx;
+			line-height: 1.9;
+			.setting {
+				width: 60rpx;
+				height: 64rpx;
+				padding-bottom: 2rpx;
+			}
 		}
 		.armor-box {
 			position: absolute;
@@ -1184,9 +1463,9 @@ export default {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			right: 90rpx;
+			right: 114rpx;
 			font-size: 24rpx;
-			line-height: 1.8;
+			line-height: 1.9;
 			.armor-img {
 				width: 50rpx;
 				height: 66rpx;
@@ -1220,7 +1499,7 @@ export default {
 
 			.info {
 				flex: 1;
-				padding-left: 20rpx;
+				padding-left: 16rpx;
 				.name-kj {
 					display: flex;
 					align-items: center;
@@ -1297,7 +1576,11 @@ export default {
 					border-bottom-left-radius: 0;
 				}
 				/deep/.u-line-progress__line {
-					background: linear-gradient(90deg, #ca8b45 0%, #feda7a 100%);
+					background: linear-gradient(
+						90deg,
+						#ca8b45 0%,
+						#feda7a 100%
+					);
 				}
 				/deep/ .u-line-progress__line {
 					border-top-left-radius: 0;
@@ -1315,18 +1598,24 @@ export default {
 		}
 	}
 }
-.fb2 {
+.btn-operations {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	img {
-		width: 90rpx;
-		height: 90rpx;
-		padding: 18rpx;
-	}
-	div {
+	justify-content: space-around;
+	margin-bottom: 10rpx;
+	.fb2 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		img {
+			width: 90rpx;
+			height: 90rpx;
+			padding: 18rpx;
+		}
+		div {
+		}
 	}
 }
+
 .list-item {
 	width: 750rpx;
 	box-sizing: border-box;
