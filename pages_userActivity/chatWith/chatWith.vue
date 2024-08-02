@@ -326,9 +326,11 @@ export default {
 		this.scrollTop = 9999999;
 		this.getHistory();
 		this.queryGetChatBottle();
+	
 		console.log('---------');
 		console.log(this.ouid);
 		console.log(this.uid);
+		
 	},
 	onShow() {
 		console.log('chatWith onShow');
@@ -413,6 +415,14 @@ export default {
 			}
 		}
 	},
+	 mounted() {
+		 setTimeout(()=>{
+			 	this.textMsg='.'
+		 },100)
+	    setTimeout(()=>{
+	    			 	this.textMsg=''
+	    },130)
+	 },
 	onUnload() {
 		this.getHistory();
 		this.close = true;
