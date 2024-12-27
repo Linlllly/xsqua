@@ -7,54 +7,54 @@
 			v-model="chatList"
 			@query="getChatList"
 			:empty-view-img-style="{ width: 0, height: 0 }"
-			:auto="false"
+			:auto="true"
 		>
 			<template #top>
-				<div class="chat-title">
+				<view class="chat-title">
 					<!-- 左 -->
-					<div class="title-left">
-						<div class="name-chat">私聊</div>
-					</div>
+					<view class="title-left">
+						<view class="name-chat">私聊</view>
+					</view>
 					<!-- 头像 -->
 					<img class="name-title" :src="ava" alt="" />
-				</div>
+				</view>
 				<!-- 搜索 -->
-				<div class="title-search">
+				<view class="title-search">
 					<u-search v-model="keyword" :showAction="true" actionText="搜索" :animation="false" @search="peopleSearch" @custom="peopleSearch"></u-search>
 					<u-icon customStyle="marginLeft:20rpx" name="reload" color="#666" size="18" @click="reloadAll"></u-icon>
-				</div>
+				</view>
 			</template>
-			<div v-for="(i, index) in chatList" :key="i.uid" @click="goChatWith(i)">
+			<view v-for="(i, index) in chatList" :key="i.uid" @click="goChatWith(i)">
 				<view v-if="i.uid" class="content-list">
 					<!-- 头像 -->
 					<img class="list-img" :src="i.avatar" alt="" />
-					<div v-if="i.unReadCount > 0" class="mes-dot"></div>
+					<view v-if="i.unReadCount > 0" class="mes-dot"></view>
 					<!-- 姓名和信息 -->
-					<div class="content-info">
-						<div class="info-name">
-							<div class="u-name">
+					<view class="content-info">
+						<view class="info-name">
+							<view class="u-name">
 								{{ i.remark ? i.remark : i.username }}
-							</div>
-						</div>
-						<div class="info-des">
+							</view>
+						</view>
+						<view class="info-des">
 							{{ i.lastMsg ? i.lastMsg : ' ' }}
-						</div>
-					</div>
+						</view>
+					</view>
 					<!-- 小红点和关系 -->
-					<!-- <div class="red-dot">133</div> -->
-					<div v-if="i.relations !== 0">
+					<!-- <view class="red-dot">133</view> -->
+					<view v-if="i.relations !== 0">
 						<img v-if="i.relations === 1" class="list-relative-img" src="../../static/fans.png" alt="" />
 						<img v-if="i.relations === 2" class="list-relative-img" src="../../static/foucs.png" alt="" />
 						<img v-if="i.relations === 3" class="list-relative-img" src="../../static/double.png" alt="" />
-					</div>
+					</view>
 				</view>
-			</div>
+			</view>
 		</z-paging>
 	</view>
 </template>
 
 <script>
-import { chatList } from '@/api/chatList.js';
+import { chatList  as myChatList} from '@/api/chatList.js';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 
 const app = getApp();
@@ -108,12 +108,13 @@ export default {
 	methods: {
 		//请求列表
 		getChatList(page, limit) {
-			chatList({ page, limit, keyword: this.keyword })
+			myChatList({ page, limit, keyword: this.keyword })
 				.then((res) => {
 					console.log('请求聊天列表');
 					console.log(res);
-					this.chatList = res.result.data || [];
+					// this.chatList.push(...res.result.data);
 					this.$refs.paging.complete(res.result.data);
+					
 				})
 				.catch((res) => {
 					this.$refs.paging.complete(false);
